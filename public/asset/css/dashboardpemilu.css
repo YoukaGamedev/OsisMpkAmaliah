@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 1200px; /* Ukuran container disesuaikan agar muat 3 kolom */
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Tiga kolom dengan ukuran yang sama */
+    grid-gap: 30px; /* Jarak antar form-section */
+}
+
+.form-section {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #333;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input[type="text"], input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.update-btn {
+    background-color: #f39c12;
+    color: white;
+}
+
+.save-btn {
+    background-color: #3498db;
+    color: white;
+}
+
+.reset-user-btn {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.reset-data-btn {
+    background-color: #c0392b;
+    color: white;
+}
+
+button:hover {
+    opacity: 0.9;
+}

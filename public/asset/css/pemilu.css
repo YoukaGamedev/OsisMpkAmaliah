@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    background-color: #f2f2f2;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #e0e0e0;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-transform: uppercase;
+}
+
+.sidebar-item {
+    width: 100%;
+    padding: 8px;
+    background-color: #4A90E2;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 12px; /* Ukuran teks untuk item */
+}
+
+.sidebar-items {
+    width: 100%;
+    padding: 10px;
+    background-color: #275d9b;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-size: 14px; /* Ukuran teks untuk kategori */
+    font-weight: bold;
+}
+
+
+.sidebar-item:hover {
+    background-color: #3574bb;
+}
+
+.sidebar-item a {
+    text-decoration: none;
+    color: #ffffff; /* Warna teks */
+    display: block;
+}
+
+.sidebar-item a:hover {
+    color: #ffffff; /* Warna saat hover */
+}
+
+.content1 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.content1-box {
+    background-color: #a04b4b;
+    flex: 1;
+    border-radius: 10px;
+}
