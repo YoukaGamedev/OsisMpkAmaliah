@@ -32,7 +32,8 @@ Route::post('/admin/votes/{kandidat}', [VoteController::class, 'store'])
     ->name('vote.store')
     ->middleware('auth');
 
-Route::get('/admin/votes', [HasilController::class, 'index'])->name('/admin/votes');
+Route::get('/admin/votes', [VoteController::class, 'index'])->name('/admin/votes');
+Route::get('/after-login-vote', [VoteController::class, 'afterLoginVote'])->name('after-login-vote');
 
 
 
@@ -65,6 +66,10 @@ Route::get('user/welcome', function () {
 Route::get('user/formlogin', function () {
     return view('user/formlogin');
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

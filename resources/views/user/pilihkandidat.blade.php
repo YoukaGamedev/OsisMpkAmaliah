@@ -77,7 +77,7 @@
           </div>
 
           <!-- Voting Form -->
-          <form action="{{ url('user/berespilih') }}">
+          <form action="{{ url('/user/berespilih') }}">
             <button type="submit" class="btn btn-success vote-btn">Pilih Pasangan No {{ $kandidat->nomor_pasangan_calon }}</button>
           </form>
         </div>

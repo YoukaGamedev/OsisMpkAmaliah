@@ -59,7 +59,7 @@
             </tr>
           </thead>
           <tbody>
-          @foreach ($datadpt as $dpt)
+          @foreach ($users as $dpt)
           @csrf 
             <tr>
               <td>{{$loop -> iteration}}</td>

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\DataDpt;
+use App\Models\User;
 
 use DB;
 
@@ -14,8 +14,8 @@ class DataDptController extends Controller
      */
     public function index()
     {
-        $datadpt = DB::table('datadpt')->get();
-        return view('/admin/datadpt',['datadpt'=>$datadpt]);
+        $users = DB::table('users')->get();
+        return view('/admin/datadpt',['users'=>$users]);
     }
 
     /**
@@ -32,7 +32,7 @@ class DataDptController extends Controller
     public function store(Request $request)
     {
         // Simpan data ke dalam database
-        DB::table('datadpt')->insert([
+        DB::table('users')->insert([
             'nisn' => $request->nisn,
             'nama' => $request->nama,
             'jenis_kelamin' => $request->jenis_kelamin,

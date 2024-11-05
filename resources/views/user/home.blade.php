@@ -47,7 +47,7 @@
     <h4 class="text-primary">Identitas Lembaga</h4>
     <p>{{ $dash->nama_sekolah }} {{ $dash->nama_kepsek }} {{ $dash->alamat_jalan }} {{ $dash->desa }} {{ $dash->kecamatan }} {{ $dash->kota }} di pemilu yang dilaksanakan pada tanggal {{ $dash->tanggal }}</p>
     @endforeach
-    <a href="{{ ('/auth/register') }}" class="btn btn-primary btn-custom">Pilih Kandidat</a>
+    <a href="{{ ('/user/pilihkandidat') }}" class="btn btn-primary btn-custom">Pilih Kandidat</a>
   </div>
 
   <!-- Bootstrap JS (Optional) -->
