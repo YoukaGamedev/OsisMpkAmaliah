@@ -51,7 +51,7 @@
         <a href="{{ ('/') }}" class="logo">
             <img src="{{ asset('asset/img/logo.png') }}" alt="Logo" width="50"> <!-- Replace with your logo image -->
         </a>
-        <div class="admin">Admin</div>
+        <div class="admin">Adminmain</div>
     </div>
     
     <div class="main-container">
