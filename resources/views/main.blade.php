@@ -52,6 +52,7 @@
             <img src="{{ asset('asset/img/logo.png') }}" alt="Logo" width="50"> <!-- Replace with your logo image -->
         </a>
         <div class="admin">Admin</div>
+        <h1>hahahah</h1>
     </div>
     
     <div class="main-container">
