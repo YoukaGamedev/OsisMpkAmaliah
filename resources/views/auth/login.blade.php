@@ -45,7 +45,11 @@
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
+                                        {{ used as a more succinct, scoped, alternative to document.querySelector.
+
+                                            <button @click="$refs.text.remove()">Remove Text</button>
+                                             
+                                            <span x-ref="text">Hello 👋</span>__('Remember Me') }}
                                     </label>
                                 </div>
                             </div>
