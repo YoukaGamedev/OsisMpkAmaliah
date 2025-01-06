@@ -9,16 +9,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hasil Perolehan Suara</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"> <!-- Tambahkan ini untuk Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
   <style>
-    /* Sidebar styles */
     .sidebar {
       background-color: #f8f9fa;
       height: 100vh;
       position: fixed;
       width: 250px;
       padding-top: 20px;
-      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     }
     .sidebar h4 {
       font-weight: bold;
@@ -37,7 +36,6 @@
       margin-right: 8px;
     }
 
-    /* Navbar styles */
     .navbar {
       background-color: #007bff;
       color: #fff;
@@ -47,119 +45,44 @@
       color: #ffffff;
     }
 
-    /* Table and card styles */
-    .custom-table {
-      margin-top: 20px;
-    }
-    .custom-table th {
-      background-color: #f8f9fa;
-      border-bottom: 2px solid #dee2e6;
+    .main-content {
+      margin-left: 260px;
+      padding: 20px;
     }
 
-    /* Marquee styles */
-    .marquee {
-      overflow: hidden;
-      white-space: nowrap;
-      box-sizing: border-box;
-      position: relative;
+    .centered-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: calc(100vh - 80px);
+    }
+
+    .btn-new-gds {
       background-color: #007bff;
-      color: #fff;
-      padding: 10px 0;
-      font-weight: bold;
+      color: white;
       font-size: 1.2rem;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 5px;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      margin-top: 20px;
+      transition: background-color 0.3s;
     }
-    .marquee p {
-      display: inline-block;
-      animation: marquee 15s linear infinite;
-      margin: 0;
-    }
-
-    /* Marquee animation */
-    @keyframes marquee {
-      0% {
-        transform: translateX(100%);
-      }
-      100% {
-        transform: translateX(-100%);
-      }
+    .btn-new-gds:hover {
+      background-color: #0056b3;
     }
   </style>
 </head>
 <body style="background-color: #f4f4f4;">
 
-  <!-- Main Content -->
-  <div class="main-content" style="margin-left: 90px; padding: 20px;">
-    <nav class="navbar navbar-expand navbar-light">
-      <a class="navbar-brand mx-3" href="#">Data Murid</a>
-    </nav>
 
-    <!-- Card for Data Table -->
-    <div class="mt-2">
-      <div class="card">
-        <div class="card-header bg-primary text-white">
-          Daftar Murid
-        </div>
-
-        <div class="mt-3 mb-3 d-flex">
-            <input class="form-control mr-1 ml-2" type="search" placeholder="Cari murid/karyawan" aria-label="Search">
-            <button class="btn btn-primary d-flex align-items-center mr-1" id="searchButton">
-              <i class="bi bi-search"></i> Cari
-            </button>
-            <button class="btn btn-success d-flex align-items-center mr-2" id="scanButton">
-              <i class="bi bi-qr-code-scan"></i> scan
-            </button>
-          </div>
-          
-          
-          <div class="table-responsive">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Nama</th>
-                  <th>Kelas/Posisi</th>
-                  <th>Aksi</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>001</td>
-                  <td>John Doe</td>
-                  <td>10 A</td>
-                  <td>
-                    <button class="btn btn-info btn-sm">Detail</button>
-                    <button class="btn btn-danger btn-sm">Hapus</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>002</td>
-                  <td>Jane Smith</td>
-                  <td>11 B</td>
-                  <td>
-                    <button class="btn btn-info btn-sm">Detail</button>
-                    <button class="btn btn-danger btn-sm">Hapus</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td>003</td>
-                  <td>Michael Johnson</td>
-                  <td>12 C</td>
-                  <td>
-                    <button class="btn btn-info btn-sm">Detail</button>
-                    <button class="btn btn-danger btn-sm">Hapus</button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
+  <div>
+    <div class="centered-content">
+      <h1 class="mb-4">Buat Lembar GDS Baru</h1>
+      <button class="btn-new-gds">Lembar GDS Baru</button>
     </div>
   </div>
 
-  <!-- Scripts -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
