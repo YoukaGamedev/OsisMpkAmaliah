@@ -88,6 +88,7 @@
 
         <!-- Admin text on the right -->
         <div class="admin">Admin</div>
+        <h1>hahahah</h1>
     </div>
     
     <div class="main-container">
