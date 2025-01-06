@@ -109,7 +109,7 @@
     <div class="container">
         <a href="{{ url('/user/home') }}" class="box-container">
             <div class="box highlight pink">
-                <h3>Pemilu Ketua OSIS</h3>
+                <h3>Pemilu Ketuaa OSIS</h3>
             </div>
         </a>
 
