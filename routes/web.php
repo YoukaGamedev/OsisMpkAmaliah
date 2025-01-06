@@ -66,10 +66,17 @@ Route::get('user/welcome', function () {
 Route::get('user/formlogin', function () {
     return view('user/formlogin');
 });
-Auth::routes();
+ 
+Route::get('/admin/gds/indexgds', function () {
+    return view('/admin/gds/indexgds');
+});
+
+Route::get('/admin/gds/rekapgds', function () {
+    return view('/admin/gds/rekapgds');
+});
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -6,6 +6,7 @@
     <title>Dashboard Layout</title>
     <link rel="stylesheet" href="{{ asset('/asset/css/styles.css') }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Ikon Font Awesome -->
     <style>
         a {
             text-decoration: none;
@@ -24,50 +25,83 @@
 
         .logo:hover {
             transform: scale(1.1); /* Enlarge the logo slightly when hovered */
-            text-decoration: none;
         }
 
-        /* Center the logo */
+        /* Header and Back Button Styling */
         .header {
             display: flex;
-            justify-content: center; /* Center horizontally */
-            align-items: center;     /* Center vertically */
+            align-items: center;
+            justify-content: center;
             height: 70px;
             background-color: #007bff;
+            padding: 0 20px;
+            position: relative;
         }
 
+        /* Back button on the far left with bluish-white color */
+        .back-button {
+            color: #e0f7ff; /* Biru keputih-putihan */
+            font-size: 1.5rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+            position: absolute;
+            left: 20px; /* Pindah ke paling kiri */
+            background-color: transparent;
+            border: none;
+        }
+
+        .back-button:hover {
+            color: #cceeff;
+            transform: scale(1.1); /* Efek pembesaran saat di-hover */
+        }
+
+        /* Admin Position */
         .admin {
             position: absolute;
             right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
             color: white;
+            font-weight: bold;
+        }
+
+        /* Content styling */
+        .main-container {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .content {
+            margin-top: -80px; /* Mengurangi jarak antara navbar dan konten */
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <!-- Center the logo in the header -->
+        <!-- Back button positioned on the far left with bluish-white color -->
+        <button class="back-button" onclick="window.history.back()" aria-label="Back">
+            <i class="fas fa-arrow-left"></i>
+        </button>
+        
+        <!-- Centered logo in the header -->
         <a href="{{ ('/') }}" class="logo">
-            <img src="{{ asset('asset/img/logo.png') }}" alt="Logo" width="50"> <!-- Replace with your logo image -->
+            <img src="{{ asset('asset/img/logo.png') }}" alt="Logo" width="50"> <!-- Logo image -->
         </a>
+
+        <!-- Admin text on the right -->
         <div class="admin">Admin</div>
         <h1>hahahah</h1>
     </div>
     
     <div class="main-container">
         <div class="sidebar p-3">
-            <a class="nav-link text-white" href="#">Data OSIS</a>
-            <a class="nav-link text-white" href="#">Data MPK</a>
+            <a class="nav-link text-white" href="#">Data OSIS MPK</a>
             <a class="nav-link text-white" href="#">Jadwal Event</a>
-            <a class="nav-link text-white" href="#">Kontak</a>
         </div>
         <div class="content">
             @yield('content')
         </div>
     </div>
-    <br><br><br>
-    <div class="footer text-center bg-light">
+    
+    <div class="footer text-center bg-light mt-3">
         &copy; OsisMpk
     </div>
 

@@ -9,11 +9,11 @@
     </div>
     <div class="container">
         <a style="text-decoration: none;" href="{{ ('/admin/dashboard') }}"><div class="box highlight pink">
-            Pemilu Ketua Osis
+           pemilu ketua osis
         </div></a>
-        <div class="box highlight blue">
+        <a style="text-decoration: none;" href="{{ ('/admin/gds/indexgds') }}"><div class="box highlight blue">
             Gerakan Disiplin Siswa
-        </div>
+        </div></a>
         <div class="box"></div>
         <div class="box"></div>
         <div class="box"></div>
