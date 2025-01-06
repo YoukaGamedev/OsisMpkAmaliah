@@ -25,7 +25,7 @@
                             <tr>
                                 <th scope="col">No</th>
                                 <th scope="col" class="text-start">Kelas</th>
-                                <th scope="col" class="text-start">No.Kelas</th> <!-- Align First to the left -->
+                                <th scope="col" class="text-start">Jumlah Siswa</th> <!-- Align First to the left -->
                                 <th scope="col" class="text-end px-5">Aksi</th> <!-- Align Handle to the right -->
                             </tr>
                         </thead>
@@ -62,11 +62,11 @@
                             <input name="kelas" type="text" class="form-control" id="nameInput" placeholder="Kelas">
                         </div>
                         <div class="mb-3">
-                            <label for="emailInput" class="form-label">No.Kelas</label>
+                            <label for="emailInput" class="form-label">Jumlah Siswa</label>
                             <input name="no_kelas" type="text" class="form-control" id="emailInput" placeholder="Nomor Kelas">
                         </div>
                         <button type="submit" class="btn btn-primary submit">Submit</button>
-                    </form>
+                    </form> 
                 </div>
             </div>
         </div>

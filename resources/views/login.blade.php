@@ -4,100 +4,131 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.0/dist/cdn.min.js" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
-            background-color: #f7f9fc;
-            height: 100vh;
             background-image: url('{{ asset('asset/img/amaliah.jpg') }}');
             background-size: cover;
             background-position: center;
-        }
-
-        .login-container {
             height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            overflow: hidden; 
         }
 
-        .login-card {
-            width: 100%;
-            max-width: 400px;
-            padding: 20px;
-            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-            background-color: white;
-            border-radius: 10px;
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease-in-out;
         }
 
-        .login-card h3 {
-            margin-bottom: 30px;
-            font-weight: bold;
+        .glass-effect:hover { 
+            background: rgba(255, 255, 255, 0.4);
         }
 
-        .login-btn {
-            width: 100%;
-            background-color: #007bff;
-            border: none;
-            padding: 10px;
-            border-radius: 25px;
-            color: white;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
+        .input-focus {
+            border: 1px solid #3182ce; /* Blue focus */
         }
 
-        .login-btn:hover {
-            background-color: #0056b3;
+        .btn-gradient {
+            background: linear-gradient(90deg, #4299e1, #667eea);
         }
 
-        .form-control {
-            border-radius: 25px;
-            padding: 10px 15px;
+        .btn-gradient:hover {
+            background: linear-gradient(90deg, #3182ce, #5a67d8);
         }
 
-        .form-group {
-            margin-bottom: 20px;
+        .icon-animation {
+            animation: bounce 1s infinite alternate;
         }
 
-        .forgot-password {
-            display: block;
-            text-align: right;
-            font-size: 14px;
-        }
-
-        .logo {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 30px;
-        }
-
-        .logo img {
-            width: 50px;
+        @keyframes bounce {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(-5px);
+            }
         }
     </style>
 </head>
 <body>
 
-<div class="login-container">
-    <div class="login-card">
-        <div class="logo">
-            <img src="{{ asset('asset/img/logo.png') }}" alt="Logo" width="50"> <!-- Replace with your logo image -->
+<div class="flex items-center justify-center h-screen">
+    <!-- Login Card -->
+    <div class="glass-effect p-8 rounded-2xl max-w-sm w-full"
+        x-data="{ hoverEffect: false }">
+        <!-- Logo -->
+        <div class="flex justify-center mb-6">
+            <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-blue-500 shadow-md transition-transform transform hover:scale-105">
+                <img 
+                    src="{{ asset('asset/img/logo.png') }}" 
+                    alt="Logo" 
+                    class="w-full h-full object-cover"
+                >
+            </div>
         </div>
-        <h3 class="text-center">Login</h3>
-        <form action="{{ ('/user/welcome') }}">
-            <div class="form-group">
-                <input type="text" class="form-control" id="nama" placeholder="Nama Kamu">
+        <!-- Title -->
+        <h3    
+            class="text-3xl font-bold text-center text-blue-700 opacity-0 transform scale-0"
+            x-init="$nextTick(() => { $el.style.opacity = 1; $el.style.transform = 'scale(1)' })"
+        >
+            Login
+        </h3>
+        <!-- Form -->
+        <form action="{{ url('/user/welcome') }}" class="mt-6 space-y-4">
+            <!-- Username -->
+            <div>
+                <div class="relative">
+                    <span class="absolute inset-y-0 left-4 flex items-center text-blue-400 icon-animation">
+                        <i class="fas fa-user"></i>
+                    </span>
+                    <input 
+                        type="text" 
+                        class="w-full pl-12 pr-4 py-3 text-gray-800 bg-white bg-opacity-50 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                        placeholder="Nama Kamu"
+                    >
+                </div>
             </div>
-            <div class="form-group">
-                <input type="password" class="form-control" id="password" placeholder="Password">
+            <!-- Password -->
+            <div>
+                <div class="relative">
+                    <span class="absolute inset-y-0 left-4 flex items-center text-blue-400 icon-animation">
+                        <i class="fas fa-lock"></i>
+                    </span>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        class="w-full pl-12 pr-12 py-3 text-gray-800 bg-white bg-opacity-50 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                        placeholder="Password"
+                    >
+                    <span 
+                        class="absolute inset-y-0 right-4 flex items-center text-gray-400 cursor-pointer"
+                        x-on:click="() => {
+                            const field = document.getElementById('password');
+                            field.type = field.type === 'password' ? 'text' : 'password';
+                        }"
+                    >
+                        <i class="fas fa-eye"></i>
+                    </span>
+                </div>
             </div>
-            <button type="submit" class="btn login-btn mt-4">Login</button>
+            <!-- Submit Button -->
+            <button 
+                type="submit" 
+                class="w-full py-3 text-white btn-gradient rounded-full shadow-lg hover:shadow-xl transition"
+            >
+                Login
+            </button>
         </form>
+        <!-- Footer -->
+        <div class="text-center mt-6 text-sm text-gray-600">
+            Belum punya akun? <a href="{{ url('/register') }}" class="text-blue-500 hover:underline">Daftar di sini</a>.
+        </div>
     </div>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+
 </body>
 </html>

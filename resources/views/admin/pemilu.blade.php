@@ -17,7 +17,7 @@
         <div class="sidebar-items"><a href="{{ ('/admin/votes') }}">Kandidat & DPT</a></div>
         <div class="sidebar-item"><a href="{{ ('/admin/datakandidat') }}">Data Kandidat</a></div>
         <div class="sidebar-item"><a href="{{ ('/admin/datadpt') }}">Data DPT</a></div>
-        <div class="sidebar-items"><a href="{{ ('/admin/') }}">Hasil dan Laporan</a></div>
+        <div class="sidebar-items"><a href="{{ ('/admin') }}">Hasil dan Laporan</a></div>
         <div class="sidebar-item"><a href="{{ ('/admin/hasilpemilihan') }}">Hasil Pemilihan</a></div>
         <div class="sidebar-item"><a href="{{ ('/admin/daftarhadir') }}">daftar hadir</a></div>
     </div>

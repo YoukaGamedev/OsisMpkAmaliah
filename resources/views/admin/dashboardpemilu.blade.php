@@ -68,6 +68,7 @@
             <button type="button" class="reset-data-btn">Reset Data Pemilih</button>
         </div>
     </div>
+    <br><br>
 </body>
 </html>
 

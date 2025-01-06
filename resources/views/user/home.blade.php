@@ -2,7 +2,6 @@
 
 @section('content')
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,17 +15,31 @@
       background-color: #f8f9fa;
       height: 100vh;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
+    }
+    .navbar {
+      width: 100%;
+      background-color: #007bff;
+      padding: 1rem;
+    }
+    .navbar-brand, .navbar-nav .nav-link {
+      color: #fff !important;
     }
     .welcome-section {
       text-align: center;
+      margin-top: 50px;
     }
-    .welcome-section h1 h4 {
-      font-size: 3rem;
+    .welcome-section h1 {
+      font-size: 2.5rem;
       font-weight: bold;
-      margin-bottom: 20px;
       color: #343a40;
+      margin-bottom: 10px;
+    }
+    .welcome-section h4 {
+      font-size: 1.5rem;
+      color: #007bff;
+      margin-bottom: 20px;
     }
     .welcome-section p {
       font-size: 1.2rem;
@@ -40,21 +53,25 @@
 </head>
 <body>
 
+  <!-- Navbar -->
+    <div class="container">
+        <!-- Welcome Section -->
   <div class="welcome-section">
-  @foreach ($dashboard as $dash)
-  @csrf 
-    <h1>Selamat Datang Di Pemilu Tahun {{ $dash->tahun_pelajaran }}</h1>
-    <h4 class="text-primary">Identitas Lembaga</h4>
-    <p>{{ $dash->nama_sekolah }} {{ $dash->nama_kepsek }} {{ $dash->alamat_jalan }} {{ $dash->desa }} {{ $dash->kecamatan }} {{ $dash->kota }} di pemilu yang dilaksanakan pada tanggal {{ $dash->tanggal }}</p>
+    @foreach ($dashboard as $dash)
+      @csrf 
+      <h1>Selamat Datang Di Pemilu Tahun {{ $dash->tahun_pelajaran }}</h1>
+      <h4 class="text-primary">Identitas Lembaga</h4>
+      <p>{{ $dash->nama_sekolah }} - Kepala Sekolah {{ $dash->nama_kepsek }} - Alamat {{ $dash->alamat_jalan }}, {{ $dash->desa }}, {{ $dash->kecamatan }}, {{ $dash->kota }}. Pemilu dilaksanakan pada tanggal {{ $dash->tanggal }}</p>
     @endforeach
-    <a href="{{ ('/user/pilihkandidat') }}" class="btn btn-primary btn-custom">Pilih Kandidat</a>
+    <a href="{{ url('/user/pilihkandidat') }}" class="btn btn-primary btn-custom">Pilih Kandidat</a>
   </div>
+    </div>
+
+
 
   <!-- Bootstrap JS (Optional) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
 
-
-
-@endsection 
+@endsection

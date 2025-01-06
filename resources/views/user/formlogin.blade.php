@@ -11,69 +11,65 @@
             height: 100%;
             margin: 0;
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(rgb(232, 231, 231), rgb(203, 219, 246));
+            background: linear-gradient(120deg, #3498db, #8e44ad);
+            color: #fff;
         }
 
-        /* Container to make sure content takes full viewport height */
+        /* Full Height Container */
         .full-height {
             height: 100vh;
         }
 
-        /* Left image section styling */
+        /* Left Image Section styling */
         .login-image {
             background-image: url('{{ asset('asset/img/amaliah.jpg') }}'); /* Replace with the actual image URL */
             background-size: cover;
             background-position: center;
-            filter: brightness(70%); /* Darken the background image */
+            filter: brightness(60%); /* Darken the background image */
         }
 
-        /* Form styling */
+        /* Form Section Styling */
         .login-form {
             display: flex;
             align-items: center;
             justify-content: center;
             height: 100%;
-            padding: 2rem;
+            padding: 3rem;
         }
 
         .card {
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Reduced shadow for a softer effect */
-            background-color: #fff; /* Set card background to white */
-            color: #000; /* Set text color to black for contrast */
-        }
-
-        .form-box {
+            border-radius: 15px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+            background-color: #ffffff;
+            color: #333;
             width: 100%;
-            max-width: 400px;
-            position: relative; /* For absolute positioning of pseudo-element */
+            max-width: 420px;
+            padding: 30px;
         }
 
         .form-title {
             font-size: 2.5rem;
             font-weight: bold;
-            color: #3498db; /* Color for the title */
-            margin-bottom: 1rem;
+            color: #3498db;
             text-align: center;
+            margin-bottom: 1.5rem;
             letter-spacing: 1px;
         }
 
-        /* Input and button styling */
         .form-control {
             height: 45px;
             padding: 10px;
-            font-size: 1rem;
-            border-radius: 5px;
+            font-size: 1.1rem;
+            border-radius: 10px;
             border: 1px solid #ced4da;
             transition: 0.3s;
-            background-color: #f0f0f0; /* Light background for input */
-            color: #000; /* Black text color for input */
+            background-color: #f7f7f7;
         }
 
         .form-control:focus {
             box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
             border-color: #3498db;
-            background-color: #e0e0e0; /* Slightly darker background on focus */
+            background-color: #ffffff;
         }
 
         .btn-primary {
@@ -82,7 +78,7 @@
             padding: 12px;
             border-radius: 5px;
             transition: 0.3s;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
         }
 
         .btn-primary:hover {
@@ -105,7 +101,7 @@
             }
         }
 
-        /* Custom background triangle shape for the form */
+        /* Custom triangle shape on the form */
         .form-box:before {
             content: '';
             position: absolute;
@@ -113,24 +109,27 @@
             right: 0;
             width: 0;
             height: 0;
-            border-top: 80px solid #3498db;
-            border-left: 80px solid transparent;
+            border-top: 70px solid #3498db;
+            border-left: 70px solid transparent;
+        }
+
+        /* Gradient Background Effect */
+        .gradient-background {
+            background: linear-gradient(120deg, #8e44ad, #3498db);
+            height: 100%;
         }
     </style>
 </head>
 <body>
 
-    <div class="container-fluid full-height">
+    <div class="container-fluid full-height gradient-background">
         <div class="row h-100">
             <!-- Left Image Section -->
-            <div class="col-md-6 login-image d-none d-md-block full-height">
-                <!-- The background image will be applied here -->
-            </div>
+            <div class="col-md-6 login-image d-none d-md-block full-height"></div>
 
             <!-- Right Form Section -->
             <div class="col-md-6 d-flex align-items-center justify-content-center full-height">
                 <div class="form-box">
-                    <!-- Bootstrap Card with form content -->
                     <div class="card p-4">
                         <h2 class="form-title">Login Untuk Pilih Kandidat</h2>
                         <form action="{{ ('/user/pilihkandidat') }}">
@@ -139,8 +138,8 @@
                                 <input name="nama" type="text" class="form-control" id="username" placeholder="Nama">
                             </div>
                             <div class="mb-3">
-                                <label for="username" class="form-label">Kelas</label>
-                                <input name="kelas" type="text" class="form-control" id="username" placeholder="Kelas">
+                                <label for="kelas" class="form-label">Kelas</label>
+                                <input name="kelas" type="text" class="form-control" id="kelas" placeholder="Kelas">
                             </div>
                             <div class="d-grid">
                                 <button type="submit" class="btn btn-primary">Submit</button>
