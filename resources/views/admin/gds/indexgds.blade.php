@@ -62,7 +62,7 @@
   <div>
     <div class="centered-content">
       <h1 class="mb-4">Buat Lembar GDS Baru</h1>
-      <a href="{{ route('lembar-gds.index') }}" class="btn-new-gds">Lembar GDS Baru</a>
+      <a href="{{ route('rekapgds.create') }}" class="btn-new-gds">Lembar GDS Baru</a>
     </div>
   </div>
 

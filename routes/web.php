@@ -12,6 +12,7 @@ use App\Http\Controllers\HasilController;
 use App\Http\Controllers\VoteController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\LembarGdsController;
+use App\Http\Controllers\RekapGdsController;
 
 Route::middleware(['auth'])->group(function () {
     // Route yang butuh autentikasi
@@ -72,9 +73,6 @@ Route::get('/admin/gds/indexgds', function () {
     return view('/admin/gds/indexgds');
 });
 
-Route::get('/admin/gds/rekapgds', function () {
-    return view('/admin/gds/rekapgds');
-});
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -82,3 +80,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/lembar-gds', [LembarGdsController::class, 'index'])->name('lembar-gds.index');
 Route::get('/lembar-gds/create', [LembarGdsController::class, 'create'])->name('lembar-gds.create');
+
+Route::resource('admin/gds/rekapgds', RekapGdsController::class);
+
+//Route::resource('rekapgds', RekapGdsController::class,);
+
+//  Route::get('/admin/gds/rekapgds', [RekapGdsController::class, 'index'])->name('rekapgds.index');
+//  Route::get('/admin/gds/rekapgds/create', [RekapGdsController::class, 'create'])->name('rekapgds.create');

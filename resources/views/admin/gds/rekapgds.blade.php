@@ -14,11 +14,11 @@
 
         /* Main content styles */
         .main-content {
-    width: calc(100% - 100px); /* Adjust width based on the sidebar width */
-    margin-left: 90px; /* Matches the sidebar width */
-    padding: 20px;
-    min-height: calc(100vh - 140px);
-}
+            width: calc(100% - 100px); /* Adjust width based on the sidebar width */
+            margin-left: 90px; /* Matches the sidebar width */
+            padding: 20px;
+            min-height: calc(100vh - 140px);
+        }
 
         /* Navbar styles */
         .navbar {
@@ -59,17 +59,74 @@
                 transform: translateX(-100%); /* End off the left */
             }
         }
+
+        /* Table Styles */
+        .table-custom {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .table-custom th, .table-custom td {
+            padding: 12px 20px;
+        }
+
+        .table-custom th {
+            background-color: #007bff;
+            color: #fff;
+            font-weight: bold;
+            border: 1px solid #0056b3;
+        }
+
+        .table-custom td {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+        }
+
+        .table-custom tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .table-custom tbody tr:hover {
+            background-color: #e0e0e0;
+            cursor: pointer;
+        }
+
     </style>
 </head>
 <body>
     <!-- Main Content -->
     <div class="main-content">
         <nav class="navbar navbar-expand navbar-light">
-            <a class="navbar-brand mx-3" href="#">Rekap GDS</a> <!-- Changed the title to Rekap Absensi -->
+            <a style="color: white;" class="navbar-brand mx-3" href="#">Rekap GDS</a> <!-- Changed the title to Rekap Absensi -->
             <div class="ml-auto">
-                <input class="form-control mr-sm-2" type="search" placeholder="Cari karyawan" aria-label="Search"> <!-- Adjusted the placeholder for search -->
+                <input class="form-control mr-sm-2" type="search" placeholder="Cari karyawan" aria-label="Search">
             </div>
         </nav>
+
+        <!-- Tabel -->
+        <div class="table-responsive mt-4">
+            <table class="table-custom">
+                <thead>
+                    <tr>
+                        <th>PJ</th>
+                        <th>Hari</th>
+                        <th>Tanggal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($rekapgds as $rekap)
+                    <tr onclick="window.location='{{ route('rekapgds.show', $rekap->id) }}'" style="cursor: pointer;">
+                        <td>{{ $rekap->pj }}</td>
+                        <td>{{ $rekap->hari }}</td>
+                        <td>{{ \Carbon\Carbon::parse($rekap->created_at)->format('d-m-Y') }}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+                
+            </table>
+        </div>
+        
     </div>
 
     <!-- Scripts -->
@@ -78,6 +135,5 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-
 
 @endsection
