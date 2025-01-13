@@ -11,30 +11,6 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
   <style>
-    .sidebar {
-      background-color: #f8f9fa;
-      height: 100vh;
-      position: fixed;
-      width: 250px;
-      padding-top: 20px;
-      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    }
-    .sidebar h4 {
-      font-weight: bold;
-      color: #007bff;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .sidebar .nav-link {
-      color: #343a40;
-    }
-    .sidebar .nav-link:hover {
-      background-color: #e9ecef;
-      border-radius: 4px;
-    }
-    .sidebar .nav-link i {
-      margin-right: 8px;
-    }
 
     .navbar {
       background-color: #007bff;
@@ -64,22 +40,29 @@
       font-size: 1.2rem;
       padding: 15px 30px;
       border: none;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      transition: background-color 0.3s;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      text-decoration: none;
     }
+
     .btn-new-gds:hover {
-      background-color: #0056b3;
+      background-color: #0464ca;
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn-new-gds:active {
+      transform: scale(0.98);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
   </style>
 </head>
 <body style="background-color: #f4f4f4;">
-
-
   <div>
     <div class="centered-content">
       <h1 class="mb-4">Buat Lembar GDS Baru</h1>
-      <button class="btn-new-gds">Lembar GDS Baru</button>
+      <a href="{{ route('lembar-gds.index') }}" class="btn-new-gds">Lembar GDS Baru</a>
     </div>
   </div>
 

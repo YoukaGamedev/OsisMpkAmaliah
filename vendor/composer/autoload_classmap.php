@@ -28,7 +28,6 @@ return array(
     'App\\Models\\DataKandidat' => $baseDir . '/app/Models/DataKandidat.php',
     'App\\Models\\DataKelas' => $baseDir . '/app/Models/DataKelas.php',
     'App\\Models\\Home' => $baseDir . '/app/Models/Home.php',
-    'App\\Models\\Kandidat' => $baseDir . '/app/Models/Kandidat.php',
     'App\\Models\\PilihKandidat' => $baseDir . '/app/Models/PilihKandidat.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Models\\Vote' => $baseDir . '/app/Models/Vote.php',

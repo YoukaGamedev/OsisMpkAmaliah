@@ -38,15 +38,14 @@ body {
     background-color: #d3d3d3;
     padding: 5px 10px;
     border-radius: 5px;
-    color: #333;
     font-size: 12px;
 }
 
 /* Sidebar */
 .sidebar {
     width: 180px;
-    background-color: #3574bb;
-    color: white;
+    background-color:  #f8f9fa;
+    color: black;
     padding: 20px;
     border-radius: 10px;
     height: calc(100vh - 100px); /* Adjust height based on header and spacing */
@@ -57,6 +56,22 @@ body {
     top: 100px; /* Increase the offset to create more space below header */
     left: 10px;
 }
+  .sidebar h4 {
+    font-weight: bold;
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .sidebar .nav-link {
+    color: #343a40;
+  }
+  .sidebar .nav-link:hover {
+    background-color: #e9ecef;
+    border-radius: 4px;
+  }
+  .sidebar .nav-link i {
+    margin-right: 8px;
+  }
 
 /* Main Content */
 .main-container {
@@ -115,7 +130,7 @@ body {
 .blue {
     background-color: #4A90E2;
 }
-
+ 
 a {
     text-decoration: none;
     color: inherit;

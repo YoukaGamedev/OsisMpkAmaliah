@@ -88,12 +88,12 @@
 
         <!-- Admin text on the right -->
         <div class="admin">Admin</div>
-        <h1>hahahah</h1>
+        
     </div>
     
     <div class="main-container">
         <div class="sidebar p-3">
-            <a class="nav-link text-white" href="#">Data OSIS MPK</a>
+            <a class="nav-link text-white" href="#">lembarIS lembar</a>
             <a class="nav-link text-white" href="#">Jadwal Event</a>
         </div>
         <div class="content">
@@ -102,7 +102,7 @@
     </div>
     
     <div class="footer text-center bg-light mt-3">
-        &copy; OsisMpk
+        &copy; Osislembar
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

@@ -608,7 +608,6 @@ class ComposerStaticInit4984a36bfe32609675dd656efe585466
         'App\\Models\\DataKandidat' => __DIR__ . '/../..' . '/app/Models/DataKandidat.php',
         'App\\Models\\DataKelas' => __DIR__ . '/../..' . '/app/Models/DataKelas.php',
         'App\\Models\\Home' => __DIR__ . '/../..' . '/app/Models/Home.php',
-        'App\\Models\\Kandidat' => __DIR__ . '/../..' . '/app/Models/Kandidat.php',
         'App\\Models\\PilihKandidat' => __DIR__ . '/../..' . '/app/Models/PilihKandidat.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\Vote' => __DIR__ . '/../..' . '/app/Models/Vote.php',

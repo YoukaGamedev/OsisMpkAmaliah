@@ -16,7 +16,7 @@
       background-color: #f8f9fa;
       height: 100vh;
       position: fixed;
-      width: 250px;
+      width: 200px;
       padding-top: 20px;
       box-shadow: 2px 0 5px rgba(0,0,0,0.1);
     }
@@ -30,7 +30,7 @@
       color: #343a40;
     }
     .sidebar .nav-link:hover {
-      background-color: #e9ecef;
+      background-color: white;
       border-radius: 4px;
     }
     .sidebar .nav-link i {

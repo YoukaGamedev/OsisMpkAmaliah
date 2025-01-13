@@ -11,6 +11,7 @@ use App\Http\Controllers\PilihKandidatController;
 use App\Http\Controllers\HasilController;
 use App\Http\Controllers\VoteController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\LembarGdsController;
 
 Route::middleware(['auth'])->group(function () {
     // Route yang butuh autentikasi
@@ -76,7 +77,8 @@ Route::get('/admin/gds/rekapgds', function () {
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::get('/lembar-gds', [LembarGdsController::class, 'index'])->name('lembar-gds.index');
+Route::get('/lembar-gds/create', [LembarGdsController::class, 'create'])->name('lembar-gds.create');

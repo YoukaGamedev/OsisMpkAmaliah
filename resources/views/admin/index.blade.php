@@ -5,7 +5,7 @@
 
 </div>
     <div class="welcome-message">
-        Selamat Datang di Aplikasi OSIS dan MPK Admin
+        Selamat Datang di Aplikasi OSIS dan lembar Admin
     </div>
     <div class="container">
         <a style="text-decoration: none;" href="{{ ('/admin/dashboard') }}"><div class="box highlight pink">

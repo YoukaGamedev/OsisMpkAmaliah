@@ -32,7 +32,7 @@
         }
     },
     "scripts": {
-        "post-autoload-dump": [
+        "lembar-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
         ],
