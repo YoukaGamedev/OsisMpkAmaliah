@@ -112,13 +112,6 @@
             </div>
         </nav>
 
-        <!-- Button Scan -->
-        <div class="mt-4 text-right">
-            <button class="btn btn-scan">
-                <i class="fas fa-qrcode"></i> Scan QR Code
-            </button>
-        </div>
-
         <!-- Table -->
         <div class="table-responsive mt-4">
             <table class="table-custom">

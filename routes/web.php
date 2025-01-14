@@ -13,6 +13,7 @@ use App\Http\Controllers\VoteController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\LembarGdsController;
 use App\Http\Controllers\RekapGdsController;
+use App\Http\Controllers\SiswaController;
 
 Route::middleware(['auth'])->group(function () {
     // Route yang butuh autentikasi
@@ -77,11 +78,15 @@ Route::get('/admin/gds/indexgds', function () {
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
+Route::resource('admin/gds/lembargds', RekapGdsController::class);
 Route::get('/lembar-gds', [LembarGdsController::class, 'index'])->name('lembar-gds.index');
-Route::get('/lembar-gds/create', [LembarGdsController::class, 'create'])->name('lembar-gds.create');
+
 
 Route::resource('admin/gds/rekapgds', RekapGdsController::class);
+Route::get('/siswa/search', [SiswaController::class, 'search'])->name('siswa.search');
+Route::post('/siswa/scan', [SiswaController::class, 'scan'])->name('siswa.scan');
+Route::post('/siswa/check/{id}', [SiswaController::class, 'checkAndStoreLembarGds'])->name('siswa.checkAndStore');
+
 
 //Route::resource('rekapgds', RekapGdsController::class,);
 
