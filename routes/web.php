@@ -86,6 +86,10 @@ Route::resource('admin/gds/rekapgds', RekapGdsController::class);
 Route::get('/siswa/search', [SiswaController::class, 'search'])->name('siswa.search');
 Route::post('/siswa/scan', [SiswaController::class, 'scan'])->name('siswa.scan');
 Route::post('/siswa/check/{id}', [SiswaController::class, 'checkAndStoreLembarGds'])->name('siswa.checkAndStore');
+Route::get('/siswa/{id}/edit', [SiswaController::class, 'edit'])->name('siswa.edit');
+Route::post('/siswa/{id}/update', [SiswaController::class, 'update'])->name('siswa.update');
+
+
 
 
 //Route::resource('rekapgds', RekapGdsController::class,);

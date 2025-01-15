@@ -53,4 +53,26 @@ public function checkAndStoreLembarGds($id)
     return back()->with('info', 'Semua data siswa sudah lengkap.');
 }
 
+public function edit($id)
+{
+    $siswa = Siswa::findOrFail($id);
+    return view('admin.gds.siswa', compact('siswa'));
+}
+
+public function update(Request $request, $id)
+{
+    $siswa = Siswa::findOrFail($id);
+
+    // Update data siswa
+    $siswa->update($request->all());
+
+    // Cek apakah ada data "Tidak"
+    if (in_array('Tidak', $request->except('_token', '_method'))) {
+        return redirect()->route('siswa.index')->with('warning', 'Beberapa data belum lengkap.');
+    }
+
+    return redirect('admin/gds/lembargds')->with('success', 'Data berhasil diperbarui.');
+}
+
+
 }

@@ -1,26 +1,8 @@
-@extends('admin.gds.gds') <!-- Sesuaikan layout dengan project Anda -->
+@extends('admin.gds.gds')
 
 @section('content2')
 <style>
-    .btn-scan {
-        background-color: rgb(0, 198, 43);
-        color: #fff;
-        font-weight: bold;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding: 10px 15px;
-        border-radius: 5px;
-        transition: background-color 0.3s;
-    }
-
-    .btn-scan:hover {
-        background-color: rgb(0, 170, 37);
-    }
-
-    .btn-scan i {
-        font-size: 1.5rem;
-    }
+    /* Styling yang sama */
 </style>
 <div class="mt-4">
     <div class="main-content">
@@ -28,14 +10,20 @@
         <div class="card mb-4">
             <div class="card-header">Detail Data</div>
             <div class="card-body">
-                <p><strong>PJ:</strong> {{ $rekap->pj }}</p>
-                <p><strong>Hari:</strong> {{ $rekap->hari }}</p>
-                <p><strong>Tanggal:</strong> {{ \Carbon\Carbon::parse($rekap->created_at)->format('d-m-Y') }}</p>
+                @if(isset($rekapgds) && count($rekapgds) > 0)
+                    @foreach($rekapgds as $rekap)
+                        <p><strong>PJ:</strong> {{ $rekap->pj }}</p>
+                        <p><strong>Hari:</strong> {{ $rekap->hari }}</p>
+                        <p><strong>Tanggal:</strong> {{ \Carbon\Carbon::parse($rekap->created_at)->format('d-m-Y') }}</p>
+                    @endforeach
+                @else
+                    <p class="text-center">Data rekap tidak tersedia.</p>
+                @endif
             </div>
         </div>
 
-        <!-- Search and Scan -->
-        <div class="d-flex justify-content-start align-items-center mt-4">
+         <!-- Search and Scan -->
+         <div class="d-flex justify-content-start align-items-center mt-4">
             <form method="GET" action="{{ route('siswa.search') }}" class="input-group" style="max-width: 300px;">
                 <input type="text" name="query" class="form-control" placeholder="Cari..." aria-label="Cari">
                 <button class="btn btn-outline-secondary" type="submit">
@@ -52,6 +40,7 @@
         </div>
         <br>
 
+        <!-- Tabel -->
         <table class="table table-bordered">
             <thead class="thead-dark">
                 <tr>
@@ -82,10 +71,7 @@
                     <td>{{ $item->jas ? 'Ya' : 'Tidak' }}</td>
                     <td>{{ $item->ring ? 'Ya' : 'Tidak' }}</td>
                     <td>
-                        <form method="POST" action="{{ route('siswa.checkAndStore', $item->id) }}">
-                            @csrf
-                            <button type="submit" class="btn btn-primary">Periksa</button>
-                        </form>
+                        <a href="{{ route('siswa.edit', $item->id) }}" class="btn btn-warning">Edit</a>
                     </td>
                 </tr>
                 @empty
@@ -95,7 +81,6 @@
                 @endforelse
             </tbody>            
         </table>
-        
     </div>
 </div>
 @endsection
