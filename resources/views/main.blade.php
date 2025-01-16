@@ -6,7 +6,8 @@
     <title>Dashboard Layout</title>
     <link rel="stylesheet" href="{{ asset('/asset/css/styles.css') }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Ikon Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"> <!-- Bootstrap Icons -->
     <style>
         a {
             text-decoration: none;
@@ -40,18 +41,18 @@
 
         /* Back button on the far left with bluish-white color */
         .back-button {
-            color: #e0f7ff; /* Biru keputih-putihan */
+            color: #e0f7ff; /* Light blue */
             font-size: 1.5rem;
             transition: color 0.3s ease, transform 0.3s ease;
             position: absolute;
-            left: 20px; /* Pindah ke paling kiri */
+            left: 20px; /* Pushed to the far left */
             background-color: transparent;
             border: none;
         }
 
         .back-button:hover {
             color: #cceeff;
-            transform: scale(1.1); /* Efek pembesaran saat di-hover */
+            transform: scale(1.1); /* Enlarges on hover */
         }
 
         /* Admin Position */
@@ -70,7 +71,7 @@
         }
 
         .content {
-            margin-top: -80px; /* Mengurangi jarak antara navbar dan konten */
+            margin-top: -80px; /* Reduce gap between navbar and content */
         }
     </style>
 </head>
@@ -95,13 +96,16 @@
         <div class="sidebar">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-user-plus"></i>Log Out </a>
+                <a class="nav-link" href="#"><i class="bi bi-box-arrow-left"></i> Log Out</a> 
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-users"></i>Sign In</a>
+                <a class="nav-link" href="#"><i class="bi bi-box-arrow-in-right"></i> Sign In</a> 
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><i class="bi bi-bell"></i> Notifications</a> 
               </li>
             </ul>
-          </div>
+        </div>
         <div class="content">
             @yield('content')
         </div>
