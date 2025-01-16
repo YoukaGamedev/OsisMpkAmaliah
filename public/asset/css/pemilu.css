@@ -11,67 +11,28 @@ body {
 }
 
 .sidebar {
-    background-color: #f8f9fa;
-    height: 100vh;
-    position: fixed;
-    width: 200px;
-    padding-top: 20px;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-  }
-  .sidebar h4 {
-    font-weight: bold;
-    color: #007bff;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  .sidebar .nav-link {
-    color: #343a40;
-  }
-  .sidebar .nav-link:hover {
-    background-color: #e9ecef;
-    border-radius: 4px;
-  }
-  .sidebar .nav-link i {
-    margin-right: 8px;
-  }
-
-.sidebar-item {
-    width: 100%;
-    padding: 8px;
-    background-color: #4A90E2;
-    color: white;
-    text-align: center;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    font-size: 12px; /* Ukuran teks untuk item */
+  background-color: #f8f9fa;
+  height: 100vh;
+  position: fixed;
+  width: 200px;
+  padding-top: 20px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
 }
-
-.sidebar-items {
-    width: 100%;
-    padding: 10px;
-    background-color: #275d9b;
-    color: white;
-    text-align: center;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-    font-size: 14px; /* Ukuran teks untuk kategori */
-    font-weight: bold;
+.sidebar h4 {
+  font-weight: bold;
+  color: #007bff;
+  text-align: center;
+  margin-bottom: 20px;
 }
-
-
-.sidebar-item:hover {
-    background-color: #3574bb;
+.sidebar .nav-link {
+  color: #343a40;
 }
-
-.sidebar-item a {
-    text-decoration: none;
-    color: #ffffff; /* Warna teks */
-    display: block;
+.sidebar .nav-link:hover {
+  background-color: white;
+  border-radius: 4px;
 }
-
-.sidebar-item a:hover {
-    color: #ffffff; /* Warna saat hover */
+.sidebar .nav-link i {
+  margin-right: 8px;
 }
 
 .content1 {

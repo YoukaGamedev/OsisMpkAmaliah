@@ -32,6 +32,15 @@ public function scan(Request $request)
     return view('admin.gds.lembargds', compact('siswa'));
 }
 
+public function storeScan(Request $request)
+{
+    $data = json_decode($request->input('qr_data'), true);
+
+    // Proses data QR Code
+    return response()->json(['message' => 'Data diterima', 'data' => $data]);
+}
+
+
 
 public function checkAndStoreLembarGds($id)
 {

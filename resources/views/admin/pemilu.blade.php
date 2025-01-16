@@ -11,16 +11,37 @@
 </head>
 <body>
     <div class="sidebar">
-        <div class="sidebar-items"><a href="{{ ('/user/home') }}">MAIN PENGATURAN UMUM</a></div>
-        <div class="sidebar-item"><a href="{{ ('/admin/dashboard') }}">Dashboard</a></div>
-        <div class="sidebar-item"><a href="{{ ('/admin/datakelas') }}">Data Kelas</a></div>
-        <div class="sidebar-items"><a href="{{ ('/admin/votes') }}">Kandidat & DPT</a></div>
-        <div class="sidebar-item"><a href="{{ ('/admin/datakandidat') }}">Data Kandidat</a></div>
-        <div class="sidebar-item"><a href="{{ ('/admin/datadpt') }}">Data DPT</a></div>
-        <div class="sidebar-items"><a href="{{ ('/admin') }}">Hasil dan Laporan</a></div>
-        <div class="sidebar-item"><a href="{{ ('/admin/hasilpemilihan') }}">Hasil Pemilihan</a></div>
-        <div class="sidebar-item"><a href="{{ ('/admin/daftarhadir') }}">daftar hadir</a></div>
-    </div>
+        <h4>Pemilu</h4>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-user-plus"></i>Tambah Data </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-users"></i>Jadwal GDS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-users"></i>Jadwal GDS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-users"></i>Jadwal GDS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-users"></i>Jadwal GDS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-users"></i>Jadwal GDS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-users"></i>Jadwal GDS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-users"></i>Jadwal GDS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-users"></i>Jadwal GDS</a>
+          </li>
+        </ul>
+      </div>
     <div class="content1">
     @yield('content1')
     </div>

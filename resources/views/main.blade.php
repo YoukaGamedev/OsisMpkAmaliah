@@ -92,10 +92,16 @@
     </div>
     
     <div class="main-container">
-        <div class="sidebar p-3">
-            <a class="nav-link text-white" href="#">lembarIS lembar</a>
-            <a class="nav-link text-white" href="#">Jadwal Event</a>
-        </div>
+        <div class="sidebar">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fas fa-user-plus"></i>Log Out </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fas fa-users"></i>Sign In</a>
+              </li>
+            </ul>
+          </div>
         <div class="content">
             @yield('content')
         </div>

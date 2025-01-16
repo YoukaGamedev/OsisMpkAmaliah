@@ -83,4 +83,32 @@
         </table>
     </div>
 </div>
+
+<script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
+<script>
+    function onScanSuccess(decodedText, decodedResult) {
+        // Tampilkan hasil QR Code
+        document.getElementById("result-data").innerText = decodedText;
+
+        // Opsional: Kirim hasil scan ke server menggunakan AJAX
+        fetch('/scan/store', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': '{{ csrf_token() }}',
+            },
+            body: JSON.stringify({ qr_data: decodedText }),
+        })
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+        .catch((error) => console.error('Error:', error));
+    }
+
+    let html5QrcodeScanner = new Html5QrcodeScanner("qr-reader", {
+        fps: 10,
+        qrbox: 250,
+    });
+
+    html5QrcodeScanner.render(onScanSuccess);
+</script>
 @endsection
