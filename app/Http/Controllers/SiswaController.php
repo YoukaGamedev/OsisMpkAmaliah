@@ -9,6 +9,7 @@ use App\Models\LembarGds;
 
 class SiswaController extends Controller
 {
+    
     public function search(Request $request)
 {
     $query = $request->input('query');
@@ -75,13 +76,18 @@ public function update(Request $request, $id)
     // Update data siswa
     $siswa->update($request->all());
 
-    // Cek apakah ada data "Tidak"
+    // Cek apakah ada data "Tidak" di request (kecuali _token dan _method)
     if (in_array('Tidak', $request->except('_token', '_method'))) {
-        return redirect()->route('siswa.index')->with('warning', 'Beberapa data belum lengkap.');
+        return redirect("admin/gds/rekapgds/{$id}")
+                         ->with('warning', 'Beberapa data belum lengkap.');
     }
 
-    return redirect('admin/gds/lembargds')->with('success', 'Data berhasil diperbarui.');
+    // Redirect ke halaman rekapgds/{id} setelah berhasil di-update
+    return redirect("admin/gds/rekapgds/{$id}")
+       ->with('success', 'Data berhasil diperbarui.');
+
 }
+
 
 
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\RekapGds;
+use App\Models\Siswa;
 
 use DB;
 
@@ -59,11 +60,15 @@ class RekapGdsController extends Controller
     // Ambil data berdasarkan ID
     $rekap = DB::table('rekapgds')->where('id', $id)->first();
 
-    // Ambil data tambahan untuk tabel baru
-    $dataBaru = DB::table('rekapgds')->where('pj', $rekap->pj)->get();
+    // // Ambil data tambahan untuk tabel baru
+    // $dataBaru = DB::table('rekapgds')->where('pj', $rekap->pj)->get();
+
+
+    $rekapgds = DB::table('rekapgds')->get();
+    $siswa = Siswa::all();
 
     // Return ke view
-    return view('admin.gds.lembargds', compact('rekap', 'dataBaru'));
+    return view('admin.gds.lembargds', compact('rekap', 'siswa', 'rekapgds'));
 }
 
 

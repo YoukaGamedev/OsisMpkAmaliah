@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('lembargds', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('siswa_id')->constrained('siswa')->onDelete('cascade');
+            $table->foreignId('siswa_id')->constrained('siswas')->onDelete('cascade');
             $table->timestamps();
         });        
     }

@@ -1,46 +1,58 @@
 @extends('admin.gds.gds')
 
 @section('content2')
+@if(session('success'))
+<div class="alert alert-success">
+    {{ session('success') }}
+</div>
+@endif
+
+@if(session('warning'))
+<div class="alert alert-warning">
+    {{ session('warning') }}
+</div>
+@endif
+
+
 <style>
-    /* Styling yang sama */
+    .small-card {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    .table-edited {
+        margin-top: 20px;
+    }
 </style>
+
 <div class="mt-4">
     <div class="main-content">
         <h2 class="text-center">Detail Rekap GDS</h2>
-        <div class="card mb-4">
+
+        <!-- Detail Data -->
+        <div class="card mb-4 small-card">
             <div class="card-header">Detail Data</div>
             <div class="card-body">
-                @if(isset($rekapgds) && count($rekapgds) > 0)
-                    @foreach($rekapgds as $rekap)
-                        <p><strong>PJ:</strong> {{ $rekap->pj }}</p>
-                        <p><strong>Hari:</strong> {{ $rekap->hari }}</p>
-                        <p><strong>Tanggal:</strong> {{ \Carbon\Carbon::parse($rekap->created_at)->format('d-m-Y') }}</p>
+                    @foreach($rekapgds as $rek)
+                        <p><strong>PJ:</strong> {{ $rek->pj }}</p>
+                        <p><strong>Hari:</strong> {{ $rek->hari }}</p>
+                        <p><strong>Tanggal:</strong> {{ \Carbon\Carbon::parse($rek->created_at)->format('d-m-Y') }}</p>
                     @endforeach
-                @else
-                    <p class="text-center">Data rekap tidak tersedia.</p>
-                @endif
             </div>
         </div>
 
-         <!-- Search and Scan -->
-         <div class="d-flex justify-content-start align-items-center mt-4">
+        <!-- Search Form -->
+        <div class="d-flex justify-content-start align-items-center mt-4">
             <form method="GET" action="{{ route('siswa.search') }}" class="input-group" style="max-width: 300px;">
                 <input type="text" name="query" class="form-control" placeholder="Cari..." aria-label="Cari">
                 <button class="btn btn-outline-secondary" type="submit">
                     <i class="fas fa-search"></i>
                 </button>
             </form>
-            <form method="POST" action="{{ route('siswa.scan') }}" class="ml-3">
-                @csrf
-                <input type="hidden" name="qr_data" id="qr_data">
-                <button type="submit" class="btn btn-scan">
-                    <i class="fas fa-qrcode"></i> Scan
-                </button>
-            </form>
         </div>
+
         <br>
 
-        <!-- Tabel -->
+        <!-- Tabel Data -->
         <table class="table table-bordered">
             <thead class="thead-dark">
                 <tr>
@@ -71,7 +83,10 @@
                     <td>{{ $item->jas ? 'Ya' : 'Tidak' }}</td>
                     <td>{{ $item->ring ? 'Ya' : 'Tidak' }}</td>
                     <td>
-                        <a href="{{ route('siswa.edit', $item->id) }}" class="btn btn-warning">Edit</a>
+                        <a href="{{ route('siswa.edit', $item->id) }}" 
+                           class="btn btn-warning">
+                           Edit
+                        </a>
                     </td>
                 </tr>
                 @empty
@@ -81,34 +96,45 @@
                 @endforelse
             </tbody>            
         </table>
+
+        <!-- Tabel Data yang Telah Diedit -->
+        <div class="table-edited">
+            <h4 class="text-center">Data yang Telah Diedit</h4>
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>Kelas</th>
+                        <th>Dasi/Kacu</th>
+                        <th>Kaos Kaki</th>
+                        <th>Sabuk</th>
+                        <th>Nametag</th>
+                        <th>Sepatu</th>
+                        <th>Jas</th>
+                        <th>Ring</th>
+                        <th>Tanggal Diedit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        @foreach($siswa as $data)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $data->nama }}</td>
+                            <td>{{ $data->kelas }}</td>
+                            <td>{{ $data->dasi_kacu ? 'Ya' : 'Tidak' }}</td>
+                            <td>{{ $data->kaos_kaki ? 'Ya' : 'Tidak' }}</td>
+                            <td>{{ $data->sabuk ? 'Ya' : 'Tidak' }}</td>
+                            <td>{{ $data->nametag ? 'Ya' : 'Tidak' }}</td>
+                            <td>{{ $data->sepatu ? 'Ya' : 'Tidak' }}</td>
+                            <td>{{ $data->jas ? 'Ya' : 'Tidak' }}</td>
+                            <td>{{ $data->ring ? 'Ya' : 'Tidak' }}</td>
+                            <td>{{ \Carbon\Carbon::parse($data->updated_at)->format('d-m-Y H:i') }}</td>
+                        </tr>
+                        @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
-
-<script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
-<script>
-    function onScanSuccess(decodedText, decodedResult) {
-        // Tampilkan hasil QR Code
-        document.getElementById("result-data").innerText = decodedText;
-
-        // Opsional: Kirim hasil scan ke server menggunakan AJAX
-        fetch('/scan/store', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': '{{ csrf_token() }}',
-            },
-            body: JSON.stringify({ qr_data: decodedText }),
-        })
-        .then((response) => response.json())
-        .then((data) => console.log(data))
-        .catch((error) => console.error('Error:', error));
-    }
-
-    let html5QrcodeScanner = new Html5QrcodeScanner("qr-reader", {
-        fps: 10,
-        qrbox: 250,
-    });
-
-    html5QrcodeScanner.render(onScanSuccess);
-</script>
 @endsection

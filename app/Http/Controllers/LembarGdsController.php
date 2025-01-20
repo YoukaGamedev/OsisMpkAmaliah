@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\RekapGds;
+use App\Models\Siswa;
+
+
 
 class LembarGdsController extends Controller
 {
@@ -11,7 +15,12 @@ class LembarGdsController extends Controller
      */
     public function index()
     {
-        return view('admin.gds.lembargds');
+        // Mengambil semua data dari tabel siswas dan rekapgds
+        $siswas = Siswa::all();
+        $rekapgds = RekapGds::all();
+
+        // Mengirim data ke view
+        return view('admin.gds.lembargds', compact('rekapgds', 'siswas'));
     }
 
     /**
