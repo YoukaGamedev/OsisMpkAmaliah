@@ -9,6 +9,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"> <!-- Bootstrap Icons -->
     <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
         a {
             text-decoration: none;
             color: white;
@@ -68,6 +75,7 @@
             display: flex;
             gap: 20px;
             padding: 20px;
+            flex: 1;
         }
 
         .content {
@@ -78,13 +86,15 @@
         .footer {
             background-color: #007bff;
             color: white;
-            padding: 10x 10px;
+            padding: 10px 10px;
             font-size: 0.9rem;
-            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .footer .social-icons {
-            margin-bottom: 10px;
+            margin: 0;
         }
 
         .footer .social-icons a {
@@ -117,7 +127,7 @@
         
         <!-- Centered logo in the header -->
         <a href="{{ ('/') }}" class="logo">
-            <img src="{{ asset('asset/img/logo osis.png') }}" alt="Logo" width="50"> <!-- Logo image -->
+            <img src="{{ asset('asset/img/logo.png') }}" alt="Logo" width="50"> <!-- Logo image -->
         </a>
 
         <!-- Admin text on the right -->
@@ -142,19 +152,18 @@
         <div class="content">
             @yield('content')
         </div>
-        <div class="footer text-center">
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-            <p>&copy; 2025 Osislembar | All Rights Reserved</p>
-            <small>Designed with <i class="fas fa-heart text-danger"></i> by Osislembar Team</small>
-        </div>
     </div>
     
-    
+    <div class="footer">
+        <p>&copy; 2025 Osislembar | All Rights Reserved</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <small>Designed with <i class="fas fa-heart text-danger"></i> by Osislembar Team</small>
+    </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
