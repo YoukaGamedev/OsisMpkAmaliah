@@ -73,6 +73,39 @@
         .content {
             margin-top: -80px; /* Reduce gap between navbar and content */
         }
+
+        /* Footer Styling */
+        .footer {
+            background-color: #007bff;
+            color: white;
+            padding: 10x 10px;
+            font-size: 0.9rem;
+            position: relative;
+        }
+
+        .footer .social-icons {
+            margin-bottom: 10px;
+        }
+
+        .footer .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer .social-icons a:hover {
+            color: #cceeff;
+        }
+
+        .footer p {
+            margin: 0;
+            font-size: 0.85rem;
+        }
+
+        .footer small {
+            font-size: 0.75rem;
+        }
     </style>
 </head>
 <body>
@@ -109,11 +142,19 @@
         <div class="content">
             @yield('content')
         </div>
+        <div class="footer text-center">
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <p>&copy; 2025 Osislembar | All Rights Reserved</p>
+            <small>Designed with <i class="fas fa-heart text-danger"></i> by Osislembar Team</small>
+        </div>
     </div>
     
-    <div class="footer text-center bg-light mt-3">
-        &copy; Osislembar
-    </div>
+    
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
