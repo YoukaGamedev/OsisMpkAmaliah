@@ -13,7 +13,6 @@
 </div>
 @endif
 
-
 <style>
     .small-card {
         max-width: 500px;
@@ -29,16 +28,20 @@
         <h2 class="text-center">Detail Rekap GDS</h2>
 
         <!-- Detail Data -->
-        <div class="card mb-4 small-card">
-            <div class="card-header">Detail Data</div>
-            <div class="card-body">
-                    @foreach($rekapgds as $rek)
-                        <p><strong>PJ:</strong> {{ $rek->pj }}</p>
-                        <p><strong>Hari:</strong> {{ $rek->hari }}</p>
-                        <p><strong>Tanggal:</strong> {{ \Carbon\Carbon::parse($rek->created_at)->format('d-m-Y') }}</p>
-                    @endforeach
-            </div>
-        </div>
+<div class="card mb-4 small-card">
+    <div class="card-header">Detail Data</div>
+    <div class="card-body">
+        <!-- Check if there is at least one rekapgds -->
+        @if($rekapgds->isNotEmpty())
+            <p><strong>PJ:</strong> {{ $rekapgds->first()->pj }}</p>
+            <p><strong>Hari:</strong> {{ $rekapgds->first()->hari }}</p>
+            <p><strong>Tanggal:</strong> {{ \Carbon\Carbon::parse($rekapgds->first()->created_at)->format('d-m-Y') }}</p>
+        @else
+            <p>Data Rekap GDS tidak ditemukan.</p>
+        @endif
+    </div>
+</div>
+
 
         <!-- Search Form -->
         <div class="d-flex justify-content-start align-items-center mt-4">

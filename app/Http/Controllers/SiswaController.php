@@ -6,20 +6,35 @@ use Illuminate\Http\Request;
 
 use App\Models\Siswa;
 use App\Models\LembarGds;
+use App\Models\RekapGds;
 
 class SiswaController extends Controller
 {
     
     public function search(Request $request)
-{
-    $query = $request->input('query');
-    $siswa = Siswa::where('nama', 'LIKE', "%{$query}%")
-                ->orWhere('kelas', 'LIKE', "%{$query}%")
-                ->get();
-
-    return view('admin.gds.lembargds', compact('siswa'));
-}
-
+    {
+        $query = $request->input('query');
+        
+        // Mencari siswa berdasarkan nama atau kelas
+        $siswa = Siswa::where('nama', 'LIKE', "%{$query}%")
+                        ->orWhere('kelas', 'LIKE', "%{$query}%")
+                        ->get();
+    
+        // Cek apakah data siswa ditemukan
+        $siswaNotFound = $siswa->isEmpty();
+    
+        // Ambil satu data rekapgds berdasarkan PJ
+        $rekapgds = RekapGds::where('pj', 'LIKE', "%{$query}%")
+                            ->first(); // Mengambil satu data rekapgds berdasarkan PJ
+        
+        // Cek apakah data rekapgds ditemukan
+        $rekapgdsNotFound = !$rekapgds; // Jika rekapgds null, berarti tidak ditemukan
+        
+        // Kirimkan kedua variabel ke view
+        return view('admin.gds.lembargds', compact('siswa', 'rekapgds', 'siswaNotFound', 'rekapgdsNotFound'));
+    }
+    
+    
 
 public function scan(Request $request)
 {
