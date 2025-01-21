@@ -69,7 +69,7 @@
         </div>
         <!-- Title -->
         <h3    
-            class="text-3xl font-bold text-center text-blue-700 opacity-0 transform scale-0"
+            class="text-3xl font-bold text-center text-black-700 opacity-0 transform scale-0"
             x-init="$nextTick(() => { $el.style.opacity = 1; $el.style.transform = 'scale(1)' })"
         >
             Login

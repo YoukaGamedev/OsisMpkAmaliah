@@ -84,7 +84,7 @@
         
         <!-- Centered logo in the header -->
         <a href="{{ ('/') }}" class="logo">
-            <img src="{{ asset('asset/img/logo.png') }}" alt="Logo" width="50"> <!-- Logo image -->
+            <img src="{{ asset('asset/img/logo osis.png') }}" alt="Logo" width="50"> <!-- Logo image -->
         </a>
 
         <!-- Admin text on the right -->
