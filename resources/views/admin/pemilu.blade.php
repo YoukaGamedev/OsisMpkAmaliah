@@ -14,25 +14,19 @@
         <h4>Pemilu</h4>
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-user-plus"></i>Tambah Data </a>
+            <a class="nav-link" href="{{ ('/admin/dashboard') }}"><i class="fas fa-user-plus"></i>Data Sekolah</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-users"></i>Jadwal GDS</a>
+            <a class="nav-link" href="{{ ('/admin/datakelas') }}"><i class="fas fa-users"></i>Data Kelas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-users"></i>Jadwal GDS</a>
+            <a class="nav-link" href="{{ ('/admin/datakandidat') }}"><i class="fas fa-users"></i>Data Kandidat</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-users"></i>Jadwal GDS</a>
+            <a class="nav-link" href="{{ ('/admin/datadpt') }}"><i class="fas fa-users"></i>Data DPT</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-users"></i>Jadwal GDS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-users"></i>Jadwal GDS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-users"></i>Jadwal GDS</a>
+            <a class="nav-link" href="{{ ('/admin/hasilpemilihan') }}"><i class="fas fa-users"></i>Hasil Pilih</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#"><i class="fas fa-users"></i>Jadwal GDS</a>
