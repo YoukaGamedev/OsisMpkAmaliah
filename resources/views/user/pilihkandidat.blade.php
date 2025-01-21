@@ -21,16 +21,20 @@
       padding-bottom: 70px;
     }
     .candidate-card {
+      width: 100%;
+      max-width: 400px; /* Maximum width of the card */
       border: 2px solid #ddd;
       border-radius: 15px;
       background-color: #fff;
-      margin-bottom: 30px;
-      padding: 25px;
+      margin-bottom: 20px;
+      padding: 15px;  /* Reduced padding to make the card shorter */
       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       display: flex;
       flex-direction: column;
       align-items: center;
+      margin-left: auto;
+      margin-right: auto;
     }
     .candidate-card:hover {
       transform: translateY(-8px);
@@ -39,6 +43,8 @@
     .candidate-card img {
       width: 100%;
       height: auto;
+      max-height: 200px; /* Limiting height of the image */
+      object-fit: cover;
       border-bottom: 2px solid #ddd;
       padding-bottom: 15px;
       border-radius: 10px;
@@ -46,29 +52,30 @@
     .candidate-card h5, .candidate-card p {
       text-align: center;
       color: #333;
+      font-size: 1.1rem; /* Reduced font size to save space */
     }
     .candidate-number {
-      font-size: 36px;
+      font-size: 28px;  /* Reduced size for candidate number */
       font-weight: bold;
       color: #007bff;
       text-align: center;
-      margin: 20px 0;
+      margin: 10px 0;  /* Reduced margin */
     }
     .card-title {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       font-weight: 700;
       color: #343a40;
       margin-bottom: 10px;
     }
     .card-subtitle {
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 500;
       color: #6c757d;
-      margin-bottom: 15px;
+      margin-bottom: 10px;  /* Reduced margin */
     }
     .btn-info {
-      font-size: 1.1rem;
-      padding: 8px 16px;
+      font-size: 1rem;  /* Reduced button font size */
+      padding: 6px 12px;
       border-radius: 5px;
       transition: background-color 0.3s ease;
     }
@@ -77,10 +84,10 @@
     }
     .vote-btn {
       width: 100%;
-      padding: 18px;
-      font-size: 1.3rem;
+      padding: 15px;  /* Reduced padding to make the button shorter */
+      font-size: 1.2rem;  /* Slightly smaller text */
       border-radius: 5px;
-      margin-top: 20px;
+      margin-top: 15px;  /* Reduced margin */
       background-color: #28a745;
       color: #fff;
       transition: background-color 0.3s ease;
@@ -89,18 +96,18 @@
       background-color: #218838;
     }
     .visi-misi {
-      max-height: 200px;
+      max-height: 150px;  /* Reduced max-height */
       overflow-y: auto;
-      padding: 15px;
+      padding: 10px;  /* Reduced padding */
       border-top: 2px solid #ddd;
-      margin-top: 20px;
+      margin-top: 10px;  /* Reduced margin */
       display: none;
       background-color: #f8f9fa;
       border-radius: 8px;
     }
     h3 {
-      color: #007bff;
-      font-size: 2.5rem;
+      color: rgb(0, 0, 0);
+      font-size: 2rem;  /* Reduced the size of the title */
       font-weight: 700;
       margin-bottom: 40px;
       text-align: center;
@@ -109,7 +116,7 @@
       display: flex;
       justify-content: space-around;
       gap: 20px;
-      flex-wrap: wrap; /* Ensures that items wrap when there is not enough space */
+      flex-wrap: wrap;
     }
     .col-md-4, .col-lg-3 {
       display: flex;
@@ -117,12 +124,9 @@
       align-items: center;
     }
     @media (max-width: 768px) {
-      .row {
-        flex-direction: column;
-        align-items: center;
-      }
-      .vote-btn {
-        width: 100%;
+      .candidate-card {
+        width: 80%;
+        max-width: 100%;
       }
     }
   </style>
@@ -134,7 +138,7 @@
     
     <div class="row">
       @foreach ($datakandidat as $kandidat)
-      <div class="col-md-4 col-lg-3 mb-4">
+      <div class="mb-4">
         <div class="candidate-card">
           <h5 class="card-title">PASLON {{ $kandidat->nomor_pasangan_calon }}</h5>
           <div class="candidate-number">{{ $kandidat->nomor_pasangan_calon }}</div>

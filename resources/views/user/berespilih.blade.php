@@ -17,15 +17,18 @@
       padding: 0;
     }
     .thank-you-card {
-      margin-top: 120px;
       padding: 30px;
       background-color: #ffffff;
       border-radius: 15px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 55%;
+      transform: translate(-50%, -50%); /* Centering the card */
     }
     .thank-you-card h4 {
-      color: #2ecc71;
+      color:rgb(0, 0, 0);
       font-weight: bold;
       margin-bottom: 15px;
       font-size: 2.2rem;
@@ -60,17 +63,16 @@
 </head>
 <body>
 
-  <div class="mt-5">
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <div class="thank-you-card">
-          <h4>TERIMA KASIH TELAH MELAKUKAN PEMILIHAN</h4>
-          <p>Data Anda berhasil masuk sistem. Silakan lakukan logout dengan menekan tombol <strong>KELUAR/LOGOUT</strong> di bawah!</p>
-          <a href="{{ ('/user/home') }}"><button class="btn logout-btn">KELUAR/LOGOUT</button></a>
-        </div>
-      </div>
+  <!-- Assuming you have a navbar, otherwise you can add one here -->
+
+
+  <div class="container-fluid" style="min-height: 100vh; display: flex; justify-content: center; align-items: center;">
+    <div class="thank-you-card">
+      <h4>TERIMA KASIH TELAH MELAKUKAN PEMILIHAN</h4>
+      <p>Data Anda berhasil masuk sistem. Silakan lakukan logout dengan menekan tombol <strong>KELUAR/LOGOUT</strong> di bawah!</p>
+      <a href="{{ ('/user/home') }}"><button class="btn logout-btn">KELUAR/LOGOUT</button></a>
     </div>
-  </div>  
+  </div>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
