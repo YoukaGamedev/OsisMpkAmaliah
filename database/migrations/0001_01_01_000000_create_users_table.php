@@ -15,8 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('nisn');
-            $table->string('jenis_kelamin');
-            $table->string('kelas');
             $table->rememberToken();
             $table->timestamps();
         });

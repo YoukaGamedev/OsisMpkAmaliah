@@ -15,11 +15,6 @@ use App\Http\Controllers\LembarGdsController;
 use App\Http\Controllers\RekapGdsController;
 use App\Http\Controllers\SiswaController;
 
-Route::middleware(['auth'])->group(function () {
-    // Route yang butuh autentikasi
-    Route::resource('/auth/register', RegisterController::class);
-    // Tambahkan route lainnya di sini
-});
 
 
 //Route::resource('/admin', AdminController::class);

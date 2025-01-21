@@ -17,17 +17,16 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
+      justify-content: center; /* Centers the content vertically */
       font-family: 'Arial', sans-serif;
     }
     .welcome-section {
       text-align: center;
-      margin-top: 70px;
-      padding: 30px;
+      padding: 40px;
       background-color: #fff;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      max-width: 800px;
+      max-width: 1000px;
       width: 100%;
     }
     .welcome-section h1 {
@@ -59,7 +58,6 @@
       width: 100%;
       padding: 15px;
       text-align: center;
-      margin-top: auto;
       position: fixed;
       bottom: 0;
     }
