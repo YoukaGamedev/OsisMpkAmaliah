@@ -9,6 +9,7 @@ use App\Models\LembarGds;
 
 class SiswaController extends Controller
 {
+    
     public function search(Request $request)
 {
     $query = $request->input('query');
@@ -32,6 +33,15 @@ public function scan(Request $request)
     return view('admin.gds.lembargds', compact('siswa'));
 }
 
+public function storeScan(Request $request)
+{
+    $data = json_decode($request->input('qr_data'), true);
+
+    // Proses data QR Code
+    return response()->json(['message' => 'Data diterima', 'data' => $data]);
+}
+
+
 
 public function checkAndStoreLembarGds($id)
 {
@@ -52,5 +62,32 @@ public function checkAndStoreLembarGds($id)
 
     return back()->with('info', 'Semua data siswa sudah lengkap.');
 }
+
+public function edit($id)
+{
+    $siswa = Siswa::findOrFail($id);
+    return view('admin.gds.siswa', compact('siswa'));
+}
+
+public function update(Request $request, $id)
+{
+    $siswa = Siswa::findOrFail($id);
+
+    // Update data siswa
+    $siswa->update($request->all());
+
+    // Cek apakah ada data "Tidak" di request (kecuali _token dan _method)
+    if (in_array('Tidak', $request->except('_token', '_method'))) {
+        return redirect("admin/gds/rekapgds/{$id}")
+                         ->with('warning', 'Beberapa data belum lengkap.');
+    }
+
+    // Redirect ke halaman rekapgds/{id} setelah berhasil di-update
+    return redirect("admin/gds/rekapgds/{$id}")
+       ->with('success', 'Data berhasil diperbarui.');
+
+}
+
+
 
 }

@@ -7,6 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Siswa extends Model
 {
-    protected $table = 'siswas';
-}
+    use HasFactory;
 
+    protected $table = 'siswas';
+
+    // Define fillable properties for mass assignment
+    protected $fillable = [
+        'nama',
+        'kelas',
+        'dasi_kacu',
+        'kaos_kaki',
+        'sabuk',
+        'nametag',
+        'sepatu',
+        'jas',
+        'ring',
+    ];
+}

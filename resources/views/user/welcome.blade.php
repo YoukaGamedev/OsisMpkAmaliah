@@ -5,7 +5,7 @@
         /* General Style */
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f9fafb;
+            background-color: #ffffff;
             color: #333;
             margin: 0;
             padding: 0;
@@ -32,14 +32,19 @@
             padding: 20px;
         }
 
+        .container a {
+            text-decoration: none;
+        }
+
         /* Box Styles */
         .box {
-            background-color: #ffffff;
+            background-color:  #f4f4f4;
             padding: 30px;
             text-align: center;
             border-radius: 15px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            position: relative;
         }
 
         .box h3 {
@@ -47,11 +52,25 @@
             margin: 0;
             color: #fffdfd;
             font-weight: bold;
+            text-decoration: none;
+            z-index: 2;
         }
 
         .box:hover {
             transform: translateY(-7px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .box svg {
+            width: 80px;
+            height: 80px;
+            fill: rgba(255, 255, 255, 0.8);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            opacity: 0.3;
         }
 
         /* Box Highlight Colors */
@@ -109,20 +128,29 @@
     <div class="container">
         <a href="{{ url('/user/home') }}" class="box-container">
             <div class="box highlight pink">
-                <h3>Pemilu Ketuaa OSIS</h3>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M19 3h-2.25a1 1 0 0 0-1-1h-7.5a1 1 0 0 0-1 1H5c-1.103 0-2 .897-2 2v15c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2zm0 17H5V5h2v2h10V5h2v15z"></path>
+                </svg>
+                <h3>Pemilu Ketua OSIS</h3>
             </div>
         </a>
 
         <a href="{{ url('/admin/gds/indexgds') }}" class="box-container">
             <div class="box highlight blue">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M20 3H4c-1.103 0-2 .897-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V5c0-1.103-.897-2-2-2zm-1 9h-3.142c-.446 1.722-1.997 3-3.858 3s-3.412-1.278-3.858-3H4V5h16v7h-1z"></path>
+                </svg>
                 <h3>Gerakan Disiplin Siswa</h3>
             </div>
         </a>
 
         <a href="#" class="box-container">
             <div class="box highlight grey">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M10 4v4H3v10c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V8h-7V4h-4zm2 12h-2v-2h2v2zm0-4h-2v-2h2v2z"></path>
+                </svg>
                 <h3>Coming Soon</h3>
             </div>
         </a>
-
+    </div>
 @endsection
