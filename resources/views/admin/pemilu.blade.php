@@ -8,36 +8,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('/asset/css/pemilu.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 <body>
     <div class="sidebar">
         <h4>Pemilu</h4>
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link" href="{{ ('/admin/dashboard') }}"><i class="fas fa-user-plus"></i>Data Sekolah</a>
+            <a class="nav-link" href="{{ ('/admin/dashboard') }}">
+                <i class="bi bi-house-door-fill"></i> Data Sekolah
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ ('/admin/datakelas') }}"><i class="fas fa-users"></i>Data Kelas</a>
+            <a class="nav-link" href="{{ ('/admin/datakelas') }}">
+                <i class="bi bi-person-lines-fill"></i> Data Kelas
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ ('/admin/datakandidat') }}"><i class="fas fa-users"></i>Data Kandidat</a>
+            <a class="nav-link" href="{{ ('/admin/datakandidat') }}">
+                <i class="bi bi-person-circle"></i> Data Kandidat
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ ('/admin/datadpt') }}"><i class="fas fa-users"></i>Data DPT</a>
+            <a class="nav-link" href="{{ ('/admin/datadpt') }}">
+                <i class="bi bi-file-earmark-text"></i> Data DPT
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ ('/admin/hasilpemilihan') }}"><i class="fas fa-users"></i>Hasil Pilih</a>
+            <a class="nav-link" href="{{ ('/admin/hasilpemilihan') }}">
+                <i class="bi bi-graph-up-arrow"></i> Hasil Pilih
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-users"></i>Jadwal GDS</a>
+            <a class="nav-link" href="#">
+                <i class="bi bi-calendar-event"></i> Jadwal GDS
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fas fa-users"></i>Jadwal GDS</a>
+            <a class="nav-link" href="#">
+                <i class="bi bi-calendar-check"></i> Jadwal GDS
+            </a>
           </li>
         </ul>
-      </div>
+    </div>
     <div class="content1">
-    @yield('content1')
+        @yield('content1')
     </div>
 </body>
 </html>

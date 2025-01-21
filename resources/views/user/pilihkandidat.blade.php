@@ -12,65 +12,143 @@
   <style>
     body {
       background-color: #f4f4f4;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      padding-top: 50px;
+      padding-bottom: 70px;
     }
     .candidate-card {
       border: 2px solid #ddd;
-      border-radius: 10px;
-      padding: 10px;
+      border-radius: 15px;
       background-color: #fff;
-      margin: 10px 0;
+      margin-bottom: 30px;
+      padding: 25px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .candidate-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
     }
     .candidate-card img {
       width: 100%;
       height: auto;
       border-bottom: 2px solid #ddd;
-      padding-bottom: 10px;
+      padding-bottom: 15px;
+      border-radius: 10px;
     }
-    .candidate-card h4, .candidate-card h5, .candidate-card p {
+    .candidate-card h5, .candidate-card p {
       text-align: center;
+      color: #333;
     }
     .candidate-number {
-      font-size: 24px;
+      font-size: 36px;
       font-weight: bold;
+      color: #007bff;
       text-align: center;
-      margin: 10px 0;
+      margin: 20px 0;
+    }
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #343a40;
+      margin-bottom: 10px;
+    }
+    .card-subtitle {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #6c757d;
+      margin-bottom: 15px;
+    }
+    .btn-info {
+      font-size: 1.1rem;
+      padding: 8px 16px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    .btn-info:hover {
+      background-color: #0056b3;
     }
     .vote-btn {
       width: 100%;
-      margin-top: 10px;
+      padding: 18px;
+      font-size: 1.3rem;
+      border-radius: 5px;
+      margin-top: 20px;
+      background-color: #28a745;
+      color: #fff;
+      transition: background-color 0.3s ease;
+    }
+    .vote-btn:hover {
+      background-color: #218838;
     }
     .visi-misi {
-      max-height: 150px;
+      max-height: 200px;
       overflow-y: auto;
-      padding: 10px;
-      border-top: 1px solid #ddd;
-      margin-top: 10px;
+      padding: 15px;
+      border-top: 2px solid #ddd;
+      margin-top: 20px;
       display: none;
+      background-color: #f8f9fa;
+      border-radius: 8px;
+    }
+    h3 {
+      color: #007bff;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    .row {
+      display: flex;
+      justify-content: space-around;
+      gap: 20px;
+      flex-wrap: wrap; /* Ensures that items wrap when there is not enough space */
+    }
+    .col-md-4, .col-lg-3 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    @media (max-width: 768px) {
+      .row {
+        flex-direction: column;
+        align-items: center;
+      }
+      .vote-btn {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="mt-3">
-    <h3 class="text-center mb-4">DAFTAR CALON KANDIDAT KETUA & WAKIL OSIS</h3>
+  <div class="container">
+    <h3 class="text-center mb-5">DAFTAR CALON KANDIDAT KETUA & WAKIL OSIS</h3>
     
     <div class="row">
       @foreach ($datakandidat as $kandidat)
-      <div class="col-md-5">
+      <div class="col-md-4 col-lg-3 mb-4">
         <div class="candidate-card">
-          <h5>PASLON {{ $kandidat->nomor_pasangan_calon }}</h5>
+          <h5 class="card-title">PASLON {{ $kandidat->nomor_pasangan_calon }}</h5>
           <div class="candidate-number">{{ $kandidat->nomor_pasangan_calon }}</div>
           @if($kandidat->foto)
           <img src="{{ asset('storage/' . $kandidat->foto) }}" alt="Paslon {{ $kandidat->nomor_pasangan_calon }}">
+          @else
+          <img src="https://via.placeholder.com/350x200" alt="Paslon {{ $kandidat->nomor_pasangan_calon }}">
           @endif
-          <div class="row mt-3">
-            <div class="col-12 text-center">
-              <h5>Calon Ketua & Wakil Osis</h5>
-              <p>{{ $kandidat->nama_pasangan_calon }}</p>
-            </div>
+          <div class="mt-3">
+            <h5 class="card-title">Calon Ketua & Wakil Osis</h5>
+            <p>{{ $kandidat->nama_pasangan_calon }}</p>
           </div>
           <div class="text-center">
-            <button class="btn btn-info mt-2" onclick="toggleVisiMisi(this)">Tampilkan Visi Misi</button>
+            <button class="btn btn-info" onclick="toggleVisiMisi(this)">Tampilkan Visi Misi</button>
           </div>
           <div class="visi-misi">
             <p>{{ $kandidat->visi_misi }}</p>
@@ -78,7 +156,7 @@
 
           <!-- Voting Form -->
           <form action="{{ url('/user/berespilih') }}">
-            <button type="submit" class="btn btn-success vote-btn">Pilih Pasangan No {{ $kandidat->nomor_pasangan_calon }}</button>
+            <button type="submit" class="btn vote-btn">Pilih Pasangan No {{ $kandidat->nomor_pasangan_calon }}</button>
           </form>
         </div>
       </div>

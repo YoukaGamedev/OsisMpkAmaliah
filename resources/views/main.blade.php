@@ -156,35 +156,37 @@
         }
 
         .nav-item {
-            margin-bottom: 10px;
+            margin-bottom: 5px; /* Further reduced margin between items */
         }
 
         .nav-link {
             display: flex;
             align-items: center;
-            padding: 10px;
+            padding: 6px 8px; /* Further reduced padding for even tighter spacing */
             border-radius: 5px;
             transition: background-color 0.3s ease, transform 0.3s ease;
-            color: white;
+            color: black; /* Set text color to black */
             font-size: 1rem;
+            font-family: 'Arial', sans-serif; /* Clean, modern font */
         }
 
         .nav-link:hover {
-            background-color: #0056b3;
+            background-color: #e6e6e6; /* Lighter background on hover */
             transform: scale(1.05);
             text-decoration: none;
         }
 
         .nav-link .icon {
-            margin-right: 10px;
-            font-size: 1.75rem; /* Increased size */
-            font-weight: bold; /* Make icons bold */
+            margin-right: 6px; /* Further reduced space between icon and text */
+            font-size: 1.2rem; /* Reduced icon size */
+            font-weight: bold; /* Bold the icons */
+            color: black; /* Icon color set to black */
             transition: transform 0.3s ease, color 0.3s ease;
         }
 
         .nav-link:hover .icon {
             transform: scale(1.2);
-            color: #cceeff;
+            color: #007bff; /* Change icon color to blue on hover */
         }
 
         .nav-link .link-text {
@@ -193,7 +195,7 @@
         }
 
         .nav-link:hover .link-text {
-            color: #e0f7ff;
+            color: #007bff; /* Change text color on hover */
         }
     </style>
 </head>
@@ -215,19 +217,19 @@
             <ul class="nav flex-column">
               <li class="nav-item">
                 <a class="nav-link" href="#">
-                    <i class="bi bi-box-arrow-left icon"></i> <!-- Updated icon -->
+                    <i class="bi bi-box-arrow-left icon"></i> <!-- Smaller icon with reduced margin -->
                     <span class="link-text">Log Out</span>
                 </a> 
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">
-                    <i class="bi bi-box-arrow-in-right icon"></i> <!-- Updated icon -->
+                    <i class="bi bi-box-arrow-in-right icon"></i> <!-- Smaller icon with reduced margin -->
                     <span class="link-text">Sign In</span>
                 </a> 
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">
-                    <i class="bi bi-bell-fill icon"></i> <!-- Updated icon (filled bell) -->
+                    <i class="bi bi-bell-fill icon"></i> <!-- Smaller icon with reduced margin -->
                     <span class="link-text">Notifications</span>
                 </a> 
               </li>

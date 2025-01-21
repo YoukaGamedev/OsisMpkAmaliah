@@ -11,51 +11,63 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    .body {
+    body {
       background-color: #f8f9fa;
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-    }
-    .navbar {
-      width: 100%;
-      background-color: #007bff;
-      padding: 1rem;
-    }
-    .navbar-brand, .navbar-nav .nav-link {
-      color: #fff !important;
+      justify-content: flex-start;
+      font-family: 'Arial', sans-serif;
     }
     .welcome-section {
       text-align: center;
-      margin-top: 50px;
+      margin-top: 70px;
+      padding: 30px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 800px;
+      width: 100%;
     }
     .welcome-section h1 {
       font-size: 2.5rem;
       font-weight: bold;
       color: #343a40;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
     .welcome-section h4 {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       color: #007bff;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
     .welcome-section p {
       font-size: 1.2rem;
       color: #6c757d;
+      line-height: 1.6;
+      margin-bottom: 30px;
     }
     .btn-custom {
-      padding: 10px 30px;
-      font-size: 1.1rem;
+      padding: 12px 30px;
+      font-size: 1.2rem;
+      border-radius: 5px;
+      margin-top: 15px;
+    }
+    .footer {
+      background-color: #007bff;
+      color: white;
+      width: 100%;
+      padding: 15px;
+      text-align: center;
+      margin-top: auto;
+      position: fixed;
+      bottom: 0;
     }
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
-    <div class="container">
-        <!-- Welcome Section -->
+  <!-- Welcome Section -->
   <div class="welcome-section">
     @foreach ($dashboard as $dash)
       @csrf 
@@ -65,9 +77,11 @@
     @endforeach
     <a href="{{ url('/user/pilihkandidat') }}" class="btn btn-primary btn-custom">Pilih Kandidat</a>
   </div>
-    </div>
 
-
+  <!-- Footer -->
+  <div class="footer">
+    <p>&copy; 2025 Pemilu. All Rights Reserved.</p>
+  </div>
 
   <!-- Bootstrap JS (Optional) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
