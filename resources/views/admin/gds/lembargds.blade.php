@@ -117,21 +117,24 @@
                     </tr>
                 </thead>
                 <tbody>
-                        @foreach($siswa as $data)
-                        <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ $data->nama }}</td>
-                            <td>{{ $data->kelas }}</td>
-                            <td>{{ $data->dasi_kacu ? 'Ya' : 'Tidak' }}</td>
-                            <td>{{ $data->kaos_kaki ? 'Ya' : 'Tidak' }}</td>
-                            <td>{{ $data->sabuk ? 'Ya' : 'Tidak' }}</td>
-                            <td>{{ $data->nametag ? 'Ya' : 'Tidak' }}</td>
-                            <td>{{ $data->sepatu ? 'Ya' : 'Tidak' }}</td>
-                            <td>{{ $data->jas ? 'Ya' : 'Tidak' }}</td>
-                            <td>{{ $data->ring ? 'Ya' : 'Tidak' }}</td>
-                            <td>{{ \Carbon\Carbon::parse($data->updated_at)->format('d-m-Y H:i') }}</td>
-                        </tr>
-                        @endforeach
+                    @foreach($siswa as $data)
+                        <!-- Only show edited data with "Tidak" in any of the fields -->
+                        @if($data->dasi_kacu == false || $data->kaos_kaki == false || $data->sabuk == false || $data->nametag == false || $data->sepatu == false || $data->jas == false || $data->ring == false)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $data->nama }}</td>
+                                <td>{{ $data->kelas }}</td>
+                                <td>{{ $data->dasi_kacu ? 'Ya' : 'Tidak' }}</td>
+                                <td>{{ $data->kaos_kaki ? 'Ya' : 'Tidak' }}</td>
+                                <td>{{ $data->sabuk ? 'Ya' : 'Tidak' }}</td>
+                                <td>{{ $data->nametag ? 'Ya' : 'Tidak' }}</td>
+                                <td>{{ $data->sepatu ? 'Ya' : 'Tidak' }}</td>
+                                <td>{{ $data->jas ? 'Ya' : 'Tidak' }}</td>
+                                <td>{{ $data->ring ? 'Ya' : 'Tidak' }}</td>
+                                <td>{{ \Carbon\Carbon::parse($data->updated_at)->format('d-m-Y H:i') }}</td>
+                            </tr>
+                        @endif
+                    @endforeach
                 </tbody>
             </table>
         </div>
