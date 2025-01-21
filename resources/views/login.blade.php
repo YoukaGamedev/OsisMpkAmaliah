@@ -31,11 +31,11 @@
         }
 
         .btn-gradient {
-            background: linear-gradient(90deg, #4299e1, #667eea);
+            background: linear-gradient(90deg,rgb(83, 82, 82),rgb(83, 82, 82));
         }
 
         .btn-gradient:hover {
-            background: linear-gradient(90deg, #3182ce, #5a67d8);
+            background: linear-gradient(90deg,rgb(43, 43, 44),rgb(43, 43, 44));
         }
 
         .icon-animation {
@@ -60,11 +60,10 @@
         x-data="{ hoverEffect: false }">
         <!-- Logo -->
         <div class="flex justify-center mb-6">
-            <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-blue-500 shadow-md transition-transform transform hover:scale-105">
+            <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-gray-550 shadow-md transition-transform transform hover:scale-105">
                 <img 
-                    src="{{ asset('asset/img/logo.png') }}" 
+                    src="{{ asset('asset/img/logo osis.png') }}" 
                     alt="Logo" 
-                    class="w-full h-full object-cover"
                 >
             </div>
         </div>
@@ -80,7 +79,7 @@
             <!-- Username -->
             <div>
                 <div class="relative">
-                    <span class="absolute inset-y-0 left-4 flex items-center text-blue-400 icon-animation">
+                    <span class="absolute inset-y-0 left-4 flex items-center text-black-400 icon-animation">
                         <i class="fas fa-user"></i>
                     </span>
                     <input 
@@ -93,7 +92,7 @@
             <!-- Password -->
             <div>
                 <div class="relative">
-                    <span class="absolute inset-y-0 left-4 flex items-center text-blue-400 icon-animation">
+                    <span class="absolute inset-y-0 left-4 flex items-center text-black-400 icon-animation">
                         <i class="fas fa-lock"></i>
                     </span>
                     <input 
@@ -123,7 +122,7 @@
         </form>
         <!-- Footer -->
         <div class="text-center mt-6 text-sm text-gray-600">
-            Belum punya akun? <a href="{{ url('/register') }}" class="text-blue-500 hover:underline">Daftar di sini</a>.
+            Belum punya akun? <a href="{{ url('/register') }}" class="text-black-500 font-bold hover:underline">Daftar di sini</a>.
         </div>
     </div>
 </div>
