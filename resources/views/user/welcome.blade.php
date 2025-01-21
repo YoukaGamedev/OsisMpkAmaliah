@@ -147,7 +147,7 @@
         <a href="#" class="box-container">
             <div class="box highlight grey">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M10 4v4H3v10c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V8h-7V4h-4zm2 12h-2v-2h2v2zm0-4h-2v-2h2v2z"></path>
+                    <path d="M10 4v4H3v10c0 1.103.s897 2 2 2h14c1.103 0 2-.897 2-2V8h-7V4h-4zm2 12h-2v-2h2v2zm0-4h-2v-2h2v2z"></path>
                 </svg>
                 <h3>Coming Soon</h3>
             </div>

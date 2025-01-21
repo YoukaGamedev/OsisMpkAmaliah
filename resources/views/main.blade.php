@@ -6,8 +6,8 @@
     <title>Dashboard Layout</title>
     <link rel="stylesheet" href="{{ asset('/asset/css/styles.css') }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"> <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <style>
         html, body {
             height: 100%;
@@ -25,17 +25,15 @@
             color: white;
         }
 
-        /* Hover effect for logo */
         .logo {
             transition: transform 0.3s ease;
             text-decoration: none;
         }
 
         .logo:hover {
-            transform: scale(1.1); /* Enlarge the logo slightly when hovered */
+            transform: scale(1.1);
         }
 
-        /* Header and Back Button Styling */
         .header {
             display: flex;
             align-items: center;
@@ -46,23 +44,21 @@
             position: relative;
         }
 
-        /* Back button on the far left with bluish-white color */
         .back-button {
-            color: #e0f7ff; /* Light blue */
+            color: #e0f7ff;
             font-size: 1.5rem;
             transition: color 0.3s ease, transform 0.3s ease;
             position: absolute;
-            left: 20px; /* Pushed to the far left */
+            left: 20px;
             background-color: transparent;
             border: none;
         }
 
         .back-button:hover {
             color: #cceeff;
-            transform: scale(1.1); /* Enlarges on hover */
+            transform: scale(1.1);
         }
 
-        /* Admin Position */
         .admin {
             position: absolute;
             right: 20px;
@@ -70,7 +66,6 @@
             font-weight: bold;
         }
 
-        /* Content styling */
         .main-container {
             display: flex;
             gap: 20px;
@@ -79,10 +74,9 @@
         }
 
         .content {
-            margin-top: -80px; /* Reduce gap between navbar and content */
+            margin-top: -80px;
         }
 
-        /* Footer Styling */
         .footer {
             background-color: #007bff;
             color: white;
@@ -116,36 +110,126 @@
         .footer small {
             font-size: 0.75rem;
         }
+
+        .box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            position: relative;
+            color: white;
+            font-weight: bold;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .highlight {
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+        }
+
+        .highlight.pink {
+            background: linear-gradient(45deg, #f093fb, #f5576c);
+        }
+
+        .highlight.blue {
+            background: linear-gradient(45deg, #5ee7df, #b490ca);
+        }
+
+        .welcome-message {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .sidebar {
+            background-color: white;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .nav-item {
+            margin-bottom: 10px;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .nav-link:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+            text-decoration: none;
+        }
+
+        .nav-link .icon {
+            margin-right: 10px;
+            font-size: 1.75rem; /* Increased size */
+            font-weight: bold; /* Make icons bold */
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-link:hover .icon {
+            transform: scale(1.2);
+            color: #cceeff;
+        }
+
+        .nav-link .link-text {
+            flex: 1;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover .link-text {
+            color: #e0f7ff;
+        }
     </style>
 </head>
 <body>
     <div class="header">
-        <!-- Back button positioned on the far left with bluish-white color -->
         <button class="back-button" onclick="window.history.back()" aria-label="Back">
             <i class="fas fa-arrow-left"></i>
         </button>
-        
-        <!-- Centered logo in the header -->
+
         <a href="{{ ('/') }}" class="logo">
-            <img src="{{ asset('asset/img/logo.png') }}" alt="Logo" width="50"> <!-- Logo image -->
+            <img src="{{ asset('asset/img/logo osis.png') }}" alt="Logo" width="50">
         </a>
 
-        <!-- Admin text on the right -->
         <div class="admin">Admin</div>
-        
     </div>
-    
+
     <div class="main-container">
         <div class="sidebar">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link" href="#"><i class="bi bi-box-arrow-left"></i> Log Out</a> 
+                <a class="nav-link" href="#">
+                    <i class="bi bi-box-arrow-left icon"></i> <!-- Updated icon -->
+                    <span class="link-text">Log Out</span>
+                </a> 
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#"><i class="bi bi-box-arrow-in-right"></i> Sign In</a> 
+                <a class="nav-link" href="#">
+                    <i class="bi bi-box-arrow-in-right icon"></i> <!-- Updated icon -->
+                    <span class="link-text">Sign In</span>
+                </a> 
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#"><i class="bi bi-bell"></i> Notifications</a> 
+                <a class="nav-link" href="#">
+                    <i class="bi bi-bell-fill icon"></i> <!-- Updated icon (filled bell) -->
+                    <span class="link-text">Notifications</span>
+                </a> 
               </li>
             </ul>
         </div>
@@ -153,7 +237,7 @@
             @yield('content')
         </div>
     </div>
-    
+
     <div class="footer">
         <p>&copy; 2025 Osislembar | All Rights Reserved</p>
         <div class="social-icons">
