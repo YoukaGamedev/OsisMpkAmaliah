@@ -38,7 +38,10 @@
                             </div>
                             <div class="form-group">
                                 <label for="foto">Foto</label>
-                                <input name="foto" type="file" class="form-control-file" id="foto">
+                                <div class="custom-file">
+                                    <input name="foto" type="file" class="custom-file-input" id="foto" onchange="updateFileName()">
+                                    <label class="custom-file-label" for="foto">Pilih file...</label>
+                                </div>
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
@@ -75,15 +78,16 @@
                                     @if($kandidat->foto)
                                     <td><img src="{{ asset('storage/' . $kandidat->foto) }}" alt="" width="50"></td>
                                     @endif
-                                    <td class="text-end"><form action="{{ url('admin/datakandidat/'.$kandidat->id) }}" method="POST" class="d-inline"
-                            onsubmit="return confirm('Apakah data akan di hapus?')">
-                            @csrf 
-                            @method('DELETE')
-                            <button class="btn btn-danger" type="submit">Hapus</button>
-                            </form></td>
+                                    <td class="text-end">
+                                        <form action="{{ url('admin/datakandidat/'.$kandidat->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Apakah data akan di hapus?')">
+                                            @csrf 
+                                            @method('DELETE')
+                                            <button class="btn btn-danger" type="submit">Hapus</button>
+                                        </form>
+                                    </td>
                                 </tr>
-                            </tbody>
                             @endforeach
+                            </tbody> 
                         </table>
                     </div>
                 </div>
@@ -91,9 +95,17 @@
         </div>
     </div>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function updateFileName() {
+            var input = document.getElementById('foto');
+            var label = input.nextElementSibling;
+            label.innerText = input.files[0] ? input.files[0].name : 'Pilih file...';
+        }
+    </script>
 </body>
 </html>
 
 @endsection
+
