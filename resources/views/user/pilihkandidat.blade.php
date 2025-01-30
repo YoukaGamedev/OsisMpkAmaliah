@@ -22,12 +22,12 @@
     }
     .candidate-card {
       width: 100%;
-      max-width: 400px; /* Maximum width of the card */
+      max-width: 450px; /* Increased card width */
       border: 2px solid #ddd;
       border-radius: 15px;
       background-color: #fff;
       margin-bottom: 20px;
-      padding: 15px;  /* Reduced padding to make the card shorter */
+      padding: 20px;  /* Increased padding for better content spacing */
       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       display: flex;
@@ -43,7 +43,7 @@
     .candidate-card img {
       width: 100%;
       height: auto;
-      max-height: 200px; /* Limiting height of the image */
+      max-height: 250px; /* Increased image height */
       object-fit: cover;
       border-bottom: 2px solid #ddd;
       padding-bottom: 15px;
@@ -52,30 +52,30 @@
     .candidate-card h5, .candidate-card p {
       text-align: center;
       color: #333;
-      font-size: 1.1rem; /* Reduced font size to save space */
+      font-size: 1.1rem; /* Kept font size */
     }
     .candidate-number {
-      font-size: 28px;  /* Reduced size for candidate number */
+      font-size: 32px;  /* Increased size for candidate number */
       font-weight: bold;
       color: #007bff;
       text-align: center;
-      margin: 10px 0;  /* Reduced margin */
+      margin: 15px 0;  /* Increased margin */
     }
     .card-title {
-      font-size: 1.3rem;
+      font-size: 1.5rem;  /* Increased title font size */
       font-weight: 700;
       color: #343a40;
       margin-bottom: 10px;
     }
     .card-subtitle {
-      font-size: 1rem;
+      font-size: 1.1rem; /* Increased font size for subtitle */
       font-weight: 500;
       color: #6c757d;
-      margin-bottom: 10px;  /* Reduced margin */
+      margin-bottom: 10px;
     }
     .btn-info {
-      font-size: 1rem;  /* Reduced button font size */
-      padding: 6px 12px;
+      font-size: 1.1rem;  /* Slightly bigger button text */
+      padding: 8px 16px;  /* Slightly bigger padding */
       border-radius: 5px;
       transition: background-color 0.3s ease;
     }
@@ -84,10 +84,10 @@
     }
     .vote-btn {
       width: 100%;
-      padding: 15px;  /* Reduced padding to make the button shorter */
-      font-size: 1.2rem;  /* Slightly smaller text */
+      padding: 18px;  /* Increased padding */
+      font-size: 1.4rem;  /* Bigger button text */
       border-radius: 5px;
-      margin-top: 15px;  /* Reduced margin */
+      margin-top: 20px;  /* Increased margin */
       background-color: #28a745;
       color: #fff;
       transition: background-color 0.3s ease;
@@ -107,14 +107,14 @@
     }
     h3 {
       color: rgb(0, 0, 0);
-      font-size: 2rem;  /* Reduced the size of the title */
+      font-size: 2.5rem;  /* Increased title size */
       font-weight: 700;
       margin-bottom: 40px;
       text-align: center;
     }
     .row {
       display: flex;
-      justify-content: space-around;
+      justify-content: center;  /* Centered cards */
       gap: 20px;
       flex-wrap: wrap;
     }

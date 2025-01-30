@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\DataDpt;
 use App\Models\User;
 
 use DB;
@@ -30,17 +31,23 @@ class DataDptController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        // Simpan data ke dalam database
-        DB::table('users')->insert([
-            'nisn' => $request->nisn,
-            'nama' => $request->nama,
-            'jenis_kelamin' => $request->jenis_kelamin,
-            'kelas' => $request->kelas,
-        ]);
+{
+    // Validate the incoming request data
+    $validatedData = $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|email|unique:users,email|max:255',
+        'password' => 'required|string|min:8|confirmed', // You might want a 'confirmed' rule for password confirmation
+    ]);
+
+    // Hash the password before storing
+    $validatedData['password'] = bcrypt($validatedData['password']);
+
+    // Create the user using mass assignment
+    User::create($validatedData);
     
-        return redirect('/admin/datadpt')->with('status', 'Data berhasil ditambahkan');
-    }
+    return redirect('/admin/datadpt')->with('status', 'Data berhasil ditambahkan');
+}
+
 
     /**
      * Display the specified resource.
@@ -70,10 +77,15 @@ class DataDptController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
-    {
-        $datadpt = DataDpt::findOrFail($id);
-        $datadpt->delete();
+{
+    // Find the data by its ID, if it doesn't exist, it will throw a ModelNotFoundException
+    $users = User::findOrFail($id);
 
-        return redirect('/admin/datadpt')-> with('status', 'Data berhasil di hapus');
-    }
+    // Delete the found record
+    $users->delete();
+
+    // Redirect back with a success message
+    return redirect('/admin/datadpt')->with('status', 'Data berhasil dihapus');
+}
+
 }

@@ -21,6 +21,7 @@ use App\Http\Controllers\SiswaController;
 Route::resource('/admin/datakelas', DataKelasController::class);
 Route::resource('/admin/datakandidat', DataKandidatController::class);
 Route::resource('/admin/datadpt', DataDptController::class);
+
 Route::resource('/admin/dashboard', DashboardController::class);
 
 Route::resource('/user/home', HomerController::class);

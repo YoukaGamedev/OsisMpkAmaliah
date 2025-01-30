@@ -85,6 +85,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
+            width: 100%;
         }
 
         .footer .social-icons {
@@ -153,40 +155,41 @@
             color: white;
             padding: 20px;
             border-radius: 10px;
+            z-index: 1; /* Keep sidebar above footer */
         }
 
         .nav-item {
-            margin-bottom: 5px; /* Further reduced margin between items */
+            margin-bottom: 5px;
         }
 
         .nav-link {
             display: flex;
             align-items: center;
-            padding: 6px 8px; /* Further reduced padding for even tighter spacing */
+            padding: 6px 8px;
             border-radius: 5px;
             transition: background-color 0.3s ease, transform 0.3s ease;
-            color: black; /* Set text color to black */
+            color: black;
             font-size: 1rem;
-            font-family: 'Arial', sans-serif; /* Clean, modern font */
+            font-family: 'Arial', sans-serif;
         }
 
         .nav-link:hover {
-            background-color: #e6e6e6; /* Lighter background on hover */
+            background-color: #e6e6e6;
             transform: scale(1.05);
             text-decoration: none;
         }
 
         .nav-link .icon {
-            margin-right: 6px; /* Further reduced space between icon and text */
-            font-size: 1.2rem; /* Reduced icon size */
-            font-weight: bold; /* Bold the icons */
-            color: black; /* Icon color set to black */
+            margin-right: 6px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: black;
             transition: transform 0.3s ease, color 0.3s ease;
         }
 
         .nav-link:hover .icon {
             transform: scale(1.2);
-            color: #007bff; /* Change icon color to blue on hover */
+            color: #007bff;
         }
 
         .nav-link .link-text {
@@ -195,7 +198,7 @@
         }
 
         .nav-link:hover .link-text {
-            color: #007bff; /* Change text color on hover */
+            color: #007bff;
         }
     </style>
 </head>
@@ -217,19 +220,19 @@
             <ul class="nav flex-column">
               <li class="nav-item">
                 <a class="nav-link" href="#">
-                    <i class="bi bi-box-arrow-left icon"></i> <!-- Smaller icon with reduced margin -->
+                    <i class="bi bi-box-arrow-left icon"></i>
                     <span class="link-text">Log Out</span>
                 </a> 
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">
-                    <i class="bi bi-box-arrow-in-right icon"></i> <!-- Smaller icon with reduced margin -->
+                    <i class="bi bi-box-arrow-in-right icon"></i>
                     <span class="link-text">Sign In</span>
                 </a> 
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">
-                    <i class="bi bi-bell-fill icon"></i> <!-- Smaller icon with reduced margin -->
+                    <i class="bi bi-bell-fill icon"></i>
                     <span class="link-text">Notifications</span>
                 </a> 
               </li>
@@ -248,7 +251,7 @@
             <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-linkedin-in"></i></a>
         </div>
-        <small>Designed with <i class="fas fa-heart text-danger"></i> by Osislembar Team</small>
+        <small>Designed with <i class="fas fa-heart text-danger"></i> by OsisMpk Team</small>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

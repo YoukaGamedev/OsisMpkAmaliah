@@ -38,23 +38,26 @@
         <div class="card mb-4">
           <div class="card-body">
           <h3 class="text-center">DATA DPT</h3>
-            <h5 class="card-title">Cari Data DPT</h5>
             <div class="input-group">
               <input type="text" class="form-control" placeholder="Cari Data DPT">
               <div class="input-group-append">
                 <button class="btn btn-primary" type="button">Cari Data</button>
-                <button class="btn btn-secondary" type="button">Semua Data</button>
               </div>
             </div>
+            @if(session('status'))
+<div class="alert alert-success">
+    {{ session('status') }}
+</div>
+@endif
             <!-- Data Table -->
         <table class="table table-striped">
           <thead>
             <tr>
               <th>No</th>
-              <th>NISN</th>
-              <th>Nama Siswa</th>
-              <th>L/P</th>
-              <th>Kelas</th>
+              <th>Nama</th>
+              <th>Email</th>
+              <th>Password</th>
+              <th>Konfirmasi Password</th>
               <th>Aksi</th>
             </tr>
           </thead>
@@ -63,17 +66,18 @@
           @csrf 
             <tr>
               <td>{{$loop -> iteration}}</td>
-              <td>{{ $dpt->nisn }}</td>
-              <td>{{ $dpt->nama }}</td>
-              <td>{{ $dpt->jenis_kelamin }}</td>
-              <td>{{ $dpt->kelas }}</td>
+              <td>{{ $dpt->name }}</td>
+              <td>{{ $dpt->email }}</td>
+              <td>{{ $dpt->password }}</td>
+              <td>{{ $dpt->password }}</td>
               <td>
-              <form action="{{ url('admin/datadpt/'.$dpt->id) }}" method="POST" class="d-inline"
-                            onsubmit="return confirm('Apakah data akan di hapus?')">
-                            @csrf 
-                            @method('DELETE')
-                            <button class="btn btn-danger" type="submit">Hapus</button>
-                            </form>
+              <form action="{{ route('datadpt.destroy', $dpt->id) }}" method="POST" class="d-inline" 
+      onsubmit="return confirm('Apakah data akan dihapus?')">
+    @csrf
+    @method('DELETE')
+    <button class="btn btn-danger" type="submit">Hapus</button>
+</form>
+
               </td>
             </tr>
           </tbody>
@@ -89,26 +93,34 @@
         <div class="card">
           <div class="card-body">
             <h5 class="mb-4">TAMBAH DPT</h5>
-            <form action="{{ ('/admin/datadpt') }}" method="POST" enctype="multipart/form-data">
-            @csrf
-              <div class="form-group">
-                <label for="nisn">NISN</label>
-                <input name="nisn" type="text" class="form-control" id="nisn" placeholder="NISN">
-              </div>
-              <div class="form-group">
-                <label for="nomorPasangan">Nama Siswa</label>
-                <input name="nama" type="text" class="form-control" id="nomorPasangan" placeholder="Nama Siswa">
-              </div>
-              <div class="form-group">
-                <label for="namaPasangan">Jenis Kelamin</label>
-                <input name="jenis_kelamin" type="text" class="form-control" id="namaPasangan" placeholder="Jenis Kelamin">
-              </div>
-              <div class="form-group">
-                <label for="namaPasangan">Kelas</label>
-                <input name="kelas" type="text" class="form-control" id="namaPasangan" placeholder="Kelas">
-              </div>
-              <button type="submit" class="btn btn-primary float-right">Submit</button>
-            </form>
+            <form action="{{ url('/admin/datadpt') }}" method="POST" enctype="multipart/form-data">
+    @csrf
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+    </div>
+<div class="form-group">
+    <label for="password">Password</label>
+    <div class="input-group">
+        <input type="password" class="form-control" id="password" name="password" required>
+        <div class="input-group-append">
+            <button type="button" class="btn btn-outline-secondary" id="togglePassword">
+                <i class="fas fa-eye"></i> <!-- Ikon mata -->
+            </button>
+        </div>
+    </div>
+</div>
+    <div class="form-group">
+        <label for="password_confirmation">Confirm Password</label>
+        <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Add User</button>
+</form>
+
           </div>
         </div>
       </div>
@@ -117,6 +129,20 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const togglePassword = document.getElementById('togglePassword');
+    const passwordInput = document.getElementById('password');
+
+    // Ketika tombol mata diklik, toggle antara password dan text
+    togglePassword.addEventListener('click', function () {
+        // Cek apakah tipe input password adalah password atau text
+        const type = passwordInput.type === 'password' ? 'text' : 'password';
+        passwordInput.type = type;
+
+        // Ganti ikon mata berdasarkan tipe input
+        this.innerHTML = type === 'password' ? '<i class="fas fa-eye"></i>' : '<i class="fas fa-eye-slash"></i>';
+    });
+  </script>
 </body>
 </html>
 
