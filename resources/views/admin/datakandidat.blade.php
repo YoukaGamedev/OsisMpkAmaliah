@@ -9,6 +9,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulir Kandidat</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .custom-file-label {
+            cursor: pointer;
+        }
+        #preview {
+            display: none;
+            margin-top: 10px;
+            max-width: 100px;
+            border-radius: 5px;
+        }
+        .btn-submit {
+            width: 100%;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body style="background-color: #f4f4f4;">
     <div class="mt-4">
@@ -39,11 +54,12 @@
                             <div class="form-group">
                                 <label for="foto">Foto</label>
                                 <div class="custom-file">
-                                    <input name="foto" type="file" class="custom-file-input" id="foto" onchange="updateFileName()">
+                                    <input name="foto" type="file" class="custom-file-input" id="foto" onchange="previewImage(event)">
                                     <label class="custom-file-label" for="foto">Pilih file...</label>
                                 </div>
+                                <img id="preview" src="#" alt="Pratinjau Foto" />
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary btn-submit">Submit</button>
                         </form>
                     </div>
                 </div>
@@ -98,14 +114,25 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        function updateFileName() {
-            var input = document.getElementById('foto');
+        function previewImage(event) {
+            var input = event.target;
             var label = input.nextElementSibling;
+            var preview = document.getElementById('preview');
             label.innerText = input.files[0] ? input.files[0].name : 'Pilih file...';
+            
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                }
+                reader.readAsDataURL(input.files[0]);
+            } else {
+                preview.style.display = 'none';
+            }
         }
     </script>
 </body>
 </html>
 
 @endsection
-
