@@ -135,10 +135,6 @@
             Login
         </button>
     </form>
-    <!-- Footer -->
-    <div class="text-center mt-3 animate__animated animate__fadeInUp">
-        <small>Belum punya akun? <a href="{{ url('/register') }}" class="text-decoration-none fw-bold">Daftar di sini</a>.</small>
-    </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>

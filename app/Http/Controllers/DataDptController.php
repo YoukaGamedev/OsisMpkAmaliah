@@ -13,11 +13,21 @@ class DataDptController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $users = DB::table('users')->get();
-        return view('/admin/datadpt',['users'=>$users]);
+    public function index(Request $request)
+{
+    $query = DB::table('users');
+
+    // Check if there is a 'name' search term and filter accordingly
+    if ($request->has('name') && $request->input('name') != '') {
+        $query->where('name', 'like', '%' . $request->input('name') . '%');
     }
+
+    // Get the filtered users
+    $users = $query->get();
+
+    return view('/admin/datadpt', ['users' => $users]);
+}
+
 
     /**
      * Show the form for creating a new resource.
@@ -39,9 +49,6 @@ class DataDptController extends Controller
         'password' => 'required|string|min:8|confirmed', // You might want a 'confirmed' rule for password confirmation
     ]);
 
-    // Hash the password before storing
-    $validatedData['password'] = bcrypt($validatedData['password']);
-
     // Create the user using mass assignment
     User::create($validatedData);
     
@@ -60,18 +67,33 @@ class DataDptController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
-    {
-        //
-    }
+    // Show the edit form
+public function edit($id)
+{
+    $users = User::findOrFail($id); // Find the DPT by ID
+    return view('admin.datadpt', compact('users')); // Pass the data to the edit view
+}
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
+// Update the data
+public function update(Request $request, $id)
+{
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|email|max:255',
+        'password' => 'nullable|min:8|confirmed', // Optional: password validation
+    ]);
+
+    $users = User::findOrFail($id);
+    $users->name = $request->name;
+    $users->email = $request->email;
+    if ($request->password) {
+        $users->password = bcrypt($request->password); // Only update password if provided
     }
+    $users->save();
+
+    return redirect()->route('admin.datadpt')->with('status', 'Data updated successfully!');
+}
+
 
     /**
      * Remove the specified resource from storage.
