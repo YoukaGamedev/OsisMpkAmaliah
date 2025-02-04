@@ -44,6 +44,34 @@
                     <th>Ring</th>
                     <td>{{ $siswa->ring ? 'Ya' : 'Tidak' }}</td>
                 </tr>
+                <tr>
+                    <th>Bros</th>
+                    <td>{{ $siswa->bros ? 'Ya' : 'Tidak' }}</td>
+                </tr>
+                <tr>
+                    <th>Make Up</th>
+                    <td>{{ $siswa->makeup ? 'Ya' : 'Tidak' }}</td>
+                </tr>
+                <tr>
+                    <th>Telat</th>
+                    <td>{{ $siswa->telat ? 'Ya' : 'Tidak' }}</td>
+                </tr>
+                <tr>
+                    <th>Ciput</th>
+                    <td>{{ $siswa->ciput ? 'Ya' : 'Tidak' }}</td>
+                </tr>
+                <tr>
+                    <th>Hijab</th>
+                    <td>{{ $siswa->hijab ? 'Ya' : 'Tidak' }}</td>
+                </tr>
+                <tr>
+                    <th>Almamater</th>
+                    <td>{{ $siswa->almamater ? 'Ya' : 'Tidak' }}</td>
+                </tr>
+                <tr>
+                    <th>WearPack</th>
+                    <td>{{ $siswa->wearpack ? 'Ya' : 'Tidak' }}</td>
+                </tr>
             </table>
             <a href="{{ route('siswa.index') }}" class="btn btn-secondary mt-3">Kembali</a>
         </div>

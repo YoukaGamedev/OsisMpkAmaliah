@@ -73,6 +73,13 @@
                         <th>Sepatu</th>
                         <th>Jas</th>
                         <th>Ring</th>
+                        <th>Bros</th>
+                        <th>Make Up</th>
+                        <th>Telat</th>
+                        <th>Ciput</th>
+                        <th>Hijab</th>
+                        <th>Almamater</th>
+                        <th>WearPack</th>
                         <th>Tanggal Diedit</th>
                     </tr>
                 </thead>
@@ -90,6 +97,13 @@
                                 <td>{{ $data->sepatu ? 'Ya' : 'Tidak' }}</td>
                                 <td>{{ $data->jas ? 'Ya' : 'Tidak' }}</td>
                                 <td>{{ $data->ring ? 'Ya' : 'Tidak' }}</td>
+                                <td>{{ $data->bros ? 'Ya' : 'Tidak' }}</td>
+                                <td>{{ $data->makeup ? 'Ya' : 'Tidak' }}</td>
+                                <td>{{ $data->telat ? 'Ya' : 'Tidak' }}</td>
+                                <td>{{ $data->ciput ? 'Ya' : 'Tidak' }}</td>
+                                <td>{{ $data->hijab ? 'Ya' : 'Tidak' }}</td>
+                                <td>{{ $data->almamater ? 'Ya' : 'Tidak' }}</td>
+                                <td>{{ $data->wearpack ? 'Ya' : 'Tidak' }}</td>
                                 <td>{{ \Carbon\Carbon::parse($data->updated_at)->format('d-m-Y H:i') }}</td>
                             </tr>
                         @endif

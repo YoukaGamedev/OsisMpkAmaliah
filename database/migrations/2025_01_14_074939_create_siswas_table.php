@@ -22,6 +22,13 @@ return new class extends Migration
             $table->boolean('sepatu')->default(1);
             $table->boolean('jas')->default(1);
             $table->boolean('ring')->default(1);
+            $table->boolean('bros')->default(1);
+            $table->boolean('makeup')->default(1);
+            $table->boolean('telat')->default(1);
+            $table->boolean('ciput')->default(1);
+            $table->boolean('hijab')->default(1);
+            $table->boolean('almamater')->default(1);
+            $table->boolean('wearpack')->default(1);
             $table->timestamps();
         });        
     }

@@ -75,6 +75,62 @@
             </select>
         </div>
 
+        <div class="form-group">
+            <label for="bros">Bros:</label>
+            <select name="bros" id="bros" class="form-control">
+                <option value="1" {{ $siswa->bros ? 'selected' : '' }}>Ya</option>
+                <option value="0" {{ !$siswa->bros ? 'selected' : '' }}>Tidak</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="makeup">Make Up:</label>
+            <select name="makeup" id="makeup" class="form-control">
+                <option value="1" {{ $siswa->makeup ? 'selected' : '' }}>Ya</option>
+                <option value="0" {{ !$siswa->makeup ? 'selected' : '' }}>Tidak</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="telat">Telat:</label>
+            <select name="telat" id="telat" class="form-control">
+                <option value="1" {{ $siswa->telat ? 'selected' : '' }}>Ya</option>
+                <option value="0" {{ !$siswa->telat ? 'selected' : '' }}>Tidak</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="ciput">Ciput:</label>
+            <select name="ciput" id="ciput" class="form-control">
+                <option value="1" {{ $siswa->ciput ? 'selected' : '' }}>Ya</option>
+                <option value="0" {{ !$siswa->ciput ? 'selected' : '' }}>Tidak</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="hijab">Hijab:</label>
+            <select name="hijab" id="hijab" class="form-control">
+                <option value="1" {{ $siswa->hijab ? 'selected' : '' }}>Ya</option>
+                <option value="0" {{ !$siswa->hijab ? 'selected' : '' }}>Tidak</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="almamater">Almamater:</label>
+            <select name="almamater" id="almamater" class="form-control">
+                <option value="1" {{ $siswa->almamater ? 'selected' : '' }}>Ya</option>
+                <option value="0" {{ !$siswa->almamater ? 'selected' : '' }}>Tidak</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="wearpack">WearPack:</label>
+            <select name="wearpack" id="wearpack" class="form-control">
+                <option value="1" {{ $siswa->wearpack ? 'selected' : '' }}>Ya</option>
+                <option value="0" {{ !$siswa->wearpack ? 'selected' : '' }}>Tidak</option>
+            </select>
+        </div>
+
         <!-- Submit Button -->
     <button type="submit" class="btn btn-success mt-3">simpan</button>
     </form>

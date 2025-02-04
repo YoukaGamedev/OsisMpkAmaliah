@@ -22,5 +22,12 @@ class Siswa extends Model
         'sepatu',
         'jas',
         'ring',
+        'bros',
+        'makeup',
+        'telat',
+        'ciput',
+        'hijab',
+        'almamater',
+        'wearpack',
     ];
 }

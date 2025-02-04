@@ -77,6 +77,62 @@
                             </select>
                         </div>
 
+                        <div class="mb-3">
+                            <label class="form-label fw-bold text-warning">Bros</label>
+                            <select name="bros" class="form-select shadow-sm border-warning">
+                                <option value="1" {{ $siswa->bros ? 'selected' : '' }}>Ya</option>
+                                <option value="0" {{ !$siswa->bros ? 'selected' : '' }}>Tidak</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold text-warning">Make Up</label>
+                            <select name="makeup" class="form-select shadow-sm border-warning">
+                                <option value="1" {{ $siswa->makeup ? 'selected' : '' }}>Ya</option>
+                                <option value="0" {{ !$siswa->makeup ? 'selected' : '' }}>Tidak</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold text-warning">Telat</label>
+                            <select name="telat" class="form-select shadow-sm border-warning">
+                                <option value="1" {{ $siswa->telat ? 'selected' : '' }}>Ya</option>
+                                <option value="0" {{ !$siswa->telat ? 'selected' : '' }}>Tidak</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold text-warning">Ciput</label>
+                            <select name="ciput" class="form-select shadow-sm border-warning">
+                                <option value="1" {{ $siswa->ciput ? 'selected' : '' }}>Ya</option>
+                                <option value="0" {{ !$siswa->ciput ? 'selected' : '' }}>Tidak</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold text-warning">Hijab</label>
+                            <select name="hijab" class="form-select shadow-sm border-warning">
+                                <option value="1" {{ $siswa->hijab ? 'selected' : '' }}>Ya</option>
+                                <option value="0" {{ !$siswa->hijab ? 'selected' : '' }}>Tidak</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold text-warning">Almamater</label>
+                            <select name="almamater" class="form-select shadow-sm border-warning">
+                                <option value="1" {{ $siswa->almamater ? 'selected' : '' }}>Ya</option>
+                                <option value="0" {{ !$siswa->almamater ? 'selected' : '' }}>Tidak</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold text-warning">WearPack</label>
+                            <select name="wearpack" class="form-select shadow-sm border-warning">
+                                <option value="1" {{ $siswa->wearpack ? 'selected' : '' }}>Ya</option>
+                                <option value="0" {{ !$siswa->wearpack ? 'selected' : '' }}>Tidak</option>
+                            </select>
+                        </div>
+
                         <button type="submit" class="btn btn-danger w-100 shadow-sm text-white fw-bold">Simpan Perubahan</button>
                     </form>
                 </div>

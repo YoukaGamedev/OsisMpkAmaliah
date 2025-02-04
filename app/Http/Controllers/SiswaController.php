@@ -105,6 +105,13 @@ public function store(Request $request)
         'sepatu' => 'required|boolean',
         'jas' => 'required|boolean',
         'ring' => 'required|boolean',
+        'bros' => 'required|boolean',
+        'makeup' => 'required|boolean',
+        'telat' => 'required|boolean',
+        'ciput' => 'required|boolean',
+        'hijab' => 'required|boolean',
+        'almamater' => 'required|boolean',
+        'wearpack' => 'required|boolean',
     ]);
 
     // Simpan data siswa ke database
@@ -117,7 +124,13 @@ public function store(Request $request)
         'nametag' => $request->nametag,
         'sepatu' => $request->sepatu,
         'jas' => $request->jas,
-        'ring' => $request->ring,
+        'bros' => $request->bros,
+        'makeup' => $request->makeup,
+        'telat' => $request->telat,
+        'ciput' => $request->ciput,
+        'hijab' => $request->hijab,
+        'almamater' => $request->almamater,
+        'wearpack' => $request->wearpack,
     ]);
 
     // Redirect kembali dengan pesan sukses
@@ -134,7 +147,7 @@ public function update(Request $request, $id)
 {
     $request->validate([
         'nama' => 'required|string|max:255',
-        'kelas' => 'required|string|max:255',
+        'kelas' => 'required|string|max:50',
         'dasi_kacu' => 'required|boolean',
         'kaos_kaki' => 'required|boolean',
         'sabuk' => 'required|boolean',
@@ -142,6 +155,13 @@ public function update(Request $request, $id)
         'sepatu' => 'required|boolean',
         'jas' => 'required|boolean',
         'ring' => 'required|boolean',
+        'bros' => 'required|boolean',
+        'makeup' => 'required|boolean',
+        'telat' => 'required|boolean',
+        'ciput' => 'required|boolean',
+        'hijab' => 'required|boolean',
+        'almamater' => 'required|boolean',
+        'wearpack' => 'required|boolean',
     ]);
 
     $siswa = Siswa::findOrFail($id);
