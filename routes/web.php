@@ -14,6 +14,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\LembarGdsController;
 use App\Http\Controllers\RekapGdsController;
 use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\TambahDataController;
 
 
 
@@ -21,7 +22,6 @@ use App\Http\Controllers\SiswaController;
 Route::resource('/admin/datakelas', DataKelasController::class);
 Route::resource('/admin/datakandidat', DataKandidatController::class);
 Route::resource('/admin/datadpt', DataDptController::class);
-
 Route::resource('/admin/dashboard', DashboardController::class);
 
 Route::resource('/user/home', HomerController::class);
@@ -70,6 +70,8 @@ Route::get('/admin/gds/indexgds', function () {
     return view('/admin/gds/indexgds');
 });
 
+Route::resource('admin/gds/tambahdata', TambahDataController::class);
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -77,17 +79,15 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('admin/gds/lembargds', RekapGdsController::class);
 Route::get('/lembar-gds', [LembarGdsController::class, 'index'])->name('lembar-gds.index');
 
-
-
-
 Route::resource('admin/gds/rekapgds', RekapGdsController::class);
-Route::get('/siswa/search', [SiswaController::class, 'search'])->name('siswa.search');
-Route::post('/siswa/scan', [SiswaController::class, 'scan'])->name('siswa.scan');
-Route::post('/scan/store', [SiswaController::class, 'storeScan'])->name('scan.store');
 
-Route::post('/siswa/check/{id}', [SiswaController::class, 'checkAndStoreLembarGds'])->name('siswa.checkAndStore');
-Route::get('/siswa/{id}/edit', [SiswaController::class , 'edit'])->name('siswa.edit');
-Route::post('/siswa/{id}/update', [SiswaController::class, 'update'])->name('siswa.update');
+Route::resource('siswa', SiswaController::class);
+
+// Route::get('/siswa', [SiswaController::class, 'index'])->name('siswa.index');
+// Route::get('/siswa/search', [SiswaController::class, 'search'])->name('siswa.search');
+// Route::post('/siswa/check/{id}', [SiswaController::class, 'checkAndStoreLembarGds'])->name('siswa.checkAndStore');
+// Route::get('/siswa/{id}/edit', [SiswaController::class , 'edit'])->name('siswa.edit');
+// Route::post('/siswa/{id}/update', [SiswaController::class, 'update'])->name('siswa.update');
 
 
 

@@ -7,14 +7,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hasil Perolehan Suara</title>
+  <title>GDS</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"> <!-- Tambahkan ini untuk Bootstrap Icons -->
   <style>
     /* Sidebar styles */
     .sidebar {
       background-color: #f8f9fa;
-      height: 100vh;
+      height: 100v;
       position: fixed;
       width: 200px;
       padding-top: 20px;
@@ -100,7 +100,7 @@
         <a class="nav-link" href="{{ ('/admin/gds/rekapgds') }}"><i class="fas fa-calendar-check"></i>Rekap GDS</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="rekrutment.html"><i class="fas fa-user-plus"></i>Tambah Data </a>
+        <a class="nav-link" href="{{ ('/admin/gds/tambahdata') }}"><i class="fas fa-user-plus"></i>Tambah Data </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#"><i class="fas fa-users"></i>Jadwal GDS</a>

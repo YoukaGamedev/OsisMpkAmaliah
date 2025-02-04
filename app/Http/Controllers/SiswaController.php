@@ -11,6 +11,18 @@ use App\Models\RekapGds;
 class SiswaController extends Controller
 {
     
+    public function index(Request $request)
+{
+    $query = $request->input('search');
+    $siswa = Siswa::when($query, function ($q) use ($query) {
+        return $q->where('nama', 'like', "%$query%")
+                 ->orWhere('kelas', 'like', "%$query%");
+    })->get();
+
+    return view('admin.gds.searchdata', compact('siswa', 'query'));
+}
+
+
     public function search(Request $request)
     {
         $query = $request->input('query');
@@ -33,29 +45,6 @@ class SiswaController extends Controller
         // Kirimkan kedua variabel ke view
         return view('admin.gds.lembargds', compact('siswa', 'rekapgds', 'siswaNotFound', 'rekapgdsNotFound'));
     }
-    
-    
-
-public function scan(Request $request)
-{
-    $qrData = $request->input('qr_data');
-    $siswa = Siswa::where('id', $qrData)->get(); // Gunakan `get()` agar selalu dalam bentuk koleksi
-
-    if ($siswa->isEmpty()) {
-        return back()->with('error', 'Data tidak ditemukan!');
-    }
-
-    return view('admin.gds.lembargds', compact('siswa'));
-}
-
-public function storeScan(Request $request)
-{
-    $data = json_decode($request->input('qr_data'), true);
-
-    // Proses data QR Code
-    return response()->json(['message' => 'Data diterima', 'data' => $data]);
-}
-
 
 
 public function checkAndStoreLembarGds($id)
@@ -78,13 +67,13 @@ public function checkAndStoreLembarGds($id)
     return back()->with('info', 'Semua data siswa sudah lengkap.');
 }
 
-public function edit($id)
+public function edited($id)
 {
     $siswa = Siswa::findOrFail($id);
     return view('admin.gds.siswa', compact('siswa'));
 }
 
-public function update(Request $request, $id)
+public function updated(Request $request, $id)
 {
     $siswa = Siswa::findOrFail($id);
 
@@ -103,6 +92,76 @@ public function update(Request $request, $id)
 
 }
 
+public function store(Request $request)
+{
+    // Validasi input
+    $request->validate([
+        'nama' => 'required|string|max:255',
+        'kelas' => 'required|string|max:50',
+        'dasi_kacu' => 'required|boolean',
+        'kaos_kaki' => 'required|boolean',
+        'sabuk' => 'required|boolean',
+        'nametag' => 'required|boolean',
+        'sepatu' => 'required|boolean',
+        'jas' => 'required|boolean',
+        'ring' => 'required|boolean',
+    ]);
+
+    // Simpan data siswa ke database
+    Siswa::create([
+        'nama' => $request->nama,
+        'kelas' => $request->kelas,
+        'dasi_kacu' => $request->dasi_kacu,
+        'kaos_kaki' => $request->kaos_kaki,
+        'sabuk' => $request->sabuk,
+        'nametag' => $request->nametag,
+        'sepatu' => $request->sepatu,
+        'jas' => $request->jas,
+        'ring' => $request->ring,
+    ]);
+
+    // Redirect kembali dengan pesan sukses
+    return redirect()->back()->with('success', 'Data siswa berhasil ditambahkan!');
+}
+
+public function edit($id)
+{
+    $siswa = Siswa::findOrFail($id);
+    return view('admin.gds.tambahdata.edit', compact('siswa'));
+}
+
+public function update(Request $request, $id)
+{
+    $request->validate([
+        'nama' => 'required|string|max:255',
+        'kelas' => 'required|string|max:255',
+        'dasi_kacu' => 'required|boolean',
+        'kaos_kaki' => 'required|boolean',
+        'sabuk' => 'required|boolean',
+        'nametag' => 'required|boolean',
+        'sepatu' => 'required|boolean',
+        'jas' => 'required|boolean',
+        'ring' => 'required|boolean',
+    ]);
+
+    $siswa = Siswa::findOrFail($id);
+    $siswa->update($request->all());
+
+    return redirect()->route('tambahdata.index')->with('success', 'Data siswa berhasil diperbarui!');
+}
+
+
+public function destroy($id)
+{
+    // Cari data siswa berdasarkan ID
+    $siswa = Siswa::findOrFail($id);
+
+    // Hapus data siswa
+    $siswa->delete();
+
+    // Redirect kembali dengan pesan sukses
+    return redirect()->back()->with('success', 'Data siswa berhasil dihapus!');
+}
 
 
 }

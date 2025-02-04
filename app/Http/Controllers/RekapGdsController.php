@@ -16,8 +16,8 @@ class RekapGdsController extends Controller
      */
     public function index()
 {
-    $rekapgds = DB::table('rekapgds')->get(); // Mengambil data dari tabel rekapgds
-    return view('admin/gds/rekapgds', compact('rekapgds')); // Kirim variabel ke view
+    $rekapgds = DB::table('rekapgds')->get(); 
+    return view('admin/gds/rekapgds', compact('rekapgds')); 
 }
 
 
