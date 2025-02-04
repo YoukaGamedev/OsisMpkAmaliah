@@ -39,13 +39,13 @@
             align-items: center;
             justify-content: center;
             height: 70px;
-            background-color: #007bff;
+            background-color:rgb(178, 179, 181);
             padding: 0 20px;
             position: relative;
         }
 
         .back-button {
-            color: #e0f7ff;
+            color:rgb(0, 0, 0);
             font-size: 1.5rem;
             transition: color 0.3s ease, transform 0.3s ease;
             position: absolute;
@@ -55,7 +55,7 @@
         }
 
         .back-button:hover {
-            color: #cceeff;
+            color:rgb(255, 255, 255);
             transform: scale(1.1);
         }
 
@@ -78,7 +78,7 @@
         }
 
         .footer {
-            background-color: #007bff;
+            background-color:rgb(105, 108, 110);
             color: white;
             padding: 10px 10px;
             font-size: 0.9rem;
