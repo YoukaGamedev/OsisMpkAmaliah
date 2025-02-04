@@ -51,7 +51,7 @@
     <a href="{{ route('siswa.index') }}" class="btn btn-outline-secondary me-2">
         <i class="fas fa-search"></i> Cari Data Siswa
     </a>
-    <a href="{{ route('siswa.scan') }}" class="btn btn-primary">
+    <a href="#" class="btn btn-primary">
         <i class="fas fa-qrcode"></i> Scan
     </a>
 </div>

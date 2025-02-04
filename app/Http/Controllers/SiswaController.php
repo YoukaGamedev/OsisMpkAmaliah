@@ -8,43 +8,43 @@ use App\Models\Siswa;
 use App\Models\LembarGds;
 use App\Models\RekapGds;
 
+use DB;
+
 class SiswaController extends Controller
 {
     
     public function index(Request $request)
 {
-    $query = $request->input('search');
-    $siswa = Siswa::when($query, function ($q) use ($query) {
-        return $q->where('nama', 'like', "%$query%")
-                 ->orWhere('kelas', 'like', "%$query%");
-    })->get();
+    $siswa = DB::table('siswas')->get(); 
+    return view('admin/gds/searchdata', compact('siswa')); 
+}
 
-    return view('admin.gds.searchdata', compact('siswa', 'query'));
+public function search(Request $request)
+{
+    // Get the search query from the request
+    $query = $request->input('query');
+
+    // If the query is empty, show all students
+    if (empty($query)) {
+        $siswa = Siswa::all(); // Get all students
+    } else {
+        // If there's a query, search based on 'nama' or 'kelas'
+        $siswa = Siswa::where('nama', 'LIKE', "%$query%")
+                    ->orWhere('kelas', 'LIKE', "%$query%")
+                    ->get(); // Get all students matching the query
+    }
+
+    // Return the view with the students and the search query
+    return view('siswa.index', compact('siswa', 'query'));
 }
 
 
-    public function search(Request $request)
-    {
-        $query = $request->input('query');
-        
-        // Mencari siswa berdasarkan nama atau kelas
-        $siswa = Siswa::where('nama', 'LIKE', "%{$query}%")
-                        ->orWhere('kelas', 'LIKE', "%{$query}%")
-                        ->get();
-    
-        // Cek apakah data siswa ditemukan
-        $siswaNotFound = $siswa->isEmpty();
-    
-        // Ambil satu data rekapgds berdasarkan PJ
-        $rekapgds = RekapGds::where('pj', 'LIKE', "%{$query}%")
-                            ->first(); // Mengambil satu data rekapgds berdasarkan PJ
-        
-        // Cek apakah data rekapgds ditemukan
-        $rekapgdsNotFound = !$rekapgds; // Jika rekapgds null, berarti tidak ditemukan
-        
-        // Kirimkan kedua variabel ke view
-        return view('admin.gds.lembargds', compact('siswa', 'rekapgds', 'siswaNotFound', 'rekapgdsNotFound'));
-    }
+
+public function show($id)
+{
+    $siswa = Siswa::findOrFail($id);
+    return view('admin.gds.show', compact('siswa'));
+}
 
 
 public function checkAndStoreLembarGds($id)
