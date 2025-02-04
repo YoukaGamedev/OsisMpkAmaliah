@@ -53,7 +53,7 @@
       margin-top: 15px;
     }
     .footer {
-      background-color: #007bff;
+      background-color:rgb(141, 143, 146);
       color: white;
       width: 100%;
       padding: 15px;
