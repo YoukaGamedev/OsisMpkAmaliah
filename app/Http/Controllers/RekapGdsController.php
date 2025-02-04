@@ -17,7 +17,7 @@ class RekapGdsController extends Controller
     public function index()
 {
     $rekapgds = DB::table('rekapgds')->get(); 
-    return view('admin/gds/rekapgds', compact('rekapgds')); 
+    return view('admin/gds/rekapgds/rekapgds', compact('rekapgds')); 
 }
 
 
@@ -26,7 +26,7 @@ class RekapGdsController extends Controller
      */
     public function create()
     {
-        return view('admin/gds/createrekapgds');
+        return view('admin/gds/rekapgds/createrekapgds');
     }
 
     /**
@@ -68,7 +68,7 @@ class RekapGdsController extends Controller
     $siswa = Siswa::all();
 
     // Return ke view
-    return view('admin.gds.lembargds', compact('rekap', 'siswa', 'rekapgds'));
+    return view('admin.gds.lembargds.lembargds', compact('rekap', 'siswa', 'rekapgds'));
 }
 
 

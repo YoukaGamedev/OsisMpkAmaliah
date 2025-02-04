@@ -15,27 +15,27 @@
         <h4>Pemilu</h4>
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link" href="{{ ('/admin/dashboard') }}">
+            <a class="nav-link" href="{{ ('/admin/pemilu/dashboard') }}">
                 <i class="bi bi-house-door-fill"></i> Data Sekolah
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ ('/admin/datakelas') }}">
+            <a class="nav-link" href="{{ ('/admin/pemilu/datakelas') }}">
                 <i class="bi bi-person-lines-fill"></i> Data Kelas
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ ('/admin/datakandidat') }}">
+            <a class="nav-link" href="{{ ('/admin/pemilu/datakandidat') }}">
                 <i class="bi bi-person-circle"></i> Data Kandidat
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ ('/admin/datadpt') }}">
+            <a class="nav-link" href="{{ ('/admin/pemilu/datadpt') }}">
                 <i class="bi bi-file-earmark-text"></i> Data DPT
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ ('/admin/hasilpemilihan') }}">
+            <a class="nav-link" href="{{ ('/admin/pemilu/hasilpemilihan') }}">
                 <i class="bi bi-graph-up-arrow"></i> Hasil Pilih
             </a>
           </li>

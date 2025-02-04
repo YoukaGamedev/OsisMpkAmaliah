@@ -15,7 +15,7 @@ class DataKelasController extends Controller
     public function index()
     {
         $datakelas = DB::table('datakelas')->get();
-        return view('/admin/datakelas',['datakelas'=>$datakelas]);
+        return view('/admin/pemilu/datakelas',['datakelas'=>$datakelas]);
     }
 
     /**
@@ -23,7 +23,7 @@ class DataKelasController extends Controller
      */
     public function create()
     {
-        return view('/admin/datakelas');
+        return view('/admin/pemilu/datakelas');
     }
 
     /**
@@ -36,7 +36,7 @@ class DataKelasController extends Controller
             'no_kelas' => $request-> no_kelas,
         ]);
 
-        return redirect('/admin/datakelas') -> with('status','Data berhasil di tambah');
+        return redirect('/admin/pemilu/datakelas') -> with('status','Data berhasil di tambah');
     }
 
     /**
@@ -71,6 +71,6 @@ class DataKelasController extends Controller
         $datakelas = DataKelas::findOrFail($id);
         $datakelas->delete();
 
-        return redirect('/admin/datakelas')-> with('status', 'Data berhasil di hapus');
+        return redirect('/admin/pemilu/datakelas')-> with('status', 'Data berhasil di hapus');
     }
 }

@@ -1,4 +1,4 @@
-@extends('admin.pemilu')
+@extends('admin.pemilu.pemilu')
 
 @section('content1')
 <!DOCTYPE html>
@@ -102,7 +102,7 @@
         <div class="card">
           <div class="card-body">
             <h5 class="mb-4">TAMBAH DPT</h5>
-            <form action="{{ url('/admin/datadpt') }}" method="POST">
+            <form action="{{ url('/admin/pemilu/datadpt') }}" method="POST">
               @csrf
               <div class="form-group">
                 <label for="name">Nama</label>

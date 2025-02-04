@@ -1,4 +1,4 @@
-@extends('admin.pemilu')
+@extends('admin.pemilu.pemilu')
 
 @section('content1')
 
@@ -36,7 +36,7 @@
                                 <th scope="row">{{$loop -> iteration}}</th>
                                 <td class="text-start">{{ $item->kelas }}</td> <!-- Align Mark to the left -->
                                 <td>{{ $item->no_kelas }}</td> <!-- Align Mark to the left -->
-                                <td class="text-end px-3"><form action="{{ url('admin/datakelas/'.$item->id) }}" method="POST" class="d-inline"
+                                <td class="text-end px-3"><form action="{{ url('admin/pemilu/datakelas/'.$item->id) }}" method="POST" class="d-inline"
                             onsubmit="return confirm('Apakah data akan di hapus?')">
                             @csrf 
                             @method('DELETE')
@@ -55,7 +55,7 @@
             <div class="card">
                 <div class="card-body">
                     <h3 class="mb-4">Form Input Data Kelas</h3>
-                    <form action="{{ url('admin/datakelas') }}" method="POST">
+                    <form action="{{ url('admin/pemilu/datakelas') }}" method="POST">
                     @csrf
                         <div class="mb-3">
                             <label for="nameInput" class="form-label">Kelas</label>

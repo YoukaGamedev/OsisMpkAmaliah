@@ -15,7 +15,7 @@ class PilihKandidatController extends Controller
     public function index()
     {
         $datakandidat = DB::table('datakandidat')->get();
-        return view('/user/pilihkandidat',['datakandidat'=>$datakandidat]);
+        return view('/user/pemilu/pilihkandidat',['datakandidat'=>$datakandidat]);
     }
 
     /**

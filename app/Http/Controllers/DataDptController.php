@@ -25,7 +25,7 @@ class DataDptController extends Controller
     // Get the filtered users
     $users = $query->get();
 
-    return view('/admin/datadpt', ['users' => $users]);
+    return view('/admin/pemilu/datadpt', ['users' => $users]);
 }
 
 
@@ -34,7 +34,7 @@ class DataDptController extends Controller
      */
     public function create()
     {
-        return view('/admin/datadpt');
+        return view('/admin/pemilu/datadpt');
     }
 
     /**
@@ -52,7 +52,7 @@ class DataDptController extends Controller
     // Create the user using mass assignment
     User::create($validatedData);
     
-    return redirect('/admin/datadpt')->with('status', 'Data berhasil ditambahkan');
+    return redirect('/admin/pemilu/datadpt')->with('status', 'Data berhasil ditambahkan');
 }
 
 
@@ -71,7 +71,7 @@ class DataDptController extends Controller
 public function edit($id)
 {
     $users = User::findOrFail($id); // Find the DPT by ID
-    return view('admin.datadpt', compact('users')); // Pass the data to the edit view
+    return view('admin.pemilu.datadpt', compact('users')); // Pass the data to the edit view
 }
 
 // Update the data
@@ -91,7 +91,7 @@ public function update(Request $request, $id)
     }
     $users->save();
 
-    return redirect()->route('admin.datadpt')->with('status', 'Data updated successfully!');
+    return redirect()->route('admin.pemilu.datadpt')->with('status', 'Data updated successfully!');
 }
 
 
@@ -107,7 +107,7 @@ public function update(Request $request, $id)
     $users->delete();
 
     // Redirect back with a success message
-    return redirect('/admin/datadpt')->with('status', 'Data berhasil dihapus');
+    return redirect('/admin/pemilu/datadpt')->with('status', 'Data berhasil dihapus');
 }
 
 }

@@ -1,4 +1,4 @@
-@extends('main')
+@extends('main2')
 
 @section('content')
 
@@ -71,7 +71,7 @@
     <div class="thank-you-card">
       <h4>TERIMA KASIH TELAH MELAKUKAN PEMILIHAN</h4>
       <p>Data Anda berhasil masuk sistem. Silakan lakukan logout dengan menekan tombol <strong>KELUAR/LOGOUT</strong> di bawah!</p>
-      <a href="{{ ('/user/home') }}"><button class="btn logout-btn">KELUAR/LOGOUT</button></a>
+      <a href="{{ ('/user/pemilu/home') }}"><button class="btn logout-btn">KELUAR/LOGOUT</button></a>
     </div>
   </div>
 

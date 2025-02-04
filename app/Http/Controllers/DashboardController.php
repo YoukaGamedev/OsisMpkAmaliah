@@ -15,7 +15,7 @@ class DashboardController extends Controller
     public function index()
     {
         $dashboard = DB::table('dashboard')->get();
-        return view('/admin/dashboardpemilu',['dashboard'=>$dashboard]);
+        return view('/admin/pemilu/dashboardpemilu',['dashboard'=>$dashboard]);
     }
 
     /**
@@ -23,7 +23,7 @@ class DashboardController extends Controller
      */
     public function create()
     {
-        return view('/admin/dashboard');
+        return view('/admin/pemilu/dashboard');
     }
 
     /**
@@ -44,7 +44,7 @@ class DashboardController extends Controller
             'tanggal' => $request->tanggal,
         ]);
     
-        return redirect('/user/home')->with('status', 'Data berhasil ditambahkan');
+        return redirect('/user/pemilu/home')->with('status', 'Data berhasil ditambahkan');
     }
 
     /**

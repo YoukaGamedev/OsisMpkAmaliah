@@ -1,4 +1,4 @@
-@extends('main')
+@extends('main2')
 
 @section('content')
 
@@ -73,7 +73,7 @@
       <h4 class="text-primary">Identitas Lembaga</h4>
       <p>{{ $dash->nama_sekolah }} - Kepala Sekolah {{ $dash->nama_kepsek }} - Alamat {{ $dash->alamat_jalan }}, {{ $dash->desa }}, {{ $dash->kecamatan }}, {{ $dash->kota }}. Pemilu dilaksanakan pada tanggal {{ $dash->tanggal }}</p>
     @endforeach
-    <a href="{{ url('/user/pilihkandidat') }}" class="btn btn-primary btn-custom">Pilih Kandidat</a>
+    <a href="{{ url('/user/pemilu/pilihkandidat') }}" class="btn btn-primary btn-custom">Pilih Kandidat</a>
   </div>
 
   <!-- Footer -->

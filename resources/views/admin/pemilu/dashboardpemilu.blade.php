@@ -1,4 +1,4 @@
-@extends('admin.pemilu')
+@extends('admin.pemilu.pemilu')
 
 @section('content1')
 
@@ -14,7 +14,7 @@
     <div class="container">
         <div class="form-section">
             <h2>Identitas Lembaga</h2>
-            <form action="{{ ('/admin/dashboard') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ ('/admin/pemilu/dashboard') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <label for="npsn">NPSN</label>
                 <input name="npsn" type="text" id="npsn" name="npsn" value="22556622">

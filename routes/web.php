@@ -19,21 +19,13 @@ use App\Http\Controllers\TambahDataController;
 
 
 //Route::resource('/admin', AdminController::class);
-Route::resource('/admin/datakelas', DataKelasController::class);
-Route::resource('/admin/datakandidat', DataKandidatController::class);
-Route::resource('/admin/datadpt', DataDptController::class);
-Route::resource('/admin/dashboard', DashboardController::class);
+Route::resource('/admin/pemilu/datakelas', DataKelasController::class);
+Route::resource('/admin/pemilu/datakandidat', DataKandidatController::class);
+Route::resource('/admin/pemilu/datadpt', DataDptController::class);
+Route::resource('/admin/pemilu/dashboard', DashboardController::class);
 
-Route::resource('/user/home', HomerController::class);
-Route::resource('/user/pilihkandidat', PilihKandidatController::class,);
-
-Route::post('/admin/votes/{kandidat}', [VoteController::class, 'store'])
-    ->name('vote.store')
-    ->middleware('auth');
-
-Route::get('/admin/votes', [VoteController::class, 'index'])->name('/admin/votes');
-Route::get('/after-login-vote', [VoteController::class, 'afterLoginVote'])->name('after-login-vote');
-
+Route::resource('/user/pemilu/home', HomerController::class);
+Route::resource('/user/pemilu/pilihkandidat', PilihKandidatController::class,);
 
 
 
@@ -46,44 +38,40 @@ Route::get('/admin', function () {
 });
 
 
-Route::get('/admin/hasilpemilihan', function () {
-    return view('admin/hasilpemilihan');
+Route::get('/admin/pemilu/hasilpemilihan', function () {
+    return view('admin/pemilu/hasilpemilihan');
 });
 
-Route::get('/admin/daftarhadir', function () {
-    return view('admin/daftarhadir');
+Route::get('/admin/pemilu/daftarhadir', function () {
+    return view('admin/pemilu/daftarhadir');
 });
 
-Route::get('/user/berespilih', function () {
-    return view('user/berespilih');
+Route::get('/user/pemilu/berespilih', function () {
+    return view('user/pemilu/berespilih');
 });
 
 Route::get('user/welcome', function () {
     return view('/user/welcome');
-});
-
-Route::get('user/formlogin', function () {
-    return view('user/formlogin');
 });
  
 Route::get('/admin/gds/indexgds', function () {
     return view('/admin/gds/indexgds');
 });
 
-Route::resource('admin/gds/tambahdata', TambahDataController::class);
+Route::get('/admin/gds/jadwalgds/index', function () {
+    return view('/admin/gds/jadwalgds/index');
+});
+
+Route::resource('admin/gds/tambahdata/tambahdata', TambahDataController::class);
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::resource('admin/gds/lembargds', RekapGdsController::class);
+Route::resource('admin/gds/lembargds/lembargds', RekapGdsController::class);
 Route::get('/lembar-gds', [LembarGdsController::class, 'index'])->name('lembar-gds.index');
 
-Route::resource('admin/gds/rekapgds', RekapGdsController::class);
+Route::resource('admin/gds/rekapgds/rekapgds', RekapGdsController::class);
 
 Route::resource('siswa', SiswaController::class);
 Route::get('/siswa/search', [SiswaController::class, 'search'])->name('siswa.search');
-
 
 // Route::get('/siswa', [SiswaController::class, 'index'])->name('siswa.index');
 // Route::get('/siswa/search', [SiswaController::class, 'search'])->name('siswa.search');

@@ -16,7 +16,7 @@ class SiswaController extends Controller
     public function index(Request $request)
 {
     $siswa = DB::table('siswas')->get(); 
-    return view('admin/gds/searchdata', compact('siswa')); 
+    return view('admin/gds/lembargds/searchdata', compact('siswa')); 
 }
 
 public function search(Request $request)
@@ -43,7 +43,7 @@ public function search(Request $request)
 public function show($id)
 {
     $siswa = Siswa::findOrFail($id);
-    return view('admin.gds.show', compact('siswa'));
+    return view('admin.gds.lembargds.show', compact('siswa'));
 }
 
 
@@ -70,7 +70,7 @@ public function checkAndStoreLembarGds($id)
 public function edited($id)
 {
     $siswa = Siswa::findOrFail($id);
-    return view('admin.gds.siswa', compact('siswa'));
+    return view('admin.gds.lembargds.siswa', compact('siswa'));
 }
 
 public function updated(Request $request, $id)
@@ -87,7 +87,7 @@ public function updated(Request $request, $id)
     }
 
     // Redirect ke halaman rekapgds/{id} setelah berhasil di-update
-    return redirect("admin/gds/rekapgds/{$id}")
+    return redirect("admin/gds/rekapgds/rekapgds/{$id}")
        ->with('success', 'Data berhasil diperbarui.');
 
 }

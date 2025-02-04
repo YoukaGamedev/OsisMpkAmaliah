@@ -219,7 +219,7 @@
         <div class="sidebar">
             <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link" href="{{ url('/admin/pemilu/dashboard') }}">
+                <a class="nav-link" href="{{ url('/user/pemilu/home') }}">
                     <i class="bi bi-box-arrow-in-right icon"></i>
                     <span class="link-text">Pemilu</span>
                 </a> 

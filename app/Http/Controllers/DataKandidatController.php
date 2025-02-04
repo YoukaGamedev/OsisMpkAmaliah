@@ -15,7 +15,7 @@ class DataKandidatController extends Controller
     public function index()
     {
         $datakandidat = DB::table('datakandidat')->get();
-        return view('/admin/datakandidat',['datakandidat'=>$datakandidat]);
+        return view('/admin/pemilu/datakandidat',['datakandidat'=>$datakandidat]);
     }
 
     /**
@@ -23,7 +23,7 @@ class DataKandidatController extends Controller
      */
     public function create()
     {
-        return view('/admin/datakandidat');
+        return view('/admin/pemilu/datakandidat');
     }
 
     /**
@@ -45,7 +45,7 @@ class DataKandidatController extends Controller
         'foto' => $request->file('foto')->store('storage', 'public'),
     ]);
 
-    return redirect('/admin/datakandidat')->with('status', 'Data berhasil ditambahkan');
+    return redirect('/admin/pemilu/datakandidat')->with('status', 'Data berhasil ditambahkan');
 }
 
     /**
@@ -80,6 +80,6 @@ class DataKandidatController extends Controller
         $datakandidat = DataKandidat::findOrFail($id);
         $datakandidat->delete();
 
-        return redirect('/admin/datakandidat')-> with('status', 'Data berhasil di hapus');
+        return redirect('/admin/pemilu/datakandidat')-> with('status', 'Data berhasil di hapus');
     }
 }

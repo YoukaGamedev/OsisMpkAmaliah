@@ -1,4 +1,4 @@
-@extends('admin.pemilu')
+@extends('admin.pemilu.pemilu')
 
 @section('content1')
 
@@ -33,7 +33,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="mb-4">TAMBAH KANDIDAT CALON PEMILIHAN</h5>
-                        <form action="{{ ('/admin/datakandidat') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ ('/admin/pemilu/datakandidat') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                             <div class="form-group">
                                 <label for="nisn">NISN</label>
@@ -95,7 +95,7 @@
                                     <td><img src="{{ asset('storage/' . $kandidat->foto) }}" alt="" width="50"></td>
                                     @endif
                                     <td class="text-end">
-                                        <form action="{{ url('admin/datakandidat/'.$kandidat->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Apakah data akan di hapus?')">
+                                        <form action="{{ url('admin/pemilu/datakandidat/'.$kandidat->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Apakah data akan di hapus?')">
                                             @csrf 
                                             @method('DELETE')
                                             <button class="btn btn-danger" type="submit">Hapus</button>

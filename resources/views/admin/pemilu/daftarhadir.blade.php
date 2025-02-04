@@ -1,4 +1,4 @@
-@extends('admin.pemilu')
+@extends('admin.pemilu.pemilu')
 
 @section('content1')
 

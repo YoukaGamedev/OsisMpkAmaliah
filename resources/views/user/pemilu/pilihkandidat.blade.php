@@ -1,4 +1,4 @@
-@extends('main')
+@extends('main2')
 
 @section('content')
 
@@ -159,7 +159,7 @@
           </div>
 
           <!-- Voting Form -->
-          <form action="{{ url('/user/berespilih') }}">
+          <form action="{{ url('/user/pemilu/berespilih') }}">
             <button type="submit" class="btn vote-btn">Pilih Pasangan No {{ $kandidat->nomor_pasangan_calon }}</button>
           </form>
         </div>

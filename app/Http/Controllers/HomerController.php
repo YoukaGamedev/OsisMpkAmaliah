@@ -15,7 +15,7 @@ class HomerController extends Controller
     public function index()
     {
         $dashboard = DB::table('dashboard')->get();
-        return view('/user/home',['dashboard'=>$dashboard]);
+        return view('/user/pemilu/home',['dashboard'=>$dashboard]);
     }
 
     /**

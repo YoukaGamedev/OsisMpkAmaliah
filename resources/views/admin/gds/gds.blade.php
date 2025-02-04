@@ -97,13 +97,13 @@
         <a class="nav-link" href="{{ ('/admin/gds/indexgds') }}"><i class="fas fa-calendar-check"></i>GDS</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ ('/admin/gds/rekapgds') }}"><i class="fas fa-calendar-check"></i>Rekap GDS</a>
+        <a class="nav-link" href="{{ ('/admin/gds/rekapgds/rekapgds') }}"><i class="fas fa-calendar-check"></i>Rekap GDS</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ ('/admin/gds/tambahdata') }}"><i class="fas fa-user-plus"></i>Tambah Data </a>
+        <a class="nav-link" href="{{ ('/admin/gds/tambahdata/tambahdata') }}"><i class="fas fa-user-plus"></i>Tambah Data </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><i class="fas fa-users"></i>Jadwal GDS</a>
+        <a class="nav-link" href="{{ ('/admin/gds/jadwalgds/index') }}"><i class="fas fa-users"></i>Jadwal GDS</a>
       </li>
     </ul>
   </div>
