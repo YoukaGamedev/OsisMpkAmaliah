@@ -15,7 +15,7 @@
     .navbar {
       background-color: #007bff;
       color: #fff;
-      border-bottom: 2px solid #0056b3;
+      border-bottom: 3px solid #0056b3;
     }
     .navbar a, .navbar input {
       color: #ffffff;
@@ -23,7 +23,7 @@
 
     .main-content {
       margin-left: 260px;
-      padding: 20px;
+      padding: 15px;
     }
 
     .centered-content {
@@ -38,7 +38,7 @@
       background-color: #007bff;
       color: white;
       font-size: 1.2rem;
-      padding: 15px 30px;
+      padding: 20px 30px;
       border: none;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);

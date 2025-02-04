@@ -76,7 +76,7 @@
         </div>
 
         <!-- Submit Button -->
-        <button type="submit" class="btn btn-success mt-3">Simpan</button>
+    <button type="submit" class="btn btn-success mt-3">simpan</button>
     </form>
 </div>
 @endsection

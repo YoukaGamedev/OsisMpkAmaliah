@@ -22,4 +22,11 @@
                 </form>                
             </div>
         </div>
+    </div>
+@endsection
+
+@section('footer')
+    <footer class="text-center mt-4 py-3 bg-light">
+        <p class="mb-0">&copy; {{ date('Y') }} Rekap GDS. All rights reserved.</p>
+    </footer>
 @endsection
