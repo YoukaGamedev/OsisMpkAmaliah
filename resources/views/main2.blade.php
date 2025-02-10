@@ -212,7 +212,9 @@
             <img src="{{ asset('asset/img/logo osis.png') }}" alt="Logo" width="50">
         </a>
 
-        <div class="admin">Admin</div>
+        <div class="admin">
+    {{ Auth::user() ? Auth::user()->name : 'Guest' }}
+</div>
     </div>
 
     <div class="main-container">

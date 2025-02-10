@@ -97,7 +97,7 @@
     <!-- Title -->
     <h3 class="text-center text-dark mb-4 animate__animated animate__fadeInDown">Login</h3>
     <!-- Form -->
-    <form action="{{ route('auth.login') }}" method="POST">
+    <form action="{{ route('auth.login.submit') }}" method="POST">
         @csrf
         <!-- Username -->
         <div class="mb-3 animate__animated animate__fadeInLeft">

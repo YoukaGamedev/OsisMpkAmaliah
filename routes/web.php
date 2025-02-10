@@ -17,11 +17,29 @@ use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\TambahDataController;
 use App\Http\Controllers\AuthController;
 
-Route::resource('auth', AuthController::class);
+// Route::resource('auth', AuthController::class);
 
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [AuthController::class, 'login']);
+// Tampilkan layout langsung di halaman utama "/"
+Route::get('/', function () {
+    return view('welcome'); // Ganti 'welcome' dengan nama layout yang ingin ditampilkan
+});
 
+
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('auth.login');
+Route::post('/login', [AuthController::class, 'login'])->name('auth.login.submit');
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/user/welcome', function () {
+        return view('user.welcome');
+    })->name('user.welcome');
+});
+
+Route::get('/logout', function () {
+    Auth::logout();
+    session()->flush();
+    return redirect('/login');
+});
 
 
 //Route::resource('/admin', AdminController::class);
