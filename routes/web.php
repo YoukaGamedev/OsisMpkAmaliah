@@ -15,6 +15,12 @@ use App\Http\Controllers\LembarGdsController;
 use App\Http\Controllers\RekapGdsController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\TambahDataController;
+use App\Http\Controllers\AuthController;
+
+Route::resource('auth', AuthController::class);
+
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
 
 
 
@@ -28,10 +34,6 @@ Route::resource('/user/pemilu/home', HomerController::class);
 Route::resource('/user/pemilu/pilihkandidat', PilihKandidatController::class,);
 
 
-
-Route::get('/', function () {
-    return view('login');
-});
 
 Route::get('/admin', function () {
     return view('admin/index');

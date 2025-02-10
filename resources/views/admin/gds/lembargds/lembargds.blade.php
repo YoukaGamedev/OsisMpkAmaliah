@@ -31,8 +31,6 @@
 
 <div class="mt-4">
     <div class="main-content">
-
-        <!-- Detail Data as Navbar -->
         <div class="navbar-custom">
             <div class="navbar-title">Detail Data</div>
             <div>
@@ -46,21 +44,20 @@
             </div>
         </div>
 
-        <!-- Search Button with Navigation -->
-<div class="d-flex justify-content-start align-items-center mt-4">
-    <a href="{{ route('siswa.index') }}" class="btn btn-outline-secondary me-2">
-        <i class="fas fa-search"></i> Cari Data Siswa
-    </a>
-    <a href="#" class="btn btn-primary">
-        <i class="fas fa-qrcode"></i> Scan
-    </a>
-</div>
+        <div class="d-flex justify-content-start align-items-center mt-4">
+            <a href="{{ route('siswa.index') }}" class="btn btn-outline-secondary me-2">
+                <i class="fas fa-search"></i> Cari Data Siswa
+            </a>
+            <a href="#" class="btn btn-primary">
+                <i class="fas fa-qrcode"></i> Scan
+            </a>
+        </div>
         <br>
 
-        <!-- Tabel Siswa Yang Melanggar -->
-        <div class="table-edited">
+        <!-- Tabel dengan Scroll Bar -->
+        <div class="table-responsive">
             <h4 class="text-center">Siswa Yang Melanggar</h4>
-            <table class="table table-bordered">
+            <table class="table table-bordered table-sm">
                 <thead class="thead-dark">
                     <tr>
                         <th>No</th>
@@ -81,11 +78,12 @@
                         <th>Almamater</th>
                         <th>WearPack</th>
                         <th>Tanggal Diedit</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($siswa as $data)
-                        @if(!$data->dasi_kacu || !$data->kaos_kaki || !$data->sabuk || !$data->nametag || !$data->sepatu || !$data->jas || !$data->ring)
+                    @foreach($siswas as $data)
+                        @if(!$data->dasi_kacu || !$data->kaos_kaki || !$data->sabuk || !$data->nametag || !$data->sepatu || !$data->jas || !$data->ring || !$data->bros || !$data->makeup || !$data->telat || !$data->ciput || !$data->hijab || !$data->almamater || !$data->wearpack)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $data->nama }}</td>
@@ -105,6 +103,18 @@
                                 <td>{{ $data->almamater ? 'Ya' : 'Tidak' }}</td>
                                 <td>{{ $data->wearpack ? 'Ya' : 'Tidak' }}</td>
                                 <td>{{ \Carbon\Carbon::parse($data->updated_at)->format('d-m-Y H:i') }}</td>
+                                <td>
+                                    <a href="{{ route('siswa.edit', $data->id) }}" class="btn btn-warning btn-sm">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                    <form action="{{ route('siswa.destroy', $data->id) }}" method="POST" style="display:inline-block;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus?')">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </form>
+                                </td>
                             </tr>
                         @endif
                     @endforeach

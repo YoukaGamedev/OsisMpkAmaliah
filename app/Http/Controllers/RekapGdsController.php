@@ -65,10 +65,11 @@ class RekapGdsController extends Controller
 
 
     $rekapgds = DB::table('rekapgds')->get();
-    $siswa = Siswa::all();
+    $siswas = DB::table('siswas')->get();
+    // return view('admin.gds.lembargds.lembargds',['siswas'=>$siswas]);
 
     // Return ke view
-    return view('admin.gds.lembargds.lembargds', compact('rekap', 'siswa', 'rekapgds'));
+    return view('admin.gds.lembargds.lembargds', compact('rekap', 'siswas', 'rekapgds'));
 }
 
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\DataDpt;
 use App\Models\User;
@@ -41,19 +42,22 @@ class DataDptController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-{
-    // Validate the incoming request data
-    $validatedData = $request->validate([
-        'name' => 'required|string|max:255',
-        'email' => 'required|email|unique:users,email|max:255',
-        'password' => 'required|string|min:8|confirmed', // You might want a 'confirmed' rule for password confirmation
-    ]);
-
-    // Create the user using mass assignment
-    User::create($validatedData);
+    {
+        // Validasi input
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email|max:255',
+            'password' => 'required|string|min:8|confirmed', // Pastikan password dikonfirmasi
+        ]);
     
-    return redirect('/admin/pemilu/datadpt')->with('status', 'Data berhasil ditambahkan');
-}
+        // Enkripsi password dengan Bcrypt
+        $validatedData['password'] = Hash::make($request->password);
+    
+        // Simpan user baru
+        User::create($validatedData);
+        
+        return redirect('/admin/pemilu/datadpt')->with('status', 'Data berhasil ditambahkan');
+    }
 
 
     /**
@@ -80,15 +84,18 @@ public function update(Request $request, $id)
     $request->validate([
         'name' => 'required|string|max:255',
         'email' => 'required|email|max:255',
-        'password' => 'nullable|min:8|confirmed', // Optional: password validation
+        'password' => 'nullable|string|min:8|confirmed', // Password opsional
     ]);
 
     $users = User::findOrFail($id);
     $users->name = $request->name;
     $users->email = $request->email;
-    if ($request->password) {
-        $users->password = bcrypt($request->password); // Only update password if provided
+
+    // Hanya update password jika diisi
+    if ($request->filled('password')) {
+        $users->password = Hash::make($request->password);
     }
+
     $users->save();
 
     return redirect()->route('admin.pemilu.datadpt')->with('status', 'Data updated successfully!');

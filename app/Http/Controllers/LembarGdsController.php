@@ -16,11 +16,11 @@ class LembarGdsController extends Controller
     public function index()
     {
         // Mengambil semua data dari tabel siswas dan rekapgds
-        $siswas = Siswa::all();
+        $siswa = Siswa::all();
         $rekapgds = RekapGds::all();
 
         // Mengirim data ke view
-        return view('admin.gds.lembargds', compact('rekapgds', 'siswas'));
+        return view('admin.gds.lembargds.lembargds', compact('rekapgds', 'siswas'));
     }
 
     /**
@@ -28,7 +28,7 @@ class LembarGdsController extends Controller
      */
     public function create()
     {
-        return view('admin.gds.createlembargds'); // Sesuaikan dengan struktur folder view Anda
+        return view('admin.gds.lembargds.createlembargds'); // Sesuaikan dengan struktur folder view Anda
     }
 
     /**

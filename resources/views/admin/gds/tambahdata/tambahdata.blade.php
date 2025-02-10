@@ -11,38 +11,108 @@
             <form action="{{ route('siswa.store') }}" method="POST">
                 @csrf
                 <div class="row">
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-6 mb-3">
                         <label class="form-label">Nama</label>
                         <input type="text" name="nama" class="form-control" required>
                     </div>
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-6 mb-3">
                         <label class="form-label">Kelas</label>
                         <input type="text" name="kelas" class="form-control" required>
                     </div>
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-2 mb-1">
                         <label class="form-label">Dasi/Kacu</label>
                         <select name="dasi_kacu" class="form-select">
                             <option value="1">Ya</option>
                             <option value="0">Tidak</option>
                         </select>
                     </div>
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-2 mb-1">
                         <label class="form-label">Kaos Kaki</label>
                         <select name="kaos_kaki" class="form-select">
                             <option value="1">Ya</option>
                             <option value="0">Tidak</option>
                         </select>
                     </div>
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-2 mb-1">
                         <label class="form-label">Sabuk</label>
                         <select name="sabuk" class="form-select">
                             <option value="1">Ya</option>
                             <option value="0">Tidak</option>
                         </select>
                     </div>
-                    <div class="col-md-4 mb-3">
+                    <div class="col-md-2 mb-1">
                         <label class="form-label">NameTag</label>
                         <select name="nametag" class="form-select">
+                            <option value="1">Ya</option>
+                            <option value="0">Tidak</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 mb-1">
+                        <label class="form-label">Sepatu</label>
+                        <select name="sepatu" class="form-select">
+                            <option value="1">Ya</option>
+                            <option value="0">Tidak</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 mb-1">
+                        <label class="form-label">Jas</label>
+                        <select name="jas" class="form-select">
+                            <option value="1">Ya</option>
+                            <option value="0">Tidak</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 mb-1">
+                        <label class="form-label">Ring</label>
+                        <select name="ring" class="form-select">
+                            <option value="1">Ya</option>
+                            <option value="0">Tidak</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 mb-1">
+                        <label class="form-label">Bros</label>
+                        <select name="bros" class="form-select">
+                            <option value="1">Ya</option>
+                            <option value="0">Tidak</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 mb-1">
+                        <label class="form-label">Make Up</label>
+                        <select name="makeup" class="form-select">
+                            <option value="1">Ya</option>
+                            <option value="0">Tidak</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 mb-1">
+                        <label class="form-label">Telat</label>
+                        <select name="telat" class="form-select">
+                            <option value="1">Ya</option>
+                            <option value="0">Tidak</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 mb-1">
+                        <label class="form-label">Ciput</label>
+                        <select name="ciput" class="form-select">
+                            <option value="1">Ya</option>
+                            <option value="0">Tidak</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 mb-1">
+                        <label class="form-label">Hijab</label>
+                        <select name="hijab" class="form-select">
+                            <option value="1">Ya</option>
+                            <option value="0">Tidak</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 mb-1">
+                        <label class="form-label">Almamater</label>
+                        <select name="almamater" class="form-select">
+                            <option value="1">Ya</option>
+                            <option value="0">Tidak</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2 mb-1">
+                        <label class="form-label">WearPack</label>
+                        <select name="wearpack" class="form-select">
                             <option value="1">Ya</option>
                             <option value="0">Tidak</option>
                         </select>

@@ -97,15 +97,17 @@
     <!-- Title -->
     <h3 class="text-center text-dark mb-4 animate__animated animate__fadeInDown">Login</h3>
     <!-- Form -->
-    <form action="{{ url('/user/welcome') }}">
+    <form action="{{ route('auth.login') }}" method="POST">
+        @csrf
         <!-- Username -->
         <div class="mb-3 animate__animated animate__fadeInLeft">
             <div class="input-group">
                 <span class="input-group-text"><i class="fas fa-user text-muted"></i></span>
                 <input 
-                    type="text" 
+                    type="email" 
+                    name="email"
                     class="form-control" 
-                    placeholder="Nama Kamu"
+                    placeholder="Email Kamu"
                     required
                 >
             </div>
@@ -117,14 +119,15 @@
                 <input 
                     type="password" 
                     id="password" 
+                    name="password"
                     class="form-control" 
                     placeholder="Password"
                     required
                 >
                 <span 
                     class="input-group-text cursor-pointer"
-                    onclick="const field = document.getElementById('password'); field.type = field.type === 'password' ? 'text' : 'password';">
-                    <i class="fas fa-eye"></i>
+                    onclick="togglePassword()">
+                    <i class="fas fa-eye" id="eye-icon"></i>
                 </span>
             </div>
         </div>
@@ -137,6 +140,21 @@
     </form>
 </div>
 
+<script>
+    function togglePassword() {
+        const field = document.getElementById('password');
+        const icon = document.getElementById('eye-icon');
+        if (field.type === 'password') {
+            field.type = 'text';
+            icon.classList.remove('fa-eye');
+            icon.classList.add('fa-eye-slash');
+        } else {
+            field.type = 'password';
+            icon.classList.remove('fa-eye-slash');
+            icon.classList.add('fa-eye');
+        }
+    }
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
