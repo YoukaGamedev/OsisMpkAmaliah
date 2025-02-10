@@ -4,48 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome Page</title>
-    <link rel="stylesheet" href="{{ asset('/asset/css/styles.css') }}">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: #f8f9fa;
-            text-align: center;
+        .fade-in {
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeIn 1s forwards;
         }
 
-        .welcome-container {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn-custom {
-            background-color: #007bff;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 1.2rem;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn-custom:hover {
-            background-color: #0056b3;
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
+<<<<<<< Updated upstream
 <body>
 
     <div class="welcome-container">
         <h1>Welcome to Our System</h1>
         <p>Silakan login untuk melanjutkan</p>
         <a href="{{ route('login') }}" class="btn btn-custom">Login</a>
+=======
+<body class="flex items-center justify-center h-screen bg-gray-100 text-center">
+    
+    <div class="welcome-container bg-white bg-opacity-70 p-10 rounded-lg shadow-lg max-w-md w-full backdrop-blur-md fade-in flex flex-col items-center">
+        <div class="logo-container flex justify-center items-center mb-5 bg-transparent p-4 rounded-full shadow-md">
+            <img src="{{ asset('/asset/img/logo osis.png') }}" alt="Logo" class="w-20 h-20 rounded-full">
+        </div>
+        <h1 class="text-gray-500 text-2xl font-bold">Welcome to Our System</h1>
+        <p class="text-gray-500 mt-2">Silakan login untuk melanjutkan</p>
+        <a href="{{ route('auth.login') }}" class="btn-custom bg-gray-500 text-white px-6 py-3 rounded-lg text-lg mt-4 inline-flex items-center gap-2 transition-transform transform hover:scale-105">
+            <i class="fas fa-sign-in-alt"></i> Login
+        </a>
+>>>>>>> Stashed changes
     </div>
 
 </body>

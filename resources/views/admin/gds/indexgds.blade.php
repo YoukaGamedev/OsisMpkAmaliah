@@ -11,11 +11,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
   <style>
-
     .navbar {
-      background-color: #007bff;
+      background-color: gray;
       color: #fff;
-      border-bottom: 3px solid #0056b3;
     }
     .navbar a, .navbar input {
       color: #ffffff;
@@ -35,19 +33,21 @@
     }
 
     .btn-new-gds {
-      background-color: #007bff;
+      background-color: gray;
       color: white;
-      font-size: 1.2rem;
-      padding: 20px 30px;
+      font-size: 1.1rem;
+      padding: 15px 30px;
       border: none;
-      border-radius: 10px;
+      border-radius: px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       transition: all 0.3s ease;
       text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 5px;
     }
 
     .btn-new-gds:hover {
-      background-color: #0464ca;
       transform: scale(1.05);
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     }
@@ -61,8 +61,10 @@
 <body style="background-color: #f4f4f4;">
   <div>
     <div class="centered-content">
-      <h1 class="mb-4">Buat Lembar GDS Baru</h1>
-      <a href="{{ route('rekapgds.create') }}" class="btn-new-gds">Lembar GDS Baru</a>
+      <h1 class="mb-4" style="color: inherit; text-decoration: none;">Buat Lembar GDS Baru</h1>
+      <a href="{{ route('rekapgds.create') }}" class="btn-new-gds">
+        <i class="bi bi-file-earmark-plus"></i> Lembar GDS Baru
+      </a>
     </div>
   </div>
 

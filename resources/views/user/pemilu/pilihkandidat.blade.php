@@ -22,12 +22,12 @@
     }
     .candidate-card {
       width: 100%;
-      max-width: 450px; /* Increased card width */
+      max-width: 450px;
       border: 2px solid #ddd;
       border-radius: 15px;
       background-color: #fff;
       margin-bottom: 20px;
-      padding: 20px;  /* Increased padding for better content spacing */
+      padding: 20px;
       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       display: flex;
@@ -43,7 +43,7 @@
     .candidate-card img {
       width: 100%;
       height: auto;
-      max-height: 250px; /* Increased image height */
+      max-height: 250px;
       object-fit: cover;
       border-bottom: 2px solid #ddd;
       padding-bottom: 15px;
@@ -52,30 +52,30 @@
     .candidate-card h5, .candidate-card p {
       text-align: center;
       color: #333;
-      font-size: 1.1rem; /* Kept font size */
+      font-size: 1.1rem;
     }
     .candidate-number {
-      font-size: 32px;  /* Increased size for candidate number */
+      font-size: 32px;
       font-weight: bold;
       color: #007bff;
       text-align: center;
-      margin: 15px 0;  /* Increased margin */
+      margin: 15px 0;
     }
     .card-title {
-      font-size: 1.5rem;  /* Increased title font size */
+      font-size: 1.5rem;
       font-weight: 700;
       color: #343a40;
       margin-bottom: 10px;
     }
     .card-subtitle {
-      font-size: 1.1rem; /* Increased font size for subtitle */
+      font-size: 1.1rem;
       font-weight: 500;
-      color: #6c757d;
+      color: gray;
       margin-bottom: 10px;
     }
     .btn-info {
-      font-size: 1.1rem;  /* Slightly bigger button text */
-      padding: 8px 16px;  /* Slightly bigger padding */
+      font-size: 1.1rem;
+      padding: 8px 16px;
       border-radius: 5px;
       transition: background-color 0.3s ease;
     }
@@ -84,10 +84,10 @@
     }
     .vote-btn {
       width: 100%;
-      padding: 18px;  /* Increased padding */
-      font-size: 1.4rem;  /* Bigger button text */
+      padding: 18px;
+      font-size: 1.4rem;
       border-radius: 5px;
-      margin-top: 20px;  /* Increased margin */
+      margin-top: 20px;
       background-color: #28a745;
       color: #fff;
       transition: background-color 0.3s ease;
@@ -96,32 +96,27 @@
       background-color: #218838;
     }
     .visi-misi {
-      max-height: 150px;  /* Reduced max-height */
+      max-height: 150px;
       overflow-y: auto;
-      padding: 10px;  /* Reduced padding */
+      padding: 10px;
       border-top: 2px solid #ddd;
-      margin-top: 10px;  /* Reduced margin */
+      margin-top: 10px;
       display: none;
       background-color: #f8f9fa;
       border-radius: 8px;
     }
     h3 {
-      color: rgb(0, 0, 0);
-      font-size: 2.5rem;  /* Increased title size */
+      color: gray;
+      font-size: 2.5rem;
       font-weight: 700;
       margin-bottom: 40px;
       text-align: center;
     }
     .row {
       display: flex;
-      justify-content: center;  /* Centered cards */
+      justify-content: center;
       gap: 20px;
       flex-wrap: wrap;
-    }
-    .col-md-4, .col-lg-3 {
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
     @media (max-width: 768px) {
       .candidate-card {
@@ -158,7 +153,6 @@
             <p>{{ $kandidat->visi_misi }}</p>
           </div>
 
-          <!-- Voting Form -->
           <form action="{{ url('/user/pemilu/berespilih') }}">
             <button type="submit" class="btn vote-btn">Pilih Pasangan No {{ $kandidat->nomor_pasangan_calon }}</button>
           </form>
@@ -168,8 +162,6 @@
     </div>
   </div>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     function toggleVisiMisi(button) {
       const visiMisiDiv = button.closest('.candidate-card').querySelector('.visi-misi');
