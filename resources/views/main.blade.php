@@ -235,7 +235,22 @@
               </li>
               <br><br>
               <li class="nav-item">
+                <a class="nav-link" href="{{ url('/admin/pemilu/datadpt') }}">
+                    <i class="bi bi-box-arrow-left icon"></i>
+                    <span class="link-text">Tambah User</span>
+                </a> 
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="#">
+                    <i class="bi bi-box-arrow-left icon"></i>
+                    <span class="link-text">Tambah Admin
+                    </span>
+                </a> 
+              </li>
+              
+              <br><br>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url('/logout') }}">
                     <i class="bi bi-box-arrow-left icon"></i>
                     <span class="link-text">Log Out</span>
                 </a> 

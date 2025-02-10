@@ -12,13 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();  // Auto-incrementing ID
-            $table->string('name');  // Default user name column
-            $table->string('email')->unique();  // Default email column
-            $table->timestamp('email_verified_at')->nullable();  // Email verification timestamp
-            $table->string('password');  // Password column for storing hashed passwords
-            $table->rememberToken();  // Remember token for "remember me" functionality
-            $table->timestamps();  // Timestamps for created_at and updated_at
+            $table->id();  
+            $table->string('name');  
+            $table->string('email')->unique();  
+            $table->timestamp('email_verified_at')->nullable();  
+            $table->string('password');  
+            $table->string('role')->default('user'); // Menambahkan kolom role
+            $table->rememberToken();  
+            $table->timestamps();  
         });
     }
 
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');  // Drop users table
+        Schema::dropIfExists('users');  
     }
 };

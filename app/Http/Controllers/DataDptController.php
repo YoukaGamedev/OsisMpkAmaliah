@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
-use App\Models\DataDpt;
 use App\Models\User;
-
 use DB;
 
 class DataDptController extends Controller
@@ -15,27 +13,26 @@ class DataDptController extends Controller
      * Display a listing of the resource.
      */
     public function index(Request $request)
-{
-    $query = DB::table('users');
+    {
+        $query = User::query();
 
-    // Check if there is a 'name' search term and filter accordingly
-    if ($request->has('name') && $request->input('name') != '') {
-        $query->where('name', 'like', '%' . $request->input('name') . '%');
+        // Filter berdasarkan nama jika ada input pencarian
+        if ($request->has('name') && $request->input('name') != '') {
+            $query->where('name', 'like', '%' . $request->input('name') . '%');
+        }
+
+        // Menggunakan pagination agar lebih optimal
+        $users = $query->paginate(10);
+
+        return view('admin.pemilu.datadpt', compact('users'));
     }
-
-    // Get the filtered users
-    $users = $query->get();
-
-    return view('/admin/pemilu/datadpt', ['users' => $users]);
-}
-
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        return view('/admin/pemilu/datadpt');
+        return view('admin.pemilu.create'); // Menggunakan file view khusus untuk tambah user
     }
 
     /**
@@ -48,73 +45,62 @@ class DataDptController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email|max:255',
             'password' => 'required|string|min:8|confirmed', // Pastikan password dikonfirmasi
+            'role' => 'required|string|in:user,admin', // Validasi role
         ]);
-    
-        // Enkripsi password dengan Bcrypt
+
+        // Enkripsi password
         $validatedData['password'] = Hash::make($request->password);
-    
+
         // Simpan user baru
         User::create($validatedData);
         
-        return redirect('/admin/pemilu/datadpt')->with('status', 'Data berhasil ditambahkan');
-    }
-
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
+        return redirect('admin.pemilu.datadpt')->with('status', 'Data berhasil ditambahkan');
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    // Show the edit form
-public function edit($id)
-{
-    $users = User::findOrFail($id); // Find the DPT by ID
-    return view('admin.pemilu.datadpt', compact('users')); // Pass the data to the edit view
-}
-
-// Update the data
-public function update(Request $request, $id)
-{
-    $request->validate([
-        'name' => 'required|string|max:255',
-        'email' => 'required|email|max:255',
-        'password' => 'nullable|string|min:8|confirmed', // Password opsional
-    ]);
-
-    $users = User::findOrFail($id);
-    $users->name = $request->name;
-    $users->email = $request->email;
-
-    // Hanya update password jika diisi
-    if ($request->filled('password')) {
-        $users->password = Hash::make($request->password);
+    public function edit($id)
+    {
+        $user = User::findOrFail($id);
+        return view('admin.pemilu.edit', compact('user')); // Menggunakan view edit khusus
     }
 
-    $users->save();
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255|unique:users,email,'.$id,
+            'password' => 'nullable|string|min:8|confirmed', // Password opsional
+            'role' => 'required|string|in:user,admin',
+        ]);
 
-    return redirect()->route('admin.pemilu.datadpt')->with('status', 'Data updated successfully!');
-}
+        $user = User::findOrFail($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->role = $request->role;
 
+        // Hanya update password jika diisi
+        if ($request->filled('password')) {
+            $user->password = Hash::make($request->password);
+        }
+
+        $user->save();
+
+        return redirect()->route('admin.pemilu.datadpt')->with('status', 'Data berhasil diperbarui');
+    }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-{
-    // Find the data by its ID, if it doesn't exist, it will throw a ModelNotFoundException
-    $users = User::findOrFail($id);
+    public function destroy($id)
+    {
+        $user = User::findOrFail($id);
+        $user->delete();
 
-    // Delete the found record
-    $users->delete();
-
-    // Redirect back with a success message
-    return redirect('/admin/pemilu/datadpt')->with('status', 'Data berhasil dihapus');
-}
-
+        return redirect()->route('admin.pemilu.datadpt')->with('status', 'Data berhasil dihapus');
+    }
 }

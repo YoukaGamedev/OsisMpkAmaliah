@@ -9,7 +9,7 @@ class AuthController extends Controller
 {
     public function showLoginForm()
     {
-        return view('auth.login'); // Pastikan tidak ada redirect di sini
+        return view('auth.login'); 
     }
 
     public function login(Request $request)
@@ -21,12 +21,19 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/user/welcome'); // Redirect ke dashboard setelah login
+
+            // Ambil role pengguna yang sedang login
+            $user = Auth::user();
+            if ($user->role === 'admin') {
+                return redirect()->intended('/admin');
+            } else {
+                return redirect()->intended('/user/welcome');
+            }
         }
 
         return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ]);
+            'email' => 'Email atau password salah, silakan coba lagi.',
+        ])->withInput($request->only('email'));
     }
 
     public function logout(Request $request)
@@ -34,8 +41,6 @@ class AuthController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/login');
+        return redirect('/login')->with('status', 'Anda telah logout.');
     }
 }
-
-
