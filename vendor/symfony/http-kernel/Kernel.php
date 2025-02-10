@@ -62,6 +62,10 @@ abstract class Kernel implements KernelInterface, RebootableInterface, Terminabl
     protected ?ContainerInterface $container = null;
     protected bool $booted = false;
     protected ?float $startTime = null;
+    protected $routeMiddleware = [
+        'role' => \App\Http\Middleware\RoleMiddleware::class,
+    ];
+    
 
     private string $projectDir;
     private ?string $warmupDir = null;

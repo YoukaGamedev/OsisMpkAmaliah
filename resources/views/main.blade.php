@@ -213,8 +213,9 @@
         </a>
 
         <div class="admin">
-    {{ Auth::user() ? Auth::user()->name : 'Guest' }}
+    {{ Auth::user() ? Auth::user()->name . ' (' . Auth::user()->role . ')' : 'Guest' }}
 </div>
+
 
     </div>
 
