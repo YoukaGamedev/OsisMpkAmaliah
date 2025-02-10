@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Http\\Controllers\\AdminController' => $baseDir . '/app/Http/Controllers/AdminController.php',
+    'App\\Http\\Controllers\\AuthController' => $baseDir . '/app/Http/Controllers/AuthController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\DashboardController' => $baseDir . '/app/Http/Controllers/DashboardController.php',
     'App\\Http\\Controllers\\DataDptController' => $baseDir . '/app/Http/Controllers/DataDptController.php',
@@ -19,7 +20,9 @@ return array(
     'App\\Http\\Controllers\\RekapGdsController' => $baseDir . '/app/Http/Controllers/RekapGdsController.php',
     'App\\Http\\Controllers\\SiswaController' => $baseDir . '/app/Http/Controllers/SiswaController.php',
     'App\\Http\\Controllers\\TambahDataController' => $baseDir . '/app/Http/Controllers/TambahDataController.php',
+    'App\\Http\\Controllers\\UserController' => $baseDir . '/app/Http/Controllers/UserController.php',
     'App\\Http\\Controllers\\VoteController' => $baseDir . '/app/Http/Controllers/VoteController.php',
+    'App\\Http\\Middleware\\RoleMiddleware' => $baseDir . '/app/Http/Middleware/RoleMiddleware.php',
     'App\\Models\\Dashboard' => $baseDir . '/app/Models/Dashboard.php',
     'App\\Models\\DataDpt' => $baseDir . '/app/Models/DataDpt.php',
     'App\\Models\\DataKandidat' => $baseDir . '/app/Models/DataKandidat.php',

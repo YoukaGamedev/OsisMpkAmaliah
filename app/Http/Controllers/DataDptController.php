@@ -54,7 +54,7 @@ class DataDptController extends Controller
         // Simpan user baru
         User::create($validatedData);
         
-        return redirect('admin.pemilu.datadpt')->with('status', 'Data berhasil ditambahkan');
+        return redirect('/admin/pemilu/datadpt')->with('status', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -90,7 +90,7 @@ class DataDptController extends Controller
 
         $user->save();
 
-        return redirect()->route('admin.pemilu.datadpt')->with('status', 'Data berhasil diperbarui');
+        return redirect('admin.pemilu.datadpt')->with('status', 'Data berhasil diperbarui');
     }
 
     /**
@@ -101,6 +101,6 @@ class DataDptController extends Controller
         $user = User::findOrFail($id);
         $user->delete();
 
-        return redirect()->route('admin.pemilu.datadpt')->with('status', 'Data berhasil dihapus');
+        return redirect('admin/pemilu/datadpt')->with('status', 'Data berhasil dihapus');
     }
 }

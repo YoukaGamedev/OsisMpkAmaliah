@@ -240,7 +240,7 @@
                 </a> 
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{ url('/logout') }}">
+                <a class="nav-link" href="#">
                     <i class="bi bi-box-arrow-in-right icon"></i>
                     <span class="link-text">Sign In</span>
                 </a> 

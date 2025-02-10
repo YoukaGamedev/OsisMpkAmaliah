@@ -639,6 +639,7 @@ class ComposerStaticInit4984a36bfe32609675dd656efe585466
 
     public static $classMap = array (
         'App\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminController.php',
+        'App\\Http\\Controllers\\AuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/AuthController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\DashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/DashboardController.php',
         'App\\Http\\Controllers\\DataDptController' => __DIR__ . '/../..' . '/app/Http/Controllers/DataDptController.php',
@@ -651,7 +652,9 @@ class ComposerStaticInit4984a36bfe32609675dd656efe585466
         'App\\Http\\Controllers\\RekapGdsController' => __DIR__ . '/../..' . '/app/Http/Controllers/RekapGdsController.php',
         'App\\Http\\Controllers\\SiswaController' => __DIR__ . '/../..' . '/app/Http/Controllers/SiswaController.php',
         'App\\Http\\Controllers\\TambahDataController' => __DIR__ . '/../..' . '/app/Http/Controllers/TambahDataController.php',
+        'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Controllers\\VoteController' => __DIR__ . '/../..' . '/app/Http/Controllers/VoteController.php',
+        'App\\Http\\Middleware\\RoleMiddleware' => __DIR__ . '/../..' . '/app/Http/Middleware/RoleMiddleware.php',
         'App\\Models\\Dashboard' => __DIR__ . '/../..' . '/app/Models/Dashboard.php',
         'App\\Models\\DataDpt' => __DIR__ . '/../..' . '/app/Models/DataDpt.php',
         'App\\Models\\DataKandidat' => __DIR__ . '/../..' . '/app/Models/DataKandidat.php',

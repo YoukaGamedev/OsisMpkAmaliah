@@ -45,7 +45,7 @@
     <div class="welcome-container">
         <h1>Welcome to Our System</h1>
         <p>Silakan login untuk melanjutkan</p>
-        <a href="{{ route('auth.login') }}" class="btn btn-custom">Login</a>
+        <a href="{{ route('login') }}" class="btn btn-custom">Login</a>
     </div>
 
 </body>
