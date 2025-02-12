@@ -78,7 +78,7 @@
         }
 
         .footer {
-            background-color:rgb(105, 108, 110);
+            background-color:black;
             color: white;
             padding: 10px 10px;
             font-size: 0.9rem;

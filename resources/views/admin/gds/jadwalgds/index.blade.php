@@ -3,13 +3,13 @@
 @section('content2')
 <div class="container mt-4">
     <div class="card shadow-sm">
-        <div class="card-header bg-primary text-white text-center">
+        <div class="card-header bg-secondary text-white text-center">
             <h5>Jadwal Piket GDS</h5>
         </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered table-striped">
-                    <thead class="table-dark">
+                    <thead class="bg-secondary text-white">
                         <tr>
                             <th>Hari</th>
                             <th>Jam</th>
@@ -30,8 +30,8 @@
                                 Ilham Haha
                             </td>
                             <td>
-                                <a href="#" class="btn btn-info btn-sm">Lihat</a>
-                                <a href="#" class="btn btn-warning btn-sm">Edit</a>
+                                <a href="#" class="btn btn-success btn-sm">Lihat</a>
+                                <a href="#" class="btn btn-info btn-sm">Edit</a>
                                 <form action="#" method="POST" class="d-inline">
                                     @csrf
                                     <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Hapus jadwal ini?')">Hapus</button>
@@ -47,8 +47,8 @@
                                 Chris Evans
                             </td>
                             <td>
-                                <a href="#" class="btn btn-info btn-sm">Lihat</a>
-                                <a href="#" class="btn btn-warning btn-sm">Edit</a>
+                                <a href="#" class="btn btn-success btn-sm">Lihat</a>
+                                <a href="#" class="btn btn-info btn-sm">Edit</a>
                                 <form action="#" method="POST" class="d-inline">
                                     @csrf
                                     <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Hapus jadwal ini?')">Hapus</button>
@@ -65,8 +65,8 @@
                                 Anna Clark
                             </td>
                             <td>
-                                <a href="#" class="btn btn-info btn-sm">Lihat</a>
-                                <a href="#" class="btn btn-warning btn-sm">Edit</a>
+                                <a href="#" class="btn btn-success btn-sm">Lihat</a>
+                                <a href="#" class="btn btn-info btn-sm">Edit</a>
                                 <form action="#" method="POST" class="d-inline">
                                     @csrf
                                     <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Hapus jadwal ini?')">Hapus</button>

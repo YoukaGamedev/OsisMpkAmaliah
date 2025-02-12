@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <style>
         html, body {
-            height: 100%;
+            height: 90%;
             margin: 0;
             display: flex;
             flex-direction: column;
@@ -75,10 +75,12 @@
 
         .content {
             margin-top: -80px;
+            
         }
 
+       
         .footer {
-            background-color:rgb(105, 108, 110);
+            background-color:black;
             color: white;
             padding: 10px 10px;
             font-size: 0.9rem;
@@ -113,6 +115,44 @@
             font-size: 0.75rem;
         }
 
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}
+html, body {
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-container {
+    flex: 1; /* Membuat konten utama mengisi ruang yang tersedia */
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.content {
+    flex-grow: 1; /* Mendorong footer ke bawah */
+}
+
+.footer {
+    background-color: black;
+    color: white;
+    padding: 15px 10px;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: auto; /* Memastikan footer turun ke bawah */
+}
+
+
         .box {
             display: flex;
             align-items: center;
@@ -132,15 +172,15 @@
         }
 
         .highlight {
-            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            background: linear-gradient(45deg,black, white);
         }
 
         .highlight.pink {
-            background: linear-gradient(45deg, #f093fb, #f5576c);
+            background: linear-gradient(45deg, black, white);
         }
 
         .highlight.blue {
-            background: linear-gradient(45deg, #5ee7df, #b490ca);
+            background: linear-gradient(45deg, black,white);
         }
 
         .welcome-message {
