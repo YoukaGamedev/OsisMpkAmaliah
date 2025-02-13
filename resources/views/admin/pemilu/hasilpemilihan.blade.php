@@ -1,68 +1,39 @@
 @extends('admin.pemilu.pemilu')
 
 @section('content1')
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hasil Perolehan Suara</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-  <style>
-    .custom-table {
-      margin-top: 20px;
-    }
-    .custom-table th {
-      background-color: #f8f9fa;
-      border-bottom: 2px solid #dee2e6;
-    }
-  </style>
-</head>
-<body style="background-color: #f4f4f4;">
-  <div class="mt-2">
-    <!-- Card Wrapper -->
-    <div class="card mt-4">
-      <div class="card-header">
-        <h5 class="text-center mb-0">HASIL PEROLEHAN SUARA</h5>
-      </div>
-      <div class="card-body">
-        <!-- Table -->
-        <table class="table table-bordered custom-table">
-          <thead>
-            <tr>
-              <th>No</th>
-              <th>Jenis Data</th>
-              <th>Angka</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>JUMLAH TOTAL DPT</td>
-              <td>0</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>JUMLAH DPT MEMILIH</td>
-              <td>0</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>JUMLAH DPT TIDAK MEMILIH</td>
-              <td>0</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+<div class="mt-4 p-6">
+    <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+        <div class="bg-gray-800 text-white py-4 px-6 text-center text-xl font-semibold">
+            HASIL PEROLEHAN SUARA
+        </div>
+        <div class="p-6">
+            <table class="w-full border-collapse border border-gray-300">
+                <thead class="bg-gray-200">
+                    <tr>
+                        <th class="border border-gray-300 px-4 py-2">No</th>
+                        <th class="border border-gray-300 px-4 py-2">Jenis Data</th>
+                        <th class="border border-gray-300 px-4 py-2">Angka</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd:bg-gray-100 even:bg-white">
+                        <td class="border border-gray-300 px-4 py-2 text-center">1</td>
+                        <td class="border border-gray-300 px-4 py-2">JUMLAH TOTAL DPT</td>
+                        <td class="border border-gray-300 px-4 py-2 text-center font-semibold text-blue-600">0</td>
+                    </tr>
+                    <tr class="odd:bg-gray-100 even:bg-white">
+                        <td class="border border-gray-300 px-4 py-2 text-center">2</td>
+                        <td class="border border-gray-300 px-4 py-2">JUMLAH DPT MEMILIH</td>
+                        <td class="border border-gray-300 px-4 py-2 text-center font-semibold text-green-600">0</td>
+                    </tr>
+                    <tr class="odd:bg-gray-100 even:bg-white">
+                        <td class="border border-gray-300 px-4 py-2 text-center">3</td>
+                        <td class="border border-gray-300 px-4 py-2">JUMLAH DPT TIDAK MEMILIH</td>
+                        <td class="border border-gray-300 px-4 py-2 text-center font-semibold text-red-600">0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-  </div>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
-
-
-
+</div>
 @endsection

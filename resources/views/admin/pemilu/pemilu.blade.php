@@ -7,56 +7,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('/asset/css/pemilu.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <style>
-        h4 {
-            color: gray;
-        }
-    </style>
 </head>
-<body>
-    <div class="sidebar">
-        <h4>Pemilu</h4>
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link" href="{{ ('/admin/pemilu/dashboard') }}">
-                <i class="bi bi-house-door-fill"></i> Data Sekolah
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ ('/admin/pemilu/datakelas') }}">
-                <i class="bi bi-person-lines-fill"></i> Data Kelas
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ ('/admin/pemilu/datakandidat') }}">
-                <i class="bi bi-person-circle"></i> Data Kandidat
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ ('/admin/pemilu/datadpt') }}">
-                <i class="bi bi-file-earmark-text"></i> Data DPT
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ ('/admin/pemilu/hasilpemilihan') }}">
-                <i class="bi bi-graph-up-arrow"></i> Hasil Pilih
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="bi bi-calendar-event"></i> Jadwal GDS
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="bi bi-calendar-check"></i> Jadwal GDS
-            </a>
-          </li>
+<body class="bg-gray-100 flex">
+    <!-- Sidebar -->
+    <div class="w-64 bg-white shadow-lg h-screen p-5">
+        <h4 class="text-gray-500 text-lg font-semibold mb-5">Pemilu</h4>
+        <ul class="space-y-3">
+            <li>
+                <a class="flex items-center p-3 rounded-lg hover:bg-gray-200 transition" href="{{ ('/admin/pemilu/dashboard') }}">
+                    <i class="bi bi-house-door-fill mr-3"></i> Data Sekolah
+                </a>
+            </li>
+            <li>
+                <a class="flex items-center p-3 rounded-lg hover:bg-gray-200 transition" href="{{ ('/admin/pemilu/datakelas') }}">
+                    <i class="bi bi-person-lines-fill mr-3"></i> Data Kelas
+                </a>
+            </li>
+            <li>
+                <a class="flex items-center p-3 rounded-lg hover:bg-gray-200 transition" href="{{ ('/admin/pemilu/datakandidat') }}">
+                    <i class="bi bi-person-circle mr-3"></i> Data Kandidat
+                </a>
+            </li>
+            <li>
+                <a class="flex items-center p-3 rounded-lg hover:bg-gray-200 transition" href="{{ ('/admin/pemilu/datadpt') }}">
+                    <i class="bi bi-file-earmark-text mr-3"></i> Data DPT
+                </a>
+            </li>
+            <li>
+                <a class="flex items-center p-3 rounded-lg hover:bg-gray-200 transition" href="{{ ('/admin/pemilu/hasilpemilihan') }}">
+                    <i class="bi bi-graph-up-arrow mr-3"></i> Hasil Pilih
+                </a>
+            </li>
+            <li>
+                <a class="flex items-center p-3 rounded-lg hover:bg-gray-200 transition" href="#">
+                    <i class="bi bi-calendar-event mr-3"></i> Jadwal GDS
+                </a>
+            </li>
+            <li>
+                <a class="flex items-center p-3 rounded-lg hover:bg-gray-200 transition" href="#">
+                    <i class="bi bi-calendar-check mr-3"></i> Jadwal GDS
+                </a>
+            </li>
         </ul>
     </div>
-    <div class="content1">
+
+    <!-- Content -->
+    <div class="flex-1 p-6">
         @yield('content1')
     </div>
 </body>
