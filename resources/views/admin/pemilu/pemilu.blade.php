@@ -12,7 +12,7 @@
 </head>
 <body class="bg-gray-100 flex">
     <!-- Sidebar -->
-    <div class="w-64 bg-white shadow-lg h-screen p-4 fixed">
+    <div class="w-64 bg-white shadow-lg h-screen p-5">
         <h4 class="text-gray-500 text-lg font-semibold mb-5">Pemilu</h4>
         <ul class="space-y-3">
             <li>
@@ -54,7 +54,7 @@
     </div>
 
     <!-- Content -->
-    <div class="flex-1 p-6 ml-64">
+    <div class="flex-1 p-6">
         @yield('content1')
     </div>
 </body>
