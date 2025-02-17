@@ -30,7 +30,7 @@
                     <input name="foto" type="file" id="foto" class="w-full p-2 border rounded-md" onchange="previewImage(event)">
                     <img id="preview" class="mt-2 w-24 h-24 object-cover rounded-md hidden" />
                 </div>
-                <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600">Submit</button>
+                <button type="submit" class="w-full bg-green-500 text-white p-2 rounded-md hover:bg-green-600">Submit</button>
             </form>
         </div>
         

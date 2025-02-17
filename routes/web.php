@@ -90,7 +90,7 @@ Route::get('/lembar-gds', [LembarGdsController::class, 'index'])->name('lembar-g
 Route::resource('admin/gds/rekapgds/rekapgds', RekapGdsController::class);
 
 Route::resource('siswa', SiswaController::class);
-Route::get('/siswa/search', [SiswaController::class, 'search'])->name('siswa.search');
+Route::get('/admin/gds/le,b', [SiswaController::class, 'search'])->name('siswa.search');
 
 // Route::get('/siswa', [SiswaController::class, 'index'])->name('siswa.index');
 // Route::get('/siswa/search', [SiswaController::class, 'search'])->name('siswa.search');

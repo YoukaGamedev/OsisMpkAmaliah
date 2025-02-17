@@ -52,7 +52,7 @@
                     <label for="no_kelas" class="block text-sm font-medium text-gray-700">Jumlah Siswa</label>
                     <input name="no_kelas" type="text" id="no_kelas" class="mt-1 p-2 w-full border rounded-md" placeholder="Jumlah Siswa">
                 </div>
-                <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Submit</button>
+                <button type="submit" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">Submit</button>
             </form>
         </div>
     </div>

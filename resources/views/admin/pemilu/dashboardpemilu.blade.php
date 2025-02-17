@@ -52,7 +52,7 @@
                     <input name="tanggal" type="date" id="tanggal-pelaksanaan" value="2021-08-17" class="w-full p-2 border rounded-lg">
                 </div>
             </div>
-            <button type="submit" class="mt-4 w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition">Simpan Data</button>
+            <button type="submit" class="mt-4 w-full bg-green-600 text-white p-3 rounded-lg hover:bg-green-700 transition">Simpan Data</button>
         </form>
     </div>
 

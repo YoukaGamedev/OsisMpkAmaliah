@@ -16,26 +16,22 @@ class SiswaController extends Controller
     public function index(Request $request)
 {
     $siswa = DB::table('siswas')->get(); 
-    return view('admin/gds/lembargds/searchdata', compact('siswa')); 
+    return view('admin.gds.lembargds.searchdata', compact('siswa')); 
 }
 
 public function search(Request $request)
 {
-    // Get the search query from the request
-    $query = $request->input('query');
+    $query = Siswa::query();
 
-    // If the query is empty, show all students
-    if (empty($query)) {
-        $siswa = Siswa::all(); // Get all students
-    } else {
-        // If there's a query, search based on 'nama' or 'kelas'
-        $siswa = Siswa::where('nama', 'LIKE', "%$query%")
-                    ->orWhere('kelas', 'LIKE', "%$query%")
-                    ->get(); // Get all students matching the query
-    }
+        // Filter berdasarkan nama jika ada input pencarian
+    if ($request->has('nama') && $request->input('nama') != '') {
+            $query->where('nama', 'like', '%' . $request->input('nama') . '%');
+        }
 
-    // Return the view with the students and the search query
-    return view('siswa.index', compact('siswa', 'query'));
+        // Menggunakan pagination agar lebih optimal
+    $siswa = $query->paginate(10);
+
+    return view('admin.gds.lembargds.searchdata', compact('siswa'));
 }
 
 

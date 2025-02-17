@@ -5,33 +5,42 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <!-- Form Input -->
         <div class="bg-white p-6 rounded-lg shadow-md">
-            <h2 class="text-lg font-semibold mb-4">Tambah DPT</h2>
-            <form action="{{ route('datadpt.store') }}" method="POST">
+            <h2 class="text-lg font-semibold mb-4">
+                {{ isset($dpt) ? 'Edit DPT' : 'Tambah DPT' }}
+            </h2>
+            <form action="{{ isset($dpt) ? route('datadpt.update', $dpt->id) : route('datadpt.store') }}" method="POST">
                 @csrf
+                @if(isset($dpt))
+                    @method('PUT')
+                @endif
                 <div class="mb-4">
                     <label for="name" class="block text-sm font-medium text-gray-700">Nama</label>
-                    <input type="text" id="name" name="name" class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-300" required>
+                    <input type="text" id="name" name="name" value="{{ isset($dpt) ? $dpt->name : old('name') }}" class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-300" required>
                 </div>
                 <div class="mb-4">
                     <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                    <input type="email" id="email" name="email" class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-300" required>
+                    <input type="email" id="email" name="email" value="{{ isset($dpt) ? $dpt->email : old('email') }}" class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-300" required>
                 </div>
                 <div class="mb-4">
                     <label for="role" class="block text-sm font-medium text-gray-700">Role</label>
                     <select id="role" name="role" class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-300" required>
-                        <option value="user">User</option>
-                        <option value="admin">Admin</option>
+                        <option value="user" {{ (isset($dpt) && $dpt->role == 'user') ? 'selected' : '' }}>User</option>
+                        <option value="admin" {{ (isset($dpt) && $dpt->role == 'admin') ? 'selected' : '' }}>Admin</option>
                     </select>
                 </div>
-                <div class="mb-4">
-                    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
-                    <input type="password" id="password" name="password" class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-300" required>
-                </div>
-                <div class="mb-4">
-                    <label for="password_confirmation" class="block text-sm font-medium text-gray-700">Konfirmasi Password</label>
-                    <input type="password" id="password_confirmation" name="password_confirmation" class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-300" required>
-                </div>
-                <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700">Tambah User</button>
+                @if(!isset($dpt))
+                    <div class="mb-4">
+                        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                        <input type="password" id="password" name="password" class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-300" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="password_confirmation" class="block text-sm font-medium text-gray-700">Konfirmasi Password</label>
+                        <input type="password" id="password_confirmation" name="password_confirmation" class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-300" required>
+                    </div>
+                @endif
+                <button type="submit" class="w-full bg-green-600 text-white p-2 rounded-lg hover:bg-green-700">
+                    {{ isset($dpt) ? 'Update User' : 'Tambah User' }}
+                </button>
             </form>
         </div>
 
@@ -40,7 +49,7 @@
             <h2 class="text-lg font-semibold mb-4 text-center">Data DPT</h2>
             <form action="{{ route('datadpt.index') }}" method="GET" class="mb-4">
                 <input type="text" name="name" placeholder="Cari berdasarkan Nama" value="{{ request()->input('name') }}" class="w-full p-2 border rounded-lg focus:ring focus:ring-blue-300">
-                <button type="submit" class="w-full mt-2 bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700">Cari Data</button>
+                <button type="submit" class="w-full mt-2 bg-green-600 text-white p-2 rounded-lg hover:bg-green-700">Cari Data</button>
             </form>
             
             @if(session()->has('status'))

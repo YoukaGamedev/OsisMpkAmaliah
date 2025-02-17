@@ -54,7 +54,7 @@ class DataDptController extends Controller
         // Simpan user baru
         User::create($validatedData);
         
-        return redirect('/admin/pemilu/datadpt')->with('status', 'Data berhasil ditambahkan');
+        return redirect('/admin/pemilu/edit')->with('status', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -62,8 +62,8 @@ class DataDptController extends Controller
      */
     public function edit($id)
     {
-        $user = User::findOrFail($id);
-        return view('admin.pemilu.edit', compact('user')); // Menggunakan view edit khusus
+        $users = User::findOrFail($id);
+        return view('admin.pemilu.datadpt', compact('users')); // Menggunakan view edit khusus
     }
 
     /**

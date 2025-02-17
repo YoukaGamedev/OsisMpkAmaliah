@@ -1,149 +1,56 @@
 @extends('admin.gds.gds')
 
 @section('content2')
-<div class="mt-4">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card shadow-lg border-0 rounded-lg bg-gradient-primary text-white">
-                <div class="card-header bg-danger text-center text-white">
-                    <h5 class="fw-bold">Edit Siswa</h5>
+<div class="flex justify-center mt-8">
+    <div class="w-full max-w-lg bg-white shadow-lg rounded-lg overflow-hidden">
+        <div class="bg-gray-700 text-white text-center py-3">
+            <h5 class="font-bold text-lg">Edit Siswa</h5>
+        </div>
+        <div class="p-6">
+            <form action="{{ route('siswa.update', $siswa->id) }}" method="POST">
+                @csrf
+                @method('PUT')
+
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-semibold">Nama</label>
+                    <input type="text" name="nama" class="w-full px-3 py-2 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" value="{{ $siswa->nama }}" required>
                 </div>
-                <div class="card-body bg-light">
-                    <form action="{{ route('siswa.update', $siswa->id) }}" method="POST">
-                        @csrf
-                        @method('PUT')
-
-                        <div class="mb-3">
-                            <label class="form-label fw-bold text-primary">Nama</label>
-                            <input type="text" name="nama" class="form-control shadow-sm border-primary" value="{{ $siswa->nama }}" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label fw-bold text-primary">Kelas</label>
-                            <input type="text" name="kelas" class="form-control shadow-sm border-primary" value="{{ $siswa->kelas }}" required>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label fw-bold text-secondary">Dasi/Kacu</label>
-                                <select name="dasi_kacu" class="form-select shadow-sm border-secondary">
-                                    <option value="1" {{ $siswa->dasi_kacu ? 'selected' : '' }}>Ya</option>
-                                    <option value="0" {{ !$siswa->dasi_kacu ? 'selected' : '' }}>Tidak</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label fw-bold text-secondary">Kaos Kaki</label>
-                                <select name="kaos_kaki" class="form-select shadow-sm border-secondary">
-                                    <option value="1" {{ $siswa->kaos_kaki ? 'selected' : '' }}>Ya</option>
-                                    <option value="0" {{ !$siswa->kaos_kaki ? 'selected' : '' }}>Tidak</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label fw-bold text-success">Sabuk</label>
-                                <select name="sabuk" class="form-select shadow-sm border-success">
-                                    <option value="1" {{ $siswa->sabuk ? 'selected' : '' }}>Ya</option>
-                                    <option value="0" {{ !$siswa->sabuk ? 'selected' : '' }}>Tidak</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label fw-bold text-success">NameTag</label>
-                                <select name="nametag" class="form-select shadow-sm border-success">
-                                    <option value="1" {{ $siswa->nametag ? 'selected' : '' }}>Ya</option>
-                                    <option value="0" {{ !$siswa->nametag ? 'selected' : '' }}>Tidak</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label fw-bold text-danger">Sepatu</label>
-                                <select name="sepatu" class="form-select shadow-sm border-danger">
-                                    <option value="1" {{ $siswa->sepatu ? 'selected' : '' }}>Ya</option>
-                                    <option value="0" {{ !$siswa->sepatu ? 'selected' : '' }}>Tidak</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label fw-bold text-danger">Jas</label>
-                                <select name="jas" class="form-select shadow-sm border-danger">
-                                    <option value="1" {{ $siswa->jas ? 'selected' : '' }}>Ya</option>
-                                    <option value="0" {{ !$siswa->jas ? 'selected' : '' }}>Tidak</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label fw-bold text-warning">Ring</label>
-                            <select name="ring" class="form-select shadow-sm border-warning">
-                                <option value="1" {{ $siswa->ring ? 'selected' : '' }}>Ya</option>
-                                <option value="0" {{ !$siswa->ring ? 'selected' : '' }}>Tidak</option>
-                            </select>
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label fw-bold text-warning">Bros</label>
-                            <select name="bros" class="form-select shadow-sm border-warning">
-                                <option value="1" {{ $siswa->bros ? 'selected' : '' }}>Ya</option>
-                                <option value="0" {{ !$siswa->bros ? 'selected' : '' }}>Tidak</option>
-                            </select>
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label fw-bold text-warning">Make Up</label>
-                            <select name="makeup" class="form-select shadow-sm border-warning">
-                                <option value="1" {{ $siswa->makeup ? 'selected' : '' }}>Ya</option>
-                                <option value="0" {{ !$siswa->makeup ? 'selected' : '' }}>Tidak</option>
-                            </select>
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label fw-bold text-warning">Telat</label>
-                            <select name="telat" class="form-select shadow-sm border-warning">
-                                <option value="1" {{ $siswa->telat ? 'selected' : '' }}>Ya</option>
-                                <option value="0" {{ !$siswa->telat ? 'selected' : '' }}>Tidak</option>
-                            </select>
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label fw-bold text-warning">Ciput</label>
-                            <select name="ciput" class="form-select shadow-sm border-warning">
-                                <option value="1" {{ $siswa->ciput ? 'selected' : '' }}>Ya</option>
-                                <option value="0" {{ !$siswa->ciput ? 'selected' : '' }}>Tidak</option>
-                            </select>
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label fw-bold text-warning">Hijab</label>
-                            <select name="hijab" class="form-select shadow-sm border-warning">
-                                <option value="1" {{ $siswa->hijab ? 'selected' : '' }}>Ya</option>
-                                <option value="0" {{ !$siswa->hijab ? 'selected' : '' }}>Tidak</option>
-                            </select>
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label fw-bold text-warning">Almamater</label>
-                            <select name="almamater" class="form-select shadow-sm border-warning">
-                                <option value="1" {{ $siswa->almamater ? 'selected' : '' }}>Ya</option>
-                                <option value="0" {{ !$siswa->almamater ? 'selected' : '' }}>Tidak</option>
-                            </select>
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label fw-bold text-warning">WearPack</label>
-                            <select name="wearpack" class="form-select shadow-sm border-warning">
-                                <option value="1" {{ $siswa->wearpack ? 'selected' : '' }}>Ya</option>
-                                <option value="0" {{ !$siswa->wearpack ? 'selected' : '' }}>Tidak</option>
-                            </select>
-                        </div>
-
-                        <button type="submit" class="btn btn-danger w-100 shadow-sm text-white fw-bold">Simpan Perubahan</button>
-                    </form>
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-semibold">Kelas</label>
+                    <input type="text" name="kelas" class="w-full px-3 py-2 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" value="{{ $siswa->kelas }}" required>
                 </div>
-            </div>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    @php
+                        $attributes = [
+                            'Dasi/Kacu' => 'dasi_kacu', 'Kaos Kaki' => 'kaos_kaki', 'Sabuk' => 'sabuk', 'NameTag' => 'nametag',
+                            'Sepatu' => 'sepatu', 'Jas' => 'jas', 'Ring' => 'ring', 'Bros' => 'bros',
+                            'Make Up' => 'makeup', 'Telat' => 'telat', 'Ciput' => 'ciput', 'Hijab' => 'hijab',
+                            'Almamater' => 'almamater', 'WearPack' => 'wearpack'
+                        ];
+                    @endphp
+                    @foreach ($attributes as $label => $name)
+                        <div>
+                            <label class="block text-gray-700 font-semibold">{{ $label }}</label>
+                            <select name="{{ $name }}" class="w-full px-3 py-2 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500">
+                                <option value="1" {{ $siswa->$name ? 'selected' : '' }}>Ya</option>
+                                <option value="0" {{ !$siswa->$name ? 'selected' : '' }}>Tidak</option>
+                            </select>
+                        </div>
+                    @endforeach
+                </div>
+
+                <div class="mt-6">
+                    <button type="submit" class="w-full bg-green-500 text-white py-2 rounded-lg shadow-md hover:bg-red-700 transition duration-300 font-bold">Simpan Perubahan</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
 @endsection
 
 @section('footer')
-    <footer class="text-center mt-4 py-3 bg-dark text-white shadow-lg">
-        <p class="mb-0">&copy; {{ date('Y') }} <span class="text-warning">Rekap GDS</span>. All rights reserved.</p>
-    </footer>
+<footer class="text-center mt-8 py-4 bg-gray-900 text-white shadow-lg">
+    <p class="mb-0">&copy; {{ date('Y') }} <span class="text-yellow-400">Rekap GDS</span>. All rights reserved.</p>
+</footer>
 @endsection
