@@ -1,28 +1,62 @@
-@extends('main2')
+@extends('main')
 
 @section('content')
-    <div class="flex flex-col items-center p-6">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 w-full max-w-5xl">
-            <a href="{{ url('/user/pemilu/home') }}" class="relative flex flex-col items-center justify-center p-8 bg-pink-500 text-white font-bold rounded-lg shadow-lg transition transform hover:scale-105 hover:shadow-xl">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 opacity-30 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" viewBox="0 0 24 24">
-                    <path d="M19 3h-2.25a1 1 0 0 0-1-1h-7.5a1 1 0 0 0-1 1H5c-1.103 0-2 .897-2 2v15c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V5c0-1.103-.897-2-2-2zm0 17H5V5h2v2h10V5h2v15z"></path>
-                </svg>
-                <h3 class="z-10 text-lg">Pemilu Ketua OSIS</h3>
+<div class="flex">
+    <!-- Sidebar -->
+    <aside class="bg-white w-64 p-5 shadow-md h-screen">
+        <ul>
+            <li class="mb-3">
+                <a class="flex items-center p-2 rounded-lg hover:bg-gray-200" href="{{ url('/user/pemilu/home') }}">
+                    <i class="bi bi-people-fill mr-2"></i> Pemilu
+                </a>
+            </li>
+            <li class="mb-3">
+                <a class="flex items-center p-2 rounded-lg hover:bg-gray-200" href="{{ url('/admin/gds/indexgds') }}">
+                    <i class="bi bi-clipboard-data mr-2"></i> GDS
+                </a>
+            </li>
+            <li class="mb-3 border-t pt-3">
+                <a class="flex items-center p-2 rounded-lg hover:bg-gray-200" href="{{ url('/logout') }}">
+                    <i class="bi bi-box-arrow-left mr-2"></i> Log Out
+                </a>
+            </li>
+            <li class="mb-3">
+                <a class="flex items-center p-2 rounded-lg hover:bg-gray-200" href="#">
+                    <i class="bi bi-box-arrow-in-right mr-2"></i> Sign In
+                </a>
+            </li>
+            <li class="mb-3">
+                <a class="flex items-center p-2 rounded-lg hover:bg-gray-200" href="#">
+                    <i class="bi bi-bell-fill mr-2"></i> Notifications
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="flex-1 container mx-auto px-6 py-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <a href="{{ url('/user/pemilu/home') }}" class="transition-transform transform hover:scale-105">
+                <div class="bg-pink-500 text-white p-6 rounded-lg shadow-md flex flex-col items-center justify-center">
+                    <i class="fas fa-vote-yea text-4xl mb-4 opacity-80"></i>
+                    <h3 class="text-lg font-semibold">Pemilu Ketua OSIS</h3>
+                </div>
             </a>
 
-            <a href="{{ url('/admin/gds/indexgds') }}" class="relative flex flex-col items-center justify-center p-8 bg-blue-500 text-white font-bold rounded-lg shadow-lg transition transform hover:scale-105 hover:shadow-xl">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 opacity-30 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" viewBox="0 0 24 24">
-                    <path d="M20 3H4c-1.103 0-2 .897-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V5c0-1.103-.897-2-2-2zm-1 9h-3.142c-.446 1.722-1.997 3-3.858 3s-3.412-1.278-3.858-3H4V5h16v7h-1z"></path>
-                </svg>
-                <h3 class="z-10 text-lg">Gerakan Disiplin Siswa</h3>
+            <a href="{{ url('/admin/gds/indexgds') }}" class="transition-transform transform hover:scale-105">
+                <div class="bg-blue-500 text-white p-6 rounded-lg shadow-md flex flex-col items-center justify-center">
+                    <i class="fas fa-database text-4xl mb-4 opacity-80"></i>
+                    <h3 class="text-lg font-semibold">Gerakan Disiplin Siswa</h3>
+                </div>
             </a>
 
-            <a href="#" class="relative flex flex-col items-center justify-center p-8 bg-gray-500 text-white font-bold rounded-lg shadow-lg transition transform hover:scale-105 hover:shadow-xl">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 opacity-30 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" viewBox="0 0 24 24">
-                    <path d="M10 4v4H3v10c0 1.103.s897 2 2 2h14c1.103 0 2-.897 2-2V8h-7V4h-4zm2 12h-2v-2h2v2zm0-4h-2v-2h2v2z"></path>
-                </svg>
-                <h3 class="z-10 text-lg">Coming Soon</h3>
+            <a href="#" class="transition-transform transform hover:scale-105">
+                <div class="bg-gray-500 text-white p-6 rounded-lg shadow-md flex flex-col items-center justify-center">
+                    <i class="fas fa-hourglass-half text-4xl mb-4 opacity-80"></i>
+                    <h3 class="text-lg font-semibold">Coming Soon</h3>
+                </div>
             </a>
         </div>
     </div>
+</div>
 @endsection

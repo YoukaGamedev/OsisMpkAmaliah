@@ -5,7 +5,7 @@
 <div class="container mx-auto p-6">
     <div class="bg-white shadow-md rounded-lg p-6">
         <h2 class="text-2xl font-bold text-gray-700 mb-4">Identitas Lembaga</h2>
-        <form action="{{ ('/admin/pemilu/dashboard') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ url('/admin/pemilu/dashboard') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>

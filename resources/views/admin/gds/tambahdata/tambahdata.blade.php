@@ -1,193 +1,193 @@
 @extends('admin.gds.gds')
 
 @section('content2')
-<div class="container mt-4">
+<div class="container mx-auto px-4 py-8">
     <!-- Form Tambah Data Siswa -->
-    <div class="card shadow-sm mb-4">
-        <div class="card-header bg-primary text-white text-center">
-            <h5>Tambah Siswa</h5>
+    <div class="bg-white rounded-lg shadow-md mb-8">
+        <div class="bg-blue-600 text-white text-center py-4 rounded-t-lg">
+            <h5 class="text-xl font-semibold">Tambah Siswa</h5>
         </div>
-        <div class="card-body">
+        <div class="p-6">
             <form action="{{ route('siswa.store') }}" method="POST">
                 @csrf
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">Nama</label>
-                        <input type="text" name="nama" class="form-control" required>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Nama</label>
+                        <input type="text" name="nama" class="w-full px-3 py-2 border rounded-lg" required>
                     </div>
-                    <div class="col-md-6 mb-3">
-                        <label class="form-label">Kelas</label>
-                        <input type="text" name="kelas" class="form-control" required>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Kelas</label>
+                        <input type="text" name="kelas" class="w-full px-3 py-2 border rounded-lg" required>
                     </div>
-                    <div class="col-md-2 mb-1">
-                        <label class="form-label">Dasi/Kacu</label>
-                        <select name="dasi_kacu" class="form-select">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Dasi/Kacu</label>
+                        <select name="dasi_kacu" class="w-full px-3 py-2 border rounded-lg">
                             <option value="1">Ya</option>
                             <option value="0">Tidak</option>
                         </select>
                     </div>
-                    <div class="col-md-2 mb-1">
-                        <label class="form-label">Kaos Kaki</label>
-                        <select name="kaos_kaki" class="form-select">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Kaos Kaki</label>
+                        <select name="kaos_kaki" class="w-full px-3 py-2 border rounded-lg">
                             <option value="1">Ya</option>
                             <option value="0">Tidak</option>
                         </select>
                     </div>
-                    <div class="col-md-2 mb-1">
-                        <label class="form-label">Sabuk</label>
-                        <select name="sabuk" class="form-select">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Sabuk</label>
+                        <select name="sabuk" class="w-full px-3 py-2 border rounded-lg">
                             <option value="1">Ya</option>
                             <option value="0">Tidak</option>
                         </select>
                     </div>
-                    <div class="col-md-2 mb-1">
-                        <label class="form-label">NameTag</label>
-                        <select name="nametag" class="form-select">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">NameTag</label>
+                        <select name="nametag" class="w-full px-3 py-2 border rounded-lg">
                             <option value="1">Ya</option>
                             <option value="0">Tidak</option>
                         </select>
                     </div>
-                    <div class="col-md-2 mb-1">
-                        <label class="form-label">Sepatu</label>
-                        <select name="sepatu" class="form-select">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Sepatu</label>
+                        <select name="sepatu" class="w-full px-3 py-2 border rounded-lg">
                             <option value="1">Ya</option>
                             <option value="0">Tidak</option>
                         </select>
                     </div>
-                    <div class="col-md-2 mb-1">
-                        <label class="form-label">Jas</label>
-                        <select name="jas" class="form-select">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Jas</label>
+                        <select name="jas" class="w-full px-3 py-2 border rounded-lg">
                             <option value="1">Ya</option>
                             <option value="0">Tidak</option>
                         </select>
                     </div>
-                    <div class="col-md-2 mb-1">
-                        <label class="form-label">Ring</label>
-                        <select name="ring" class="form-select">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Ring</label>
+                        <select name="ring" class="w-full px-3 py-2 border rounded-lg">
                             <option value="1">Ya</option>
                             <option value="0">Tidak</option>
                         </select>
                     </div>
-                    <div class="col-md-2 mb-1">
-                        <label class="form-label">Bros</label>
-                        <select name="bros" class="form-select">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Bros</label>
+                        <select name="bros" class="w-full px-3 py-2 border rounded-lg">
                             <option value="1">Ya</option>
                             <option value="0">Tidak</option>
                         </select>
                     </div>
-                    <div class="col-md-2 mb-1">
-                        <label class="form-label">Make Up</label>
-                        <select name="makeup" class="form-select">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Make Up</label>
+                        <select name="makeup" class="w-full px-3 py-2 border rounded-lg">
                             <option value="1">Ya</option>
                             <option value="0">Tidak</option>
                         </select>
                     </div>
-                    <div class="col-md-2 mb-1">
-                        <label class="form-label">Telat</label>
-                        <select name="telat" class="form-select">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Telat</label>
+                        <select name="telat" class="w-full px-3 py-2 border rounded-lg">
                             <option value="1">Ya</option>
                             <option value="0">Tidak</option>
                         </select>
                     </div>
-                    <div class="col-md-2 mb-1">
-                        <label class="form-label">Ciput</label>
-                        <select name="ciput" class="form-select">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Ciput</label>
+                        <select name="ciput" class="w-full px-3 py-2 border rounded-lg">
                             <option value="1">Ya</option>
                             <option value="0">Tidak</option>
                         </select>
                     </div>
-                    <div class="col-md-2 mb-1">
-                        <label class="form-label">Hijab</label>
-                        <select name="hijab" class="form-select">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Hijab</label>
+                        <select name="hijab" class="w-full px-3 py-2 border rounded-lg">
                             <option value="1">Ya</option>
                             <option value="0">Tidak</option>
                         </select>
                     </div>
-                    <div class="col-md-2 mb-1">
-                        <label class="form-label">Almamater</label>
-                        <select name="almamater" class="form-select">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Almamater</label>
+                        <select name="almamater" class="w-full px-3 py-2 border rounded-lg">
                             <option value="1">Ya</option>
                             <option value="0">Tidak</option>
                         </select>
                     </div>
-                    <div class="col-md-2 mb-1">
-                        <label class="form-label">WearPack</label>
-                        <select name="wearpack" class="form-select">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">WearPack</label>
+                        <select name="wearpack" class="w-full px-3 py-2 border rounded-lg">
                             <option value="1">Ya</option>
                             <option value="0">Tidak</option>
                         </select>
                     </div>
-                    <div class="col-md-12 text-center">
-                        <button type="submit" class="btn btn-success w-50">Tambah</button>
-                    </div>
+                </div>
+                <div class="text-center mt-6">
+                    <button type="submit" class="bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600">Tambah</button>
                 </div>
             </form>
         </div>
     </div>
 
     <!-- Tabel Siswa -->
-    <div class="card shadow-sm">
-        <div class="card-header bg-dark text-white text-center">
-            <h5>Daftar Siswa</h5>
+    <div class="bg-white rounded-lg shadow-md">
+        <div class="bg-gray-800 text-white text-center py-4 rounded-t-lg">
+            <h5 class="text-xl font-semibold">Daftar Siswa</h5>
         </div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered table-striped">
-                    <thead class="table-dark text-center">
+        <div class="p-6">
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white border border-gray-200">
+                    <thead class="bg-gray-100">
                         <tr>
-                            <th>No</th>
-                            <th>Nama</th>
-                            <th>Kelas</th>
-                            <th>Dasi/Kacu</th>
-                            <th>Kaos Kaki</th>
-                            <th>Sabuk</th>
-                            <th>NameTag</th>
-                            <th>Sepatu</th>
-                            <th>Jas</th>
-                            <th>Ring</th>
-                            <th>Bros</th>
-                            <th>Make Up</th>
-                            <th>Telat</th>
-                            <th>Ciput</th>
-                            <th>Hijab</th>
-                            <th>Almamater</th>
-                            <th>WearPack</th>
-                            <th>Aksi</th>
+                            <th class="py-2 px-4 border-b">No</th>
+                            <th class="py-2 px-4 border-b">Nama</th>
+                            <th class="py-2 px-4 border-b">Kelas</th>
+                            <th class="py-2 px-4 border-b">Dasi/Kacu</th>
+                            <th class="py-2 px-4 border-b">Kaos Kaki</th>
+                            <th class="py-2 px-4 border-b">Sabuk</th>
+                            <th class="py-2 px-4 border-b">NameTag</th>
+                            <th class="py-2 px-4 border-b">Sepatu</th>
+                            <th class="py-2 px-4 border-b">Jas</th>
+                            <th class="py-2 px-4 border-b">Ring</th>
+                            <th class="py-2 px-4 border-b">Bros</th>
+                            <th class="py-2 px-4 border-b">Make Up</th>
+                            <th class="py-2 px-4 border-b">Telat</th>
+                            <th class="py-2 px-4 border-b">Ciput</th>
+                            <th class="py-2 px-4 border-b">Hijab</th>
+                            <th class="py-2 px-4 border-b">Almamater</th>
+                            <th class="py-2 px-4 border-b">WearPack</th>
+                            <th class="py-2 px-4 border-b">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($siswa as $data)
-                        <tr>
-                            <td class="text-center">{{ $loop->iteration }}</td>
-                            <td>{{ $data->nama }}</td>
-                            <td>{{ $data->kelas }}</td>
-                            <td class="text-center">{{ $data->dasi_kacu ? '✔' : '✘' }}</td>
-                            <td class="text-center">{{ $data->kaos_kaki ? '✔' : '✘' }}</td>
-                            <td class="text-center">{{ $data->sabuk ? '✔' : '✘' }}</td>
-                            <td class="text-center">{{ $data->nametag ? '✔' : '✘' }}</td>
-                            <td class="text-center">{{ $data->sepatu ? '✔' : '✘' }}</td>
-                            <td class="text-center">{{ $data->jas ? '✔' : '✘' }}</td>
-                            <td class="text-center">{{ $data->ring ? '✔' : '✘' }}</td>
-                            <td class="text-center">{{ $data->bros ? '✔' : '✘' }}</td>
-                            <td class="text-center">{{ $data->makeup ? '✔' : '✘' }}</td>
-                            <td class="text-center">{{ $data->telat ? '✔' : '✘' }}</td>
-                            <td class="text-center">{{ $data->ciput ? '✔' : '✘' }}</td>
-                            <td class="text-center">{{ $data->hijab ? '✔' : '✘' }}</td>
-                            <td class="text-center">{{ $data->almamater ? '✔' : '✘' }}</td>
-                            <td class="text-center">{{ $data->wearpack ? '✔' : '✘' }}</td>
-                            <td class="text-center">
-                                <a href="{{ route('siswa.edit', $data->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                                <form action="{{ route('siswa.destroy', $data->id) }}" method="POST" class="d-inline">
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-2 px-4 border-b text-center">{{ $loop->iteration }}</td>
+                            <td class="py-2 px-4 border-b">{{ $data->nama }}</td>
+                            <td class="py-2 px-4 border-b">{{ $data->kelas }}</td>
+                            <td class="py-2 px-4 border-b text-center">{{ $data->dasi_kacu ? '✔' : '✘' }}</td>
+                            <td class="py-2 px-4 border-b text-center">{{ $data->kaos_kaki ? '✔' : '✘' }}</td>
+                            <td class="py-2 px-4 border-b text-center">{{ $data->sabuk ? '✔' : '✘' }}</td>
+                            <td class="py-2 px-4 border-b text-center">{{ $data->nametag ? '✔' : '✘' }}</td>
+                            <td class="py-2 px-4 border-b text-center">{{ $data->sepatu ? '✔' : '✘' }}</td>
+                            <td class="py-2 px-4 border-b text-center">{{ $data->jas ? '✔' : '✘' }}</td>
+                            <td class="py-2 px-4 border-b text-center">{{ $data->ring ? '✔' : '✘' }}</td>
+                            <td class="py-2 px-4 border-b text-center">{{ $data->bros ? '✔' : '✘' }}</td>
+                            <td class="py-2 px-4 border-b text-center">{{ $data->makeup ? '✔' : '✘' }}</td>
+                            <td class="py-2 px-4 border-b text-center">{{ $data->telat ? '✔' : '✘' }}</td>
+                            <td class="py-2 px-4 border-b text-center">{{ $data->ciput ? '✔' : '✘' }}</td>
+                            <td class="py-2 px-4 border-b text-center">{{ $data->hijab ? '✔' : '✘' }}</td>
+                            <td class="py-2 px-4 border-b text-center">{{ $data->almamater ? '✔' : '✘' }}</td>
+                            <td class="py-2 px-4 border-b text-center">{{ $data->wearpack ? '✔' : '✘' }}</td>
+                            <td class="py-2 px-4 border-b text-center">
+                                <a href="{{ route('siswa.edit', $data->id) }}" class="bg-yellow-500 text-white px-3 py-1 rounded-lg hover:bg-yellow-600">Edit</a>
+                                <form action="{{ route('siswa.destroy', $data->id) }}" method="POST" class="inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Hapus data ini?')">Hapus</button>
+                                    <button type="submit" class="bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-600" onclick="return confirm('Hapus data ini?')">Hapus</button>
                                 </form>
                             </td>
                         </tr>
                         @endforeach
                         @if($siswa->isEmpty())
                         <tr>
-                            <td colspan="18" class="text-center text-muted">Tidak ada data siswa.</td>
+                            <td colspan="18" class="py-2 px-4 border-b text-center text-gray-500">Tidak ada data siswa.</td>
                         </tr>
                         @endif
                     </tbody>
