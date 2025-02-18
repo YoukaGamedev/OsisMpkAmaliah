@@ -18,7 +18,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse($hasilpemilihan as $hasil)
+                    @foreach($hasilpemilihan as $hasil)
                     <tr class="odd:bg-gray-100 even:bg-white hover:bg-gray-50 transition-colors duration-150">
                         <td class="border border-gray-300 px-4 py-3 text-center font-semibold">
                             {{ $hasil->kandidat->nomor_pasangan_calon }}
@@ -30,7 +30,7 @@
                             <div class="font-medium">{{ $hasil->kandidat->nama_pasangan_calon }}</div>
                         </td>
                         <td class="border border-gray-300 px-4 py-3 text-center font-semibold text-blue-600">
-                            {{ $hasil->total_suara }}
+                            {{ $hasil->jumlah_suara }}
                         </td>
                         <td class="border border-gray-300 px-4 py-3 text-center">
                             <div class="inline-flex items-center">
@@ -41,13 +41,7 @@
                             </div>
                         </td>
                     </tr>
-                    @empty
-                    <tr>
-                        <td colspan="5" class="border border-gray-300 px-4 py-8 text-center text-gray-500">
-                            <p class="text-lg font-medium">Belum ada hasil pemilihan</p>
-                        </td>
-                    </tr>
-                    @endforelse
+                    @endforeach
                 </tbody>
             </table>
         </div>

@@ -27,22 +27,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                @foreach ($datakandidat as $kandidat)
+                @foreach ($kandidat as $kandi)
                     <tr class="bg-white hover:bg-gray-100">
                         <td class="border p-2 text-center">{{$loop->iteration}}</td>
-                        <td class="border p-2">{{ $kandidat->nisn }}</td>
-                        <td class="border p-2">{{ $kandidat->nomor_pasangan_calon }}</td>
-                        <td class="border p-2">{{ $kandidat->nama_pasangan_calon }}</td>
-                        <td class="border p-2">{{ $kandidat->visi_misi }}</td>
+                        <td class="border p-2">{{ $kandi->nisn }}</td>
+                        <td class="border p-2">{{ $kandi->nomor_pasangan_calon }}</td>
+                        <td class="border p-2">{{ $kandi->nama_pasangan_calon }}</td>
+                        <td class="border p-2">{{ $kandi->visi_misi }}</td>
                         <td class="border p-2 text-center">
-                            @if($kandidat->foto)
-                                <img src="{{ asset('storage/' . $kandidat->foto) }}" 
+                            @if($kandi->foto)
+                                <img src="{{ asset('storage/' . $kandi->foto) }}" 
                                      class="w-12 h-12 object-cover rounded-md inline-block">
                             @endif
                         </td>
                         <td class="border p-2 text-center">
                             <div class="flex gap-2 justify-center">
-                                <a href="{{ url('datakandidat/'.$kandidat->id.'/edit') }}" 
+                                <a href="{{ url('datakandidat/'.$kandi->id.'/edit') }}" 
                                    class="bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600 transition-colors duration-200 inline-flex items-center">
                                     <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
@@ -50,7 +50,7 @@
                                     </svg>
                                     Edit
                                 </a>
-                                <form action="{{ url('datakandidat/'.$kandidat->id) }}" 
+                                <form action="{{ url('datakandidat/'.$kandi->id) }}" 
                                       method="POST" 
                                       class="inline-block" 
                                       onsubmit="return confirm('Apakah data akan dihapus?')">

@@ -32,7 +32,7 @@ class AuthController extends Controller
         }
 
         return back()->withErrors([
-            'email' => 'Email atau password salah, silakan coba lagi.',
+            'email' => 'error', 'Akun tidak terdaftar.',
         ])->withInput($request->only('email'));
     }
 

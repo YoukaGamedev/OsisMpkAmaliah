@@ -9,16 +9,20 @@ class HasilPemilihan extends Model
 {
     use HasFactory;
 
-    protected $table = 'hasilpemilihan'; // Sesuaikan dengan nama tabel
-
-    protected $fillable = [
-        'kandidat_id', // ID dari kandidat
-        'jumlah_suara', // Jumlah suara yang diperoleh kandidat
-    ];
+    protected $table = 'hasilpemilihan';
+    protected $fillable = ['kandidat_id', 'jumlah_suara'];
 
     public function kandidat()
     {
-        return $this->belongsTo(Kandidat::class, 'kandidat_id');
+        return $this->belongsTo(DataKandidat::class, 'kandidat_id');
+    }
+
+    public function getVoteCountAttributte()
+    {
+        return $this->votes()->count();
     }
 }
+
+
+
 

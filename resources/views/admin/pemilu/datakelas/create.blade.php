@@ -29,13 +29,13 @@
                            type="text" 
                            id="kelas" 
                            class="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 @error('kelas') border-red-500 @enderror" 
-                           placeholder="Masukkan nama kelas"
+                           placeholder="Masukkan nama kelas (misal: X IPA 1)"
                            value="{{ old('kelas') }}"
                            required>
                     @error('kelas')
                         <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
                     @enderror
-                    <p class="mt-1 text-sm text-gray-500">Contoh: X IPA 1, XI IPS 2, XII MIPA 3</p>
+                    <p class="mt-1 text-sm text-gray-500">Gunakan format kelas yang sesuai, contoh: X IPA 1, XI IPS 2.</p>
                 </div>
 
                 <!-- Jumlah Siswa Field -->
@@ -54,6 +54,7 @@
                     @error('no_kelas')
                         <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
                     @enderror
+                    <p class="mt-1 text-sm text-gray-500">Jumlah siswa harus valid dan sesuai dengan data resmi sekolah.</p>
                 </div>
 
                 <!-- Action Buttons -->
@@ -84,9 +85,11 @@
                 <h3 class="text-sm font-medium text-blue-800">Petunjuk Pengisian:</h3>
                 <div class="mt-2 text-sm text-blue-700">
                     <ul class="list-disc pl-5 space-y-1">
-                        <li>Isi nama kelas dengan format yang sesuai (contoh: X IPA 1)</li>
-                        <li>Pastikan jumlah siswa yang dimasukkan sesuai dengan data yang valid</li>
-                        <li>Semua field yang bertanda (*) wajib diisi</li>
+                        <li>Isi nama kelas dengan format yang sesuai (contoh: X IPA 1, XI IPS 2).</li>
+                        <li>Pastikan jumlah siswa yang dimasukkan adalah angka yang valid dan sesuai dengan data sekolah.</li>
+                        <li>Semua field yang bertanda (*) wajib diisi.</li>
+                        <li>Gunakan tombol <b>Reset</b> untuk mengosongkan formulir sebelum mengisi ulang.</li>
+                        <li>Setelah data disimpan, pastikan kembali data yang telah diinput sebelum meninggalkan halaman.</li>
                     </ul>
                 </div>
             </div>

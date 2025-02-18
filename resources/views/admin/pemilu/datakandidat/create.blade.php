@@ -15,6 +15,23 @@
             </a>
         </div>
 
+        <!-- Helpful Tips Card -->
+        <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-lg mb-6">
+            <div class="flex items-center">
+                <svg class="w-5 h-5 text-blue-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <h3 class="text-lg font-semibold text-blue-800">Tips Pengisian Form</h3>
+            </div>
+            <ul class="mt-2 text-sm text-gray-700 list-disc list-inside">
+                <li>Pastikan semua field yang ditandai dengan <span class="text-red-500">*</span> diisi.</li>
+                <li>NISN harus berupa angka dan unik (tidak boleh sama dengan kandidat lain).</li>
+                <li>Nomor pasangan calon harus berupa angka dan unik.</li>
+                <li>Foto harus dalam format PNG, JPG, atau JPEG dengan ukuran maksimal 2MB.</li>
+                <li>Visi dan misi harus jelas dan deskriptif.</li>
+            </ul>
+        </div>
+
         <!-- Form Section -->
         <form action="{{ route('datakandidat.store') }}" 
               method="POST" 

@@ -2,114 +2,52 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Datakandidat;
-use App\Models\Vote;
 use Illuminate\Http\Request;
+use App\Models\Vote;
+use App\Models\HasilPemilihan;
+use App\Models\DataKandidat; // Pastikan Model Kandidat diimpor
 use Illuminate\Support\Facades\Auth;
-use DB;
 
 class VoteController extends Controller
 {
-    /**
-     * Display a listing of the resource (voting results).
-     */
-    public function index()
+    public function store(Request $request)
     {
-        // Join votes with candidates and count votes per candidate for admin view
-        $datakandidat = DB::withCount('votes')->get();
-        return view('/admin/votes', compact('datakandidat'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created vote in storage.
-     */
-    public function store(Request $request, $kandidatId)
-    {
-        // Check if the user is logged in
-        if (!Auth::check()) {
-            // Store the selected candidate in session and redirect to login
-            session(['selected_kandidat' => $kandidatId]);
-            return redirect()->route('login');
-        }
-
-        $siswa = Auth::user(); // Get the logged-in user
-
-        // Check if the user has already voted
-        if (Vote::where('datadpt_id', $siswa->id)->exists()) {
-            return redirect()->back()->with('error', 'You have already voted!');
-        }
-
-        // Get the selected candidate
-        $kandidat = Datakandidat::find($kandidatId);
-        if (!$kandidat) {
-            return redirect()->back()->with('error', 'Candidate not found!');
-        }
-
-        // Store the vote in the database
-        Vote::create([
-            'datadpt_id' => $siswa->id,
-            'datakandidat_id' => $kandidatId,
+        // Validasi input dengan memastikan bahwa kandidat_id ada di tabel kandidat
+        $request->validate([
+            'kandidat_id' => 'required|exists:kandidat,id',
         ]);
 
-        // Logout user after voting
-        Auth::logout();
-
-        return redirect()->route('login')->with('success', 'Your vote has been recorded, and you have been logged out.');
-    }
-
-    /**
-     * Check session after login to complete voting process.
-     */
-    public function afterLoginVote()
-    {
-        if (session()->has('selected_kandidat')) {
-            $kandidatId = session('selected_kandidat');
-            session()->forget('selected_kandidat'); // Clear the session data
-
-            // Redirect to store function to process vote
-            return $this->store(new Request, $kandidatId);
+        // Cek apakah kandidat dengan ID tersebut benar-benar ada
+        $kandidat = DataKandidat::find($request->kandidat_id);
+        if (!$kandidat) {
+            return redirect()->back()->with('error', 'Kandidat tidak ditemukan.');
         }
 
-        return redirect()->route('home'); // Redirect to home if no candidate in session
-    }
+        // Cek apakah user sudah memilih sebelumnya (opsional)
+        $user = Auth::user();
+        if (Vote::where('user_id', $user->id)->exists()) {
+            return redirect()->back()->with('error', 'Anda sudah memilih!');
+        }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+        // Simpan vote baru
+        Vote::create([
+            'kandidat_id' => $request->kandidat_id,
+            'user_id' => $user->id,
+        ]);
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
+        // Update jumlah suara di hasil pemilihan
+        $hasil = HasilPemilihan::where('kandidat_id', $request->kandidat_id)->first();
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+        if ($hasil) {
+            $hasil->increment('jumlah_suara');
+        } else {
+            HasilPemilihan::create([
+                'kandidat_id' => $request->kandidat_id,
+                'jumlah_suara' => 1
+            ]);
+        }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return redirect()->back()->with('success', 'Vote berhasil dikirim!');
     }
 }
+

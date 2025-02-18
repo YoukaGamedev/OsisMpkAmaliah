@@ -8,7 +8,6 @@ use App\Http\Controllers\DataDptController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomerController;
 use App\Http\Controllers\PilihKandidatController;
-use App\Http\Controllers\HasilController;
 use App\Http\Controllers\VoteController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\LembarGdsController;
@@ -42,6 +41,10 @@ Route::get('/logout', function () {
 });
 
 
+
+// Route::post('/vote', [VoteController::class, 'store'])->name('vote.store')->middleware('auth');
+Route::resource('vote', VoteController::class);
+
 //Route::resource('/admin', AdminController::class);
 Route::resource('datakelas', DataKelasController::class);
 Route::resource('datakandidat', DataKandidatController::class);
@@ -57,14 +60,6 @@ Route::get('/admin', function () {
     return view('admin/index');
 });
 
-
-Route::get('/admin/pemilu/hasilpemilihan', function () {
-    return view('admin/pemilu/hasilpemilihan');
-});
-
-Route::get('/admin/pemilu/daftarhadir', function () {
-    return view('admin/pemilu/daftarhadir');
-});
 
 Route::get('/user/pemilu/berespilih', function () {
     return view('user/pemilu/berespilih');

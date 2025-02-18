@@ -9,7 +9,7 @@ class DataKandidat extends Model
 {
     use HasFactory;
 
-    protected $table = 'datakandidat';
+    protected $table = 'kandidat';
 
     protected $fillable = [
         'nisn',
@@ -21,7 +21,7 @@ class DataKandidat extends Model
 
     public function votes()
 {
-    return $this->hasMany(Vote::class);
+    return $this->hasMany(Vote::class, 'kandidat_id');
 }
 
 }

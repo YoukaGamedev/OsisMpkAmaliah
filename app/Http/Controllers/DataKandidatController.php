@@ -14,8 +14,8 @@ class DataKandidatController extends Controller
      */
     public function index()
     {
-        $datakandidat = DataKandidat::all();
-        return view('/admin/pemilu/datakandidat/datakandidat', ['datakandidat' => $datakandidat]);
+        $kandidat = DataKandidat::all();
+        return view('/admin/pemilu/datakandidat/datakandidat', ['kandidat' => $kandidat]);
     }
 
     /**
@@ -85,7 +85,7 @@ class DataKandidatController extends Controller
                 Storage::disk('public')->delete($kandidat->foto);
             }
             // Simpan foto baru
-            $fotoPath = $request->file('foto')->store('datakandidat', 'public');
+            $fotoPath = $request->file('foto')->store('kandidat', 'public');
             $kandidat->foto = $fotoPath;
         }
 
@@ -104,14 +104,14 @@ class DataKandidatController extends Controller
      */
     public function destroy($id)
     {
-        $datakandidat = DataKandidat::findOrFail($id);
+        $kandidat = DataKandidat::findOrFail($id);
         
         // Hapus foto dari penyimpanan
-        if ($datakandidat->foto) {
-            Storage::disk('public')->delete($datakandidat->foto);
+        if ($kandidat->foto) {
+            Storage::disk('public')->delete($kandidat->foto);
         }
         
-        $datakandidat->delete();
+        $kandidat->delete();
 
         return redirect()->route('datakandidat.index')->with('status', 'Data berhasil dihapus');
     }

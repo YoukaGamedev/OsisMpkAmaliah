@@ -28,6 +28,13 @@
         
         <!-- Title -->
         <h3 class="text-center text-gray-800 text-2xl font-semibold mb-6">Login</h3>
+
+        <!-- Error Message -->
+        @if(session('error'))
+            <div class="mb-4 text-red-600 text-sm text-center">
+                <strong>{{ session('error') }}</strong>
+            </div>
+        @endif
         
         <!-- Form -->
         <form action="{{ route('login.submit') }}" method="POST">

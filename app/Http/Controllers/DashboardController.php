@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Dashboard;
-
 use DB;
 
 class DashboardController extends Controller
@@ -31,6 +30,19 @@ class DashboardController extends Controller
      */
     public function store(Request $request)
     {
+        // VALIDASI DATA
+        $request->validate([
+            'npsn' => 'required|numeric|digits:8',
+            'nama_sekolah' => 'required|string|max:255',
+            'nama_kepsek' => 'required|string|max:255',
+            'alamat_jalan' => 'required|string|max:255',
+            'desa' => 'required|string|max:100',
+            'kecamatan' => 'required|string|max:100',
+            'kota' => 'required|string|max:100',
+            'tahun_pelajaran' => 'required|string|regex:/^\d{4}\/\d{4}$/',
+            'tanggal' => 'required|date',
+        ]);
+
         DB::table('dashboard')->insert([
             'npsn' => $request->npsn,
             'nama_sekolah' => $request->nama_sekolah,
@@ -53,7 +65,7 @@ class DashboardController extends Controller
     public function show(string $id)
     {
         $dashboard = DB::table('dashboard')->where('id', $id)->first();
-        return view('dashboardpemilupemilu.show', ['dashboard' => $dashboard]);
+        return view('dashboardpemilu.show', ['dashboard' => $dashboard]);
     }
 
     /**
@@ -70,6 +82,19 @@ class DashboardController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        // VALIDASI DATA
+        $request->validate([
+            'npsn' => 'required|numeric|digits:8',
+            'nama_sekolah' => 'required|string|max:255',
+            'nama_kepsek' => 'required|string|max:255',
+            'alamat_jalan' => 'required|string|max:255',
+            'desa' => 'required|string|max:100',
+            'kecamatan' => 'required|string|max:100',
+            'kota' => 'required|string|max:100',
+            'tahun_pelajaran' => 'required|string|regex:/^\d{4}\/\d{4}$/',
+            'tanggal' => 'required|date',
+        ]);
+
         DB::table('dashboard')->where('id', $id)->update([
             'npsn' => $request->npsn,
             'nama_sekolah' => $request->nama_sekolah,
@@ -95,3 +120,4 @@ class DashboardController extends Controller
         return redirect('dashboardpemilu')->with('status', 'Data berhasil dihapus');
     }
 }
+

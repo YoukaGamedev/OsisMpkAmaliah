@@ -10,12 +10,11 @@ class Vote extends Model
     use HasFactory;
 
     protected $table = 'votes';
-
     protected $fillable = ['kandidat_id', 'user_id'];
 
     public function kandidat()
     {
-        return $this->belongsTo(Kandidat::class, 'kandidat_id');
+        return $this->belongsTo(DataKandidat::class, 'kandidat_id');
     }
 }
 
