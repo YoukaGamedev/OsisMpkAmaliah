@@ -5,13 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Vote extends Model
+class HasilPemilihan extends Model
 {
     use HasFactory;
 
-    protected $table = 'votes';
+    protected $table = 'hasilpemilihan'; // Sesuaikan dengan nama tabel
 
-    protected $fillable = ['kandidat_id', 'user_id'];
+    protected $fillable = [
+        'kandidat_id', // ID dari kandidat
+        'jumlah_suara', // Jumlah suara yang diperoleh kandidat
+    ];
 
     public function kandidat()
     {

@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\DataKelas;
-
 use DB;
 
 class DataKelasController extends Controller
@@ -14,8 +13,8 @@ class DataKelasController extends Controller
      */
     public function index()
     {
-        $datakelas = DB::table('datakelas')->get();
-        return view('/admin/pemilu/datakelas',['datakelas'=>$datakelas]);
+        $datakelas = DataKelas::all();
+        return view('/admin/pemilu/datakelas/datakelas', ['datakelas' => $datakelas]);
     }
 
     /**
@@ -23,7 +22,7 @@ class DataKelasController extends Controller
      */
     public function create()
     {
-        return view('/admin/pemilu/datakelas');
+        return view('/admin/pemilu/datakelas/create');
     }
 
     /**
@@ -31,46 +30,55 @@ class DataKelasController extends Controller
      */
     public function store(Request $request)
     {
-        DB::table('datakelas')->insert([
-            'kelas' => $request -> kelas,
-            'no_kelas' => $request-> no_kelas,
+        $request->validate([
+            'kelas' => 'required|string|max:255',
+            'no_kelas' => 'required|string|max:255',
         ]);
 
-        return redirect('/admin/pemilu/datakelas') -> with('status','Data berhasil di tambah');
-    }
+        DataKelas::create([
+            'kelas' => $request->kelas,
+            'no_kelas' => $request->no_kelas,
+        ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
+        return redirect()->route('datakelas.index')->with('status', 'Data berhasil ditambahkan');
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $kelas = DataKelas::findOrFail($id);
+        return view('/admin/pemilu/datakelas/edit', compact('kelas'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'kelas' => 'required|string|max:255',
+            'no_kelas' => 'required|string|max:255',
+        ]);
+
+        $kelas = DataKelas::findOrFail($id);
+        $kelas->update([
+            'kelas' => $request->kelas,
+            'no_kelas' => $request->no_kelas,
+        ]);
+
+        return redirect()->route('datakelas.index')->with('status', 'Data berhasil diperbarui');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
         $datakelas = DataKelas::findOrFail($id);
         $datakelas->delete();
 
-        return redirect('/admin/pemilu/datakelas')-> with('status', 'Data berhasil di hapus');
+        return redirect()->route('datakelas.index')->with('status', 'Data berhasil dihapus');
     }
 }

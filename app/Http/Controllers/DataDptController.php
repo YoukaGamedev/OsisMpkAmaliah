@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\User;
-use DB;
 
 class DataDptController extends Controller
 {
@@ -24,7 +23,7 @@ class DataDptController extends Controller
         // Menggunakan pagination agar lebih optimal
         $users = $query->paginate(10);
 
-        return view('admin.pemilu.datadpt', compact('users'));
+        return view('admin.pemilu.datadpt.datadpt', compact('users'));
     }
 
     /**
@@ -32,7 +31,7 @@ class DataDptController extends Controller
      */
     public function create()
     {
-        return view('admin.pemilu.create'); // Menggunakan file view khusus untuk tambah user
+        return view('admin.pemilu.datadpt.create'); // Menggunakan file view khusus untuk tambah user
     }
 
     /**
@@ -54,7 +53,8 @@ class DataDptController extends Controller
         // Simpan user baru
         User::create($validatedData);
         
-        return redirect('/admin/pemilu/edit')->with('status', 'Data berhasil ditambahkan');
+        // Redirect ke halaman index dengan pesan sukses
+        return redirect()->route('datadpt.index')->with('status', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -62,8 +62,8 @@ class DataDptController extends Controller
      */
     public function edit($id)
     {
-        $users = User::findOrFail($id);
-        return view('admin.pemilu.datadpt', compact('users')); // Menggunakan view edit khusus
+        $user = User::findOrFail($id); // Cari user berdasarkan ID
+        return view('admin.pemilu.datadpt.edit', compact('user')); // Menggunakan view edit khusus
     }
 
     /**
@@ -71,6 +71,7 @@ class DataDptController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // Validasi input
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255|unique:users,email,'.$id,
@@ -78,7 +79,7 @@ class DataDptController extends Controller
             'role' => 'required|string|in:user,admin',
         ]);
 
-        $user = User::findOrFail($id);
+        $user = User::findOrFail($id); // Cari user berdasarkan ID
         $user->name = $request->name;
         $user->email = $request->email;
         $user->role = $request->role;
@@ -90,7 +91,8 @@ class DataDptController extends Controller
 
         $user->save();
 
-        return redirect('admin.pemilu.datadpt')->with('status', 'Data berhasil diperbarui');
+        // Redirect ke halaman index dengan pesan sukses
+        return redirect()->route('datadpt.index')->with('status', 'Data berhasil diperbarui');
     }
 
     /**
@@ -98,9 +100,10 @@ class DataDptController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::findOrFail($id);
-        $user->delete();
+        $user = User::findOrFail($id); // Cari user berdasarkan ID
+        $user->delete(); // Hapus user
 
-        return redirect('admin/pemilu/datadpt')->with('status', 'Data berhasil dihapus');
+        // Redirect ke halaman index dengan pesan sukses
+        return redirect()->route('datadpt.index')->with('status', 'Data berhasil dihapus');
     }
 }

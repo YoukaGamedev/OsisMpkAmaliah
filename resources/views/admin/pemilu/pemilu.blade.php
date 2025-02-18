@@ -16,38 +16,28 @@
         <h4 class="text-gray-500 text-lg font-semibold mb-5">Pemilu</h4>
         <ul class="space-y-3">
             <li>
-                <a class="flex items-center p-3 rounded-lg hover:bg-gray-200 transition" href="{{ ('/admin/pemilu/dashboard') }}">
+                <a class="flex items-center p-3 rounded-lg hover:bg-gray-200 transition" href="{{ route('dashboardpemilu.index') }}">
                     <i class="bi bi-house-door-fill mr-3"></i> Data Sekolah
                 </a>
             </li>
             <li>
-                <a class="flex items-center p-3 rounded-lg hover:bg-gray-200 transition" href="{{ ('/admin/pemilu/datakelas') }}">
+                <a class="flex items-center p-3 rounded-lg hover:bg-gray-200 transition" href="{{ route('datakelas.index') }}">
                     <i class="bi bi-person-lines-fill mr-3"></i> Data Kelas
                 </a>
             </li>
             <li>
-                <a class="flex items-center p-3 rounded-lg hover:bg-gray-200 transition" href="{{ ('/admin/pemilu/datakandidat') }}">
+                <a class="flex items-center p-3 rounded-lg hover:bg-gray-200 transition" href="{{ route('datakandidat.index') }}">
                     <i class="bi bi-person-circle mr-3"></i> Data Kandidat
                 </a>
             </li>
             <li>
-                <a class="flex items-center p-3 rounded-lg hover:bg-gray-200 transition" href="{{ ('/admin/pemilu/datadpt') }}">
+                <a class="flex items-center p-3 rounded-lg hover:bg-gray-200 transition" href="{{ route('datadpt.index') }}">
                     <i class="bi bi-file-earmark-text mr-3"></i> Data DPT
                 </a>
             </li>
             <li>
-                <a class="flex items-center p-3 rounded-lg hover:bg-gray-200 transition" href="{{ ('/admin/pemilu/hasilpemilihan') }}">
+                <a class="flex items-center p-3 rounded-lg hover:bg-gray-200 transition" href="{{ route('hasilpemilihan.index') }}">
                     <i class="bi bi-graph-up-arrow mr-3"></i> Hasil Pilih
-                </a>
-            </li>
-            <li>
-                <a class="flex items-center p-3 rounded-lg hover:bg-gray-200 transition" href="#">
-                    <i class="bi bi-calendar-event mr-3"></i> Jadwal GDS
-                </a>
-            </li>
-            <li>
-                <a class="flex items-center p-3 rounded-lg hover:bg-gray-200 transition" href="#">
-                    <i class="bi bi-calendar-check mr-3"></i> Jadwal GDS
                 </a>
             </li>
         </ul>

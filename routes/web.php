@@ -16,6 +16,7 @@ use App\Http\Controllers\RekapGdsController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\TambahDataController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HasilPemilihanController;
 
 // Route::resource('auth', AuthController::class);
 
@@ -42,11 +43,11 @@ Route::get('/logout', function () {
 
 
 //Route::resource('/admin', AdminController::class);
-Route::resource('/admin/pemilu/datakelas', DataKelasController::class);
-Route::resource('/admin/pemilu/datakandidat', DataKandidatController::class);
-Route::resource('/admin/pemilu/datadpt', DataDptController::class);
-Route::resource('/admin/pemilu/dashboard', DashboardController::class);
-
+Route::resource('datakelas', DataKelasController::class);
+Route::resource('datakandidat', DataKandidatController::class);
+Route::resource('datadpt', DataDptController::class);
+Route::resource('dashboardpemilu', DashboardController::class);
+Route::resource('hasilpemilihan', HasilPemilihanController::class);
 Route::resource('/user/pemilu/home', HomerController::class);
 Route::resource('/user/pemilu/pilihkandidat', PilihKandidatController::class,);
 
@@ -90,7 +91,7 @@ Route::get('/lembar-gds', [LembarGdsController::class, 'index'])->name('lembar-g
 Route::resource('admin/gds/rekapgds/rekapgds', RekapGdsController::class);
 
 Route::resource('siswa', SiswaController::class);
-Route::get('/admin/gds/le,b', [SiswaController::class, 'search'])->name('siswa.search');
+Route::get('/admin/gds/lembargds/searchdata', [SiswaController::class, 'search'])->name('siswa.search');
 
 // Route::get('/siswa', [SiswaController::class, 'index'])->name('siswa.index');
 // Route::get('/siswa/search', [SiswaController::class, 'search'])->name('siswa.search');

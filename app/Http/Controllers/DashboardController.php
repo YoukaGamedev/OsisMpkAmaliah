@@ -15,7 +15,7 @@ class DashboardController extends Controller
     public function index()
     {
         $dashboard = DB::table('dashboard')->get();
-        return view('/admin/pemilu/dashboardpemilu',['dashboard'=>$dashboard]);
+        return view('/admin/pemilu/dashboardpemilu/dashboardpemilu', ['dashboard' => $dashboard]);
     }
 
     /**
@@ -23,7 +23,7 @@ class DashboardController extends Controller
      */
     public function create()
     {
-        return view('/admin/pemilu/dashboard');
+        return view('dashboardpemilu');
     }
 
     /**
@@ -43,8 +43,8 @@ class DashboardController extends Controller
             'tahun_pelajaran' => $request->tahun_pelajaran,
             'tanggal' => $request->tanggal,
         ]);
-    
-        return redirect('/user/pemilu/home')->with('status', 'Data berhasil ditambahkan');
+
+        return redirect('dashboardpemilu')->with('status', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -52,7 +52,8 @@ class DashboardController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $dashboard = DB::table('dashboard')->where('id', $id)->first();
+        return view('dashboardpemilupemilu.show', ['dashboard' => $dashboard]);
     }
 
     /**
@@ -60,7 +61,8 @@ class DashboardController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $dashboard = DB::table('dashboard')->where('id', $id)->first();
+        return view('/admin/pemilu/dashboardpemilu/edit', ['dashboard' => $dashboard]);
     }
 
     /**
@@ -68,7 +70,20 @@ class DashboardController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        DB::table('dashboard')->where('id', $id)->update([
+            'npsn' => $request->npsn,
+            'nama_sekolah' => $request->nama_sekolah,
+            'nama_kepsek' => $request->nama_kepsek,
+            'nip' => $request->nip,
+            'alamat_jalan' => $request->alamat_jalan,
+            'desa' => $request->desa,
+            'kecamatan' => $request->kecamatan,
+            'kota' => $request->kota,
+            'tahun_pelajaran' => $request->tahun_pelajaran,
+            'tanggal' => $request->tanggal,
+        ]);
+
+        return redirect('dashboardpemilu')->with('status', 'Data berhasil diperbarui');
     }
 
     /**
@@ -76,6 +91,7 @@ class DashboardController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        DB::table('dashboard')->where('id', $id)->delete();
+        return redirect('dashboardpemilu')->with('status', 'Data berhasil dihapus');
     }
 }

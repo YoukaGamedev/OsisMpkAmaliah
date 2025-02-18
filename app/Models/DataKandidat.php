@@ -11,6 +11,14 @@ class DataKandidat extends Model
 
     protected $table = 'datakandidat';
 
+    protected $fillable = [
+        'nisn',
+        'nomor_pasangan_calon',
+        'nama_pasangan_calon',
+        'visi_misi',
+        'foto',
+    ];
+
     public function votes()
 {
     return $this->hasMany(Vote::class);

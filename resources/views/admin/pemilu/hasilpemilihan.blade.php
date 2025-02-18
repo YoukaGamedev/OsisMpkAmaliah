@@ -1,7 +1,7 @@
 @extends('admin.pemilu.pemilu')
 
 @section('content1')
-<div class="mt-4 p-6">
+<div class="mt-4 p-6 space-y-6">
     <div class="bg-white shadow-lg rounded-lg overflow-hidden">
         <div class="bg-gray-800 text-white py-4 px-6 text-center text-xl font-semibold">
             HASIL PEROLEHAN SUARA
@@ -10,27 +10,44 @@
             <table class="w-full border-collapse border border-gray-300">
                 <thead class="bg-gray-200">
                     <tr>
-                        <th class="border border-gray-300 px-4 py-2">No</th>
-                        <th class="border border-gray-300 px-4 py-2">Jenis Data</th>
-                        <th class="border border-gray-300 px-4 py-2">Angka</th>
+                        <th class="border border-gray-300 px-4 py-2">No Urut</th>
+                        <th class="border border-gray-300 px-4 py-2">Foto</th>
+                        <th class="border border-gray-300 px-4 py-2">Nama Kandidat</th>
+                        <th class="border border-gray-300 px-4 py-2">Jumlah Suara</th>
+                        <th class="border border-gray-300 px-4 py-2">Persentase</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="odd:bg-gray-100 even:bg-white">
-                        <td class="border border-gray-300 px-4 py-2 text-center">1</td>
-                        <td class="border border-gray-300 px-4 py-2">JUMLAH TOTAL DPT</td>
-                        <td class="border border-gray-300 px-4 py-2 text-center font-semibold text-blue-600">0</td>
+                    @forelse($hasilpemilihan as $hasil)
+                    <tr class="odd:bg-gray-100 even:bg-white hover:bg-gray-50 transition-colors duration-150">
+                        <td class="border border-gray-300 px-4 py-3 text-center font-semibold">
+                            {{ $hasil->kandidat->nomor_pasangan_calon }}
+                        </td>
+                        <td class="border border-gray-300 px-4 py-3 text-center">
+                            <img src="{{ asset('storage/' . $hasil->kandidat->foto) }}" class="w-16 h-16 object-cover rounded-full">
+                        </td>
+                        <td class="border border-gray-300 px-4 py-3">
+                            <div class="font-medium">{{ $hasil->kandidat->nama_pasangan_calon }}</div>
+                        </td>
+                        <td class="border border-gray-300 px-4 py-3 text-center font-semibold text-blue-600">
+                            {{ $hasil->total_suara }}
+                        </td>
+                        <td class="border border-gray-300 px-4 py-3 text-center">
+                            <div class="inline-flex items-center">
+                                <div class="w-full bg-gray-200 rounded-full h-2.5 mr-2" style="width: 100px;">
+                                    <div class="bg-blue-600 h-2.5 rounded-full" style="width: {{ $hasil->persentase }}%"></div>
+                                </div>
+                                <span class="text-sm font-medium">{{ number_format($hasil->persentase, 1) }}%</span>
+                            </div>
+                        </td>
                     </tr>
-                    <tr class="odd:bg-gray-100 even:bg-white">
-                        <td class="border border-gray-300 px-4 py-2 text-center">2</td>
-                        <td class="border border-gray-300 px-4 py-2">JUMLAH DPT MEMILIH</td>
-                        <td class="border border-gray-300 px-4 py-2 text-center font-semibold text-green-600">0</td>
+                    @empty
+                    <tr>
+                        <td colspan="5" class="border border-gray-300 px-4 py-8 text-center text-gray-500">
+                            <p class="text-lg font-medium">Belum ada hasil pemilihan</p>
+                        </td>
                     </tr>
-                    <tr class="odd:bg-gray-100 even:bg-white">
-                        <td class="border border-gray-300 px-4 py-2 text-center">3</td>
-                        <td class="border border-gray-300 px-4 py-2">JUMLAH DPT TIDAK MEMILIH</td>
-                        <td class="border border-gray-300 px-4 py-2 text-center font-semibold text-red-600">0</td>
-                    </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>

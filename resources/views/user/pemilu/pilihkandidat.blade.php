@@ -11,13 +11,21 @@
             <h5 class="text-xl font-semibold text-gray-900">PASLON {{ $kandidat->nomor_pasangan_calon }}</h5>
             <div class="text-4xl font-bold text-blue-600 my-3">{{ $kandidat->nomor_pasangan_calon }}</div>
             <img class="w-full h-52 object-cover rounded-lg border mb-4" src="{{ $kandidat->foto ? asset('storage/' . $kandidat->foto) : 'https://via.placeholder.com/350x200' }}" alt="Paslon {{ $kandidat->nomor_pasangan_calon }}">
+
             <h5 class="text-lg font-medium text-gray-800">Calon Ketua & Wakil Osis</h5>
             <p class="text-gray-600 text-center">{{ $kandidat->nama_pasangan_calon }}</p>
+            
+            <!-- Tombol untuk menampilkan Visi Misi -->
             <button class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-700 transition" onclick="toggleVisiMisi(this)">Tampilkan Visi Misi</button>
             <div class="hidden mt-3 p-4 bg-gray-100 rounded-lg text-gray-700">{{ $kandidat->visi_misi }}</div>
-            <form action="{{ url('/user/pemilu/berespilih') }}" class="w-full mt-4">
+
+            <!-- Form untuk memilih kandidat -->
+            <form action="{{ route('vote.store') }}" method="POST" class="w-full mt-4">
+                @csrf
+                <input type="hidden" name="kandidat_id" value="{{ $kandidat->id }}">
                 <button type="submit" class="w-full px-6 py-3 bg-green-500 text-white font-semibold rounded-lg shadow-md hover:bg-green-700 transition">Pilih Pasangan No {{ $kandidat->nomor_pasangan_calon }}</button>
             </form>
+
         </div>
         @endforeach
     </div>

@@ -5,7 +5,7 @@
 <div class="container mx-auto p-6">
     <div class="bg-white shadow-md rounded-lg p-6">
         <h2 class="text-2xl font-bold text-gray-700 mb-4">Identitas Lembaga</h2>
-        <form action="{{ url('/admin/pemilu/dashboard') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('dashboardpemilu.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
@@ -52,9 +52,19 @@
                     <input name="tanggal" type="date" id="tanggal-pelaksanaan" value="2021-08-17" class="w-full p-2 border rounded-lg">
                 </div>
             </div>
-            <button type="submit" class="mt-4 w-full bg-green-600 text-white p-3 rounded-lg hover:bg-green-700 transition">Simpan Data</button>
+            <button type="submit" class="mt-4 w-full bg-green-600 text-white p-3 rounded-lg hover:bg-green-700 transition">Tambah Data</button>
         </form>
+        @foreach($dashboard as $data)
+        <div class="flex mt-4 gap-2">
+            <a href="{{ route('dashboardpemilu.edit', $data->id) }}" class="w-1/2 bg-blue-600 text-white p-3 rounded-lg text-center hover:bg-blue-700 transition">Edit</a>
+            <form action="{{ route('dashboardpemilu.destroy', $data->id) }}" method="POST" class="w-1/2">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="w-full bg-red-600 text-white p-3 rounded-lg hover:bg-red-700 transition">Hapus</button>
+            </form>
+        </div>
     </div>
+    @endforeach
 
     <div class="bg-white shadow-md rounded-lg p-6 mt-6">
         <h2 class="text-2xl font-bold text-gray-700">Reset Data Pemilih</h2>

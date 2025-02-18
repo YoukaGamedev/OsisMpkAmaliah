@@ -6,7 +6,7 @@
     <aside class="bg-white w-64 p-5 shadow-md h-screen">
         <ul>
             <li class="mb-3">
-                <a class="flex items-center p-2 rounded-lg hover:bg-gray-200" href="{{ url('/admin/pemilu/dashboard') }}">
+                <a class="flex items-center p-2 rounded-lg hover:bg-gray-200" href="{{ route('dashboardpemilu.index') }}">
                     <i class="bi bi-people-fill mr-2"></i> Pemilu
                 </a>
             </li>
@@ -36,7 +36,7 @@
     <!-- Main Content -->
     <div class="flex-1 container mx-auto px-6 py-8">
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            <a href="{{ url('/admin/pemilu/dashboard') }}" class="transition-transform transform hover:scale-105">
+            <a href="{{ route('dashboardpemilu.index') }}" class="transition-transform transform hover:scale-105">
                 <div class="bg-pink-500 text-white p-6 rounded-lg shadow-md flex flex-col items-center justify-center">
                     <i class="fas fa-vote-yea text-4xl mb-4 opacity-80"></i>
                     <h3 class="text-lg font-semibold">Pemilu Ketua OSIS</h3>

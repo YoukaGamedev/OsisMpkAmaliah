@@ -10,4 +10,9 @@ class DataKelas extends Model
     use HasFactory;
 
     protected $table = 'datakelas';
+
+    protected $fillable = [
+        'kelas',
+        'no_kelas',
+    ];
 }

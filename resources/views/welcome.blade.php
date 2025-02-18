@@ -44,10 +44,10 @@
 <body class="flex items-center justify-center min-h-screen bg-gradient-to-r from-gray-900 to-gray-700 text-white">
     <div class="container p-10 rounded-lg shadow-lg max-w-3xl w-full flex items-center fade-in">
         <div class="flex-1 slide-in">
-            <h1 class="text-3xl font-bold italic">SELAMATttt DATANG DI APK OSIS MPK SMK AMALIAH</h1>
+            <h1 class="text-3xl font-bold italic">SELAMAT DATANG DI APK OSIS MPK SMK AMALIAH</h1>
             <p class="text-lg mt-3 font-semibold">SILAKAN LOGIN UNTUK MELANJUTKAN</p>
             <a href="{{ route('login') }}" class="mt-5 inline-flex items-center gap-3 bg-white text-gray-900 px-6 py-3 rounded-full text-lg font-semibold shadow-md hover:scale-105 transition-transform">
-                login <i class="fas fa-arrow-right"></i>
+                Login <i class="fas fa-arrow-right"></i>
             </a>
         </div>
         <div class="flex-1 flex justify-center slide-in" style="animation-delay: 0.5s;">
@@ -56,6 +56,5 @@
     </div>
 </body>
 
-=======
 </html>
->>>>>>> be650763e65a41edc36304cb8c3e459ae5e608f1
+
