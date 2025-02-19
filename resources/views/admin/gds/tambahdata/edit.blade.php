@@ -2,7 +2,7 @@
 
 @section('content2')
 <div class="flex justify-center mt-8">
-    <div class="w-full max-w-lg bg-white shadow-lg rounded-lg overflow-hidden">
+    <div class="w-full max-w-2xl bg-white shadow-lg rounded-lg overflow-hidden"> <!-- Ubah max-w-lg ke max-w-2xl -->
         <div class="bg-gray-700 text-white text-center py-3">
             <h5 class="font-bold text-lg">Edit Siswa</h5>
         </div>
@@ -20,7 +20,7 @@
                     <input type="text" name="kelas" class="w-full px-3 py-2 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" value="{{ $siswa->kelas }}" required>
                 </div>
                 
-                <div class="grid grid-cols-2 gap-4">
+                <div class="grid grid-cols-3 gap-4"> <!-- Ubah grid-cols-2 ke grid-cols-3 -->
                     @php
                         $attributes = [
                             'Dasi/Kacu' => 'dasi_kacu', 'Kaos Kaki' => 'kaos_kaki', 'Sabuk' => 'sabuk', 'NameTag' => 'nametag',
@@ -41,7 +41,7 @@
                 </div>
 
                 <div class="mt-6">
-                    <button type="submit" class="w-full bg-green-500 text-white py-2 rounded-lg shadow-md hover:bg-red-700 transition duration-300 font-bold">Simpan Perubahan</button>
+                    <button type="submit" class="w-full bg-green-500 text-white py-2 rounded-lg shadow-md hover:bg-green-700 transition duration-300 font-bold">Simpan Perubahan</button>
                 </div>
             </form>
         </div>

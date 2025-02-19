@@ -13,7 +13,7 @@
 <body class="bg-gray-100">
   <div class="flex">
     <!-- Sidebar -->
-    <div class="w-64 min-h-screen bg-gray-800 text-white p-5 shadow-lg">
+    <div class="w-59 min-h-screen bg-gray-800 text-white p-5 shadow-lg">
       <h4 class="text-2xl font-bold text-center mb-6">GDS</h4>
       <ul class="space-y-4">
         <li>

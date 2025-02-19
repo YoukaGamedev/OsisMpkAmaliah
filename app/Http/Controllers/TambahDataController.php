@@ -15,7 +15,7 @@ class TambahDataController extends Controller
     public function index()
     {
         $siswa = DB::table('siswas')->get(); 
-        return view('admin/gds/tambahdata/tambahdata', compact('siswa')); 
+        return view('admin/gds/tambahdata/index', compact('siswa')); 
     }
 
     /**
@@ -23,7 +23,7 @@ class TambahDataController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.gds.tambahdata.tambahdata');
     }
 
     /**

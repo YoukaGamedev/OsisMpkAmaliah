@@ -130,7 +130,7 @@ public function store(Request $request)
     ]);
 
     // Redirect kembali dengan pesan sukses
-    return redirect()->back()->with('success', 'Data siswa berhasil ditambahkan!');
+    return redirect()->route('tambahdata.index')->with('success', 'Data siswa berhasil ditambahkan!');
 }
 
 public function edit($id)
