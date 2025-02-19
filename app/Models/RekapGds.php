@@ -9,5 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class RekapGds extends Model
 {
     protected $table = 'rekapgds'; // Pastikan nama tabelnya sesuai
+
+    public $timestamps = true;
 }
 

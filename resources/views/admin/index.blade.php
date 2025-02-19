@@ -16,7 +16,7 @@
                 </a>
             </li>
             <li class="mb-3 border-t pt-3">
-                <a class="flex text-white items-center p-2 rounded-lg hover:bg-gray-200 hover:text-black" href="{{ url('/logout') }}">
+                <a class="flex text-white items-center p-2 rounded-lg hover:bg-red-700 hover:text-white" href="{{ url('/logout') }}">
                     <i class="bi bi-box-arrow-left mr-2"></i> Log Out
                 </a>
             </li>

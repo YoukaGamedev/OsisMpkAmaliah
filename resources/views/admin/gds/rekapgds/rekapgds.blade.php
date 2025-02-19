@@ -17,14 +17,23 @@
                     <th class="p-4 text-left">PJ</th>
                     <th class="p-4 text-left">Hari</th>
                     <th class="p-4 text-left">Tanggal</th>
+                    <th class="p-4 text-left">Aksi</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($rekapgds as $rekap)
-                <tr class="border-b hover:bg-gray-100 cursor-pointer" onclick="window.location='{{ route('rekapgds.show', $rekap->id) }}'">
+                <tr class="border-b hover:bg-gray-100 cursor-pointer">
                     <td class="p-4">{{ $rekap->pj }}</td>
                     <td class="p-4">{{ $rekap->hari }}</td>
                     <td class="p-4">{{ \Carbon\Carbon::parse($rekap->created_at)->format('d-m-Y') }}</td>
+                    <td class="p-4 flex space-x-2">
+                        <a href="{{ route('rekapgds.edit', $rekap->id) }}" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Edit</a>
+                        <form action="{{ route('rekapgds.destroy', $rekap->id) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus ini?');">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Hapus</button>
+                        </form>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>
