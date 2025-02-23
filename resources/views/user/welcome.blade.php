@@ -3,30 +3,30 @@
 @section('content')
 <div class="flex">
     <!-- Sidebar -->
-    <aside class="bg-gray-800 w-59 p-5 shadow-md h-screen">
+    <aside class="bg-white-800 w-59 p-5 shadow-md h-screen">
         <ul>
             <li class="mb-3">
-                <a class="flex items-center text-white p-2 rounded-lg hover:bg-gray-200 hover:text-black" href="{{ url('/user/pemilu/home') }}">
+                <a class="flex items-center text-black p-2 rounded-lg hover:bg-gray-200 hover:text-black" href="{{ url('/user/pemilu/home') }}">
                     <i class="bi bi-people-fill mr-2"></i> Pemilu
                 </a>
             </li>
             <li class="mb-3">
-                <a class="flex items-center text-white p-2 rounded-lg hover:bg-gray-200 hover:text-black" href="{{ url('/admin/gds/indexgds') }}">
+                <a class="flex items-center text-black p-2 rounded-lg hover:bg-gray-200 hover:text-black" href="{{ url('/admin/gds/indexgds') }}">
                     <i class="bi bi-clipboard-data mr-2"></i> GDS
                 </a>
             </li>
             <li class="mb-3 border-t pt-3">
-                <a class="flex items-center text-white p-2 rounded-lg hover:bg-gray-200 hover:text-black" href="{{ url('/logout') }}">
+                <a class="flex items-center text-black p-2 rounded-lg hover:bg-gray-200 hover:text-black" href="{{ url('/logout') }}">
                     <i class="bi bi-box-arrow-left mr-2"></i> Log Out
                 </a>
             </li>
             <li class="mb-3">
-                <a class="flex items-center text-white p-2 rounded-lg hover:bg-gray-200 hover:text-black" href="#">
+                <a class="flex items-center text-black p-2 rounded-lg hover:bg-gray-200 hover:text-black" href="#">
                     <i class="bi bi-box-arrow-in-right mr-2"></i> Sign In
                 </a>
             </li>
             <li class="mb-3">
-                <a class="flex items-center text-white p-2 rounded-lg hover:bg-gray-200 hover:text-black" href="#">
+                <a class="flex items-center text-black p-2 rounded-lg hover:bg-gray-200 hover:text-black" href="#">
                     <i class="bi bi-bell-fill mr-2"></i> Notifications
                 </a>
             </li>

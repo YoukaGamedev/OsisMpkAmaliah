@@ -12,31 +12,31 @@
 </head>
 <body class="bg-gray-100 flex">
     <!-- Sidebar -->
-    <div class="bg-gray-800 w-59 shadow-lg h-screen p-4 fixed">
-        <h4 class="text-white text-lg font-semibold mb-5">Pemilu</h4>
+    <div class="bg-white-800 w-59 shadow-lg h-screen p-4 fixed">
+        <h4 class="text-black text-lg font-semibold mb-5">Pemilu</h4>
         <ul class="space-y-3">
             <li>
-                <a class="flex items-center text-white p-3 rounded-lg hover:bg-gray-200 hover:text-black transition" href="{{ route('dashboardpemilu.index') }}">
+                <a class="flex items-center text-black p-3 rounded-lg hover:bg-gray-200 hover:text-black transition" href="{{ route('dashboardpemilu.index') }}">
                     <i class="bi bi-house-door-fill mr-3"></i> Data Sekolah
                 </a>
             </li>
             <li>
-                <a class="flex items-center text-white p-3 rounded-lg hover:bg-gray-200 hover:text-black transition" href="{{ route('datakelas.index') }}">
+                <a class="flex items-center text-black p-3 rounded-lg hover:bg-gray-200 hover:text-black transition" href="{{ route('datakelas.index') }}">
                     <i class="bi bi-person-lines-fill mr-3"></i> Data Kelas
                 </a>
             </li>
             <li>
-                <a class="flex items-center text-white p-3 rounded-lg hover:bg-gray-200 hover:text-black transition" href="{{ route('datakandidat.index') }}">
+                <a class="flex items-center text-black p-3 rounded-lg hover:bg-gray-200 hover:text-black transition" href="{{ route('datakandidat.index') }}">
                     <i class="bi bi-person-circle mr-3"></i> Data Kandidat
                 </a>
             </li>
             <li>
-                <a class="flex items-center text-white p-3 rounded-lg hover:bg-gray-200 hover:text-black transition" href="{{ route('datadpt.index') }}">
+                <a class="flex items-center text-black p-3 rounded-lg hover:bg-gray-200 hover:text-black transition" href="{{ route('datadpt.index') }}">
                     <i class="bi bi-file-earmark-text mr-3"></i> Data DPT
                 </a>
             </li>
             <li>
-                <a class="flex items-center text-white p-3 rounded-lg hover:bg-gray-200 hover:text-black transition" href="{{ route('hasilpemilihan.index') }}">
+                <a class="flex items-center text-black p-3 rounded-lg hover:bg-gray-200 hover:text-black transition" href="{{ route('hasilpemilihan.index') }}">
                     <i class="bi bi-graph-up-arrow mr-3"></i> Hasil Pilih
                 </a>
             </li>

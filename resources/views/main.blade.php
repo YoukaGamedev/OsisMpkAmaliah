@@ -19,7 +19,7 @@
 </head>
 <body class="bg-gray-100 min-h-screen flex flex-col">
     <!-- Enhanced Navbar -->
-    <nav class="bg-gradient-to-r from-gray-800 to-gray-900 text-white py-4 px-6 nav-shadow">
+    <nav class="bg-gradient-to-r from-gray-700 to-gray-900 text-white py-4 px-6 nav-shadow">
         <div class="container mx-auto flex items-center justify-between">
             <!-- Logo Section -->
             <div class="flex items-center space-x-2">
@@ -30,7 +30,7 @@
 
             <!-- User Profile Section -->
             <div class="flex items-center space-x-4">
-                <div class="flex items-center bg-gray-700 rounded-full px-4 py-2">
+                <div class="flex items-center bg-white-700 rounded-full px-4 py-2">
                     @if(Auth::user())
                         @if(Auth::user()->role === 'admin')
                             <i class="bi bi-person-workspace text-blue-400 text-xl mr-2"></i>
