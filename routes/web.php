@@ -20,9 +20,9 @@ use App\Http\Controllers\GdsController;
 
 // Route::resource('auth', AuthController::class);
 
-// Tampilkan layout langsung di halaman utama "/"
+
 Route::get('/', function () {
-    return view('welcome'); // Ganti 'welcome' dengan nama layout yang ingin ditampilkan
+    return view('welcome'); 
 });
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
@@ -82,10 +82,16 @@ Route::resource('admin/gds/tambahdata/tambahdata', TambahDataController::class);
 Route::resource('admin/gds/lembargds/lembargds', RekapGdsController::class);
 Route::get('/lembar-gds', [LembarGdsController::class, 'index'])->name('lembar-gds.index');
 
-Route::resource('admin/gds/rekapgds/rekapgds', RekapGdsController::class);
+Route::resource('rekapgds', RekapGdsController::class);
 
 Route::resource('siswa', SiswaController::class);
 Route::get('/admin/gds/lembargds/searchdata', [SiswaController::class, 'search'])->name('siswa.search');
+
+
+
+
+
+
 
 // Route::get('/siswa', [SiswaController::class, 'index'])->name('siswa.index');
 // Route::get('/siswa/search', [SiswaController::class, 'search'])->name('siswa.search');

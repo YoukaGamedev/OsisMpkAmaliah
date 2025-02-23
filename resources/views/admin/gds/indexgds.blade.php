@@ -2,7 +2,7 @@
 
 @section('content2')
 <div class="p-6">
-    <h1 class="text-lg font-semibold">Absensi Karyawan</h1>
+    <h1 class="text-lg font-semibold">GDS </h1>
 
     <!-- Form untuk memilih tanggal -->
     <form action="{{ route('gds.index') }}" method="GET" class="mt-4 flex items-center space-x-2">
@@ -17,9 +17,15 @@
         Tambah Absensi
     </button>
 
+    <!-- Tombol Cari dan Scan -->
+    <div class="mt-4 flex space-x-2">
+        <a href="{{ route('siswa.search') }}" class="bg-purple-500 text-white px-3 py-2 rounded">Cari</a>
+    </div>
+
     <!-- Tabel Absensi -->
     <div class="mt-4 bg-white shadow-md rounded-lg overflow-hidden">
-        <div class="p-4 bg-gray-200 font-bold text-gray-700">Data Absensi: {{ \Carbon\Carbon::parse($tanggal)->format('d-m-Y') }}</div>
+        <div class="p-4 bg-gray-700 font-bold text-white">Data Absensi: {{ \Carbon\Carbon::parse($tanggal)->format('d-m-Y') }}</div>
+
         <table class="w-full border-collapse">
             <thead>
                 <tr class="bg-gray-700 text-white">
@@ -64,27 +70,15 @@
                         <td class="py-1 px-2 border-b text-center text-sm {{ $data->almamater ? '' : 'bg-red-100' }}">{{ $data->almamater ? '✔' : '✘' }}</td>
                         <td class="py-1 px-2 border-b text-center text-sm {{ $data->wearpack ? '' : 'bg-red-100' }}">{{ $data->wearpack ? '✔' : '✘' }}</td>
                         <td class="py-1 px-2 border-b text-center text-sm">
-                            <a href="{{ route('siswa.edit', $data->id) }}" class="bg-yellow-500 text-white px-2 py-1 rounded hover:bg-yellow-600 text-xs">
-                                <i class="fas fa-edit"></i> Edit
-                            </a>
-                            <form action="{{ route('siswa.destroy', $data->id) }}" method="POST" class="inline">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600 text-xs" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
-                                    <i class="fas fa-trash"></i> Hapus
-                                </button>
-                            </form>
+                        <a href="{{ route('siswa.show', $data->id) }}" 
+                                       class="inline-flex items-center px-3 py-1 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-md transition duration-150 ease-in-out">
+                                        Lihat
+                                    </a>
                         </td>
                     </tr>
                     @endforeach
-                    @if($siswa->isEmpty())
-                    <tr>
-                        <td colspan="18" class="py-1 px-2 border-b text-center text-sm text-gray-500">Tidak ada data siswa.</td>
-                    </tr>
-                    @endif
     </div>
 </div>
-
 <!-- Modal Tambah Absensi -->
 <div id="modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center">
     <div class="bg-white p-6 rounded-lg shadow-lg w-1/3">

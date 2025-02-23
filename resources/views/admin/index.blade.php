@@ -11,7 +11,7 @@
                 </a>
             </li>
             <li class="mb-3">
-                <a class="flex text-white items-center p-2 rounded-lg hover:bg-gray-200 hover:text-black" href="{{ url('/admin/gds/indexgds') }}">
+                <a class="flex text-white items-center p-2 rounded-lg hover:bg-gray-200 hover:text-black" href="{{ route('gds.index') }}">
                     <i class="bi bi-clipboard-data mr-2"></i> GDS
                 </a>
             </li>
@@ -43,7 +43,7 @@
                 </div>
             </a>
 
-            <a href="{{ url('/admin/gds/indexgds') }}" class="transition-transform transform hover:scale-105">
+            <a href="{{ route('gds.index') }}" class="transition-transform transform hover:scale-105">
                 <div class="bg-blue-500 text-white p-6 rounded-lg shadow-md flex flex-col items-center justify-center">
                     <i class="fas fa-database text-4xl mb-4 opacity-80"></i>
                     <h3 class="text-lg font-semibold">Gerakan Disiplin Siswa</h3>

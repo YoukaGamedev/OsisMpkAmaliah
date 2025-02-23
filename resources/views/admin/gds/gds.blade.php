@@ -23,7 +23,7 @@
           </a>
         </li>
         <li>
-          <a href="{{ ('/admin/gds/rekapgds/rekapgds') }}" class="flex items-center space-x-2 p-3 rounded hover:bg-gray-700 transition">
+          <a href="{{ route('rekapgds.index') }}" class="flex items-center space-x-2 p-3 rounded hover:bg-gray-700 transition">
             <i class="fas fa-folder-open"></i>
             <span>Rekap GDS</span>
           </a>
