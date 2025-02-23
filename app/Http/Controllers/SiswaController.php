@@ -139,13 +139,14 @@ public function store(Request $request)
 public function edit($id)
 {
     $siswa = Siswa::findOrFail($id);
-    return view('admin.gds.tambahdata.edit', compact('siswa'));
+    return view('admin.gds.edit', compact('siswa'));
 }
 
 public function update(Request $request, $id)
 {
     $request->validate([
         'nama' => 'required|string|max:255',
+        'tanggal' => 'required|date',
         'kelas' => 'required|string|max:50',
         'dasi_kacu' => 'required|boolean',
         'kaos_kaki' => 'required|boolean',
@@ -166,7 +167,7 @@ public function update(Request $request, $id)
     $siswa = Siswa::findOrFail($id);
     $siswa->update($request->all());
 
-    return redirect()->route('tambahdata.index')->with('success', 'Data siswa berhasil diperbarui!');
+    return redirect()->route('gds.index')->with('success', 'Data siswa berhasil diperbarui!');
 }
 
 

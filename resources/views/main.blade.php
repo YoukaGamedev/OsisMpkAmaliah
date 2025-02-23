@@ -23,7 +23,7 @@
         <div class="container mx-auto flex items-center justify-between">
             <!-- Logo Section -->
             <div class="flex items-center space-x-2">
-                <a href="{{ ('/') }}" class="logo">
+                <a href="{{ ('/admin') }}" class="logo">
                     <img src="{{ asset('asset/img/logo osis.png') }}" alt="Logo" class="w-12 h-12 object-contain">
                 </a>
             </div>

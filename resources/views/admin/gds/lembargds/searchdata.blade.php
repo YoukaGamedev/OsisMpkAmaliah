@@ -43,23 +43,14 @@
                                     {{ $data->kelas }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
+                                <a href="{{ route('lembargds.edit', $data->id) }}" 
+                                       class="inline-flex items-center px-3 py-1 bg-green-500 hover:bg-green-600 text-white text-sm font-medium rounded-md transition duration-150 ease-in-out">
+                                        Tambah
+                                    </a>
                                     <a href="{{ route('siswa.show', $data->id) }}" 
                                        class="inline-flex items-center px-3 py-1 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-md transition duration-150 ease-in-out">
                                         Lihat
                                     </a>
-                                    <a href="{{ route('siswa.edit', $data->id) }}" 
-                                       class="inline-flex items-center px-3 py-1 bg-yellow-500 hover:bg-yellow-600 text-white text-sm font-medium rounded-md transition duration-150 ease-in-out">
-                                        Edit
-                                    </a>
-                                    <form action="{{ route('siswa.destroy', $data->id) }}" method="POST" class="inline">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" 
-                                                onclick="return confirm('Hapus data ini?')"
-                                                class="inline-flex items-center px-3 py-1 bg-red-600 hover:bg-red-700 text-white text-sm font-medium rounded-md transition duration-150 ease-in-out">
-                                            Hapus
-                                        </button>
-                                    </form>
                                 </td>
                             </tr>
                             @endforeach

@@ -29,13 +29,13 @@
           </a>
         </li>
         <li>
-          <a href="{{ ('/admin/gds/tambahdata/tambahdata') }}" class="flex items-center space-x-2 p-3 rounded hover:bg-gray-700 transition">
+          <a href="{{ route('tambahdata.index') }}" class="flex items-center space-x-2 p-3 rounded hover:bg-gray-700 transition">
             <i class="fas fa-user-plus"></i>
-            <span>Tambah Data</span>
+            <span>Daftar Siswa</span>
           </a>
         </li>
         <li>
-          <a href="{{ ('/admin/gds/jadwalgds/index') }}" class="flex items-center space-x-2 p-3 rounded hover:bg-gray-700 transition">
+          <a href="{{ route('jadwalgds.index') }}" class="flex items-center space-x-2 p-3 rounded hover:bg-gray-700 transition">
             <i class="fas fa-calendar-alt"></i>
             <span>Jadwal GDS</span>
           </a>

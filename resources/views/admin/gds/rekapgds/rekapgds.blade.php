@@ -19,7 +19,6 @@
                     <th class="p-4 text-left">Nama</th>
                     <th class="p-4 text-left">Kelas</th>
                     <th class="p-4 text-left">Atribut Tidak Terpenuhi</th>
-                    <th class="p-4 text-left">Aksi</th>
                 </tr>
             </thead>
             <tbody id="rekapBody">
@@ -35,14 +34,6 @@
                         $missing = array_filter($attributes, fn($key) => !$rekap->$key, ARRAY_FILTER_USE_KEY);
                         echo implode(', ', $missing) ?: '-';
                         @endphp
-                    </td>
-                    <td class="p-4">
-                        <a href="{{ route('rekapgds.edit', $rekap->id) }}" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Edit</a>
-                        <form action="{{ route('rekapgds.destroy', $rekap->id) }}" method="POST" style="display:inline;" onsubmit="return confirm('Apakah Anda yakin ingin menghapus ini?');">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Hapus</button>
-                        </form>
                     </td>
                 </tr>
                 @endforeach
@@ -81,14 +72,6 @@ document.getElementById('filterTanggal').addEventListener('change', function () 
                             <td class="p-4">${rekap.nama}</td>
                             <td class="p-4">${rekap.kelas}</td>
                             <td class="p-4">${missingAttrs.length > 0 ? missingAttrs.join(', ') : '-'}</td>
-                            <td class="p-4">
-                                <a href="/rekapgds/${rekap.id}/edit" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Edit</a>
-                                <form action="/rekapgds/${rekap.id}" method="POST" style="display:inline;" onsubmit="return confirm('Apakah Anda yakin ingin menghapus ini?');">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">Hapus</button>
-                                </form>
-                            </td>
                         </tr>`;
                 });
             } else {

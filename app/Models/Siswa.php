@@ -14,7 +14,7 @@ class Siswa extends Model
     // Define fillable properties for mass assignment
     protected $fillable = [
         'nama',
-        'tanggal',
+        'tanggal', // Tetap bisa diisi tetapi opsional
         'kelas',
         'dasi_kacu',
         'kaos_kaki',
@@ -31,4 +31,15 @@ class Siswa extends Model
         'almamater',
         'wearpack',
     ];
+
+    // Cast properties
+    protected $casts = [
+        'tanggal' => 'date', // Mengizinkan null tetapi tetap bertipe date jika diisi
+    ];
+
+    public function gds()
+{
+    return $this->hasMany(Gds::class);
+}
+
 }

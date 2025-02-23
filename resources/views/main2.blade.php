@@ -18,7 +18,7 @@
 <body class="bg-gray-100 min-h-screen flex flex-col">
 
     <div class="bg-gray-700 text-gray-800 py-4 px-6 flex items-center justify-between shadow-md">
-        <a href="{{ ('/') }}" class="logo">
+        <a href="{{ ('/user') }}" class="logo">
             <img src="{{ asset('asset/img/logo osis.png') }}" alt="Logo" class="w-12">
         </a>
         <div class="font-bold">

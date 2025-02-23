@@ -7,7 +7,7 @@
             <h5 class="font-bold text-lg">Edit Siswa</h5>
         </div>
         <div class="p-6">
-            <form action="{{ route('tambahdata.update', $siswa->id) }}" method="POST">
+            <form action="{{ route('siswa.update', $siswa->id) }}" method="POST">
                 @csrf
                 @method('PUT')
 
@@ -17,7 +17,7 @@
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 font-semibold">Tanggal</label>
-                    <input type="date" name="tanggal" class="w-full px-3 py-2 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" value="{{ $siswa->tanggal ?? '' }}">
+                    <input type="date" name="tanggal" class="w-full px-3 py-2 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" value="{{ $siswa->tanggal ?? date('Y-m-d') }}">
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700 font-semibold">Kelas</label>

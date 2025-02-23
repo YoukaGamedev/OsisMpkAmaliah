@@ -7,7 +7,7 @@
             <h5 class="font-bold text-lg">Edit Siswa</h5>
         </div>
         <div class="p-6">
-            <form action="{{ route('tambahdata.update', $siswa->id) }}" method="POST">
+            <form action="{{ route('lembargds.update', $siswa->id) }}" method="POST">
                 @csrf
                 @method('PUT')
 

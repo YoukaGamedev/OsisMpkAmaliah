@@ -8,13 +8,14 @@
             <h5 class="text-lg font-semibold">Tambah Siswa</h5>
         </div>
         <div class="p-4">
-            <form action="{{ route('siswa.store') }}" method="POST">
+            <form action="{{ route('tambahdata.store') }}" method="POST">
                 @csrf
                 <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-3">
                     @php
                         $fields = [
                             ['label' => 'Nama', 'name' => 'nama', 'type' => 'text', 'required' => true],
                             ['label' => 'Kelas', 'name' => 'kelas', 'type' => 'text', 'required' => true],
+                            ['label' => 'Tanggal (Opsional)', 'name' => 'tanggal', 'type' => 'date', 'required' => false],
                             ['label' => 'Dasi/Kacu', 'name' => 'dasi_kacu', 'type' => 'select'],
                             ['label' => 'Kaos Kaki', 'name' => 'kaos_kaki', 'type' => 'select'],
                             ['label' => 'Sabuk', 'name' => 'sabuk', 'type' => 'select'],
@@ -34,8 +35,8 @@
                     @foreach($fields as $field)
                         <div class="mb-2">
                             <label class="block text-gray-700 text-xs font-bold mb-1">{{ $field['label'] }}</label>
-                            @if($field['type'] === 'text')
-                                <input type="text" name="{{ $field['name'] }}" class="w-full px-2 py-1 text-sm border rounded" {{ $field['required'] ? 'required' : '' }}>
+                            @if($field['type'] === 'text' || $field['type'] === 'date')
+                                <input type="{{ $field['type'] }}" name="{{ $field['name'] }}" class="w-full px-2 py-1 text-sm border rounded" {{ $field['required'] ? 'required' : '' }}>
                             @elseif($field['type'] === 'select')
                                 <select name="{{ $field['name'] }}" class="w-full px-2 py-1 text-sm border rounded">
                                     <option value="1">Ya</option>
