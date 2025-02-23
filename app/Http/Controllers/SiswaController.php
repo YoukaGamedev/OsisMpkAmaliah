@@ -93,6 +93,7 @@ public function store(Request $request)
     // Validasi input
     $request->validate([
         'nama' => 'required|string|max:255',
+        'tanggal' => 'required|date',
         'kelas' => 'required|string|max:50',
         'dasi_kacu' => 'required|boolean',
         'kaos_kaki' => 'required|boolean',
@@ -113,6 +114,7 @@ public function store(Request $request)
     // Simpan data siswa ke database
     Siswa::create([
         'nama' => $request->nama,
+        'tanggal' => $request->tanggal ?? date('Y-m-d'),
         'kelas' => $request->kelas,
         'dasi_kacu' => $request->dasi_kacu,
         'kaos_kaki' => $request->kaos_kaki,
@@ -130,7 +132,8 @@ public function store(Request $request)
     ]);
 
     // Redirect kembali dengan pesan sukses
-    return redirect()->route('tambahdata.index')->with('success', 'Data siswa berhasil ditambahkan!');
+    return redirect()->route('gds.index', ['tanggal' => $request->tanggal])
+                         ->with('success', 'Absensi berhasil ditambahkan');
 }
 
 public function edit($id)

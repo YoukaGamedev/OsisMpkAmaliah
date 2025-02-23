@@ -14,6 +14,7 @@ class Siswa extends Model
     // Define fillable properties for mass assignment
     protected $fillable = [
         'nama',
+        'tanggal',
         'kelas',
         'dasi_kacu',
         'kaos_kaki',

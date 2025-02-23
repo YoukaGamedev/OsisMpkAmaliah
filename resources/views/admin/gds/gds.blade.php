@@ -17,7 +17,7 @@
       <h4 class="text-2xl font-bold text-center mb-6">GDS</h4>
       <ul class="space-y-4">
         <li>
-          <a href="{{ ('/admin/gds/indexgds') }}" class="flex items-center space-x-2 p-3 rounded hover:bg-gray-700 transition">
+          <a href="{{ route('gds.index') }}" class="flex items-center space-x-2 p-3 rounded hover:bg-gray-700 transition">
             <i class="fas fa-calendar-check"></i>
             <span>GDS</span>
           </a>

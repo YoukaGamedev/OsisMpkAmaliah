@@ -16,6 +16,7 @@ use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\TambahDataController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HasilPemilihanController;
+use App\Http\Controllers\GdsController;
 
 // Route::resource('auth', AuthController::class);
 
@@ -69,9 +70,7 @@ Route::get('user/welcome', function () {
     return view('/user/welcome');
 });
  
-Route::get('/admin/gds/indexgds', function () {
-    return view('/admin/gds/indexgds');
-});
+Route::resource('gds', GdsController::class);
 
 Route::get('/admin/gds/jadwalgds/index', function () {
     return view('/admin/gds/jadwalgds/index');
