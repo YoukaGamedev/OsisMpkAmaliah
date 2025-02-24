@@ -6,28 +6,35 @@
     <aside class="bg-white-800 w-59 p-5 shadow-md h-screen">
         <ul>
             <li class="mb-3">
-                <a class="flex text-black items-center p-2 rounded-lg hover:bg-gray-200 hover:text-black" href="{{ route('dashboardpemilu.index') }}">
+                <a class="flex text-black items-center p-2 rounded-lg hover:bg-pink-500 hover:text-black" href="{{ route('dashboardpemilu.index') }}">
                     <i class="bi bi-people-fill mr-2"></i> Pemilu
                 </a>
             </li>
             <li class="mb-3">
-                <a class="flex text-black items-center p-2 rounded-lg hover:bg-gray-200 hover:text-black" href="{{ route('gds.index') }}">
+                <a class="flex text-black items-center p-2 rounded-lg hover:bg-blue-500 hover:text-black" href="{{ route('gds.index') }}">
                     <i class="bi bi-clipboard-data mr-2"></i> GDS
                 </a>
             </li>
             <li class="mb-3 border-t pt-3">
-                <a class="flex text-black items-center p-2 rounded-lg hover:bg-gray-200 hover:text-black" href="{{ url('/logout') }}">
-                    <i class="bi bi-box-arrow-left mr-2"></i> Log Out
-                </a>
-            </li>
-            <li class="mb-3">
+    <a class="flex text-black items-center p-2 rounded-lg hover:bg-gray-200 hover:text-black" href="{{ route('useradmin.index') }}">
+        <i class="bi bi-person-fill mr-2"></i> User Dan Admin
+    </a>
+</li>
+
+<li class="mb-3">
+    <a class="flex text-black items-center p-2 rounded-lg hover:bg-gray-200 hover:text-black" href="{{ route('structure.index') }}">
+        <i class="bi bi-person-lines-fill mr-2"></i> Struktur Osis Dan Mpk
+    </a>
+</li>
+
+            <li class="mb-3 border-t pt-3">
                 <a class="flex text-black items-center p-2 rounded-lg hover:bg-gray-200 hover:text-black" href="#">
                     <i class="bi bi-box-arrow-in-right mr-2"></i> Sign In
                 </a>
             </li>
             <li class="mb-3">
-                <a class="flex text-black items-center p-2 rounded-lg hover:bg-gray-200 hover:text-black" href="#">
-                    <i class="bi bi-bell-fill mr-2"></i> Notifications
+                <a class="flex text-black items-center p-2 rounded-lg hover:bg-red-400 hover:text-black" href="{{ url('/logout') }}">
+                    <i class="bi bi-box-arrow-left mr-2"></i> Log Out
                 </a>
             </li>
         </ul>

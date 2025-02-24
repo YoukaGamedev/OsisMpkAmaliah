@@ -1,0 +1,106 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
+use App\Models\User;
+
+class UserAdminController extends Controller
+{
+    /**
+     * Menampilkan daftar user (admin & user biasa).
+     */
+    public function index(Request $request)
+    {
+        $query = User::query();
+
+        // Filter pencarian berdasarkan nama
+        if ($request->has('name') && $request->input('name') != '') {
+            $query->where('name', 'like', '%' . $request->input('name') . '%');
+        }
+
+        // Menggunakan pagination agar lebih optimal
+        $users = $query->paginate(10);
+
+        return view('admin.useradmin.index', compact('users'));
+    }
+
+    /**
+     * Menampilkan form untuk menambahkan user baru.
+     */
+    public function create()
+    {
+        return view('admin.useradmin.create'); // View khusus untuk tambah user
+    }
+
+    /**
+     * Menyimpan user baru ke database.
+     */
+    public function store(Request $request)
+    {
+        // Validasi input
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email|max:255',
+            'password' => 'required|string|min:8|confirmed', // Password wajib dikonfirmasi
+            'role' => 'required|string|in:user,admin', // Validasi role
+        ]);
+
+        // Enkripsi password sebelum disimpan
+        $validatedData['password'] = Hash::make($request->password);
+
+        // Simpan user baru
+        User::create($validatedData);
+
+        return redirect()->route('useradmin.index')->with('status', 'User berhasil ditambahkan');
+    }
+
+    /**
+     * Menampilkan form untuk edit user.
+     */
+    public function edit($id)
+    {
+        $user = User::findOrFail($id); // Cari user berdasarkan ID
+        return view('admin.useradmin.edit', compact('user')); // View edit khusus
+    }
+
+    /**
+     * Memperbarui data user di database.
+     */
+    public function update(Request $request, $id)
+    {
+        // Validasi input
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255|unique:users,email,'.$id,
+            'password' => 'nullable|string|min:8|confirmed', // Password opsional
+            'role' => 'required|string|in:user,admin',
+        ]);
+
+        $user = User::findOrFail($id); // Cari user berdasarkan ID
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->role = $request->role;
+
+        // Hanya update password jika ada perubahan
+        if ($request->filled('password')) {
+            $user->password = Hash::make($request->password);
+        }
+
+        $user->save();
+
+        return redirect()->route('useradmin.index')->with('status', 'User berhasil diperbarui');
+    }
+
+    /**
+     * Menghapus user dari database.
+     */
+    public function destroy($id)
+    {
+        $user = User::findOrFail($id);
+        $user->delete(); // Hapus user
+
+        return redirect()->route('useradmin.index')->with('status', 'User berhasil dihapus');
+    }
+}

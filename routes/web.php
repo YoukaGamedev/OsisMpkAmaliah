@@ -18,6 +18,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HasilPemilihanController;
 use App\Http\Controllers\GdsController;
 use App\Http\Controllers\JadwalPiketGDSController;
+use App\Http\Controllers\UserAdminController;
+use App\Http\Controllers\StructureController;
 
 Route::get('/', function () {
     return view('welcome'); 
@@ -38,6 +40,11 @@ Route::get('/logout', function () {
     session()->flush();
     return redirect('/login');
 });
+
+
+Route::resource('useradmin', UserAdminController::class);
+
+Route::resource('structure', StructureController::class);
 
 
 Route::resource('vote', VoteController::class);
