@@ -3,38 +3,36 @@
 @section('content')
 <div class="flex">
     <!-- Sidebar -->
-    <aside class="bg-white-800 w-59 p-5 shadow-md h-screen">
+    <aside class="bg-white w-16 hover:w-56 p-2 shadow-md h-screen transition-all duration-300 ease-in-out overflow-hidden group">
         <ul>
-            <li class="mb-3">
-                <a class="flex text-black items-center p-2 rounded-lg hover:bg-pink-500 hover:text-black" href="{{ route('dashboardpemilu.index') }}">
-                    <i class="bi bi-people-fill mr-2"></i> Pemilu
+            <li class="mb-5">
+                <a class="flex text-black items-center p-2 rounded-lg hover:bg-gray-200 hover:text-black" href="{{ route('dashboardpemilu.index') }}">
+                    <i class="bi bi-people-fill mr-2"></i> <span class="hidden group-hover:inline-block">Pemilu</span>
                 </a>
             </li>
             <li class="mb-3">
-                <a class="flex text-black items-center p-2 rounded-lg hover:bg-blue-500 hover:text-black" href="{{ route('gds.index') }}">
-                    <i class="bi bi-clipboard-data mr-2"></i> GDS
+                <a class="flex text-black items-center p-2 rounded-lg hover:bg-gray-200 hover:text-black" href="{{ route('gds.index') }}">
+                    <i class="bi bi-clipboard-data mr-2"></i> <span class="hidden group-hover:inline-block">GDS</span>
                 </a>
             </li>
             <li class="mb-3 border-t pt-3">
-    <a class="flex text-black items-center p-2 rounded-lg hover:bg-gray-200 hover:text-black" href="{{ route('useradmin.index') }}">
-        <i class="bi bi-person-fill mr-2"></i> User Dan Admin
-    </a>
-</li>
-
-<li class="mb-3">
-    <a class="flex text-black items-center p-2 rounded-lg hover:bg-gray-200 hover:text-black" href="{{ route('structure.index') }}">
-        <i class="bi bi-person-lines-fill mr-2"></i> Struktur Osis Dan Mpk
-    </a>
-</li>
-
+                <a class="flex text-black items-center p-2 rounded-lg hover:bg-gray-200 hover:text-black" href="{{ route('useradmin.index') }}">
+                    <i class="bi bi-person-fill mr-2"></i> <span class="hidden group-hover:inline-block">User & Admin</span>
+                </a>
+            </li>
+            <li class="mb-3">
+                <a class="flex text-black items-center p-2 rounded-lg hover:bg-gray-200 hover:text-black" href="{{ route('structure.index') }}">
+                    <i class="bi bi-person-lines-fill mr-2"></i> <span class="hidden group-hover:inline-block">Struktur OSIS & MPK</span>
+                </a>
+            </li>
             <li class="mb-3 border-t pt-3">
                 <a class="flex text-black items-center p-2 rounded-lg hover:bg-gray-200 hover:text-black" href="#">
-                    <i class="bi bi-box-arrow-in-right mr-2"></i> Sign In
+                    <i class="bi bi-box-arrow-in-right mr-2"></i> <span class="hidden group-hover:inline-block">Sign In</span>
                 </a>
             </li>
             <li class="mb-3">
-                <a class="flex text-black items-center p-2 rounded-lg hover:bg-red-400 hover:text-black" href="{{ url('/logout') }}">
-                    <i class="bi bi-box-arrow-left mr-2"></i> Log Out
+                <a class="flex text-black items-center p-2 rounded-lg hover:bg-gray-200 hover:text-black" href="{{ url('/logout') }}">
+                    <i class="bi bi-box-arrow-left mr-2"></i> <span class="hidden group-hover:inline-block">Log Out</span>
                 </a>
             </li>
         </ul>
@@ -49,14 +47,12 @@
                     <h3 class="text-lg font-semibold">Pemilu Ketua OSIS</h3>
                 </div>
             </a>
-
             <a href="{{ route('gds.index') }}" class="transition-transform transform hover:scale-105">
                 <div class="bg-blue-500 text-white p-6 rounded-lg shadow-md flex flex-col items-center justify-center">
                     <i class="fas fa-database text-4xl mb-4 opacity-80"></i>
                     <h3 class="text-lg font-semibold">Gerakan Disiplin Siswa</h3>
                 </div>
             </a>
-
             <a href="#" class="transition-transform transform hover:scale-105">
                 <div class="bg-gray-500 text-white p-6 rounded-lg shadow-md flex flex-col items-center justify-center">
                     <i class="fas fa-hourglass-half text-4xl mb-4 opacity-80"></i>
