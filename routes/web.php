@@ -47,6 +47,7 @@ Route::resource('useradmin', UserAdminController::class);
 Route::resource('structure', StructureController::class);
 
 
+
 Route::resource('vote', VoteController::class);
 Route::resource('datakelas', DataKelasController::class);
 Route::resource('datakandidat', DataKandidatController::class);
