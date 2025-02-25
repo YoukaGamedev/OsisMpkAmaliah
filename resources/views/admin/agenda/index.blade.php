@@ -1,4 +1,4 @@
-@extends('layouts.app') {{-- Sesuaikan dengan layout yang digunakan --}}
+@extends
 
 @section('content')
 <div class="container mt-4">
@@ -17,7 +17,7 @@
                     <tr>
                         <th>No</th>
                         <th>Judul</th>
-                        <th>Tanggal</th>
+                        <th>Waktu</th>
                         <th>Deskripsi</th>
                         <th>Aksi</th>
                     </tr>
@@ -46,4 +46,10 @@
             {{-- Jika tidak ada agenda --}}
             @if ($agendas->isEmpty())
                 <div class="text-center p-3">
-                    <p class="text-muted">Belum ada agenda yang ter
+                    <p class="text-muted">Belum ada agenda yang tersedia.</p>
+                </div>
+            @endif
+        </div>
+    </div>
+</div>
+@endsection

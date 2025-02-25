@@ -13,7 +13,7 @@ class AgendaController extends Controller
     public function index()
     {
          $agendas = Agenda::all(); // Ambil semua data agenda dari database
-         return view('agenda.dashboard.index', compact('agendas')); // Kirim data ke view
+         return view('agenda.index', compact('agendas')); // Kirim data ke view
     }
 
     /**
