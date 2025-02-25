@@ -25,34 +25,6 @@
             {{ Auth::user() ? Auth::user()->name . ' (' . Auth::user()->role . ')' : 'Guest' }}
         </div>
     </div>
-    <div class="flex flex-1">            <ul>
-                <li class="mb-3">
-                    <a class="flex items-center text-gray-800 p-2 rounded-lg hover:bg-gray-200" href="http://127.0.0.1:8000/user/pemilu/home">
-                        <i class="bi bi-people-fill mr-2"></i> Pemilu
-                    </a>
-                </li>
-                <li class="mb-3">
-                    <a class="flex items-center text-gray-800 p-2 rounded-lg hover:bg-gray-200" href="http://127.0.0.1:8000/admin/gds/indexgds">
-                        <i class="bi bi-clipboard-data mr-2"></i> GDS
-                    </a>
-                </li>
-                <li class="mb-3 border-t pt-3">
-                    <a class="flex items-center text-gray-800 p-2 rounded-lg hover:bg-gray-200" href="http://127.0.0.1:8000/logout">
-                        <i class="bi bi-box-arrow-left mr-2"></i> Log Out
-                    </a>
-                </li>
-                <li class="mb-3">
-                    <a class="flex items-center text-gray-800 p-2 rounded-lg hover:bg-gray-200" href="#">
-                        <i class="bi bi-box-arrow-in-right mr-2"></i> Sign In
-                    </a>
-                </li>
-                <li class="mb-3">
-                    <a class="flex items-center text-gray-800 p-2 rounded-lg hover:bg-gray-200" href="#">
-                        <i class="bi bi-bell-fill mr-2"></i> Notifications
-                    </a>
-                </li>
-            </ul>
-        </aside>
         <main class="flex-1">
             @yield('content')
         </main>
