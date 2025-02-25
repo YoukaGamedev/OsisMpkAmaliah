@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Agenda;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Agenda extends Model
 {
     use HasFactory;
-
-    protected $fillable = ['judul', 'deskripsi', 'waktu'];
+    
+    protected $fillable = ['judul', 'deskripsi', 'waktu']; // Kolom yang bisa diisi
 }

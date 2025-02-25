@@ -20,6 +20,7 @@ use App\Http\Controllers\GdsController;
 use App\Http\Controllers\JadwalPiketGDSController;
 use App\Http\Controllers\UserAdminController;
 use App\Http\Controllers\StructureController;
+use App\Http\Controllers\AgendaController;
 
 Route::get('/', function () {
     return view('welcome'); 
@@ -80,3 +81,6 @@ Route::resource('siswa', SiswaController::class);
 Route::get('/search', [SiswaController::class, 'search'])->name('siswa.search');
 Route::resource('jadwalgds', JadwalPiketGDSController::class);
 
+Route::resource('agenda', AgendaController::class);
+
+Route::get('/agenda', [AgendaController::class, 'index'])->name('agenda.index');
