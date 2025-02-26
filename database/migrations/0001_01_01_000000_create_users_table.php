@@ -18,6 +18,8 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();  
             $table->string('password');  
             $table->string('role')->default('user'); // Menambahkan kolom role
+            $table->string('kepengurusan')->nullable(); // Kolom kepengurusan opsional
+            $table->enum('sekolah', ['A1', 'A2']); // Kolom sekolah dengan pilihan A1 atau A2
             $table->rememberToken();  
             $table->timestamps();  
         });
@@ -26,10 +28,8 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
-    public function down()
-{
-    Schema::table('users', function (Blueprint $table) {
-        $table->dropColumn('role');
-    });
-}
+    public function down(): void
+    {
+        Schema::dropIfExists('users');
+    }
 };

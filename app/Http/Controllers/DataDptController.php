@@ -45,6 +45,7 @@ class DataDptController extends Controller
             'email' => 'required|email|unique:users,email|max:255',
             'password' => 'required|string|min:8|confirmed', // Pastikan password dikonfirmasi
             'role' => 'required|string|in:user,admin', // Validasi role
+            'sekolah' => 'required|string|in:A1,A2', // Validasi sekolah
         ]);
 
         // Enkripsi password
@@ -77,12 +78,14 @@ class DataDptController extends Controller
             'email' => 'required|email|max:255|unique:users,email,'.$id,
             'password' => 'nullable|string|min:8|confirmed', // Password opsional
             'role' => 'required|string|in:user,admin',
+            'sekolah' => 'required|string|in:A1,A2', // Validasi sekolah
         ]);
 
         $user = User::findOrFail($id); // Cari user berdasarkan ID
         $user->name = $request->name;
         $user->email = $request->email;
         $user->role = $request->role;
+        $user->sekolah = $request->sekolah;
 
         // Hanya update password jika diisi
         if ($request->filled('password')) {

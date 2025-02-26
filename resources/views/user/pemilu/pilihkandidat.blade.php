@@ -4,6 +4,25 @@
 
 <div class="min-h-screen bg-gray-100 flex flex-col items-center py-12 px-4 sm:px-6 lg:px-8">
     <h3 class="text-3xl font-bold text-gray-700 mb-8 text-center">DAFTAR CALON KANDIDAT KETUA & WAKIL OSIS</h3>
+
+    <!-- Status Message -->
+                @if(session()->has('success'))
+                    <div class="mt-4 p-4 bg-green-100 border border-green-200 text-green-700 rounded-lg flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        {{ session('success') }}
+                    </div>
+                @endif
+                @if(session()->has('error'))
+                    <div class="mt-4 p-4 bg-red-100 border border-green-200 text-red-700 rounded-lg flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        {{ session('error') }}
+                    </div>
+                @endif
+
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl">
         @foreach ($kandidat as $kandi)
         <div class="bg-white shadow-lg rounded-lg p-6 flex flex-col items-center transition-transform transform hover:scale-105">

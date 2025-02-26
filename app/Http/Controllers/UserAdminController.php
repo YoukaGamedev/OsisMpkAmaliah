@@ -43,8 +43,10 @@ class UserAdminController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email|max:255',
-            'password' => 'required|string|min:8|confirmed', // Password wajib dikonfirmasi
+            'password' => 'required|string|min:8|confirmed', // Pastikan password dikonfirmasi
             'role' => 'required|string|in:user,admin', // Validasi role
+            'kepengurusan' => 'nullable|string', // Kepengurusan opsional
+            'sekolah' => 'required|string|in:A1,A2', // Validasi sekolah
         ]);
 
         // Enkripsi password sebelum disimpan
@@ -73,14 +75,16 @@ class UserAdminController extends Controller
         // Validasi input
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255|unique:users,email,'.$id,
-            'password' => 'nullable|string|min:8|confirmed', // Password opsional
-            'role' => 'required|string|in:user,admin',
+            'email' => 'required|email|unique:users,email|max:255',
+            'password' => 'required|string|min:8|confirmed', // Pastikan password dikonfirmasi
+            'role' => 'required|string|in:user,admin', // Validasi role
+            'sekolah' => 'required|string|in:A1,A2', // Validasi sekolah
         ]);
 
         $user = User::findOrFail($id); // Cari user berdasarkan ID
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->sekolah = $request->sekolah;
         $user->role = $request->role;
 
         // Hanya update password jika ada perubahan

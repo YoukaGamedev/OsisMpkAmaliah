@@ -12,47 +12,45 @@
             transform: scale(1.1);
             transition: transform 0.3s ease;
         }
+        .nav-shadow {
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
     </style>
 </head>
-
 <body class="bg-gray-100 min-h-screen flex flex-col">
+    <!-- Enhanced Navbar -->
+    <nav class="bg-gradient-to-r from-gray-700 to-gray-900 text-white py-4 px-6 nav-shadow">
+        <div class="container mx-auto flex items-center justify-between">
+            <!-- Logo Section -->
+            <div class="flex items-center space-x-2">
+                <a href="{{ ('/user') }}" class="logo">
+                    <img src="{{ asset('asset/img/logo osis.png') }}" alt="Logo" class="w-12 h-12 object-contain">
+                </a>
+            </div>
 
-    <div class="bg-gray-700 text-gray-800 py-4 px-6 flex items-center justify-between shadow-md">
-        <a href="{{ ('/user') }}" class="logo">
-            <img src="{{ asset('asset/img/logo osis.png') }}" alt="Logo" class="w-12">
-        </a>
-        <div class="font-bold">
-            {{ Auth::user() ? Auth::user()->name . ' (' . Auth::user()->role . ')' : 'Guest' }}
+            <!-- User Profile Section -->
+            <div class="flex items-center space-x-4">
+                <div class="flex items-center bg-white-700 rounded-full px-4 py-2">
+                    @if(Auth::user())
+                        @if(Auth::user()->role === 'admin')
+                            <i class="bi bi-person-workspace text-blue-400 text-xl mr-2"></i>
+                        @else
+                            <i class="bi bi-person-circle text-gray-300 text-xl mr-2"></i>
+                        @endif
+                        <span class="font-medium">
+                            {{ Auth::user()->name }}
+                            <span class="text-gray-300 text-sm ml-1">({{ Auth::user()->role }})</span>
+                        </span>
+                    @else
+                        <i class="bi bi-person-circle text-gray-300 text-xl mr-2"></i>
+                        <span class="font-medium">Guest</span>
+                    @endif
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="flex flex-1">            <ul>
-                <li class="mb-3">
-                    <a class="flex items-center text-gray-800 p-2 rounded-lg hover:bg-gray-200" href="http://127.0.0.1:8000/user/pemilu/home">
-                        <i class="bi bi-people-fill mr-2"></i> Pemilu
-                    </a>
-                </li>
-                <li class="mb-3">
-                    <a class="flex items-center text-gray-800 p-2 rounded-lg hover:bg-gray-200" href="http://127.0.0.1:8000/admin/gds/indexgds">
-                        <i class="bi bi-clipboard-data mr-2"></i> GDS
-                    </a>
-                </li>
-                <li class="mb-3 border-t pt-3">
-                    <a class="flex items-center text-gray-800 p-2 rounded-lg hover:bg-gray-200" href="http://127.0.0.1:8000/logout">
-                        <i class="bi bi-box-arrow-left mr-2"></i> Log Out
-                    </a>
-                </li>
-                <li class="mb-3">
-                    <a class="flex items-center text-gray-800 p-2 rounded-lg hover:bg-gray-200" href="#">
-                        <i class="bi bi-box-arrow-in-right mr-2"></i> Sign In
-                    </a>
-                </li>
-                <li class="mb-3">
-                    <a class="flex items-center text-gray-800 p-2 rounded-lg hover:bg-gray-200" href="#">
-                        <i class="bi bi-bell-fill mr-2"></i> Notifications
-                    </a>
-                </li>
-            </ul>
-        </aside>
+    </nav>
+
+    <div class="flex flex-1">
         <main class="flex-1">
             @yield('content')
         </main>

@@ -41,7 +41,7 @@
                         <a href="{{ route('tambahdata.edit', $data->id) }}" class="bg-yellow-500 text-white px-3 py-1 rounded-md hover:bg-yellow-600 transition">
                             <i class="fas fa-edit"></i> Edit
                         </a>
-                        <a href="{{ route('gds.show', $data->id) }}" class="bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600 transition">
+                        <a href="{{ route('tambahdata.show', $data->id) }}" class="bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600 transition">
                             <i class="fas fa-eye"></i> Lihat
                         </a>
                         <form action="{{ route('tambahdata.destroy', $data->id) }}" method="POST" class="inline">

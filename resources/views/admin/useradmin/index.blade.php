@@ -60,6 +60,8 @@
                                 <th class="px-4 py-3 border-b font-medium text-gray-700">Nama</th>
                                 <th class="px-4 py-3 border-b font-medium text-gray-700">Email</th>
                                 <th class="px-4 py-3 border-b font-medium text-gray-700">Role</th>
+                                <th class="px-4 py-3 border-b font-medium text-gray-700">Kepengurusan</th>
+                                <th class="px-4 py-3 border-b font-medium text-gray-700">Sekolah</th>
                                 <th class="px-4 py-3 border-b font-medium text-gray-700 text-center">Aksi</th>
                             </tr>
                         </thead>
@@ -74,6 +76,8 @@
                                             {{ ucfirst($dpt->role) }}
                                         </span>
                                     </td>
+                                    <td class="px-4 py-3">{{ $dpt->kepengurusan ?? '-' }}</td>
+                                    <td class="px-4 py-3">{{ $dpt->sekolah }}</td>
                                     <td class="px-4 py-3">
                                         <div class="flex justify-center gap-3">
                                             <a href="{{ route('useradmin.edit', $dpt->id) }}" 
@@ -101,8 +105,6 @@
                         </tbody>
                     </table>
                 </div>
-
-                <!-- Pagination -->
                 <div class="mt-6">
                     {{ $users->links() }}
                 </div>

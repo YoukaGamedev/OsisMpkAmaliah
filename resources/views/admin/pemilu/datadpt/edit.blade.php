@@ -57,6 +57,25 @@
                             <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
                         @enderror
                     </div>
+                    
+                    <!-- Sekolah -->
+                    <div class="space-y-2">
+                        <label for="sekolah" class="text-sm font-medium text-gray-700 block">
+                            Sekolah
+                        </label>
+                        <select 
+                            id="sekolah" 
+                            name="sekolah" 
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition duration-150"
+                            required
+                        >
+                            <option value="A1" {{ old('sekolah', $user->sekolah) == 'A1' ? 'selected' : '' }}>A1</option>
+                            <option value="A2" {{ old('sekolah', $user->sekolah) == 'A2' ? 'selected' : '' }}>A2</option>
+                        </select>
+                        @error('sekolah')
+                            <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
+                        @enderror
+                    </div>
 
                     <!-- Role -->
                     <div class="space-y-2">

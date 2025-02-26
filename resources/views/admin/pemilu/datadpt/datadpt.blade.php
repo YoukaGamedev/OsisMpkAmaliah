@@ -57,6 +57,7 @@
                                 <th class="px-4 py-3 border-b font-medium text-gray-700">No</th>
                                 <th class="px-4 py-3 border-b font-medium text-gray-700">Nama</th>
                                 <th class="px-4 py-3 border-b font-medium text-gray-700">Email</th>
+                                <th class="px-4 py-3 border-b font-medium text-gray-700">Sekolah</th>
                                 <th class="px-4 py-3 border-b font-medium text-gray-700">Role</th>
                                 <th class="px-4 py-3 border-b font-medium text-gray-700 text-center">Aksi</th>
                             </tr>
@@ -67,6 +68,7 @@
                                     <td class="px-4 py-3">{{ $loop->iteration }}</td>
                                     <td class="px-4 py-3">{{ $dpt->name }}</td>
                                     <td class="px-4 py-3">{{ $dpt->email }}</td>
+                                    <td class="px-4 py-3">{{ $dpt->sekolah }}</td>
                                     <td class="px-4 py-3">
                                         <span class="px-2 py-1 text-xs font-medium rounded-full {{ $dpt->role === 'admin' ? 'bg-purple-100 text-purple-700' : 'bg-blue-100 text-blue-700' }}">
                                             {{ ucfirst($dpt->role) }}

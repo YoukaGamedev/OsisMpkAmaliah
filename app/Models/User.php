@@ -20,5 +20,7 @@ class User extends Authenticatable
         'email',
         'password',
         'role',
+        'kepengurusan', // Menambahkan kolom kepengurusan
+        'sekolah', // Menambahkan kolom sekolah
     ];
 }
