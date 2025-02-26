@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Models\Agenda\Agenda;
+use App\Models\Agenda;
 use Illuminate\Http\Request;
 
 class AgendaController extends Controller
@@ -12,7 +12,8 @@ class AgendaController extends Controller
      */
     public function index()
     {
-        //
+         $agendas = Agenda::all(); // Ambil semua data agenda dari database
+         return view('agenda.index', compact('agendas')); // Kirim data ke view
     }
 
     /**

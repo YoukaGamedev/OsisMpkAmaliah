@@ -48,9 +48,7 @@
                 </div>
             </div>
         </div>
-    </nav>
-
-    <div class="flex flex-1">
+    </div>
         <main class="flex-1">
             @yield('content')
         </main>

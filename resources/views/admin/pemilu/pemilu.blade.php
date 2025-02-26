@@ -1,53 +1,65 @@
 @extends('main')
 
 @section('content')
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-</head>
-<body class="bg-gray-100 flex">
+<div class="flex">
     <!-- Sidebar -->
-    <div class="bg-white-800 w-59 shadow-lg h-screen p-4 fixed">
-        <h4 class="text-black text-lg font-semibold mb-5">Pemilu</h4>
-        <ul class="space-y-3">
-            <li>
-                <a class="flex items-center text-black p-3 rounded-lg hover:bg-gray-200 hover:text-black transition" href="{{ route('dashboardpemilu.index') }}">
-                    <i class="bi bi-house-door-fill mr-3"></i> Data Sekolah
+    <aside class="bg-white w-16 hover:w-56 p-2 shadow-md h-screen transition-all duration-300 ease-in-out overflow-hidden group">
+        <ul>
+            <li class="mb-5">
+                <a class="flex text-black items-center p-2 rounded-lg hover:bg-gray-200 hover:text-black" href="{{ route('dashboardpemilu.index') }}">
+                    <i class="bi bi-people-fill mr-2"></i> <span class="hidden group-hover:inline-block">Pemilu</span>
                 </a>
             </li>
-            <li>
-                <a class="flex items-center text-black p-3 rounded-lg hover:bg-gray-200 hover:text-black transition" href="{{ route('datakelas.index') }}">
-                    <i class="bi bi-person-lines-fill mr-3"></i> Data Kelas
+            <li class="mb-3">
+                <a class="flex text-black items-center p-2 rounded-lg hover:bg-gray-200 hover:text-black" href="{{ route('gds.index') }}">
+                    <i class="bi bi-clipboard-data mr-2"></i> <span class="hidden group-hover:inline-block">GDS</span>
                 </a>
             </li>
-            <li>
-                <a class="flex items-center text-black p-3 rounded-lg hover:bg-gray-200 hover:text-black transition" href="{{ route('datakandidat.index') }}">
-                    <i class="bi bi-person-circle mr-3"></i> Data Kandidat
+            <li class="mb-3 border-t pt-3">
+                <a class="flex text-black items-center p-2 rounded-lg hover:bg-gray-200 hover:text-black" href="{{ route('useradmin.index') }}">
+                    <i class="bi bi-person-fill mr-2"></i> <span class="hidden group-hover:inline-block">User & Admin</span>
                 </a>
             </li>
-            <li>
-                <a class="flex items-center text-black p-3 rounded-lg hover:bg-gray-200 hover:text-black transition" href="{{ route('datadpt.index') }}">
-                    <i class="bi bi-file-earmark-text mr-3"></i> Data DPT
+            <li class="mb-3">
+                <a class="flex text-black items-center p-2 rounded-lg hover:bg-gray-200 hover:text-black" href="{{ route('structure.index') }}">
+                    <i class="bi bi-person-lines-fill mr-2"></i> <span class="hidden group-hover:inline-block">Struktur OSIS & MPK</span>
                 </a>
             </li>
-            <li>
-                <a class="flex items-center text-black p-3 rounded-lg hover:bg-gray-200 hover:text-black transition" href="{{ route('hasilpemilihan.index') }}">
-                    <i class="bi bi-graph-up-arrow mr-3"></i> Hasil Pilih
+            <li class="mb-3 border-t pt-3">
+                <a class="flex text-black items-center p-2 rounded-lg hover:bg-gray-200 hover:text-black" href="#">
+                    <i class="bi bi-box-arrow-in-right mr-2"></i> <span class="hidden group-hover:inline-block">Sign In</span>
+                </a>
+            </li>
+            <li class="mb-3">
+                <a class="flex text-black items-center p-2 rounded-lg hover:bg-gray-200 hover:text-black" href="{{ url('/logout') }}">
+                    <i class="bi bi-box-arrow-left mr-2"></i> <span class="hidden group-hover:inline-block">Log Out</span>
                 </a>
             </li>
         </ul>
-    </div>
+    </aside>
 
-    <!-- Content -->
-    <div class="flex-1 p-6 ml-64">
-        @yield('content1')
+    <!-- Main Content -->
+    <div class="flex-1 container mx-auto px-6 py-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <a href="{{ route('dashboardpemilu.index') }}" class="transition-transform transform hover:scale-105">
+                <div class="bg-pink-500 text-white p-6 rounded-lg shadow-md flex flex-col items-center justify-center">
+                    <i class="fas fa-vote-yea text-4xl mb-4 opacity-80"></i>
+                    <h3 class="text-lg font-semibold">Pemilu Ketua OSIS</h3>
+                </div>
+            </a>
+            <a href="{{ route('gds.index') }}" class="transition-transform transform hover:scale-105">
+                <div class="bg-blue-500 text-white p-6 rounded-lg shadow-md flex flex-col items-center justify-center">
+                    <i class="fas fa-database text-4xl mb-4 opacity-80"></i>
+                    <h3 class="text-lg font-semibold">Gerakan Disiplin Siswa</h3>
+                </div>
+            </a>
+            <a href="#" class="transition-transform transform hover:scale-105">
+                <div class="bg-gray-500 text-white p-6 rounded-lg shadow-md flex flex-col items-center justify-center">
+                    <i class="fas fa-hourglass-half text-4xl mb-4 opacity-80"></i>
+                    <h3 class="text-lg font-semibold">Coming Soon</h3>
+                </div>
+            </a>
+        </div>
     </div>
-</body>
-</html>
-
+</div>
 @endsection

@@ -43,7 +43,7 @@
                         </span>
                     @else
                         <i class="bi bi-person-circle text-gray-300 text-xl mr-2"></i>
-                        <span class="font-medium">Guest</span>
+                        <span class="font-medium ">Guest</span>
                     @endif
                 </div>
             </div>
