@@ -8,59 +8,79 @@ use Illuminate\Http\Request;
 class AgendaController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Menampilkan daftar semua agenda.
      */
     public function index()
     {
-         $agendas = Agenda::all(); // Ambil semua data agenda dari database
-         return view('agenda.index', compact('agendas')); // Kirim data ke view
+        $agendas = Agenda::all(); // Ambil semua data agenda dari database
+        return view('admin.agenda.index', compact('agendas')); // Kirim data ke view
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Menampilkan halaman untuk membuat agenda baru.
      */
     public function create()
     {
-        //
+        return view('admin.agenda.create'); // Tampilkan form tambah agenda
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Menyimpan agenda baru ke dalam database.
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'judul' => 'required|string|max:255',
+            'pelaksana' => 'required|string|max:255',
+            'deskripsi' => 'required|string',
+            'tanggal' => 'required|date',
+        ]);
+
+        Agenda::create($request->all()); // Simpan data ke database
+
+        return redirect()->route('agenda.index')->with('success', 'Agenda berhasil ditambahkan!');
     }
 
     /**
-     * Display the specified resource.
+     * Menampilkan detail agenda tertentu.
      */
     public function show(Agenda $agenda)
     {
-        //
+        return view('admin.agenda.show', compact('agenda')); // Kirim data agenda ke view
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Menampilkan halaman edit untuk agenda tertentu.
      */
     public function edit(Agenda $agenda)
     {
-        //
+        return view('admin.agenda.edit', compact('agenda'));
     }
 
     /**
-     * Update the specified resource in storage.
+     * Memperbarui agenda tertentu di database.
      */
     public function update(Request $request, Agenda $agenda)
     {
-        //
+        $request->validate([
+            'judul' => 'required|string|max:255',
+            'pelaksana' => 'required|string|max:255',
+            'deskripsi' => 'required|string',
+            'tanggal' => 'required|date',
+        ]);
+
+        $agenda->update($request->all()); // Update data di database
+
+        return redirect()->route('agenda.index')->with('success', 'Agenda berhasil diperbarui!');
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Menghapus agenda dari database.
      */
     public function destroy(Agenda $agenda)
     {
-        //
+        $agenda->delete(); // Hapus data dari database
+
+        return redirect()->route('agenda.index')->with('success', 'Agenda berhasil dihapus!');
     }
 }

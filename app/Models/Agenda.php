@@ -9,5 +9,5 @@ class Agenda extends Model
 {
     use HasFactory;
     
-    protected $fillable = ['judul', 'deskripsi', 'waktu', 'no', 'aksi']; // Kolom yang bisa diisi
+    protected $fillable = ['judul', 'pelaksana' ,'deskripsi', 'tanggal']; // Kolom yang bisa diisi
 }

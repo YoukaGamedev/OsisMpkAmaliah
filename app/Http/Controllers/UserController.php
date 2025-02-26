@@ -4,63 +4,42 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Agenda;
 
+use DB;
 
 class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
+    
      */
     public function index()
     {
-        //
+        return view('user.welcome');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function struktur()
     {
-        //
+        $structures = DB::table('structures')->get();
+        return view('user.struktur.index',['structures'=>$structures]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function agenda()
     {
-        //
+        $agendas = DB::table('agendas')->get();
+        return view('user.agenda.index',['agendas'=>$agendas]);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function berespilih()
     {
-        //
+        return view('user.pemilu.berespilih');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
+    public function agendaS($id)
+{
+    $agenda = Agenda::findOrFail($id);
+    return view('user.agenda.show', compact('agenda'));
+}
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }

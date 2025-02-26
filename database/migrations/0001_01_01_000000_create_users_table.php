@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('role')->default('user'); // Menambahkan kolom role
             $table->string('kepengurusan')->nullable(); // Kolom kepengurusan opsional
             $table->enum('sekolah', ['A1', 'A2']); // Kolom sekolah dengan pilihan A1 atau A2
+            $table->string('avatar')->nullable(); // Menambahkan kolom avatar yang opsional
             $table->rememberToken();  
             $table->timestamps();  
         });

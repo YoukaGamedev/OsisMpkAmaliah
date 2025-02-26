@@ -4,6 +4,16 @@
 
 <div class="container mx-auto mt-8 px-4">
     <div class="max-w-6xl mx-auto">
+        <!-- Tombol Kembali -->
+        <div class="mb-4">
+            <a href="{{ url('/admin') }}" class="inline-flex items-center px-5 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition duration-200">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+                Kembali
+            </a>
+        </div>
+
         <!-- Main Content Card -->
         <div class="bg-white rounded-lg shadow-lg overflow-hidden">
             <!-- Header Section -->

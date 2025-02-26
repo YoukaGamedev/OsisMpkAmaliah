@@ -23,10 +23,10 @@ class VoteController extends Controller
             return redirect()->back()->with('error', 'Kandidat tidak ditemukan.');
         }
 
-        // Cek apakah user sudah memilih sebelumnya (opsional)
+        // Cek apakah user sudah memilih sebelumnya
         $user = Auth::user();
         if (Vote::where('user_id', $user->id)->exists()) {
-            return redirect()->back()->with('error', 'Anda sudah memilih!');
+            return redirect()->route('user.berespilih')->with('error', 'Anda sudah memilih!'); // Redirect ke halaman hasil voting
         }
 
         // Simpan vote baru
@@ -47,7 +47,6 @@ class VoteController extends Controller
             ]);
         }
 
-        return redirect()->back()->with('success', 'Vote berhasil dikirim!');
+        return redirect()->route('user.berespilih')->with('success', 'Vote berhasil dikirim!');
     }
 }
-

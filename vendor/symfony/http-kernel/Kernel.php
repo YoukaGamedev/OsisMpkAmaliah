@@ -62,10 +62,6 @@ abstract class Kernel implements KernelInterface, RebootableInterface, Terminabl
     protected ?ContainerInterface $container = null;
     protected bool $booted = false;
     protected ?float $startTime = null;
-    protected $routeMiddleware = [
-        'role' => \App\Http\Middleware\RoleMiddleware::class,
-    ];
-    
 
     private string $projectDir;
     private ?string $warmupDir = null;
@@ -77,11 +73,11 @@ abstract class Kernel implements KernelInterface, RebootableInterface, Terminabl
      */
     private static array $freshCache = [];
 
-    public const VERSION = '7.2.2';
-    public const VERSION_ID = 70202;
+    public const VERSION = '7.2.4';
+    public const VERSION_ID = 70204;
     public const MAJOR_VERSION = 7;
     public const MINOR_VERSION = 2;
-    public const RELEASE_VERSION = 2;
+    public const RELEASE_VERSION = 4;
     public const EXTRA_VERSION = '';
 
     public const END_OF_MAINTENANCE = '07/2025';

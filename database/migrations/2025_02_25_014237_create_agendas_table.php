@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('agendas', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('judul'); // Menambahkan kolom judul
+            $table->string('pelaksana'); // Menambahkan kolom pelaksana
+            $table->text('deskripsi'); // Menambahkan kolom deskripsi
+            $table->date('tanggal'); // Menambahkan kolom tanggal
+            $table->timestamps(); // Menyertakan created_at dan updated_at
         });
     }
 

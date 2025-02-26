@@ -52,9 +52,3 @@
     </div>
 </div>
 @endsection
-
-@section('footer')
-<footer class="text-center mt-8 py-4 bg-gray-900 text-white shadow-lg">
-    <p class="mb-0">&copy; {{ date('Y') }} <span class="text-yellow-400">Rekap GDS</span>. All rights reserved.</p>
-</footer>
-@endsection

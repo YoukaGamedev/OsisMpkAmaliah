@@ -23,30 +23,30 @@
         <div class="container mx-auto flex items-center justify-between">
             <!-- Logo Section -->
             <div class="flex items-center space-x-2">
-                <a href="{{ ('/admin') }}" class="logo">
                     <img src="{{ asset('asset/img/logo osis.png') }}" alt="Logo" class="w-12 h-12 object-contain">
-                </a>
             </div>
 
             <!-- User Profile Section -->
-            <div class="flex items-center space-x-4">
-                <div class="flex items-center bg-white-700 rounded-full px-4 py-2">
-                    @if(Auth::user())
-                        @if(Auth::user()->role === 'admin')
-                            <i class="bi bi-person-workspace text-blue-400 text-xl mr-2"></i>
-                        @else
-                            <i class="bi bi-person-circle text-gray-300 text-xl mr-2"></i>
-                        @endif
-                        <span class="font-medium">
-                            {{ Auth::user()->name }}
-                            <span class="text-gray-300 text-sm ml-1">({{ Auth::user()->role }})</span>
-                        </span>
-                    @else
-                        <i class="bi bi-person-circle text-gray-300 text-xl mr-2"></i>
-                        <span class="font-medium ">Guest</span>
-                    @endif
-                </div>
-            </div>
+<div class="flex items-center space-x-4">
+    <a href="{{ route('profile.show') }}" class="flex items-center bg-white-700 rounded-full px-4 py-2 hover:bg-gray-600 transition">
+        @if(Auth::user())
+            <!-- Tampilkan Avatar -->
+            <img src="{{ Auth::user()->avatar ? asset(Auth::user()->avatar) : asset('asset/img/default-avatar.png') }}" 
+                 alt="User Avatar" 
+                 class="w-10 h-10 rounded-full border border-gray-300">
+            
+            <span class="font-medium ml-2 text-white">
+                {{ Auth::user()->name }}
+                <span class="text-gray-300 text-sm ml-1">({{ Auth::user()->role }})</span>
+            </span>
+        @else
+            <i class="bi bi-person-circle text-gray-300 text-xl mr-2"></i>
+            <span class="font-medium">Guest</span>
+        @endif
+    </a>
+</div>
+
+
         </div>
     </nav>
 

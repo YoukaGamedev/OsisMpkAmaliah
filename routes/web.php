@@ -21,6 +21,13 @@ use App\Http\Controllers\JadwalPiketGDSController;
 use App\Http\Controllers\UserAdminController;
 use App\Http\Controllers\StructureController;
 use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
+
+
+// Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show')
+// Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit')
+// Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update')
 
 Route::get('/', function () {
     return view('welcome'); 
@@ -29,12 +36,6 @@ Route::get('/', function () {
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
 
-
-// Route::middleware(['auth'])->group(function () {
-//     Route::get('/user/welcome', function () {
-//         return view('user.welcome');
-//     })->name('user.welcome');
-// });
 
 Route::get('/logout', function () {
     Auth::logout();
@@ -58,6 +59,7 @@ Route::resource('hasilpemilihan', HasilPemilihanController::class);
 Route::resource('/user/pemilu/home', HomerController::class);
 Route::resource('/user/pemilu/pilihkandidat', PilihKandidatController::class,);
 
+Route::get('/user/berespilih', [UserController::class, 'berespilih'])->name('user.berespilih');
 
 
 Route::get('/admin', function () {
@@ -65,14 +67,17 @@ Route::get('/admin', function () {
 });
 
 
-Route::get('/user/pemilu/berespilih', function () {
-    return view('user/pemilu/berespilih');
-});
 
 Route::get('user', function () {
     return view('/user/welcome');
 });
- 
+
+Route::get('/struktur', [UserController::class, 'struktur'])->name('user.struktur');
+Route::get('/user/agenda', [UserController::class, 'agenda'])->name('user.agenda');
+Route::get('/user/agenda/show/{id}', [UserController::class, 'agendaS'])->name('user.agenda.show');
+
+
+
 Route::resource('gds', GdsController::class);
 Route::resource('tambahdata', TambahDataController::class);
 Route::resource('lembargds', LembarGdsController::class);
@@ -82,5 +87,3 @@ Route::get('/search', [SiswaController::class, 'search'])->name('siswa.search');
 Route::resource('jadwalgds', JadwalPiketGDSController::class);
 
 Route::resource('agenda', AgendaController::class);
-
-Route::get('/agenda', [AgendaController::class, 'index'])->name('agenda.index');
