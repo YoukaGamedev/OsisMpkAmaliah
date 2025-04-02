@@ -3,53 +3,68 @@
 @section('content2')
 <div>
     <!-- Header Section -->
-    <div class="flex flex-wrap items-center justify-between bg-gray-700 text-white p-4 rounded-lg shadow-md">
-        <h1 class="text-lg font-semibold">GDS</h1>
-        <form action="{{ route('gds.index') }}" method="GET" class="flex items-center space-x-2">
+    <div class="flex flex-wrap items-center justify-between bg-gray-700 text-white p-3 rounded-lg shadow-md">
+        <h1 class="text-lg font-semibold flex items-center gap-2">
+            <i class="fas fa-clipboard-list"></i> GDS Rekap
+        </h1>
+        <form action="{{ route('gds.index') }}" method="GET" class="flex items-center gap-2">
             <label for="tanggal" class="text-sm font-semibold">Tanggal:</label>
             <input type="date" name="tanggal" id="tanggal" value="{{ $tanggal }}" class="border p-2 rounded text-gray-700">
-            <button type="submit" class="bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-600 transition">Tampilkan</button>
+            <button type="submit" class="bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-600 transition">
+                <i class="fas fa-search"></i>
+            </button>
         </form>
-        <div class="flex space-x-2">
-            <a href="{{ route('siswa.search') }}" class="bg-orange-500 text-white px-3 py-2 rounded hover:bg-orange-600 transition">Cari</a>
-            <button onclick="document.getElementById('scanModal').classList.remove('hidden')" class="bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-600 transition">Scan</button>
-            <button onclick="document.getElementById('modal').classList.remove('hidden')" class="bg-green-500 text-white px-3 py-2 rounded hover:bg-green-600 transition">Tambah</button>
+        <div class="flex gap-2">
+            <a href="{{ route('siswa.search') }}" class="bg-orange-500 text-white px-3 py-2 rounded hover:bg-orange-600 transition">
+                <i class="fas fa-search"></i>
+            </a>
+            <button onclick="document.getElementById('scanModal').classList.remove('hidden')" class="bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-600 transition">
+                <i class="fas fa-qrcode"></i>
+            </button>
+            <button onclick="document.getElementById('modal').classList.remove('hidden')" class="bg-green-500 text-white px-3 py-2 rounded hover:bg-green-600 transition">
+                <i class="fas fa-plus"></i>
+            </button>
         </div>
     </div>
 
     <!-- PJ Berdasarkan Hari -->
-    <div class="mt-4 bg-white p-4 rounded-lg shadow-md">
+    <div class="mt-4 bg-white p-3 rounded-lg shadow-md">
         <h4 class="text-lg font-semibold">Hari: {{ \Carbon\Carbon::parse($tanggal)->translatedFormat('l') }}</h4>
         <h2 class="text-gray-700">PJ: <strong>{{ $pj }}</strong></h2>
     </div>
 
     <!-- Tabel Absensi -->
-    <div class="mt-6 bg-white shadow-md rounded-lg overflow-hidden">
-        <div class="p-4 bg-gray-700 font-bold text-white text-center">Data Absensi: {{ \Carbon\Carbon::parse($tanggal)->format('d-m-Y') }}</div>
-        <table class="w-full border-collapse">
+    <div class="mt-6 bg-white shadow-md rounded-lg overflow-x-auto">
+        <table class="w-full border-collapse text-sm">
             <thead>
                 <tr class="bg-gray-700 text-white text-xs">
-                    <th class="py-2 px-3 border-b">No</th>
-                    <th class="py-2 px-3 border-b">Nama</th>
-                    <th class="py-2 px-3 border-b">Kelas</th>
-                    @foreach(['Dasi/Kacu', 'Kaos Kaki', 'Sabuk', 'NameTag', 'Sepatu', 'Jas', 'Ring', 'Bros', 'Make Up', 'Telat', 'Ciput', 'Hijab', 'Almamater', 'WearPack'] as $item)
-                        <th class="py-2 px-3 border-b">{{ $item }}</th>
+                    <th class="p-2 border">No</th>
+                    <th class="p-2 border">Nama</th>
+                    <th class="p-2 border">Kelas</th>
+                    @foreach(['Dasi', 'Kaos Kaki', 'Sabuk', 'NameTag', 'Sepatu', 'Jas', 'Ring', 'Bros', 'Make Up', 'Telat', 'Ciput', 'Hijab', 'Almamater', 'WearPack'] as $item)
+                        <th class="p-2 border">{{ $item }}</th>
                     @endforeach
-                    <th class="py-2 px-3 border-b">Aksi</th>
+                    <th class="p-2 border">Aksi</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($absensi as $data)
-                    <tr class="hover:bg-gray-50 text-sm">
-                        <td class="py-2 px-3 border-b text-center">{{ $loop->iteration }}</td>
-                        <td class="py-2 px-3 border-b">{{ $data->nama }}</td>
-                        <td class="py-2 px-3 border-b">{{ $data->kelas }}</td>
+                    <tr class="hover:bg-gray-50 text-xs">
+                        <td class="p-2 border text-center">{{ $loop->iteration }}</td>
+                        <td class="p-2 border">{{ $data->nama }}</td>
+                        <td class="p-2 border">{{ $data->kelas }}</td>
                         @foreach(['dasi_kacu', 'kaos_kaki', 'sabuk', 'nametag', 'sepatu', 'jas', 'ring', 'bros', 'makeup', 'telat', 'ciput', 'hijab', 'almamater', 'wearpack'] as $attr)
-                            <td class="py-2 px-3 border-b text-center {{ $data->$attr ? '' : 'bg-red-100' }}">{{ $data->$attr ? '✔' : '✘' }}</td>
+                            <td class="p-2 border text-center {{ $data->$attr ? 'text-green-600' : 'text-red-500' }}">
+                                <i class="fas {{ $data->$attr ? 'fa-check' : 'fa-times' }}"></i>
+                            </td>
                         @endforeach
-                        <td class="py-2 px-3 border-b text-center flex space-x-2 justify-center">
-                            <a href="{{ route('gds.show', $data->id) }}" class="bg-blue-500 text-white px-2 py-1 rounded text-xs hover:bg-blue-600 transition">Lihat</a>
-                            <a href="{{ route('siswa.edit', $data->id) }}" class="bg-yellow-500 text-white px-2 py-1 rounded text-xs hover:bg-yellow-600 transition">Edit</a>
+                        <td class="p-2 border text-center">
+                            <a href="{{ route('gds.show', $data->id) }}" class="text-blue-500 hover:text-blue-700">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a href="{{ route('siswa.edit', $data->id) }}" class="text-yellow-500 hover:text-yellow-700">
+                                <i class="fas fa-edit"></i>
+                            </a>
                         </td>
                     </tr>
                 @endforeach
@@ -113,7 +128,6 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
-
         scanner.addListener('scan', function (content) {
             alert('QR Code Terbaca: ' + content);
             document.getElementById('scanModal').classList.add('hidden');

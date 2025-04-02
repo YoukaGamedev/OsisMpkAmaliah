@@ -10,7 +10,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                     <label for="npsn" class="block text-gray-600">NPSN</label>
-                    <input name="npsn" type="text" id="npsn" value="{{ $dashboard->npsn }}" class="w-full p-2 border rounded-lg">
+                    <input name="npsn" type="number" id="npsn" value="{{ $dashboard->npsn }}" class="w-full p-2 border rounded-lg">
                 </div>
                 <div>
                     <label for="nama-sekolah" class="block text-gray-600">Nama Sekolah</label>
@@ -22,7 +22,7 @@
                 </div>
                 <div>
                     <label for="nip" class="block text-gray-600">NIP</label>
-                    <input name="nip" type="text" id="nip" value="{{ $dashboard->nip }}" class="w-full p-2 border rounded-lg">
+                    <input name="nip" type="number" id="nip" value="{{ $dashboard->nip }}" class="w-full p-2 border rounded-lg">
                 </div>
                 <div>
                     <label for="alamat" class="block text-gray-600">Alamat Jalan</label>

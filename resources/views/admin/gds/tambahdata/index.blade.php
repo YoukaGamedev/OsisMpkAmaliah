@@ -32,29 +32,36 @@
                 </tr>
             </thead>
             <tbody>
+                @php
+                    $uniqueNames = [];
+                    $no = 1;
+                @endphp
                 @foreach($siswa as $data)
-                <tr class="hover:bg-gray-50 transition duration-200 ease-in-out">
-                    <td class="py-3 px-4 border text-center">{{ $loop->iteration }}</td>
-                    <td class="py-3 px-4 border">{{ $data->nama }}</td>
-                    <td class="py-3 px-4 border">{{ $data->kelas }}</td>
-                    <td class="py-3 px-4 border text-center flex justify-center space-x-2">
-                        <a href="{{ route('tambahdata.edit', $data->id) }}" class="bg-yellow-500 text-white px-3 py-1 rounded-md hover:bg-yellow-600 transition">
-                            <i class="fas fa-edit"></i> Edit
-                        </a>
-                        <a href="{{ route('tambahdata.show', $data->id) }}" class="bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600 transition">
-                            <i class="fas fa-eye"></i> Lihat
-                        </a>
-                        <form action="{{ route('tambahdata.destroy', $data->id) }}" method="POST" class="inline">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600 transition" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
-                                <i class="fas fa-trash"></i> Hapus
-                            </button>
-                        </form>
-                    </td>
-                </tr>
+                    @if(!in_array($data->nama, $uniqueNames))
+                        @php $uniqueNames[] = $data->nama; @endphp
+                        <tr class="hover:bg-gray-50 transition duration-200 ease-in-out">
+                            <td class="py-3 px-4 border text-center">{{ $no++ }}</td>
+                            <td class="py-3 px-4 border">{{ $data->nama }}</td>
+                            <td class="py-3 px-4 border">{{ $data->kelas }}</td>
+                            <td class="py-3 px-4 border text-center flex justify-center space-x-2">
+                                <a href="{{ route('tambahdata.edit', $data->id) }}" class="bg-yellow-500 text-white px-3 py-1 rounded-md hover:bg-yellow-600 transition">
+                                    <i class="fas fa-edit"></i> Edit
+                                </a>
+                                <a href="{{ route('tambahdata.show', $data->id) }}" class="bg-blue-500 text-white px-3 py-1 rounded-md hover:bg-blue-600 transition">
+                                    <i class="fas fa-eye"></i> Lihat
+                                </a>
+                                <form action="{{ route('tambahdata.destroy', $data->id) }}" method="POST" class="inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600 transition" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
+                                        <i class="fas fa-trash"></i> Hapus
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endif
                 @endforeach
-                @if($siswa->isEmpty())
+                @if(empty($uniqueNames))
                 <tr>
                     <td colspan="4" class="py-3 px-4 border text-center text-gray-500">Tidak ada data siswa.</td>
                 </tr>

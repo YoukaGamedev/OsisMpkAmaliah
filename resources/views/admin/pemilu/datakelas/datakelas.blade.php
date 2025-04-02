@@ -2,7 +2,6 @@
 
 @section('content1')
 <div class="md:col-span-2 bg-white shadow-lg rounded-lg p-6">
-    <!-- Header with Add Button -->
     <div class="flex justify-between items-center mb-6">
         <h2 class="text-xl font-semibold text-gray-800">Data Kelas</h2>
         <a href="{{ route('datakelas.create') }}" 
@@ -14,15 +13,14 @@
         </a>
     </div>
 
-    <!-- Table Section -->
     <div class="overflow-x-auto">
         <table class="w-full border-collapse border border-gray-300">
             <thead>
-                <tr class="bg-gray-100">
-                    <th class="border border-gray-300 px-4 py-3 text-sm font-semibold text-gray-700">No</th>
-                    <th class="border border-gray-300 px-4 py-3 text-left text-sm font-semibold text-gray-700">Kelas</th>
-                    <th class="border border-gray-300 px-4 py-3 text-left text-sm font-semibold text-gray-700">Jumlah Siswa</th>
-                    <th class="border border-gray-300 px-4 py-3 text-center text-sm font-semibold text-gray-700">Aksi</th>
+                <tr class="bg-gray-800">
+                    <th class="border border-gray-300 px-4 py-3 text-sm font-semibold text-white">No</th>
+                    <th class="border border-gray-300 px-4 py-3 text-left text-sm font-semibold text-white">Kelas</th>
+                    <th class="border border-gray-300 px-4 py-3 text-left text-sm font-semibold text-white">Jumlah Siswa</th>
+                    <th class="border border-gray-300 px-4 py-3 text-center text-sm font-semibold text-white">Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,7 +31,6 @@
                     <td class="border border-gray-300 px-4 py-3 text-sm">{{ $item->no_kelas }}</td>
                     <td class="border border-gray-300 px-4 py-3">
                         <div class="flex justify-center gap-2">
-                            <!-- Edit Button -->
                             <a href="{{ route('datakelas.edit', $item->id) }}" 
                                class="inline-flex items-center px-3 py-1.5 bg-blue-500 hover:bg-blue-600 text-white rounded-md transition-colors duration-200">
                                 <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -43,21 +40,17 @@
                                 Edit
                             </a>
 
-                            <!-- Delete Button -->
-                            <form action="{{ url('datakelas/'.$item->id) }}" 
-                                  method="POST" 
-                                  class="inline-block"
-                                  onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
+                            <button onclick="confirmDelete({{ $item->id }})" 
+                                    class="inline-flex items-center px-3 py-1.5 bg-red-500 hover:bg-red-600 text-white rounded-md transition-colors duration-200">
+                                <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                          d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                                </svg>
+                                Hapus
+                            </button>
+                            <form id="delete-form-{{ $item->id }}" action="{{ url('datakelas/'.$item->id) }}" method="POST" class="hidden">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" 
-                                        class="inline-flex items-center px-3 py-1.5 bg-red-500 hover:bg-red-600 text-white rounded-md transition-colors duration-200">
-                                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                                              d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
-                                    </svg>
-                                    Hapus
-                                </button>
                             </form>
                         </div>
                     </td>
@@ -66,17 +59,26 @@
             </tbody>
         </table>
     </div>
-
-    <!-- Empty State -->
-    @if(count($datakelas) === 0)
-    <div class="text-center py-8">
-        <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                  d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"/>
-        </svg>
-        <h3 class="mt-2 text-sm font-medium text-gray-900">Tidak ada data</h3>
-        <p class="mt-1 text-sm text-gray-500">Mulai dengan menambahkan data kelas baru.</p>
-    </div>
-    @endif
 </div>
+
+<!-- SweetAlert Script -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    function confirmDelete(id) {
+        Swal.fire({
+            title: 'Apakah Anda yakin?',
+            text: "Data yang dihapus tidak bisa dikembalikan!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Ya, hapus!',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById('delete-form-' + id).submit();
+            }
+        });
+    }
+</script>
 @endsection

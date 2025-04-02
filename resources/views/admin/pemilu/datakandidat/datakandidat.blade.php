@@ -16,14 +16,14 @@
         <div class="overflow-x-auto">
             <table class="w-full border-collapse border border-gray-300 text-sm">
                 <thead>
-                    <tr class="bg-gray-200">
-                        <th class="border p-2">No</th>
-                        <th class="border p-2">NISN</th>
-                        <th class="border p-2">Nomor Paslon</th>
-                        <th class="border p-2">Nama Paslon</th>
-                        <th class="border p-2">Visi Misi</th>
-                        <th class="border p-2">Foto</th>
-                        <th class="border p-2">Aksi</th>
+                    <tr class="bg-gray-800">
+                        <th class="border p-2 text-white">No</th>
+                        <th class="border p-2 text-white">NISN</th>
+                        <th class="border p-2 text-white">Nomor Paslon</th>
+                        <th class="border p-2 text-white">Nama Paslon</th>
+                        <th class="border p-2 text-white">Visi Misi</th>
+                        <th class="border p-2 text-white">Foto</th>
+                        <th class="border p-2 text-white">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -50,19 +50,17 @@
                                     </svg>
                                     Edit
                                 </a>
-                                <form action="{{ url('datakandidat/'.$kandi->id) }}" 
-                                      method="POST" 
-                                      class="inline-block" 
-                                      onsubmit="return confirm('Apakah data akan dihapus?')">
+                                <button onclick="confirmDelete({{ $kandi->id }})" 
+                                        class="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600 transition-colors duration-200 inline-flex items-center">
+                                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                              d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                                    </svg>
+                                    Hapus
+                                </button>
+                                <form id="delete-form-{{ $kandi->id }}" action="{{ url('datakandidat/'.$kandi->id) }}" method="POST" class="hidden">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="bg-red-500 text-white px-3 py-1 rounded-md hover:bg-red-600 transition-colors duration-200 inline-flex items-center">
-                                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                                                  d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
-                                        </svg>
-                                        Hapus
-                                    </button>
                                 </form>
                             </div>
                         </td>
@@ -73,21 +71,23 @@
         </div>
     </div>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-    function previewImage(event) {
-        var input = event.target;
-        var preview = document.getElementById('preview');
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                preview.src = e.target.result;
-                preview.classList.remove('hidden');
+    function confirmDelete(id) {
+        Swal.fire({
+            title: 'Apakah Anda yakin?',
+            text: "Data yang dihapus tidak bisa dikembalikan!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Ya, hapus!',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById('delete-form-' + id).submit();
             }
-            reader.readAsDataURL(input.files[0]);
-        } else {
-            preview.classList.add('hidden');
-        }
+        });
     }
 </script>
-
 @endsection

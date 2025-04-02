@@ -15,6 +15,10 @@
                 <button type="submit" class="w-full mt-2 bg-green-600 text-white p-2 rounded-lg hover:bg-green-700">Cari Data</button>
             </form>
 
+            @php
+                $uniqueNames = [];
+            @endphp
+
             @if($siswa->isEmpty())
                 <div class="mt-4 p-4 bg-yellow-50 border-l-4 border-yellow-400 text-yellow-700">
                     <p class="text-center">Data tidak ditemukan. Silakan coba kata kunci lain.</p>
@@ -31,28 +35,32 @@
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
+                            @php $no = 1; @endphp
                             @foreach($siswa as $data)
-                            <tr class="hover:bg-gray-50">
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                    {{ $loop->iteration }}
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                    {{ $data->nama }}
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                    {{ $data->kelas }}
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
-                                <a href="{{ route('lembargds.edit', $data->id) }}" 
-                                       class="inline-flex items-center px-3 py-1 bg-green-500 hover:bg-green-600 text-white text-sm font-medium rounded-md transition duration-150 ease-in-out">
-                                        Tambah
-                                    </a>
-                                    <a href="{{ route('siswa.show', $data->id) }}" 
-                                       class="inline-flex items-center px-3 py-1 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-md transition duration-150 ease-in-out">
-                                        Lihat
-                                    </a>
-                                </td>
-                            </tr>
+                                @if(!in_array($data->nama, $uniqueNames))
+                                    @php $uniqueNames[] = $data->nama; @endphp
+                                    <tr class="hover:bg-gray-50">
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                            {{ $no++ }}
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                            {{ $data->nama }}
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                            {{ $data->kelas }}
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
+                                            <a href="{{ route('lembargds.edit', $data->id) }}" 
+                                               class="inline-flex items-center px-3 py-1 bg-green-500 hover:bg-green-600 text-white text-sm font-medium rounded-md transition duration-150 ease-in-out">
+                                                Tambah
+                                            </a>
+                                            <a href="{{ route('siswa.show', $data->id) }}" 
+                                               class="inline-flex items-center px-3 py-1 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-md transition duration-150 ease-in-out">
+                                                Lihat
+                                            </a>
+                                        </td>
+                                    </tr>
+                                @endif
                             @endforeach
                         </tbody>
                     </table>

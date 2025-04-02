@@ -31,7 +31,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label for="npsn" class="block text-gray-600 font-semibold">NPSN <span class="text-red-500">*</span></label>
-                        <input name="npsn" type="text" id="npsn" value="{{ old('npsn', '22556622') }}" required class="w-full p-2 border rounded-lg">
+                        <input name="npsn" type="number" id="npsn" value="{{ old('npsn', '22556622') }}" required class="w-full p-2 border rounded-lg">
                     </div>
                     <div>
                         <label for="nama-sekolah" class="block text-gray-600 font-semibold">Nama Sekolah <span class="text-red-500">*</span></label>
@@ -43,7 +43,7 @@
                     </div>
                     <div>
                         <label for="nip" class="block text-gray-600 font-semibold">NIP</label>
-                        <input name="nip" type="text" id="nip" value="{{ old('nip', '10284') }}" class="w-full p-2 border rounded-lg">
+                        <input name="nip" type="number" id="nip" value="{{ old('nip', '10284') }}" class="w-full p-2 border rounded-lg">
                     </div>
                     <div>
                         <label for="alamat" class="block text-gray-600 font-semibold">Alamat Jalan</label>
@@ -81,11 +81,11 @@
             @foreach($dashboard as $data)
                 <div class="flex mt-4 gap-2">
                     <a href="{{ route('dashboardpemilu.edit', $data->id) }}" class="w-1/2 bg-blue-600 text-white p-3 rounded-lg text-center hover:bg-blue-700 transition">Edit</a>
-                    <form action="{{ route('dashboardpemilu.destroy', $data->id) }}" method="POST" class="w-1/2">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="w-full bg-red-600 text-white p-3 rounded-lg hover:bg-red-700 transition">Hapus</button>
-                    </form>
+                    <form action="{{ route('dashboardpemilu.destroy', $data->id) }}" method="POST" class="w-1/2 delete-form">
+    @csrf
+    @method('DELETE')
+    <button type="button" class="w-full bg-red-600 text-white p-3 rounded-lg hover:bg-red-700 transition delete-btn">Hapus</button>
+</form>
                 </div>
             @endforeach
         @endif
@@ -108,5 +108,27 @@
         <button type="button" class="mt-4 w-full bg-red-600 text-white p-3 rounded-lg hover:bg-red-700 transition">Reset Data Pemilih</button>
     </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.querySelectorAll('.delete-btn').forEach(button => {
+        button.addEventListener('click', function () {
+            Swal.fire({
+                title: "Apakah Anda yakin?",
+                text: "Data yang dihapus tidak dapat dikembalikan!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#d33",
+                cancelButtonColor: "#3085d6",
+                confirmButtonText: "Ya, hapus!",
+                cancelButtonText: "Batal"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    this.closest('form').submit();
+                }
+            });
+        });
+    });
+</script>
 
 @endsection
