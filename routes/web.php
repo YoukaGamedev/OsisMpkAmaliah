@@ -87,3 +87,5 @@ Route::get('/search', [SiswaController::class, 'search'])->name('siswa.search');
 Route::resource('jadwalgds', JadwalPiketGDSController::class);
 
 Route::resource('agenda', AgendaController::class);
+
+Route::post('/reset-data', [HasilPemilihanController::class, 'reset'])->name('reset.data');

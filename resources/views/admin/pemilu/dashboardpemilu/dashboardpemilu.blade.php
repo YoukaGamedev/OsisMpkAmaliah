@@ -12,6 +12,7 @@
             </div>
         @endif
 
+
         <!-- PESAN ERROR -->
         @if ($errors->any())
             <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg mb-4">
@@ -102,17 +103,26 @@
             </ul>
         </div>
 
-    <div class="bg-white shadow-md rounded-lg p-6 mt-6">
-        <h2 class="text-2xl font-bold text-gray-700">Reset Data Pemilih</h2>
-        <p class="text-gray-600 mt-2">Fitur ini digunakan apabila telah selesai melakukan pemilihan dan ingin menghapus data untuk pemilihan berikutnya.</p>
-        <button type="button" class="mt-4 w-full bg-red-600 text-white p-3 rounded-lg hover:bg-red-700 transition">Reset Data Pemilih</button>
-    </div>
+        <div class="bg-white shadow-md rounded-lg p-6 mt-6">
+    <h2 class="text-2xl font-bold text-gray-700">Reset Data Pemilih</h2>
+    <p class="text-gray-600 mt-2">Fitur ini digunakan apabila telah selesai melakukan pemilihan dan ingin menghapus data untuk pemilihan berikutnya.</p>
+    
+    <form id="resetForm" action="{{ route('reset.data') }}" method="POST">
+    @csrf
+    <button type="submit" class="mt-4 w-full bg-red-600 text-white p-3 rounded-lg hover:bg-red-700 transition delete-btn">
+        Reset Data Pemilih
+    </button>
+</form>
+
+</div>
+
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     document.querySelectorAll('.delete-btn').forEach(button => {
-        button.addEventListener('click', function () {
+        button.addEventListener('click', function (e) {
+            e.preventDefault(); // Hindari submit langsung
             Swal.fire({
                 title: "Apakah Anda yakin?",
                 text: "Data yang dihapus tidak dapat dikembalikan!",
@@ -130,5 +140,6 @@
         });
     });
 </script>
+
 
 @endsection

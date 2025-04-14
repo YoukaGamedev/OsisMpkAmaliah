@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\HasilPemilihan;
 use App\Models\DataKandidat;
 
+use DB;
+
 class HasilPemilihanController extends Controller
 {
     public function index()
@@ -22,6 +24,17 @@ class HasilPemilihanController extends Controller
 
         return view('admin.pemilu.hasilpemilihan', compact('hasilpemilihan'));
     }
+
+    public function reset()
+{
+    DB::table('hasilpemilihan')->truncate(); // atau delete() jika pakai foreign key
+
+    DB::table('votes')->truncate();
+
+    return redirect()->back()->with('status', 'Data pemilih dan hasil pemilihan berhasil direset.');
+}
+
+
 }
 
 
