@@ -221,7 +221,7 @@
     <!-- Top section with school logo -->
     <div class="top-section">
         <h1 class="app-title">APK OSIS</h1>
-        <p class="school-name">SMA Amaliah</p>
+        <p class="school-name">SMK Amaliah</p>
     </div>
     
     <!-- Middle section with OSIS logo -->
@@ -231,7 +231,7 @@
             <img src="{{ asset('/asset/img/logo osis.png') }}" alt="Logo OSIS" class="logo-img">
         </div>
         <h2 class="osis-title">OSIS Amaliah</h2>
-        <p class="osis-description">Aplikasi Resmi OSIS SMA Amaliah</p>
+        <p class="osis-description">Aplikasi Resmi OSIS SMK Amaliah</p>
         
         <!-- Login button -->
         <a href="{{ route('login') }}" class="login-button">
