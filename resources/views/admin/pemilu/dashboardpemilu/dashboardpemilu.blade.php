@@ -92,17 +92,6 @@
         @endif
     </div>
 
-    <!-- HELPFUL TIPS CARD -->
-    <div class="mt-6 bg-blue-100 border border-blue-400 text-blue-700 p-4 rounded-lg">
-            <h3 class="font-bold text-lg">💡 Helpful Tips</h3>
-            <ul class="mt-2 text-sm list-disc list-inside">
-                <li>Pastikan data yang dimasukkan sesuai dengan dokumen resmi.</li>
-                <li>Gunakan format yang benar, seperti NPSN terdiri dari 8 digit angka.</li>
-                <li>Tanggal pelaksanaan harus sesuai dengan jadwal yang telah ditetapkan.</li>
-                <li>Jika ada kesalahan, Anda bisa mengedit atau menghapus data setelah disimpan.</li>
-            </ul>
-        </div>
-
         <div class="bg-white shadow-md rounded-lg p-6 mt-6">
     <h2 class="text-2xl font-bold text-gray-700">Reset Data Pemilih</h2>
     <p class="text-gray-600 mt-2">Fitur ini digunakan apabila telah selesai melakukan pemilihan dan ingin menghapus data untuk pemilihan berikutnya.</p>
@@ -115,6 +104,17 @@
 </form>
 
 </div>
+
+<!-- HELPFUL TIPS CARD -->
+<div class="mt-6 bg-blue-100 border border-blue-400 text-blue-700 p-4 rounded-lg">
+            <h3 class="font-bold text-lg">💡 Helpful Tips</h3>
+            <ul class="mt-2 text-sm list-disc list-inside">
+                <li>Pastikan data yang dimasukkan sesuai dengan dokumen resmi.</li>
+                <li>Gunakan format yang benar, seperti NPSN terdiri dari 8 digit angka.</li>
+                <li>Tanggal pelaksanaan harus sesuai dengan jadwal yang telah ditetapkan.</li>
+                <li>Jika ada kesalahan, Anda bisa mengedit atau menghapus data setelah disimpan.</li>
+            </ul>
+        </div>
 
 </div>
 
