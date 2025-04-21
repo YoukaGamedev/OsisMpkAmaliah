@@ -17,6 +17,7 @@ class DataKandidat extends Model
         'nama_pasangan_calon',
         'visi_misi',
         'foto',
+        'sekolah',
     ];
 
     public function votes()

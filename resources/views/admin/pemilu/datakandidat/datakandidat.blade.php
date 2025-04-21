@@ -21,6 +21,7 @@
                         <th class="border p-2 text-white">NISN</th>
                         <th class="border p-2 text-white">Nomor Paslon</th>
                         <th class="border p-2 text-white">Nama Paslon</th>
+                        <th class="border p-2 text-white">Sekolah</th>
                         <th class="border p-2 text-white">Visi Misi</th>
                         <th class="border p-2 text-white">Foto</th>
                         <th class="border p-2 text-white">Aksi</th>
@@ -33,6 +34,7 @@
                         <td class="border p-2">{{ $kandi->nisn }}</td>
                         <td class="border p-2">{{ $kandi->nomor_pasangan_calon }}</td>
                         <td class="border p-2">{{ $kandi->nama_pasangan_calon }}</td>
+                        <td class="border p-2">{{ $kandi->sekolah }}</td>
                         <td class="border p-2">{{ $kandi->visi_misi }}</td>
                         <td class="border p-2 text-center">
                             @if($kandi->foto)

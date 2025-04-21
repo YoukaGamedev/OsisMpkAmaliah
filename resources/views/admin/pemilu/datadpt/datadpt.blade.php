@@ -7,6 +7,47 @@
                 <h2 class="text-xl font-bold text-gray-800">Data Daftar Pemilih Tetap (DPT)</h2>
             </div>
 
+
+            <!-- Search Section -->
+            <div class="p-6">
+                <form action="{{ route('datadpt.index') }}" method="GET" class="flex flex-col sm:flex-row gap-4">
+                    <div class="flex-1">
+                        <input 
+                            type="text" 
+                            name="name" 
+                            placeholder="Cari berdasarkan Nama..." 
+                            value="{{ request()->input('name') }}" 
+                            class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition"
+                        >
+                    </div>
+                    <button type="submit" class="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition duration-200 flex items-center justify-center">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                        Cari Data
+                    </button>
+                </form>
+
+                <!-- Status Message -->
+                @if(session()->has('status'))
+                    <div class="mt-4 p-4 bg-green-100 border border-green-200 text-green-700 rounded-lg flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        {{ session('status') }}
+                    </div>
+                @endif
+
+                <!-- Add Data Button -->
+                <div class="flex justify-between items-center mt-6">
+                    <a href="{{ route('datadpt.create') }}" class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-200 flex items-center">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                        Tambah Data
+                    </a>
+                </div>
+
             <div class="p-6">
                 <!-- TABEL DATA -->
                 <div class="mt-6 overflow-x-auto">

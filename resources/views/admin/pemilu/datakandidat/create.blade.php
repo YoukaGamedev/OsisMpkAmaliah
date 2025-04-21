@@ -84,6 +84,25 @@
                 @enderror
             </div>
 
+            <!-- Sekolah Field -->
+            <div class="form-group">
+    <label for="sekolah" class="block text-sm font-medium text-gray-700 mb-1">
+        Sekolah <span class="text-red-500">*</span>
+    </label>
+    <select name="sekolah" 
+            id="sekolah" 
+            class="w-full p-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200 @error('sekolah') border-red-500 @enderror"
+            required>
+        <option value="" disabled {{ old('sekolah') ? '' : 'selected' }}>Pilih Sekolah</option>
+        <option value="A1" {{ old('sekolah') == 'A1' ? 'selected' : '' }}>A1</option>
+        <option value="A2" {{ old('sekolah') == 'A2' ? 'selected' : '' }}>A2</option>
+    </select>
+    @error('sekolah')
+        <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
+    @enderror
+</div>
+
+
             <!-- Visi Misi Field -->
             <div class="form-group">
                 <label for="visiMisi" class="block text-sm font-medium text-gray-700 mb-1">Visi Misi <span class="text-red-500">*</span></label>

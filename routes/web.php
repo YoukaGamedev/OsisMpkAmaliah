@@ -82,6 +82,7 @@ Route::resource('gds', GdsController::class);
 Route::resource('tambahdata', TambahDataController::class);
 Route::resource('lembargds', LembarGdsController::class);
 Route::resource('rekapgds', RekapGdsController::class);
+
 Route::resource('siswa', SiswaController::class);
 Route::get('/search', [SiswaController::class, 'search'])->name('siswa.search');
 Route::resource('jadwalgds', JadwalPiketGDSController::class);

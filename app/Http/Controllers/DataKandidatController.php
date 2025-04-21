@@ -38,6 +38,7 @@ class DataKandidatController extends Controller
             'nama_pasangan_calon' => 'required|string|max:255',
             'visi_misi' => 'required|string',
             'foto' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'sekolah' => 'required|string|in:A1,A2', // Validasi sekolah
         ]);
 
         // Upload foto jika ada
@@ -50,6 +51,7 @@ class DataKandidatController extends Controller
             'nama_pasangan_calon' => $request->nama_pasangan_calon,
             'visi_misi' => $request->visi_misi,
             'foto' => $fotoPath,
+            'sekolah' => $request->sekolah,
         ]);
 
         return redirect()->route('datakandidat.index')->with('status', 'Data berhasil ditambahkan');
@@ -77,6 +79,7 @@ class DataKandidatController extends Controller
             'nama_pasangan_calon' => 'required|string|max:255',
             'visi_misi' => 'required|string',
             'foto' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'sekolah' => 'required|string|in:A1,A2', // Validasi sekolah
         ]);
 
         if ($request->hasFile('foto')) {
@@ -94,6 +97,7 @@ class DataKandidatController extends Controller
             'nomor_pasangan_calon' => $request->nomor_pasangan_calon,
             'nama_pasangan_calon' => $request->nama_pasangan_calon,
             'visi_misi' => $request->visi_misi,
+            'sekolah' => $request->sekolah,
         ]);
 
         return redirect()->route('datakandidat.index')->with('status', 'Data berhasil diperbarui');

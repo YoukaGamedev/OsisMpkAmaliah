@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('nama_pasangan_calon');
             $table->string('visi_misi');
             $table->string('foto');
+            $table->enum('sekolah', ['A1', 'A2']); // Kolom sekolah dengan pilihan A1 atau A2
             $table->timestamps();
         });
     }

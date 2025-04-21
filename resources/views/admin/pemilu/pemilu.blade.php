@@ -61,7 +61,7 @@
     </aside>
 
     <!-- Content -->
-    <div class="flex-1 p-6 transition-all duration-300 ease-in-out ml-0 md:ml-16" style="width: 100%;" id="mainContent">
+    <div class="flex-1 p-6 transition-all duration-300 ease-in-out ml-0 md:ml-16"  id="mainContent">
         @yield('content1')
     </div>
 

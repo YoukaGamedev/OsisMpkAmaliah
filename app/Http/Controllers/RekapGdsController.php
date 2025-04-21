@@ -8,6 +8,7 @@ use App\Models\Siswa;
 use App\Models\JadwalGDS;
 use DB;
 
+
 class RekapGdsController extends Controller
 {
     /**
@@ -30,6 +31,8 @@ class RekapGdsController extends Controller
         $rekapgds = Siswa::select('id', 'nama', 'kelas', 'dasi_kacu', 'kaos_kaki', 'sabuk', 'nametag', 'sepatu', 'jas', 'ring', 'bros', 'makeup', 'telat', 'ciput', 'hijab', 'almamater', 'wearpack')->get();
         return view('admin.gds.rekapgds.rekapgds', compact('rekapgds','jadwalgds'));
     }
+
+    
 
 
 }
