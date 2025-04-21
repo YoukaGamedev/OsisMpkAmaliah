@@ -11,10 +11,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100 flex">
-    
+
+    <!-- Mobile Toggle Button -->
+    <button id="sidebarToggle" class="fixed z-30 bottom-4 right-4 md:hidden bg-gray-800 text-white p-3 rounded-full shadow-lg hover:bg-gray-700 focus:outline-none">
+        <i class="bi bi-list text-xl"></i>
+    </button>
+
     <!-- Sidebar -->
-    <aside class="bg-gray-800 w-16 hover:w-56 shadow-lg h-screen p-4 fixed transition-all duration-300 ease-in-out overflow-hidden group">
-        <h4 class="text-white text-lg font-semibold mb-6 hidden group-hover:block text-center">📌 Pemilu</h4>
+    <aside id="sidebar" class="bg-gray-800 w-0 md:w-16 hover:md:w-56 shadow-lg h-screen p-0 md:p-4 fixed top-0 left-0 z-20 transition-all duration-300 ease-in-out overflow-hidden group transform -translate-x-full md:translate-x-0 mt-20">
+        <h4 class="text-white text-lg font-semibold mb-6 hidden group-hover:block text-center mt-4">📌 Pemilu</h4>
         <ul class="space-y-4">
             <li>
                 <a class="flex items-center text-white p-3 rounded-lg hover:bg-gray-700 transition" href="{{ route('dashboardpemilu.index') }}">
@@ -56,9 +61,38 @@
     </aside>
 
     <!-- Content -->
-    <div class="flex-1 p-6 transition-all duration-300 ease-in-out ml-16 group-hover:ml-56" style="width: calc(100% - 4rem);">
+    <div class="flex-1 p-6 transition-all duration-300 ease-in-out ml-0 md:ml-16" style="width: 100%;" id="mainContent">
         @yield('content1')
     </div>
+
+    <!-- Sidebar toggle script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebar = document.getElementById('sidebar');
+            const toggle = document.getElementById('sidebarToggle');
+            const content = document.getElementById('mainContent');
+
+            toggle.addEventListener('click', () => {
+                sidebar.classList.toggle('-translate-x-full');
+                sidebar.classList.toggle('w-0');
+                sidebar.classList.toggle('w-56');
+                sidebar.classList.toggle('p-0');
+                sidebar.classList.toggle('p-4');
+            });
+
+            // Close on outside click (only mobile)
+            document.addEventListener('click', (e) => {
+                const isMobile = window.innerWidth < 768;
+                if (isMobile && !sidebar.contains(e.target) && !toggle.contains(e.target)) {
+                    sidebar.classList.add('-translate-x-full');
+                    sidebar.classList.add('w-0');
+                    sidebar.classList.remove('w-56');
+                    sidebar.classList.add('p-0');
+                    sidebar.classList.remove('p-4');
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>

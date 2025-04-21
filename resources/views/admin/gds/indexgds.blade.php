@@ -21,9 +21,6 @@
             <button onclick="document.getElementById('scanModal').classList.remove('hidden')" class="bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-600 transition">
                 <i class="fas fa-qrcode"></i>
             </button>
-            <button onclick="document.getElementById('modal').classList.remove('hidden')" class="bg-green-500 text-white px-3 py-2 rounded hover:bg-green-600 transition">
-                <i class="fas fa-plus"></i>
-            </button>
         </div>
     </div>
 
@@ -72,46 +69,8 @@
         </table>
     </div>
 
-
-<!-- Modal Tambah Absensi -->
-<div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-    <div class="bg-white p-5 rounded-lg shadow-lg w-96">
-        <h2 class="text-lg font-semibold text-center mb-3">Tambah Absensi</h2>
-        <form action="{{ route('siswa.store') }}" method="POST">
-            @csrf
-            <div class="space-y-2">
-                <label class="block text-gray-700 text-sm font-medium">Tanggal</label>
-                <input type="date" name="tanggal" value="{{ request('tanggal', date('Y-m-d')) }}" class="w-full px-3 py-2 text-sm border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" required>
-            </div>
-            <div class="grid grid-cols-2 gap-2 mt-3">
-                @foreach(['Nama' => 'nama', 'Kelas' => 'kelas'] as $label => $name)
-                    <div>
-                        <label class="block text-gray-700 text-sm font-medium">{{ $label }}</label>
-                        <input type="text" name="{{ $name }}" class="w-full px-3 py-2 text-sm border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" required>
-                    </div>
-                @endforeach
-            </div>
-            <div class="grid grid-cols-3 gap-2 mt-3 text-xs">
-                @foreach(['Dasi/Kacu' => 'dasi_kacu', 'Kaos Kaki' => 'kaos_kaki', 'Sabuk' => 'sabuk', 'NameTag' => 'nametag', 'Sepatu' => 'sepatu', 'Jas' => 'jas', 'Ring' => 'ring', 'Bros' => 'bros', 'Make Up' => 'makeup', 'Telat' => 'telat', 'Ciput' => 'ciput', 'Hijab' => 'hijab', 'Almamater' => 'almamater', 'WearPack' => 'wearpack'] as $label => $name)
-                    <div>
-                        <label class="block text-gray-700 text-xs font-semibold">{{ $label }}</label>
-                        <select name="{{ $name }}" class="w-full px-2 py-1 text-xs border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none">
-                            <option value="1">Ya</option>
-                            <option value="0">Tidak</option>
-                        </select>
-                    </div>
-                @endforeach
-            </div>
-            <div class="flex justify-end mt-4 space-x-2">
-                <button type="button" onclick="document.getElementById('modal').classList.add('hidden')" class="bg-gray-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-gray-600 transition">Batal</button>
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-600 transition">Simpan</button>
-            </div>
-        </form>
-    </div>
-</div>
-
-<!-- Modal Scanner QR Code -->
-<div id="scanModal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center">
+    <!-- Modal Scanner QR Code -->
+    <div id="scanModal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center">
         <div class="bg-white p-6 rounded-lg shadow-lg w-1/3 text-center">
             <h2 class="text-lg font-semibold mb-4">Scan QR Code</h2>
             <video id="preview" class="w-full h-48 bg-black"></video>
@@ -121,7 +80,6 @@
         </div>
     </div>
 </div>
-
 
 <!-- Script Instascan -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/instascan/1.0.0/instascan.min.js"></script>

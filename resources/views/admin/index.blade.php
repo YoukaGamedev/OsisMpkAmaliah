@@ -50,7 +50,7 @@
     <div class="flex-1 pt-7 ml-0 md:ml-16 transition-all duration-300">
         <div class="container mx-auto px-4 py-6">
             <div class="mb-6">
-                <h2 class="text-lg font-semibold text-gray-700 mb-4">Akses Cepat</h2>
+                <h2 class="text-lg font-semibold text-gray-700 mb-4">Fitur Utama</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     <!-- Pemilu -->
                     <a href="{{ route('dashboardpemilu.index') }}" class="transition-all duration-300 hover:shadow-lg">
@@ -74,19 +74,6 @@
                             <div>
                                 <h3 class="text-lg font-semibold">GDS</h3>
                                 <p class="text-xs opacity-80">Gerakan Disiplin Siswa</p>
-                            </div>
-                        </div>
-                    </a>
-
-                    <!-- User & Admin -->
-                    <a href="{{ route('useradmin.index') }}" class="transition-all duration-300 hover:shadow-lg">
-                        <div class="bg-gradient-to-r from-green-500 to-green-600 text-white p-5 rounded-lg shadow-md flex items-center">
-                            <div class="bg-white/20 p-3 rounded-full mr-4">
-                                <i class="bi bi-people-fill text-2xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-semibold">User & Admin</h3>
-                                <p class="text-xs opacity-80">Kelola pengguna sistem</p>
                             </div>
                         </div>
                     </a>
@@ -118,6 +105,19 @@
                             <div>
                                 <h3 class="text-lg font-semibold">Agenda Proker</h3>
                                 <p class="text-xs opacity-80">Program kerja & jadwal</p>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <!-- User & Admin -->
+                    <a href="{{ route('useradmin.index') }}" class="transition-all duration-300 hover:shadow-lg">
+                        <div class="bg-gradient-to-r from-green-500 to-green-600 text-white p-5 rounded-lg shadow-md flex items-center">
+                            <div class="bg-white/20 p-3 rounded-full mr-4">
+                                <i class="bi bi-people-fill text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold">User & Admin</h3>
+                                <p class="text-xs opacity-80">Kelola pengguna sistem</p>
                             </div>
                         </div>
                     </a>
