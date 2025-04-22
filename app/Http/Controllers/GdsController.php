@@ -24,7 +24,7 @@ class GdsController extends Controller
     $absensi = Siswa::where('tanggal', $tanggal)->get();
     $siswa = DB::table('siswas')->get();
 
-    return view('admin.gds.indexgds', compact('absensi', 'tanggal', 'pj', 'siswa'));
+    return view('user.gds.indexgds', compact('absensi', 'tanggal', 'pj', 'siswa'));
 }
 
 private function getPJByDay($hari)
@@ -38,6 +38,6 @@ private function getPJByDay($hari)
     public function show($id)
     {
         $siswa = Siswa::findOrFail($id);
-        return view('admin.gds.show', compact('siswa'));
+        return view('user.gds.show', compact('siswa'));
     }
 }

@@ -17,7 +17,7 @@
                 </a>
             </li>
             <li class="mb-2">
-                <a class="flex text-white items-center p-3 rounded-lg hover:bg-gray-700 transition-all" href="{{ route('gds.index') }}">
+                <a class="flex text-white items-center p-3 rounded-lg hover:bg-gray-700 transition-all" href="{{ route('rekapgds.index') }}">
                     <i class="bi bi-bar-chart-line-fill text-lg min-w-[24px]"></i> 
                     <span class="ml-3 hidden group-hover:md:inline-block whitespace-nowrap">GDS</span>
                 </a>
@@ -66,7 +66,7 @@
                     </a>
                     
                     <!-- GDS -->
-                    <a href="{{ route('gds.index') }}" class="transition-all duration-300 hover:shadow-lg">
+                    <a href="{{ route('rekapgds.index') }}" class="transition-all duration-300 hover:shadow-lg">
                         <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-5 rounded-lg shadow-md flex items-center">
                             <div class="bg-white/20 p-3 rounded-full mr-4">
                                 <i class="bi bi-bar-chart-line-fill text-2xl"></i>

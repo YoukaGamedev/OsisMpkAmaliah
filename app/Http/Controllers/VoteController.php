@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 
 class VoteController extends Controller
 {
+
+    
     public function store(Request $request)
     {
         // Validasi input dengan memastikan bahwa kandidat_id ada di tabel kandidat
