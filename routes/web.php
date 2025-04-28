@@ -24,9 +24,9 @@ use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 
-Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
-Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
-Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+// Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+// Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+// Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 
 Route::get('/', function () {
     return view('welcome'); 
@@ -78,10 +78,7 @@ Route::get('admingds', function () {
 Route::get('/struktur', [UserController::class, 'struktur'])->name('user.struktur');
 Route::get('/user/agenda', [UserController::class, 'agenda'])->name('user.agenda');
 Route::get('/user/agenda/show/{id}', [UserController::class, 'agendaS'])->name('user.agenda.show');
-Route::get('/user/rekapgds', [UserController::class, 'rekapgds'])->name('user.rekapgds');
 Route::get('/user/jadwalgds', [UserController::class, 'jadwalgds'])->name('user.jadwalgds');
-
-
 
 Route::resource('gds', GdsController::class);
 Route::resource('tambahdata', TambahDataController::class);

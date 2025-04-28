@@ -18,7 +18,6 @@
                             <th class="py-3 px-4 border-b">Minggu</th>
                             <th class="py-3 px-4 border-b">PJ</th>
                             <th class="py-3 px-4 border-b">Petugas</th>
-                            <th class="py-3 px-4 border-b">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -35,7 +34,7 @@
                                         @endif
                                     @endfor
                                 </ul>
-                            </td>
+                              </td>
                         </tr>
                         @endforeach
 

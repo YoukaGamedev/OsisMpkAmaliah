@@ -29,12 +29,6 @@
         </a>
       </li>
       <li>
-        <a href="{{ route('user.rekapgds') }}" class="flex items-center text-white p-3 rounded-lg hover:bg-gray-700 transition">
-          <i class="fas fa-folder-open text-lg mr-3"></i>
-          <span class="hidden group-hover:inline-block">Rekap GDS</span>
-        </a>
-      </li>
-      <li>
         <a href="{{ route('user.jadwalgds') }}" class="flex items-center text-white p-3 rounded-lg hover:bg-gray-700 transition">
           <i class="fas fa-calendar-alt text-lg mr-3"></i>
           <span class="hidden group-hover:inline-block">Jadwal GDS</span>

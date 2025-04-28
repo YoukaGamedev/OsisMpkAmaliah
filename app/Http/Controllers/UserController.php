@@ -44,24 +44,6 @@ class UserController extends Controller
     return view('user.agenda.show', compact('agenda'));
 }
 
-    public function rekapgds(Request $request)
-    {
-        $tanggal = $request->query('tanggal');
-
-        if ($tanggal) {
-            $rekap = Siswa::whereDate('tanggal', $tanggal)
-                ->select('id', 'nama', 'kelas', 'dasi_kacu', 'kaos_kaki', 'sabuk', 'nametag', 'sepatu', 'jas', 'ring', 'bros', 'makeup', 'telat', 'ciput', 'hijab', 'almamater', 'wearpack')
-                ->get();
-
-            return response()->json($rekap);
-        }
-
-        $jadwalgds = JadwalGDS::all();
-
-        $rekapgds = Siswa::select('id', 'nama', 'kelas', 'dasi_kacu', 'kaos_kaki', 'sabuk', 'nametag', 'sepatu', 'jas', 'ring', 'bros', 'makeup', 'telat', 'ciput', 'hijab', 'almamater', 'wearpack')->get();
-        return view('user.gds.rekapgds.rekapgds', compact('rekapgds','jadwalgds'));
-    }
-
     public function jadwalgds() {
         $jadwal = JadwalGds::all();
         return view('user.gds.jadwalgds.index', compact('jadwal'));
