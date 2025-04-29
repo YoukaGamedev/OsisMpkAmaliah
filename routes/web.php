@@ -66,6 +66,7 @@ Route::get('/admin', function () {
     return view('admin/index');
 });
 
+Route::get('/rekapgds/json', [RekapGDSController::class, 'json']);
 
 
 Route::get('user', function () {

@@ -15,27 +15,28 @@ class CreatePelanggaranTable extends Migration
             $table->id('id_pelanggaran');
             $table->unsignedBigInteger('siswa_id');
             $table->date('tanggal_pelanggaran');
-            
-            // Atribut pelanggaran
-            $table->boolean('dasi')->default(1);
-            $table->boolean('kacuk')->default(1);
-            $table->boolean('kaos_kaki')->default(1);
-            $table->boolean('sabuk')->default(1);
-            $table->boolean('nametag')->default(1);
-            $table->boolean('sepatu')->default(1);
-            $table->boolean('jas')->default(1);
-            $table->boolean('ring')->default(1);
-            $table->boolean('bros')->default(1);
-            $table->boolean('makeup')->default(1);
-            $table->boolean('telat')->default(1);
-            $table->boolean('ciput')->default(1);
-            $table->boolean('hijab')->default(1);
-            $table->boolean('almamater')->default(1);
-            
+        
+            // Atribut pelanggaran - default ke 0 (tidak terpenuhi)
+            $table->boolean('dasi')->default(0);
+            $table->boolean('kacuk')->default(0);
+            $table->boolean('kaos_kaki')->default(0);
+            $table->boolean('sabuk')->default(0);
+            $table->boolean('nametag')->default(0);
+            $table->boolean('sepatu')->default(0);
+            $table->boolean('jas')->default(0);
+            $table->boolean('ring')->default(0);
+            $table->boolean('bros')->default(0);
+            $table->boolean('makeup')->default(0);
+            $table->boolean('telat')->default(0);
+            $table->boolean('ciput')->default(0);
+            $table->boolean('hijab')->default(0);
+            $table->boolean('almamater')->default(0);
+        
             $table->timestamps();
         
             $table->foreign('siswa_id')->references('id')->on('siswas')->onDelete('cascade');
         });
+        
         
     }
 

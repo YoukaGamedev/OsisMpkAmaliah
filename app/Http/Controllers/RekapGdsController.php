@@ -4,63 +4,38 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Siswa;
-use App\Models\Pelanggaran;
 use App\Models\JadwalGDS;
+use App\Models\Pelanggaran;
 
 class RekapGdsController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
     public function index(Request $request)
-{
-    $tanggal = $request->query('tanggal', date('Y-m-d'));
+    {
+        $tanggal = $request->query('tanggal');
 
-    // Jika request AJAX atau ingin JSON response
-    if ($request->wantsJson() || $request->ajax()) {
-        $pelanggarans = Pelanggaran::with('siswa')
-            ->whereDate('tanggal_pelanggaran', $tanggal)
-            ->get();
+        if ($tanggal) {
+            // Ambil data siswa dan pelanggaran pada tanggal tertentu
+            $rekap = Siswa::whereHas('pelanggarans', function ($query) use ($tanggal) {
+                    $query->whereDate('tanggal_pelanggaran', $tanggal);
+                })
+                ->with(['pelanggarans' => function ($query) use ($tanggal) {
+                    $query->whereDate('tanggal_pelanggaran', $tanggal);
+                }])
+                ->get();
 
-        $rekap = $pelanggarans->map(function ($pelanggaran) {
-            $attributes = [
-                'dasi' => 'Dasi', 
-                'kacuk' => 'Kacu',
-                'kaos_kaki' => 'Kaos Kaki', 
-                    'sabuk' => 'Sabuk', 
-                    'nametag' => 'NameTag',
-                    'sepatu' => 'Sepatu', 
-                    'jas' => 'Jas', 
-                    'ring' => 'Ring', 
-                    'bros' => 'Bros', 
-                    'makeup' => 'Make Up',
-                    'telat' => 'Telat', 
-                    'ciput' => 'Ciput', 
-                    'hijab' => 'Hijab', 
-                    'almamater' => 'Almamater'
-            ];
+            return response()->json($rekap);
+        }
 
-            $missingAttributes = [];
+        // Ambil semua jadwal GDS
+        $jadwalgds = JadwalGDS::all();
 
-            foreach ($attributes as $key => $label) {
-                if ($pelanggaran->$key == 0) {
-                    $missingAttributes[] = $label;
-                }
-            }
+        // Ambil semua siswa beserta pelanggarannya
+        $rekapgds = Pelanggaran::with('siswa')->get();
 
-            return [
-                'nama' => $pelanggaran->siswa->nama,
-                'kelas' => $pelanggaran->siswa->kelas,
-                'missing_attributes' => !empty($missingAttributes) ? $missingAttributes : ['-']
-            ];
-        });
-
-        return response()->json($rekap);
+        return view('admin.gds.rekapgds.rekapgds', compact('rekapgds', 'jadwalgds'));
     }
-
-    // Untuk request biasa (initial load)
-    $jadwalgds = JadwalGDS::all();
-    $rekapgds = Pelanggaran::with('siswa')
-        ->whereDate('tanggal_pelanggaran', $tanggal)
-        ->get();
-
-    return view('admin.gds.rekapgds.rekapgds', compact('rekapgds', 'jadwalgds'));
 }
-}
+

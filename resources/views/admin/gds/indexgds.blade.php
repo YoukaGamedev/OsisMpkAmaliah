@@ -53,7 +53,7 @@
                         <td class="p-2 border text-center">{{ $loop->iteration }}</td>
                         <td class="p-2 border">{{ $data->nama }}</td>
                         <td class="p-2 border">{{ $data->kelas }}</td>
-                        @foreach(['dasi_kacu', 'kaos_kaki', 'sabuk', 'nametag', 'sepatu', 'jas', 'ring', 'bros', 'makeup', 'telat', 'ciput', 'hijab', 'almamater', 'wearpack'] as $attr)
+                        @foreach(['dasi', 'kacuk', 'kaos_kaki', 'sabuk', 'nametag', 'sepatu', 'jas', 'ring', 'bros', 'makeup', 'telat', 'ciput', 'hijab', 'almamater'] as $attr)
                             <td class="p-2 border text-center {{ $data->$attr ? 'text-green-600' : 'text-red-500' }}">
                                 <i class="fas {{ $data->$attr ? 'fa-check' : 'fa-times' }}"></i>
                             </td>

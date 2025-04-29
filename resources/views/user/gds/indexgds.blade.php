@@ -61,29 +61,24 @@
                             </td>
                         @endforeach
                         <td class="p-2 border text-center flex justify-center gap-2">
-    <!-- Pastikan menggunakan ID pelanggaran, bukan ID siswa -->
-    @if($data->pelanggaran_id) <!-- Cek apakah ada data pelanggaran -->
-        <!-- Tombol Lihat -->
-        <a href="{{ route('gds.show', $data->id) }}" class="text-blue-500 hover:text-blue-700">
-            <i class="fas fa-eye"></i>
-        </a>
+    <!-- Tombol Lihat -->
+    <a href="{{ route('gds.show', $data->id) }}" class="text-blue-500 hover:text-blue-700">
+        <i class="fas fa-eye"></i>
+    </a>
 
-        <!-- Tombol Edit Pelanggaran -->
-        <a href="{{ route('pelanggaran.edit', $data->pelanggaran_id) }}" class="text-yellow-500 hover:text-yellow-700">
-            <i class="fas fa-edit"></i>
-        </a>
+    <!-- Tombol Edit Pelanggaran -->
+    <a href="{{ route('pelanggaran.edit', $data->id) }}" class="text-yellow-500 hover:text-yellow-700">
+        <i class="fas fa-edit"></i>
+    </a>
 
-        <!-- Tombol Hapus Pelanggaran -->
-        <form action="{{ route('pelanggaran.destroy', $data->pelanggaran_id) }}" method="POST" onsubmit="return confirm('Yakin mau hapus data ini?');">
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="text-red-500 hover:text-red-700">
-                <i class="fas fa-trash"></i>
-            </button>
-        </form>
-    @else
-        <span class="text-gray-500">Tidak ada pelanggaran</span>
-    @endif
+    <!-- Tombol Hapus Pelanggaran -->
+    <form action="{{ route('pelanggaran.destroy', $data->id) }}" method="POST" onsubmit="return confirm('Yakin mau hapus data ini?');">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="text-red-500 hover:text-red-700">
+            <i class="fas fa-trash"></i>
+        </button>
+    </form>
 </td>
 
                     </tr>
