@@ -10,60 +10,16 @@
 
         <!-- Content -->
         <div class="p-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <!-- Personal Info Section -->
-                <div class="space-y-4">
-                    <h6 class="text-lg font-semibold text-gray-700 mb-3">Informasi Pribadi</h6>
-                    <div class="bg-gray-50 rounded-lg p-4 space-y-3">
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="text-gray-600 font-medium">Nama</div>
-                            <div>{{ $siswa->nama }}</div>
-                        </div>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="text-gray-600 font-medium">Kelas</div>
-                            <div>{{ $siswa->kelas }}</div>
-                        </div>
+            <div class="space-y-4">
+                <h6 class="text-lg font-semibold text-gray-700 mb-3">Informasi Pribadi</h6>
+                <div class="bg-gray-50 rounded-lg p-4 space-y-4">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="text-gray-600 font-medium">Nama</div>
+                        <div>{{ $siswa->nama }}</div>
                     </div>
-                </div>
-
-                <!-- Uniform Items Section -->
-                <div class="space-y-4">
-                    <h6 class="text-lg font-semibold text-gray-700 mb-3">Kelengkapan Seragam</h6>
-                    <div class="bg-gray-50 rounded-lg p-4 grid grid-cols-2 gap-3">
-                        <!-- Uniform Items with Icons -->
-                        @php
-                            $items = [
-                                'Dasi/Kacu' => $siswa->dasi_kacu,
-                                'Kaos Kaki' => $siswa->kaos_kaki,
-                                'Sabuk' => $siswa->sabuk,
-                                'NameTag' => $siswa->nametag,
-                                'Sepatu' => $siswa->sepatu,
-                                'Jas' => $siswa->jas,
-                                'Ring' => $siswa->ring,
-                                'Bros' => $siswa->bros,
-                                'Make Up' => $siswa->makeup,
-                                'Telat' => $siswa->telat,
-                                'Ciput' => $siswa->ciput,
-                                'Hijab' => $siswa->hijab,
-                                'Almamater' => $siswa->almamater,
-                                'WearPack' => $siswa->wearpack
-                            ];
-                        @endphp
-
-                        @foreach($items as $name => $value)
-                        <div class="flex items-center space-x-2">
-                            @if($value)
-                                <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                            @else
-                                <svg class="w-5 h-5 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                                </svg>
-                            @endif
-                            <span class="text-gray-700">{{ $name }}</span>
-                        </div>
-                        @endforeach
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="text-gray-600 font-medium">Kelas</div>
+                        <div>{{ $siswa->kelas }}</div>
                     </div>
                 </div>
             </div>

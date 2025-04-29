@@ -4,24 +4,30 @@
 <div class="flex justify-center mt-8">
     <div class="w-full max-w-2xl bg-white shadow-lg rounded-lg overflow-hidden">
         <div class="bg-gradient-to-r from-gray-700 to-gray-900 text-white text-center py-4">
-            <h5 class="font-bold text-xl">Edit Pelanggaran</h5>
+            <h5 class="font-bold text-xl">Tambah Pelanggaran</h5>
         </div>
         <div class="p-6">
-        <form action="{{ route('pelanggaran.update', $pelanggaran->id_pelanggaran) }}" method="POST">
+            <form action="{{ route('pelanggaran.store') }}" method="POST">
                 @csrf
-                @method('PUT')
 
-                <!-- Nama Siswa (hanya tampilkan saja, tidak bisa diubah) -->
-                <div class="mb-6">
-                    <label class="block text-gray-700 font-semibold text-lg mb-2">Nama Siswa</label>
-                    <input type="text" value="{{ $pelanggaran->siswa->nama }}" class="w-full px-4 py-3 border border-blue-400 rounded-lg bg-gray-100" disabled>
-                </div>
+                <!-- Nama Siswa (select dari tabel siswa) -->
+<div class="mb-6">
+    <label class="block text-gray-700 font-semibold text-lg mb-2">Nama Siswa</label>
+    <select name="siswa_id" class="w-full px-4 py-3 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+        <option value="">-- Pilih Siswa --</option>
+        @foreach ($siswas as $siswa)
+            <option value="{{ $siswa->id }}" {{ old('siswa_id') == $siswa->id ? 'selected' : '' }}>{{ $siswa->nama }}</option>
+        @endforeach
+    </select>
+</div>
 
-                <!-- Tanggal Pelanggaran -->
-                <div class="mb-6">
-                    <label class="block text-gray-700 font-semibold text-lg mb-2">Tanggal Pelanggaran</label>
-                    <input type="date" name="tanggal_pelanggaran" value="{{ old('tanggal_pelanggaran', $pelanggaran->tanggal_pelanggaran) }}" class="w-full px-4 py-3 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                </div>
+
+<!-- Tanggal Pelanggaran -->
+<div class="mb-6">
+    <label class="block text-gray-700 font-semibold text-lg mb-2">Tanggal Pelanggaran</label>
+    <input type="date" name="tanggal_pelanggaran" class="w-full px-4 py-3 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" value="{{ old('tanggal_pelanggaran', now()->toDateString()) }}" required>
+</div>
+
 
                 <!-- Form Atribut Pelanggaran -->
                 <div class="bg-gray-100 p-4 rounded-lg mb-6">
@@ -54,8 +60,7 @@
 
                                 <!-- Checkbox toggle -->
                                 <div class="relative inline-block w-10 mr-2 align-middle">
-                                    <input type="checkbox" name="{{ $name }}" id="{{ $name }}" class="checkbox hidden" value="0"
-                                        {{ $pelanggaran->$name == 0 ? 'checked' : '' }}>
+                                    <input type="checkbox" name="{{ $name }}" id="{{ $name }}" class="checkbox hidden" value="0">
                                     <label for="{{ $name }}" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
                                 </div>
                             </div>
@@ -68,8 +73,8 @@
 
                 <!-- Submit Button -->
                 <div class="mt-6">
-                    <button type="submit" class="w-full bg-gradient-to-r from-yellow-500 to-amber-600 text-white py-3 rounded-lg shadow-md hover:from-yellow-600 hover:to-amber-700 transition duration-300 font-bold text-lg">
-                        Update Pelanggaran
+                    <button type="submit" class="w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white py-3 rounded-lg shadow-md hover:from-green-600 hover:to-emerald-700 transition duration-300 font-bold text-lg">
+                        Simpan Pelanggaran
                     </button>
                 </div>
             </form>

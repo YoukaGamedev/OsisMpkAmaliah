@@ -23,6 +23,7 @@ use App\Http\Controllers\StructureController;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PelanggaranController;
 
 // Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
 // Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -79,6 +80,7 @@ Route::get('/struktur', [UserController::class, 'struktur'])->name('user.struktu
 Route::get('/user/agenda', [UserController::class, 'agenda'])->name('user.agenda');
 Route::get('/user/agenda/show/{id}', [UserController::class, 'agendaS'])->name('user.agenda.show');
 Route::get('/user/jadwalgds', [UserController::class, 'jadwalgds'])->name('user.jadwalgds');
+Route::resource('pelanggaran', PelanggaranController::class);
 
 Route::resource('gds', GdsController::class);
 Route::resource('tambahdata', TambahDataController::class);

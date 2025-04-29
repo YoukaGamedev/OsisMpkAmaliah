@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -44,28 +43,17 @@ class TambahDataController extends Controller
      */
     public function store(Request $request)
     {
-        // Validasi input
+        // Validasi input untuk nama dan kelas
         $request->validate([
             'nama' => 'required|string|max:255',
-            'tanggal' => 'nullable|date',
             'kelas' => 'required|string|max:50',
-            'dasi_kacu' => 'required|boolean',
-            'kaos_kaki' => 'required|boolean',
-            'sabuk' => 'required|boolean',
-            'nametag' => 'required|boolean',
-            'sepatu' => 'required|boolean',
-            'jas' => 'required|boolean',
-            'ring' => 'required|boolean',
-            'bros' => 'required|boolean',
-            'makeup' => 'required|boolean',
-            'telat' => 'required|boolean',
-            'ciput' => 'required|boolean',
-            'hijab' => 'required|boolean',
-            'almamater' => 'required|boolean',
-            'wearpack' => 'required|boolean',
         ]);
 
-        Siswa::create($request->all());
+        // Menyimpan data siswa
+        Siswa::create([
+            'nama' => $request->nama,
+            'kelas' => $request->kelas,
+        ]);
 
         return redirect()->route('tambahdata.index')->with('status', 'Data berhasil ditambahkan!');
     }
@@ -86,26 +74,14 @@ class TambahDataController extends Controller
     {
         $request->validate([
             'nama' => 'required|string|max:255',
-            'tanggal' => 'nullable|date',
             'kelas' => 'required|string|max:50',
-            'dasi_kacu' => 'required|boolean',
-            'kaos_kaki' => 'required|boolean',
-            'sabuk' => 'required|boolean',
-            'nametag' => 'required|boolean',
-            'sepatu' => 'required|boolean',
-            'jas' => 'required|boolean',
-            'ring' => 'required|boolean',
-            'bros' => 'required|boolean',
-            'makeup' => 'required|boolean',
-            'telat' => 'required|boolean',
-            'ciput' => 'required|boolean',
-            'hijab' => 'required|boolean',
-            'almamater' => 'required|boolean',
-            'wearpack' => 'required|boolean',
         ]);
 
         $siswa = Siswa::findOrFail($id);
-        $siswa->update($request->all());
+        $siswa->update([
+            'nama' => $request->nama,
+            'kelas' => $request->kelas,
+        ]);
 
         return redirect()->route('tambahdata.index')->with('status', 'Data berhasil diperbarui!');
     }
@@ -121,3 +97,4 @@ class TambahDataController extends Controller
         return redirect()->route('tambahdata.index')->with('status', 'Data berhasil dihapus!');
     }
 }
+

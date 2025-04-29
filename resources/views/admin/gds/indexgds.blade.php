@@ -15,14 +15,17 @@
             </button>
         </form>
         <div class="flex gap-2">
-            <a href="{{ route('siswa.search') }}" class="bg-orange-500 text-white px-3 py-2 rounded hover:bg-orange-600 transition">
-                <i class="fas fa-search"></i>
-            </a>
-            <button onclick="document.getElementById('scanModal').classList.remove('hidden')" class="bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-600 transition">
-                <i class="fas fa-qrcode"></i>
-            </button>
-        </div>
-    </div>
+    <a href="{{ route('siswa.search') }}" 
+       class="inline-flex items-center gap-2 bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition text-sm font-semibold">
+        <i class="fas fa-search"></i> Cari Data
+    </a>
+    <button type="button" 
+       onclick="document.getElementById('scanModal').classList.remove('hidden')" 
+       class="inline-flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition text-sm font-semibold">
+        <i class="fas fa-qrcode"></i> Scan QR
+    </button>
+</div>
+
 
     <!-- PJ Berdasarkan Hari -->
     <div class="mt-4 bg-white p-3 rounded-lg shadow-md">

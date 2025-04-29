@@ -9,37 +9,17 @@ class Siswa extends Model
 {
     use HasFactory;
 
-    protected $table = 'siswas';
+    protected $table = 'siswas'; // Nama tabel
 
-    // Define fillable properties for mass assignment
+    // Mass assignable attributes
     protected $fillable = [
         'nama',
-        'tanggal', // Tetap bisa diisi tetapi opsional
         'kelas',
-        'dasi_kacu',
-        'kaos_kaki',
-        'sabuk',
-        'nametag',
-        'sepatu',
-        'jas',
-        'ring',
-        'bros',
-        'makeup',
-        'telat',
-        'ciput',
-        'hijab',
-        'almamater',
-        'wearpack',
     ];
 
-    // Cast properties
-    protected $casts = [
-        'tanggal' => 'date', // Mengizinkan null tetapi tetap bertipe date jika diisi
-    ];
-
-    public function gds()
-{
-    return $this->hasMany(Gds::class);
-}
-
+    // Relasi: Siswa punya banyak Pelanggaran
+    public function pelanggarans()
+    {
+        return $this->hasMany(Pelanggaran::class, 'siswa_id');
+    }
 }

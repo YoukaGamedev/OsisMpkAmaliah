@@ -3,37 +3,61 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Pelanggaran;
 use App\Models\Siswa;
-use App\Models\JadwalGds; // Tambahkan Model JadwalGds
-use DB;
+use App\Models\JadwalGds;
 use Carbon\Carbon;
 
 class GdsController extends Controller
 {
     public function index(Request $request)
-{
-    $tanggal = $request->get('tanggal', date('Y-m-d'));
+    {
+        // Ambil tanggal dari request atau default hari ini
+        $tanggal = $request->input('tanggal', Carbon::now()->toDateString());
 
-    // Ubah nama hari ke Bahasa Indonesia
-    Carbon::setLocale('id'); // Pastikan menggunakan locale Indonesia
-    $hari = Carbon::parse($tanggal)->translatedFormat('l'); // Contoh: "Senin", "Selasa"
+        // Set bahasa ke Indonesia
+        Carbon::setLocale('id');
 
-    // Ambil PJ berdasarkan hari yang sudah diterjemahkan ke Bahasa Indonesia
-    $pj = $this->getPJByDay($hari);
+        // Terjemahkan hari dari tanggal
+        $hari = Carbon::parse($tanggal)->translatedFormat('l');
 
-    $absensi = Siswa::where('tanggal', $tanggal)->get();
-    $siswa = DB::table('siswas')->get();
+        // Ambil nama PJ dari tabel jadwal_gds berdasarkan hari
+        $pj = $this->getPJByDay($hari);
 
-    return view('user.gds.indexgds', compact('absensi', 'tanggal', 'pj', 'siswa'));
-}
+        // Ambil data pelanggaran berdasarkan tanggal
+        $absensi = Pelanggaran::where('tanggal_pelanggaran', $tanggal)
+            ->join('siswas', 'pelanggaran.siswa_id', '=', 'siswas.id')
+            ->get([
+                'siswas.id', 
+                'siswas.nama', 
+                'siswas.kelas', 
+                'pelanggaran.dasi', 
+                'pelanggaran.kacuk', 
+                'pelanggaran.kaos_kaki', 
+                'pelanggaran.sabuk', 
+                'pelanggaran.nametag', 
+                'pelanggaran.sepatu', 
+                'pelanggaran.jas', 
+                'pelanggaran.ring', 
+                'pelanggaran.bros', 
+                'pelanggaran.makeup', 
+                'pelanggaran.telat', 
+                'pelanggaran.ciput', 
+                'pelanggaran.hijab', 
+                'pelanggaran.almamater', 
+            ]);
 
-private function getPJByDay($hari)
-{
-    // Ambil PJ berdasarkan hari dari tabel jadwal_gds
-    $jadwal = JadwalGds::where('hari', $hari)->first();
+        // Kirim ke view
+        return view('user.gds.indexgds', compact('absensi', 'tanggal', 'pj'));
 
-    return $jadwal ? $jadwal->pj : 'Tidak Ada PJ';
-}
+    }
+
+    private function getPJByDay($hari)
+    {
+        // Cari PJ di tabel jadwal_gds berdasarkan hari
+        $jadwal = JadwalGds::where('hari', $hari)->first();
+        return $jadwal ? $jadwal->pj : 'Tidak Ada PJ';
+    }
 
     public function show($id)
     {
