@@ -48,6 +48,18 @@
                     </div>
                 </div>
 
+                <!-- Scanner Modal -->
+<div id="scannerModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 hidden">
+    <div class="bg-white rounded-lg shadow-lg p-4 max-w-md w-full">
+        <div class="flex justify-between items-center mb-2">
+            <h2 class="text-lg font-semibold">Scan Identitas</h2>
+            <button onclick="closeScanner()" class="text-red-600 font-bold text-xl">&times;</button>
+        </div>
+        <div id="qr-reader" style="width: 100%;"></div>
+    </div>
+</div>
+
+
                 <!-- Tanggal Pelanggaran -->
                 <div class="mb-6">
                     <label class="block text-gray-700 font-semibold text-lg mb-2">Tanggal Pelanggaran</label>
@@ -128,11 +140,15 @@
     }
 </style>
 
+<script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+
+
 <script>
     const searchInput = document.getElementById('searchSiswa');
     const filterKelas = document.getElementById('filterKelas');
     const filterHuruf = document.getElementById('filterHuruf');
     const siswaSelect = document.getElementById('selectSiswa');
+    let html5QrCode;
 
     function filterSiswa() {
         const keyword = searchInput.value.toLowerCase();
@@ -159,16 +175,55 @@
     filterHuruf.addEventListener('change', filterSiswa);
 
     function scanIdentitas() {
-        // Dummy scan logic - replace with actual scan logic if needed
-        const dummyNama = prompt("Masukkan hasil scan (nama siswa):");
-        if (!dummyNama) return;
+        const scannerModal = document.getElementById('scannerModal');
+        scannerModal.classList.remove('hidden');
 
+        html5QrCode = new Html5Qrcode("qr-reader");
+        const config = { fps: 10, qrbox: 250 };
+
+        Html5Qrcode.getCameras().then(devices => {
+            if (devices && devices.length) {
+                const frontCamera = devices.find(device => device.label.toLowerCase().includes('front')) || devices[0];
+
+                html5QrCode.start(
+                    frontCamera.id,
+                    config,
+                    qrCodeMessage => {
+                        isiSiswaDariScan(qrCodeMessage);
+                        closeScanner();
+                    },
+                    errorMessage => {
+                        // Optional: console.warn(errorMessage);
+                    }
+                );
+            } else {
+                alert("Kamera tidak tersedia.");
+                closeScanner();
+            }
+        }).catch(err => {
+            alert("Gagal mengakses kamera: " + err);
+            closeScanner();
+        });
+    }
+
+    function closeScanner() {
+        const scannerModal = document.getElementById('scannerModal');
+        scannerModal.classList.add('hidden');
+        if (html5QrCode) {
+            html5QrCode.stop().then(() => {
+                html5QrCode.clear();
+            });
+        }
+    }
+
+    function isiSiswaDariScan(data) {
+        const siswaSelect = document.getElementById('selectSiswa');
         const options = Array.from(siswaSelect.options);
-        const match = options.find(opt => opt.dataset.nama.toLowerCase().includes(dummyNama.toLowerCase()));
+        const match = options.find(opt => opt.dataset.nama.toLowerCase().includes(data.toLowerCase()));
         if (match) {
             siswaSelect.value = match.value;
         } else {
-            alert('Siswa tidak ditemukan');
+            alert('Siswa tidak ditemukan: ' + data);
         }
     }
 </script>
