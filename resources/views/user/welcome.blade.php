@@ -1,69 +1,92 @@
 @extends('main')
 
 @section('content')
-<div class="flex">
+<div class="flex min-h-screen bg-gray-100">
     <!-- Sidebar -->
-    <aside class="bg-gray-800 w-16 hover:w-56 p-2 shadow-md h-screen transition-all duration-300 ease-in-out overflow-hidden group">
-        <ul>
-            <li class="mb-5">
-                <a class="flex text-white items-center p-2 rounded-lg hover:bg-gray-700" href="{{ url('/user/pemilu/home') }}">
-                    <i class="bi bi-check2-square mr-2"></i> <span class="hidden group-hover:inline-block">Pemilu</span>
+    <aside class="bg-gray-900 text-white w-20 hover:w-64 transition-all duration-300 ease-in-out shadow-lg h-screen overflow-hidden group">
+        <div class="flex flex-col items-center group-hover:items-start gap-4 p-4">
+            <h2 class="text-xl font-bold hidden group-hover:block mb-6">Menu</h2>
+            <nav class="space-y-4 w-full">
+                <a href="{{ url('/user/pemilu/home') }}" class="flex items-center space-x-3 p-3 rounded-md hover:bg-gray-800 transition">
+                    <i class="bi bi-check2-square text-lg"></i>
+                    <span class="hidden group-hover:inline-block">Pemilu</span>
                 </a>
-            </li>
-            <li class="mb-3">
-                <a class="flex text-white items-center p-2 rounded-lg hover:bg-gray-700" href="{{ route('gds.index') }}">
-                    <i class="bi bi-bar-chart-line-fill mr-2"></i> <span class="hidden group-hover:inline-block">GDS</span>
+                <a href="{{ route('gds.index') }}" class="flex items-center space-x-3 p-3 rounded-md hover:bg-gray-800 transition">
+                    <i class="bi bi-bar-chart-line-fill text-lg"></i>
+                    <span class="hidden group-hover:inline-block">GDS</span>
                 </a>
-            </li>
-            <li class="mb-3 border-t pt-3">
-                <a class="flex text-white items-center p-2 rounded-lg hover:bg-gray-700" href="{{ route('user.struktur') }}">
-                    <i class="bi bi-diagram-3-fill mr-2"></i> <span class="hidden group-hover:inline-block">Struktur OSIS & MPK</span>
+                <a href="{{ route('user.struktur') }}" class="flex items-center space-x-3 p-3 rounded-md hover:bg-gray-800 transition border-t pt-4">
+                    <i class="bi bi-diagram-3-fill text-lg"></i>
+                    <span class="hidden group-hover:inline-block">Struktur</span>
                 </a>
-            </li>
-            <li class="mb-3">
-                <a class="flex text-white items-center p-2 rounded-lg hover:bg-gray-700" href="{{ route('user.agenda') }}">
-                    <i class="bi bi-calendar-event-fill mr-2"></i> <span class="hidden group-hover:inline-block">Agenda Proker</span>
+                <a href="{{ route('user.agenda') }}" class="flex items-center space-x-3 p-3 rounded-md hover:bg-gray-800 transition">
+                    <i class="bi bi-calendar-event-fill text-lg"></i>
+                    <span class="hidden group-hover:inline-block">Agenda</span>
                 </a>
-            </li>
-        </ul>
+            </nav>
+        </div>
     </aside>
 
     <!-- Main Content -->
-    <div class="flex-1 container mx-auto px-6 py-8">
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            <!-- Pemilu -->
-            <a href="{{ url('user/pemilu/home') }}" class="transition-transform transform hover:scale-105">
-                <div class="bg-pink-500 text-white p-6 rounded-lg shadow-md flex flex-col items-center justify-center">
-                    <i class="bi bi-check2-square text-4xl mb-4 opacity-80"></i>
-                    <h3 class="text-lg font-semibold">Pemilu Ketua OSIS</h3>
-                </div>
-            </a>
-            
-            <!-- GDS -->
-            <a href="{{ route('gds.index') }}" class="transition-transform transform hover:scale-105">
-                <div class="bg-blue-500 text-white p-6 rounded-lg shadow-md flex flex-col items-center justify-center">
-                    <i class="bi bi-bar-chart-line-fill text-4xl mb-4 opacity-80"></i>
-                    <h3 class="text-lg font-semibold">Gerakan Disiplin Siswa</h3>
-                </div>
-            </a>
-<br>
+    <main class="flex-1 p-8">
+        <div class="mb-8">
+            <h1 class="text-3xl font-bold text-gray-800">Dashboard OSIS</h1>
+            <p class="text-gray-500">Selamat datang user</p>
+        </div>
 
-            <!-- Struktur OSIS & MPK -->
-            <a href="{{ route('user.struktur') }}" class="transition-transform transform hover:scale-105">
-                <div class="bg-yellow-500 text-white p-6 rounded-lg shadow-md flex flex-col items-center justify-center">
-                    <i class="bi bi-diagram-3-fill text-4xl mb-4 opacity-80"></i>
-                    <h3 class="text-lg font-semibold">Struktur OSIS & MPK</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+            <!-- Card: Pemilu -->
+            <a href="{{ route('dashboardpemilu.index') }}" class="transition-all duration-300 hover:shadow-lg">
+                <div class="bg-gradient-to-r from-pink-500 to-pink-600 text-white p-5 rounded-lg shadow-md flex items-center">
+                    <div class="bg-white/20 p-3 rounded-full mr-4">
+                        <i class="bi bi-check2-square text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold">Pemilu Ketua OSIS</h3>
+                        <p class="text-xs opacity-80">Kelola pemilihan ketua</p>
+                    </div>
                 </div>
             </a>
 
-            <!-- Agenda Proker -->
-            <a href="{{ route('user.agenda') }}" class="transition-transform transform hover:scale-105">
-                <div class="bg-purple-500 text-white p-6 rounded-lg shadow-md flex flex-col items-center justify-center">
-                    <i class="bi bi-calendar-event-fill text-4xl mb-4 opacity-80"></i>
-                    <h3 class="text-lg font-semibold">Agenda Proker</h3>
+            <!-- Card: GDS -->
+            <a href="{{ route('gds.index') }}" class="transition-all duration-300 hover:shadow-lg">
+                <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-5 rounded-lg shadow-md flex items-center">
+                    <div class="bg-white/20 p-3 rounded-full mr-4">
+                        <i class="bi bi-bar-chart-line-fill text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold">Gerakan Disiplin Siswa</h3>
+                        <p class="text-xs opacity-80">Pantau kedisiplinan siswa</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Card: Struktur OSIS -->
+            <a href="{{ route('user.struktur') }}" class="transition-all duration-300 hover:shadow-lg">
+                <div class="bg-gradient-to-r from-yellow-400 to-yellow-500 text-white p-5 rounded-lg shadow-md flex items-center">
+                    <div class="bg-white/20 p-3 rounded-full mr-4">
+                        <i class="bi bi-diagram-3-fill text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold">Struktur OSIS & MPK</h3>
+                        <p class="text-xs opacity-80">Lihat susunan organisasi</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Card: Agenda Proker -->
+            <a href="{{ route('user.agenda') }}" class="transition-all duration-300 hover:shadow-lg">
+                <div class="bg-gradient-to-r from-purple-500 to-purple-600 text-white p-5 rounded-lg shadow-md flex items-center">
+                    <div class="bg-white/20 p-3 rounded-full mr-4">
+                        <i class="bi bi-calendar-event-fill text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold">Agenda Proker</h3>
+                        <p class="text-xs opacity-80">Kelola jadwal program kerja</p>
+                    </div>
                 </div>
             </a>
         </div>
-    </div>
+    </main>
 </div>
 @endsection
