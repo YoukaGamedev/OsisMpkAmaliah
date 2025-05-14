@@ -10,24 +10,49 @@
             <form action="{{ route('pelanggaran.store') }}" method="POST">
                 @csrf
 
-                <!-- Nama Siswa (select dari tabel siswa) -->
-<div class="mb-6">
-    <label class="block text-gray-700 font-semibold text-lg mb-2">Nama Siswa</label>
-    <select name="siswa_id" class="w-full px-4 py-3 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-        <option value="">-- Pilih Siswa --</option>
-        @foreach ($siswas as $siswa)
-            <option value="{{ $siswa->id }}" {{ old('siswa_id') == $siswa->id ? 'selected' : '' }}>{{ $siswa->nama }}</option>
-        @endforeach
-    </select>
-</div>
+                <!-- Filter & Search Siswa -->
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-semibold text-lg mb-2">Nama Siswa</label>
+                    <div class="flex flex-wrap gap-2 mb-2">
+                        <select id="filterKelas" class="border px-3 py-2 rounded text-sm">
+                            <option value="">Semua Kelas</option>
+                            @foreach ($siswas->pluck('kelas')->unique()->sort() as $kelas)
+                                <option value="{{ $kelas }}">{{ $kelas }}</option>
+                            @endforeach
+                        </select>
 
+                        <select id="filterHuruf" class="border px-3 py-2 rounded text-sm">
+                            <option value="">Semua Huruf</option>
+                            @foreach (range('A', 'Z') as $huruf)
+                                <option value="{{ $huruf }}">{{ $huruf }}</option>
+                            @endforeach
+                        </select>
 
-<!-- Tanggal Pelanggaran -->
-<div class="mb-6">
-    <label class="block text-gray-700 font-semibold text-lg mb-2">Tanggal Pelanggaran</label>
-    <input type="date" name="tanggal_pelanggaran" class="w-full px-4 py-3 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" value="{{ old('tanggal_pelanggaran', now()->toDateString()) }}" required>
-</div>
+                        <input type="text" id="searchSiswa" placeholder="Cari nama..." class="flex-1 border px-3 py-2 rounded text-sm w-full sm:w-auto" />
+                    </div>
 
+                    <select id="selectSiswa" name="siswa_id" class="w-full px-4 py-3 border border-blue-400 rounded-lg" required>
+                        <option value="">-- Pilih Siswa --</option>
+                        @foreach ($siswas as $siswa)
+                            <option value="{{ $siswa->id }}" data-kelas="{{ $siswa->kelas }}" data-nama="{{ $siswa->nama }}">
+                                {{ $siswa->nama }} ({{ $siswa->kelas }})
+                            </option>
+                        @endforeach
+                    </select>
+
+                    <!-- Tombol Scan -->
+                    <div class="mt-3">
+                        <button onclick="scanIdentitas()" type="button" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                            <i class="fas fa-qrcode mr-2"></i> Scan Identitas
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tanggal Pelanggaran -->
+                <div class="mb-6">
+                    <label class="block text-gray-700 font-semibold text-lg mb-2">Tanggal Pelanggaran</label>
+                    <input type="date" name="tanggal_pelanggaran" class="w-full px-4 py-3 border border-blue-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" value="{{ old('tanggal_pelanggaran', now()->toDateString()) }}" required>
+                </div>
 
                 <!-- Form Atribut Pelanggaran -->
                 <div class="bg-gray-100 p-4 rounded-lg mb-6">
@@ -55,10 +80,7 @@
                         @foreach ($attributes as $label => $name)
                         <div class="flex flex-col items-center">
                             <div class="relative">
-                                <!-- Hidden input -->
                                 <input type="hidden" name="{{ $name }}" value="1">
-
-                                <!-- Checkbox toggle -->
                                 <div class="relative inline-block w-10 mr-2 align-middle">
                                     <input type="checkbox" name="{{ $name }}" id="{{ $name }}" class="checkbox hidden" value="0">
                                     <label for="{{ $name }}" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
@@ -105,4 +127,49 @@
         transform: translateX(16px);
     }
 </style>
+
+<script>
+    const searchInput = document.getElementById('searchSiswa');
+    const filterKelas = document.getElementById('filterKelas');
+    const filterHuruf = document.getElementById('filterHuruf');
+    const siswaSelect = document.getElementById('selectSiswa');
+
+    function filterSiswa() {
+        const keyword = searchInput.value.toLowerCase();
+        const kelas = filterKelas.value;
+        const huruf = filterHuruf.value;
+
+        for (const option of siswaSelect.options) {
+            if (!option.value) continue;
+
+            const nama = option.dataset.nama.toLowerCase();
+            const kelasSiswa = option.dataset.kelas;
+            const firstChar = nama.charAt(0).toUpperCase();
+
+            const matchKelas = !kelas || kelas === kelasSiswa;
+            const matchHuruf = !huruf || huruf === firstChar;
+            const matchNama = !keyword || nama.includes(keyword);
+
+            option.style.display = (matchKelas && matchHuruf && matchNama) ? 'block' : 'none';
+        }
+    }
+
+    searchInput.addEventListener('input', filterSiswa);
+    filterKelas.addEventListener('change', filterSiswa);
+    filterHuruf.addEventListener('change', filterSiswa);
+
+    function scanIdentitas() {
+        // Dummy scan logic - replace with actual scan logic if needed
+        const dummyNama = prompt("Masukkan hasil scan (nama siswa):");
+        if (!dummyNama) return;
+
+        const options = Array.from(siswaSelect.options);
+        const match = options.find(opt => opt.dataset.nama.toLowerCase().includes(dummyNama.toLowerCase()));
+        if (match) {
+            siswaSelect.value = match.value;
+        } else {
+            alert('Siswa tidak ditemukan');
+        }
+    }
+</script>
 @endsection

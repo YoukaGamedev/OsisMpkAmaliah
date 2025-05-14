@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>APK OSIS Amaliah</title>
+    <title>APK OSIS SMK Amaliah</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -230,7 +230,7 @@
             <div class="logo-glow"></div>
             <img src="{{ asset('/asset/img/logo osis.png') }}" alt="Logo OSIS" class="logo-img">
         </div>
-        <h2 class="osis-title">OSIS Amaliah</h2>
+        <h2 class="osis-title">OSIS MPK Amaliah</h2>
         <p class="osis-description">Aplikasi Resmi OSIS SMK Amaliah</p>
         
         <!-- Login button -->
@@ -242,7 +242,7 @@
     
     <!-- Bottom section with additional info -->
     <div class="bottom-section">
-        <p class="version-text">v1.0.0 &copy; 2025 OSIS Amaliah</p>
+        <p class="version-text">v1.0.0 &copy; 2025 OSIS SMK Amaliah</p>
     </div>
 
     <script>

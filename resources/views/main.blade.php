@@ -45,7 +45,7 @@
                 <img src="{{ asset('asset/img/logo osis.png') }}" alt="Logo" class="w-10 h-10 sm:w-12 sm:h-12 object-contain logo transition-transform duration-300">
                 <div class="hidden sm:block">
                     <h1 class="font-bold text-lg">OSIS</h1>
-                    <p class="text-xs text-gray-300">Administration Panel</p>
+                    <p class="text-xs text-gray-300">Main Dashboard</p>
                 </div>
             </div>
             

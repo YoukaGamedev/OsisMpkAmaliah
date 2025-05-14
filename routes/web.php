@@ -25,6 +25,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PelanggaranController;
 
+
 // Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
 // Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
 // Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
@@ -90,7 +91,6 @@ Route::resource('rekapgds', RekapGdsController::class);
 Route::resource('siswa', SiswaController::class);
 Route::get('/search', [SiswaController::class, 'search'])->name('siswa.search');
 Route::resource('jadwalgds', JadwalPiketGDSController::class);
-
 Route::resource('agenda', AgendaController::class);
 
 Route::post('/reset-data', [HasilPemilihanController::class, 'reset'])->name('reset.data');

@@ -21,7 +21,7 @@ class LembarGdsController extends Controller
      */
     public function create()
     {
-        return view('admin.gds.lembargds.createlembargds');
+        return view('user.gds.lembargds.createlembargds');
     }
 
     /**
