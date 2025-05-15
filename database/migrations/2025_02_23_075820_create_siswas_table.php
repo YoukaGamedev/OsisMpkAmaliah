@@ -10,15 +10,17 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-{
-    Schema::create('siswas', function (Blueprint $table) {
-        $table->id();
-        $table->string('nama');
-        $table->string('kelas');
-        $table->timestamps();
-    });
-}
-
+    {
+        Schema::create('siswas', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama');
+            $table->string('kelas');
+            $table->string('foto')->nullable();      // kolom untuk menyimpan path foto
+            $table->string('qr_code')->nullable();   // kolom untuk menyimpan path QR code
+            
+            $table->timestamps();
+        });
+    }
 
     /**
      * Reverse the migrations.
@@ -28,3 +30,4 @@ return new class extends Migration
         Schema::dropIfExists('siswas');
     }
 };
+

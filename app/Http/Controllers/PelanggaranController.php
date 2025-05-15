@@ -25,6 +25,7 @@ class PelanggaranController extends Controller
         $absensi = Pelanggaran::where('tanggal_pelanggaran', $tanggal)
             ->join('siswas', 'pelanggaran.siswa_id', '=', 'siswas.id')
             ->get([
+                'pelanggaran.id_pelanggaran as id_pelanggaran',  // Tambahkan ini
                 'siswas.id', 
                 'siswas.nama', 
                 'siswas.kelas', 
@@ -85,17 +86,23 @@ class PelanggaranController extends Controller
     }
 
     public function show($id)
-    {
-        $pelanggaran = Pelanggaran::with('siswa')->findOrFail($id);
-        return view('admin.gds.pelanggaran.show', compact('pelanggaran'));
-    }
+{
+    $pelanggaran = Pelanggaran::with('siswa')->findOrFail($id);
+    return view('user.gds.lembargds.show', [
+        'pelanggaran' => $pelanggaran,
+        'siswa' => $pelanggaran->siswa
+    ]);
+}
+
+
 
     public function edit($id)
-    {
-        $pelanggaran = Pelanggaran::findOrFail($id);
-        $siswas = Siswa::all();
-        return view('user.gds.lembargds.edit', compact('pelanggaran', 'siswas'));
-    }
+{
+    $pelanggaran = Pelanggaran::with('siswa')->where('id_pelanggaran', $id)->firstOrFail();
+    $siswas = Siswa::all(); // jika diperlukan
+    return view('user.gds.lembargds.edit', compact('pelanggaran', 'siswas'));
+}
+
 
     public function update(Request $request, $id)
 {

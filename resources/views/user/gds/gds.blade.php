@@ -23,7 +23,7 @@
     <h4 class="text-white text-lg font-semibold mb-6 hidden group-hover:block text-center mt-4">📌 GDS</h4>
     <ul class="space-y-4">
       <li>
-        <a href="{{ route('gds.index') }}" class="flex items-center text-white p-3 rounded-lg hover:bg-gray-700 transition">
+        <a href="{{ route('pelanggaran.index') }}" class="flex items-center text-white p-3 rounded-lg hover:bg-gray-700 transition">
           <i class="fas fa-calendar-check text-lg mr-3"></i>
           <span class="hidden group-hover:inline-block">GDS</span>
         </a>

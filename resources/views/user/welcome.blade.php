@@ -11,7 +11,7 @@
                     <i class="bi bi-check2-square text-lg"></i>
                     <span class="hidden group-hover:inline-block">Pemilu</span>
                 </a>
-                <a href="{{ route('gds.index') }}" class="flex items-center space-x-3 p-3 rounded-md hover:bg-gray-800 transition">
+                <a href="{{ route('pelanggaran.index') }}" class="flex items-center space-x-3 p-3 rounded-md hover:bg-gray-800 transition">
                     <i class="bi bi-bar-chart-line-fill text-lg"></i>
                     <span class="hidden group-hover:inline-block">GDS</span>
                 </a>
@@ -36,7 +36,7 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
             <!-- Card: Pemilu -->
-            <a href="{{ route('dashboardpemilu.index') }}" class="transition-all duration-300 hover:shadow-lg">
+            <a href="{{ route('home.index') }}" class="transition-all duration-300 hover:shadow-lg">
                 <div class="bg-gradient-to-r from-pink-500 to-pink-600 text-white p-5 rounded-lg shadow-md flex items-center">
                     <div class="bg-white/20 p-3 rounded-full mr-4">
                         <i class="bi bi-check2-square text-2xl"></i>
@@ -49,7 +49,7 @@
             </a>
 
             <!-- Card: GDS -->
-            <a href="{{ route('gds.index') }}" class="transition-all duration-300 hover:shadow-lg">
+            <a href="{{ route('pelanggaran.index') }}" class="transition-all duration-300 hover:shadow-lg">
                 <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-5 rounded-lg shadow-md flex items-center">
                     <div class="bg-white/20 p-3 rounded-full mr-4">
                         <i class="bi bi-bar-chart-line-fill text-2xl"></i>
