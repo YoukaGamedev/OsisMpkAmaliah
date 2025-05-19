@@ -58,10 +58,4 @@ class GdsController extends Controller
         $jadwal = JadwalGds::where('hari', $hari)->first();
         return $jadwal ? $jadwal->pj : 'Tidak Ada PJ';
     }
-
-    public function show($id)
-    {
-        $siswa = Siswa::findOrFail($id);
-        return view('user.gds.show', compact('siswa'));
-    }
 }

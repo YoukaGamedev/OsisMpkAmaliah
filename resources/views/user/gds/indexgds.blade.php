@@ -7,7 +7,7 @@
         <h1 class="text-lg font-semibold flex items-center gap-2">
             <i class="fas fa-clipboard-list"></i> GDS Rekap
         </h1>
-        <form action="{{ route('gds.index') }}" method="GET" class="flex items-center gap-2">
+        <form action="{{ route('pelanggaran.index') }}" method="GET" class="flex items-center gap-2">
             <label for="tanggal" class="text-sm font-semibold">Tanggal:</label>
             <input type="date" name="tanggal" id="tanggal" value="{{ $tanggal ?? now()->toDateString() }}" class="border p-2 rounded text-gray-700">
             <button type="submit" class="bg-blue-500 text-white px-3 py-2 rounded hover:bg-blue-600 transition">
@@ -47,41 +47,65 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($absensi as $data)
-                    <tr class="hover:bg-gray-50 text-xs">
-                        <td class="p-2 border text-center">{{ $loop->iteration }}</td>
-                        <td class="p-2 border">{{ $data->nama }}</td>
-                        <td class="p-2 border">{{ $data->kelas }}</td>
-                        @foreach(['dasi', 'kacuk', 'kaos_kaki', 'sabuk', 'nametag', 'sepatu', 'jas', 'ring', 'bros', 'makeup', 'telat', 'ciput', 'hijab', 'almamater'] as $attr)
-                            <td class="p-2 border text-center {{ $data->$attr ? 'text-green-600' : 'text-red-500' }}">
-                                <i class="fas {{ $data->$attr ? 'fa-check' : 'fa-times' }}"></i>
-                            </td>
-                        @endforeach
-                        <td class="p-2 border text-center flex justify-center gap-2">
-    <!-- Tombol Lihat -->
-    <a href="{{ route('gds.show', $data->id) }}" class="text-blue-500 hover:text-blue-700">
-        <i class="fas fa-eye"></i>
-    </a>
+            @foreach($absensi as $data)
+    <tr class="hover:bg-gray-50 text-xs">
+        <td class="p-2 border text-center">{{ $loop->iteration }}</td>
+        <td class="p-2 border">{{ $data->nama }}</td>
+        <td class="p-2 border">{{ $data->kelas }}</td>
 
-    <!-- Tombol Edit Pelanggaran -->
-    <a href="{{ route('pelanggaran.edit', $data->id) }}" class="text-yellow-500 hover:text-yellow-700">
-        <i class="fas fa-edit"></i>
-    </a>
+        @foreach(['dasi', 'kacuk', 'kaos_kaki', 'sabuk', 'nametag', 'sepatu', 'jas', 'ring', 'bros', 'makeup', 'telat', 'ciput', 'hijab', 'almamater'] as $attr)
+            <td class="p-2 border text-center {{ $data->$attr ? 'text-green-600' : 'text-red-500' }}">
+                <i class="fas {{ $data->$attr ? 'fa-check' : 'fa-times' }}"></i>
+            </td>
+        @endforeach
 
-    <!-- Tombol Hapus Pelanggaran -->
-    <form action="{{ route('pelanggaran.destroy', $data->id) }}" method="POST" onsubmit="return confirm('Yakin mau hapus data ini?');">
-        @csrf
-        @method('DELETE')
-        <button type="submit" class="text-red-500 hover:text-red-700">
-            <i class="fas fa-trash"></i>
-        </button>
-    </form>
-</td>
+        <td class="p-2 border text-center flex justify-center gap-2">
+            <!-- Tombol Lihat -->
+            <a href="{{ route('pelanggaran.show', $data->id_pelanggaran) }}" class="text-blue-500 hover:text-blue-700">
+                <i class="fas fa-eye"></i>
+            </a>
 
-                    </tr>
-                @endforeach
+            <!-- Tombol Edit -->
+            <a href="{{ route('pelanggaran.edit', $data->id_pelanggaran) }}" class="text-yellow-500 hover:text-yellow-700">
+                <i class="fas fa-edit"></i>
+            </a>
+
+            <!-- Tombol Hapus -->
+<form id="delete-form-{{ $data->id_pelanggaran }}" action="{{ route('pelanggaran.destroy', $data->id_pelanggaran) }}" method="POST">
+    @csrf
+    @method('DELETE')
+    <button type="button" onclick="confirmDelete({{ $data->id_pelanggaran }})" class="text-red-500 hover:text-red-700">
+        <i class="fas fa-trash"></i>
+    </button>
+</form>
+
+        </td>
+    </tr>
+@endforeach
+
             </tbody>
         </table>
     </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+function confirmDelete(id) {
+    Swal.fire({
+        title: 'Apakah Anda yakin?',
+        text: "Data yang dihapus tidak bisa dikembalikan!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Ya, hapus!',
+        cancelButtonText: 'Batal'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            document.getElementById('delete-form-' + id).submit();
+        }
+    });
+}
+</script>
+
 @endsection

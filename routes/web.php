@@ -57,7 +57,7 @@ Route::resource('datakandidat', DataKandidatController::class);
 Route::resource('datadpt', DataDptController::class);
 Route::resource('dashboardpemilu', DashboardController::class);
 Route::resource('hasilpemilihan', HasilPemilihanController::class);
-Route::resource('/user/pemilu/home', HomerController::class);
+Route::resource('home', HomerController::class);
 Route::resource('/user/pemilu/pilihkandidat', PilihKandidatController::class,);
 
 Route::get('/user/berespilih', [UserController::class, 'berespilih'])->name('user.berespilih');
@@ -83,6 +83,8 @@ Route::get('/user/agenda', [UserController::class, 'agenda'])->name('user.agenda
 Route::get('/user/agenda/show/{id}', [UserController::class, 'agendaS'])->name('user.agenda.show');
 Route::get('/user/jadwalgds', [UserController::class, 'jadwalgds'])->name('user.jadwalgds');
 Route::resource('pelanggaran', PelanggaranController::class);
+// Route::put('/pelanggaran/{pelanggaran}', [PelanggaranController::class, 'update'])->name('pelanggaran.update');
+
 
 Route::resource('gds', GdsController::class);
 Route::resource('tambahdata', TambahDataController::class);
