@@ -15,6 +15,8 @@ class Siswa extends Model
     protected $fillable = [
         'nama',
         'kelas',
+        'foto',
+        'qr_code',
     ];
 
     // Relasi: Siswa punya banyak Pelanggaran
