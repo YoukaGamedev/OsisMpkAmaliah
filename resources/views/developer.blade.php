@@ -156,14 +156,14 @@
             <div class="flex items-center justify-between mb-4">
                 <div>
                     <h3 class="text-2xl font-bold text-gray-900">Niswatul Hasanah</h3>
-                    <p class="text-purple-600 font-semibold">System Analyst</p>
+                    <p class="text-blue-600 font-semibold">System Analyst</p>
                 </div>
-                <div class="h-12 w-12 bg-purple-100 rounded-lg flex items-center justify-center">
-                    <i class="fas fa-chart-line text-purple-600 text-lg"></i>
+                <div class="h-12 w-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-chart-line text-blue-600 text-lg"></i>
                 </div>
             </div>
             <p class="text-gray-600 mb-6 leading-relaxed">
-                Menganalisis kebutuhan sistem dan merancang alur kerja yang efisien untuk memastikan aplikasi berjalan optimal.
+               Merancang alur sistem melalui pembuatan flowchart dan alur kerja yang efisien untuk memastikan aplikasi berjalan optimal.
             </p>
             <div class="flex items-center justify-between">
                 <div class="flex space-x-3">
