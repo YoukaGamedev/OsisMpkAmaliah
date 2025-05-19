@@ -272,6 +272,9 @@
                                 <a href="https://www.tiktok.com/@osismpk_smkamaliah?is_from_webapp=1&sender_device=pc" class="w-10 h-10 rounded-full bg-gradient-to-br from-black to-gray-800 flex items-center justify-center group hover:from-black hover:to-gray-700 transition-all duration-300 shadow-lg">
                                     <i class="fab fa-tiktok text-white group-hover:scale-110 transition-transform"></i>
                                 </a>
+                                 <a href="mailto:osismpksmkamaliah@gmail.com" class="w-10 h-10 rounded-full bg-gradient-to-br from-red-600 to-red-400 flex items-center justify-center group hover:from-red-500 hover:to-red-300 transition-all duration-300 shadow-lg">
+                                    <i class="fas fa-envelope text-white group-hover:scale-110 transition-transform"></i>
+                                </a>
                             </div>
                         </div>
                         

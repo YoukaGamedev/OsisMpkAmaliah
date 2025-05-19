@@ -98,10 +98,10 @@
         <!-- Enhanced Developer Cards -->
         <section class="mb-20">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-           <!-- Developer 1 - rizal abdulrahman -->
+           
 <div class="group">
     <div class="bg-white rounded-2xl shadow-lg card-hover overflow-hidden border border-gray-100">
-        <div class="relative h-64 bg-cover bg-center overflow-hidden" style="background-image: url('/asset/img/zal.jpg');">
+        <div class="relative h-64 bg-cover bg-center overflow-hidden" style="background-image: url('/asset/img/tayo1.jpg');">
             <div class="absolute inset-0 bg-black/20"></div> <!-- Overlay gelap agar teks tetap terbaca -->
             <div class="absolute top-4 right-4">
                 <span class="bg-white/20 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">
@@ -112,51 +112,8 @@
         <div class="p-8">
             <div class="flex items-center justify-between mb-4">
                 <div>
-                    <h3 class="text-2xl font-bold text-gray-900">Rizal Abdurahman</h3>
-                    <p class="text-blue-600 font-semibold">Back End Developer</p>
-                </div>
-                <div class="h-12 w-12 bg-purple-100 rounded-lg flex items-center justify-center">
-                    <i class="fas fa-chart-line text-blue-600 text-lg"></i>
-                </div>
-            </div>
-            <p class="text-gray-600 mb-6 leading-relaxed">
-                Merancang arsitektur sistem, mengelola struktur basis data, dan mengembangkan logika backend untuk memastikan aplikasi berjalan efisien.
-            </p>
-            <div class="flex items-center justify-between">
-                <div class="flex space-x-3">
-                    <a href="#" class="h-10 w-10 bg-gray-100 hover:bg-purple-100 rounded-lg flex items-center justify-center transition-colors">
-                        <i class="fab fa-github text-gray-600 hover:text-purple-600"></i>
-                    </a>
-                    <a href="#" class="h-10 w-10 bg-gray-100 hover:bg-purple-100 rounded-lg flex items-center justify-center transition-colors">
-                        <i class="fab fa-linkedin text-gray-600 hover:text-purple-600"></i>
-                    </a>
-                    <a href="#" class="h-10 w-10 bg-gray-100 hover:bg-pink-100 rounded-lg flex items-center justify-center transition-colors">
-                        <i class="fab fa-instagram text-gray-600 hover:text-pink-600"></i>
-                    </a>
-                </div>
-                <span class="text-sm text-gray-400">PHP Specialist</span>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- Developer 2 - Niswatul Hasanah -->
-<div class="group">
-    <div class="bg-white rounded-2xl shadow-lg card-hover overflow-hidden border border-gray-100">
-        <div class="relative h-64 bg-cover bg-center overflow-hidden" style="background-image: url('/asset/img/niswa.jpg');">
-            <div class="absolute inset-0 bg-black/20"></div> <!-- Overlay gelap agar teks tetap terbaca -->
-            <div class="absolute top-4 right-4">
-                <span class="bg-white/20 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">
-                    Data Expert
-                </span>
-            </div>
-        </div>
-        <div class="p-8">
-            <div class="flex items-center justify-between mb-4">
-                <div>
-                    <h3 class="text-2xl font-bold text-gray-900">Niswatul Hasanah</h3>
-                    <p class="text-purple-600 font-semibold">System Analyst</p>
+                    <h3 class="text-2xl font-bold text-gray-900">rizal abdulrahman</h3>
+                    <p class="text-purple-600 font-semibold">back end</p>
                 </div>
                 <div class="h-12 w-12 bg-purple-100 rounded-lg flex items-center justify-center">
                     <i class="fas fa-chart-line text-purple-600 text-lg"></i>
@@ -177,6 +134,48 @@
                         <i class="fab fa-instagram text-gray-600 hover:text-pink-600"></i>
                     </a>
                 </div>
+                <span class="text-sm text-gray-400">PHP Specialist</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="group">
+    <div class="bg-white rounded-2xl shadow-lg card-hover overflow-hidden border border-gray-100">
+        <div class="relative h-64 bg-cover bg-center overflow-hidden" style="background-image: url('/asset/img/niswa.jpg');">
+            <div class="absolute inset-0 bg-black/20"></div> <!-- Overlay gelap agar teks tetap terbaca -->
+            <div class="absolute top-4 right-4">
+                <span class="bg-white/20 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">
+                    Data Expert
+                </span>
+            </div>
+        </div>
+        <div class="p-8">
+            <div class="flex items-center justify-between mb-4">
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-900">Niswatul Hasanah</h3>
+                    <p class="text-blue-600 font-semibold">System Analyst</p>
+                </div>
+                <div class="h-12 w-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-chart-line text-blue-600 text-lg"></i>
+                </div>
+            </div>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+            </p>
+            <div class="flex items-center justify-between">
+                <div class="flex space-x-3">
+                    <a href="#" class="h-10 w-10 bg-gray-100 hover:bg-purple-100 rounded-lg flex items-center justify-center transition-colors">
+                        <i class="fab fa-github text-gray-600 hover:text-purple-600"></i>
+                    </a>
+                    <a href="#" class="h-10 w-10 bg-gray-100 hover:bg-purple-100 rounded-lg flex items-center justify-center transition-colors">
+                        <i class="fab fa-linkedin text-gray-600 hover:text-purple-600"></i>
+                    </a>
+                    <a href="#" class="h-10 w-10 bg-gray-100 hover:bg-pink-100 rounded-lg flex items-center justify-center transition-colors">
+                        <i class="fab fa-instagram text-gray-600 hover:text-pink-600"></i>
+                    </a>
+                </div>
                 <span class="text-sm text-gray-400">UML Specialist</span>
             </div>
         </div>
@@ -184,47 +183,46 @@
 </div>
 
 
-                <!-- Developer 3 - M. Ilham Rai'subagja -->
 <div class="group">
     <div class="bg-white rounded-2xl shadow-lg card-hover overflow-hidden border border-gray-100">
-        <div class="relative h-64 bg-cover bg-center overflow-hidden" style="background-image: url('https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face');">
-            <div class="absolute inset-0 bg-black/20"></div> <!-- Overlay gelap -->
+        <div class="relative h-64 bg-cover bg-center overflow-hidden" style="background-image: url('/asset/img/bagja.jpg');">
+            <div class="absolute inset-0 bg-black/20"></div> <!-- Overlay gelap agar teks tetap terbaca -->
             <div class="absolute top-4 right-4">
                 <span class="bg-white/20 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">
-                    UI/UX Expert
+                    System Expert
                 </span>
             </div>
         </div>
         <div class="p-8">
             <div class="flex items-center justify-between mb-4">
                 <div>
-                    <h3 class="text-2xl font-bold text-gray-900">M. Ilham Rai'subagja</h3>
-                    <p class="text-green-600 font-semibold">Frontend Developer</p>
+                    <h3 class="text-2xl font-bold text-gray-900">M.ILHAM RAI' SUBAGJA</h3>
+                    <p class="text-blue-600 font-semibold">Front End</p>
                 </div>
-                <div class="h-12 w-12 bg-green-100 rounded-lg flex items-center justify-center">
-                    <i class="fas fa-palette text-green-600 text-lg"></i>
+                <div class="h-12 w-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-chart-line text-blue-600 text-lg"></i>
                 </div>
             </div>
             <p class="text-gray-600 mb-6 leading-relaxed">
-                Menciptakan antarmuka pengguna yang intuitif dan menarik dengan fokus pada pengalaman pengguna yang optimal.
             </p>
             <div class="flex items-center justify-between">
                 <div class="flex space-x-3">
-                    <a href="#" class="h-10 w-10 bg-gray-100 hover:bg-green-100 rounded-lg flex items-center justify-center transition-colors">
-                        <i class="fab fa-github text-gray-600 hover:text-green-600"></i>
+                    <a href="#" class="h-10 w-10 bg-gray-100 hover:bg-purple-100 rounded-lg flex items-center justify-center transition-colors">
+                        <i class="fab fa-github text-gray-600 hover:text-purple-600"></i>
                     </a>
-                    <a href="#" class="h-10 w-10 bg-gray-100 hover:bg-green-100 rounded-lg flex items-center justify-center transition-colors">
-                        <i class="fab fa-linkedin text-gray-600 hover:text-green-600"></i>
+                    <a href="#" class="h-10 w-10 bg-gray-100 hover:bg-purple-100 rounded-lg flex items-center justify-center transition-colors">
+                        <i class="fab fa-linkedin text-gray-600 hover:text-purple-600"></i>
                     </a>
                     <a href="#" class="h-10 w-10 bg-gray-100 hover:bg-pink-100 rounded-lg flex items-center justify-center transition-colors">
                         <i class="fab fa-instagram text-gray-600 hover:text-pink-600"></i>
                     </a>
                 </div>
-                <span class="text-sm text-gray-400">React Specialist</span>
+                <span class="text-sm text-gray-400">UML Specialist</span>
             </div>
         </div>
     </div>
 </div>
+     
 
         </section>
 
