@@ -228,7 +228,7 @@
     <div class="content-wrapper">
         <!-- Top section with school logo -->
         <div class="top-section">
-            <h1 class="app-title">APK OSIS</h1>
+            <h1 class="app-title">APK OSIS MPK</h1>
             <p class="school-name">SMK Amaliah</p>
         </div>
         
@@ -239,7 +239,7 @@
                 <img src="{{ asset('/asset/img/logo osis.png') }}" alt="Logo OSIS" class="logo-img">
             </div>
             <h2 class="osis-title">OSIS MPK Amaliah</h2>
-            <p class="osis-description">Aplikasi Resmi OSIS SMK Amaliah</p>
+            <p class="osis-description">Aplikasi Resmi OSIS MPK SMK Amaliah</p>
             
             <!-- Login button -->
             <a href="{{ route('login') }}" class="login-button">
@@ -260,7 +260,7 @@
                                 <div class="w-10 h-10 mr-3 rounded-full bg-blue-500/30 flex items-center justify-center">
                                     <img src="{{ asset('/asset/img/logo osis.png') }}" alt="Mini Logo" class="w-8 h-8">
                                 </div>
-                                <h3 class="text-xl font-bold text-white">OSIS SMK Amaliah</h3>
+                                <h3 class="text-xl font-bold text-white">OSIS MPK SMK Amaliah</h3>
                             </div>
                             <p class="text-gray-300 mb-5 text-sm leading-relaxed">Mewujudkan siswa yang berkarakter, kreatif, dan berprestasi melalui organisasi yang inovatif dan inspiratif.</p>
                             

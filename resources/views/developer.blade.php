@@ -73,9 +73,9 @@
                     <div class="absolute -top-2 -right-2 h-6 w-6 bg-green-500 rounded-full border-2 border-white"></div>
                 </div>
             </div>
-            <h2 class="text-5xl font-bold text-gray-900 mb-6">Tim Pengembang</h2>
+            <h2 class="text-5xl font-bold text-gray-900 mb-6">Tim Developer</h2>
             <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                Tim profesional di balik pengembangan aplikasi OSIS SMK Amaliah yang inovatif dan modern
+                Tim profesional di balik pengembangan aplikasi OSIS MPK SMK Amaliah yang inovatif dan modern
             </p>
             <div class="flex justify-center mt-8">
                 <div class="grid grid-cols-3 gap-8 text-center">
@@ -101,7 +101,7 @@
            <!-- Developer 1 - rizal abdulrahman -->
 <div class="group">
     <div class="bg-white rounded-2xl shadow-lg card-hover overflow-hidden border border-gray-100">
-        <div class="relative h-64 bg-cover bg-center overflow-hidden" style="background-image: url('/asset/img/tayo1.jpg');">
+        <div class="relative h-64 bg-cover bg-center overflow-hidden" style="background-image: url('/asset/img/zal.jpg');">
             <div class="absolute inset-0 bg-black/20"></div> <!-- Overlay gelap agar teks tetap terbaca -->
             <div class="absolute top-4 right-4">
                 <span class="bg-white/20 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">
@@ -112,15 +112,15 @@
         <div class="p-8">
             <div class="flex items-center justify-between mb-4">
                 <div>
-                    <h3 class="text-2xl font-bold text-gray-900">rizal abdulrahman</h3>
-                    <p class="text-purple-600 font-semibold">back end</p>
+                    <h3 class="text-2xl font-bold text-gray-900">Rizal Abdurahman</h3>
+                    <p class="text-blue-600 font-semibold">Back End Developer</p>
                 </div>
                 <div class="h-12 w-12 bg-purple-100 rounded-lg flex items-center justify-center">
-                    <i class="fas fa-chart-line text-purple-600 text-lg"></i>
+                    <i class="fas fa-chart-line text-blue-600 text-lg"></i>
                 </div>
             </div>
             <p class="text-gray-600 mb-6 leading-relaxed">
-                Menganalisis kebutuhan sistem dan merancang alur kerja yang efisien untuk memastikan aplikasi berjalan optimal.
+                Merancang arsitektur sistem, mengelola struktur basis data, dan mengembangkan logika backend untuk memastikan aplikasi berjalan efisien.
             </p>
             <div class="flex items-center justify-between">
                 <div class="flex space-x-3">
@@ -134,7 +134,7 @@
                         <i class="fab fa-instagram text-gray-600 hover:text-pink-600"></i>
                     </a>
                 </div>
-                <span class="text-sm text-gray-400">UML Specialist</span>
+                <span class="text-sm text-gray-400">PHP Specialist</span>
             </div>
         </div>
     </div>
@@ -148,7 +148,7 @@
             <div class="absolute inset-0 bg-black/20"></div> <!-- Overlay gelap agar teks tetap terbaca -->
             <div class="absolute top-4 right-4">
                 <span class="bg-white/20 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">
-                    System Expert
+                    Data Expert
                 </span>
             </div>
         </div>

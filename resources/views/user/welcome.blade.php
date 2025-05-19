@@ -23,18 +23,11 @@
                 <a href="{{ route('user.agenda') }}" class="flex items-center space-x-3 p-3 rounded-md hover:bg-gray-800 transition">
                     <i class="bi bi-calendar-event-fill text-lg"></i>
                     <span class="hidden group-hover:inline-block">Agenda</span>
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
                 </a>
             </nav>
         </div>
     </aside>
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
     <!-- Main Content -->
     <main class="flex-1 p-8">
         <div class="mb-8">
@@ -57,7 +50,7 @@
             </a>
 
             <!-- Card: GDS -->
-            <a href="{{ route('gds.index') }}" class="transition-all duration-300 hover:shadow-lg">
+            <a href="{{ route('pelanggaran.index') }}" class="transition-all duration-300 hover:shadow-lg">
                 <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-5 rounded-lg shadow-md flex items-center">
                     <div class="bg-white/20 p-3 rounded-full mr-4">
                         <i class="bi bi-bar-chart-line-fill text-2xl"></i>
