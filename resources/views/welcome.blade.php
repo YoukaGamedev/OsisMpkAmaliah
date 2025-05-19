@@ -283,30 +283,28 @@
                             </h3>
                             <ul class="space-y-3 text-sm grid grid-cols-2 gap-x-2 md:block">
                                 <li>
-                                    <a href="#" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center justify-center md:justify-start">
+                                    <a href="{{ ('/') }}" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center justify-center md:justify-start">
                                         <i class="fas fa-home w-5 text-blue-400"></i>
                                         <span>Beranda</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center justify-center md:justify-start">
+                                    <a href="{{ route('profilosis') }}" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center justify-center md:justify-start">
                                         <i class="fas fa-users w-5 text-blue-400"></i>
                                         <span>Profil OSIS</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center justify-center md:justify-start">
+                                    <a href="{{ route('programkerja') }}" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center justify-center md:justify-start">
                                         <i class="fas fa-tasks w-5 text-blue-400"></i>
                                         <span>Program Kerja</span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="#" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center justify-center md:justify-start">
-                                        <i class="fas fa-images w-5 text-blue-400"></i>
-                                        <span>Galeri</span>
-                                    </a>
-                                </li>
-                               
+                                <a href="{{ route('galeri') }}" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center justify-center md:justify-start">
+    <i class="fas fa-images w-5 text-blue-400 mr-2"></i>
+    <span>Galeri</span>
+</a>
+
                                 <li>
                                     <a href="#" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center justify-center md:justify-start">
                                         <i class="fas fa-phone-alt w-5 text-blue-400"></i>

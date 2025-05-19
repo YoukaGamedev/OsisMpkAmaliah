@@ -24,6 +24,7 @@ use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PelanggaranController;
+use App\Http\Controllers\HalawalController;
 
 
 // Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
@@ -96,3 +97,13 @@ Route::resource('jadwalgds', JadwalPiketGDSController::class);
 Route::resource('agenda', AgendaController::class);
 
 Route::post('/reset-data', [HasilPemilihanController::class, 'reset'])->name('reset.data');
+
+Route::get('/profilosis', [HalawalController::class, 'profilosis'])->name('profilosis');
+
+Route::get('/galeri', function () {
+    return view('galeri');
+})->name('galeri');
+
+Route::get('/programkerja', function () {
+    return view('programkerja');
+})->name('programkerja');
