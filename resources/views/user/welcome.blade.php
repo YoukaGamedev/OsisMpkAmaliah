@@ -31,12 +31,13 @@
     <main class="flex-1 p-8">
         <div class="mb-8">
             <h1 class="text-3xl font-bold text-gray-800">Dashboard OSIS</h1>
-            <p class="text-gray-500">Selamat datang user</p>
+            <p class="text-gray-500">Silakan pilih menu yang ingin kamu kelola.</p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
-            <!-- Card: Pemilu -->
-            <a href="{{ route('dashboardpemilu.index') }}" class="transition-all duration-300 hover:shadow-lg">
+        <!-- Grid Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Pemilu -->
+            <a href="{{ url('user/pemilu/home') }}" class="transition-all duration-300 hover:shadow-lg">
                 <div class="bg-gradient-to-r from-pink-500 to-pink-600 text-white p-5 rounded-lg shadow-md flex items-center">
                     <div class="bg-white/20 p-3 rounded-full mr-4">
                         <i class="bi bi-check2-square text-2xl"></i>
@@ -48,7 +49,7 @@
                 </div>
             </a>
 
-            <!-- Card: GDS -->
+            <!-- GDS -->
             <a href="{{ route('gds.index') }}" class="transition-all duration-300 hover:shadow-lg">
                 <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-5 rounded-lg shadow-md flex items-center">
                     <div class="bg-white/20 p-3 rounded-full mr-4">
@@ -61,7 +62,7 @@
                 </div>
             </a>
 
-            <!-- Card: Struktur OSIS -->
+            <!-- Struktur OSIS -->
             <a href="{{ route('user.struktur') }}" class="transition-all duration-300 hover:shadow-lg">
                 <div class="bg-gradient-to-r from-yellow-400 to-yellow-500 text-white p-5 rounded-lg shadow-md flex items-center">
                     <div class="bg-white/20 p-3 rounded-full mr-4">
@@ -74,7 +75,7 @@
                 </div>
             </a>
 
-            <!-- Card: Agenda Proker -->
+            <!-- Agenda -->
             <a href="{{ route('user.agenda') }}" class="transition-all duration-300 hover:shadow-lg">
                 <div class="bg-gradient-to-r from-purple-500 to-purple-600 text-white p-5 rounded-lg shadow-md flex items-center">
                     <div class="bg-white/20 p-3 rounded-full mr-4">
