@@ -10,6 +10,20 @@
         tailwind.config = {
             theme: {
                 extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        }
+                    },
                     animation: {
                         'fade-in': 'fadeIn 0.5s ease-in-out',
                         'slide-up': 'slideUp 0.6s ease-out',
@@ -33,7 +47,7 @@
             50% { transform: translateY(-10px); }
         }
         .gradient-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%);
         }
         .card-hover {
             transition: all 0.3s ease;
@@ -44,7 +58,7 @@
         }
     </style>
 </head>
-<body class="bg-gradient-to-br from-gray-50 via-blue-50 to-indigo-100 min-h-screen">
+<body class="bg-gradient-to-br from-gray-50 via-blue-50 to-primary-100 min-h-screen">
     
     <!-- Header with Gradient -->
     <header class="gradient-bg shadow-2xl relative overflow-hidden">
@@ -55,15 +69,15 @@
                     Program Kerja
                 </h1>
                 <div class="flex items-center justify-center mb-4">
-                    <div class="w-16 h-1 bg-yellow-400 rounded-full mr-4"></div>
+                    <div class="w-16 h-1 bg-primary-300 rounded-full mr-4"></div>
                     <p class="text-white text-2xl md:text-3xl font-semibold">
                         OSIS & MPK
                     </p>
-                    <div class="w-16 h-1 bg-yellow-400 rounded-full ml-4"></div>
+                    <div class="w-16 h-1 bg-primary-300 rounded-full ml-4"></div>
                 </div>
-                <p class="text-blue-100 text-xl mb-2">SMK Amaliah 1 Ciawi</p>
+                <p class="text-primary-100 text-xl mb-2">SMK Amaliah 1 Ciawi</p>
                 <div class="inline-flex items-center bg-white bg-opacity-20 rounded-full px-6 py-2">
-                    <i class="fas fa-calendar-alt text-yellow-400 mr-2"></i>
+                    <i class="fas fa-calendar-alt text-primary-300 mr-2"></i>
                     <span class="text-white font-medium">Periode 2024/2025</span>
                 </div>
             </div>
@@ -77,13 +91,13 @@
     <!-- Navigation/Back Button -->
     <div class="container mx-auto px-4 -mt-6 relative z-20">
         <div class="flex justify-between items-center">
-            <a href="/user" class="inline-flex items-center px-6 py-3 bg-white text-gray-700 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-gray-50 group">
-                <i class="fas fa-arrow-left mr-3 text-blue-600 group-hover:text-blue-700"></i>
-                <span class="font-semibold">Kembali ke Dashboard</span>
+            <a href="/" class="inline-flex items-center px-6 py-3 bg-white text-gray-700 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-gray-50 group">
+                <i class="fas fa-arrow-left mr-3 text-primary-600 group-hover:text-primary-700"></i>
+                <span class="font-semibold">Kembali</span>
             </a>
             
             <div class="hidden md:flex items-center bg-white rounded-full px-6 py-3 shadow-lg">
-                <i class="fas fa-tasks text-blue-600 mr-2"></i>
+                <i class="fas fa-tasks text-primary-600 mr-2"></i>
                 <span class="text-gray-700 font-semibold">6 Program Kerja</span>
             </div>
         </div>
@@ -181,13 +195,13 @@
 
             <!-- Card 5 -->
             <div class="bg-white rounded-2xl shadow-lg card-hover border border-gray-100 overflow-hidden">
-                <div class="bg-gradient-to-r from-blue-500 to-blue-600 h-2"></div>
+                <div class="bg-gradient-to-r from-primary-500 to-primary-600 h-2"></div>
                 <div class="p-8">
                     <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                            <i class="fas fa-users text-blue-600 text-xl"></i>
+                        <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-users text-primary-600 text-xl"></i>
                         </div>
-                        <span class="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full">Program Pelatihan</span>
+                        <span class="px-3 py-1 bg-primary-100 text-primary-800 text-sm font-medium rounded-full">Program Pelatihan</span>
                     </div>
                     <h3 class="text-xl font-bold text-gray-800 mb-3">LDKS (Latihan Dasar Kepemimpinan Siswa)</h3>
                     <p class="text-gray-600 mb-4 leading-relaxed">Pelatihan untuk pengurus OSIS & MPK dalam membangun kepemimpinan dan kerja tim yang efektif.</p>
@@ -228,7 +242,7 @@
                     Bersama-sama kita dapat menciptakan lingkungan sekolah yang lebih baik.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <button class="px-6 py-3 bg-blue-600 text-white rounded-full font-semibold hover:bg-blue-700 transition-colors duration-300 shadow-lg hover:shadow-xl">
+                    <button class="px-6 py-3 bg-primary-600 text-white rounded-full font-semibold hover:bg-primary-700 transition-colors duration-300 shadow-lg hover:shadow-xl">
                         <i class="fas fa-hands-helping mr-2"></i>
                         Daftar Volunteer
                     </button>
@@ -241,133 +255,134 @@
         </div>
     </section>
 
-    <!-- Footer with Tailwind CSS -->
-    <footer class="mt-20 relative overflow-hidden">
-        <div class="bg-gradient-to-t from-indigo-900/90 to-indigo-900/30 pt-8 pb-4 px-4 backdrop-blur-sm relative z-10">
-            <div class="max-w-6xl mx-auto">
-                <!-- Footer Main Content -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-center md:text-left">
-                    <!-- Column 1: About -->
-                    <div class="md:pr-8">
-                        <div class="flex justify-center md:justify-start items-center mb-4">
-                            <div class="w-10 h-10 mr-3 rounded-full bg-blue-500/30 flex items-center justify-center">
-                                <img src="/api/placeholder/32/32" alt="Mini Logo" class="w-8 h-8 rounded-full">
+   <!-- Footer -->
+        <footer>
+            <div class="bg-gradient-to-t from-blue-900/90 to-blue-900/60 pt-8 pb-4 px-4 backdrop-blur-sm">
+                <div class="max-w-6xl mx-auto">
+                    <!-- Footer Main Content -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-center md:text-left">
+                        <!-- Column 1: About -->
+                        <div class="md:pr-8">
+                            <div class="flex justify-center md:justify-start items-center mb-4">
+                                <div class="w-10 h-10 mr-3 rounded-full bg-blue-500/30 flex items-center justify-center">
+                                    <img src="{{ asset('/asset/img/logo osis.png') }}" alt="Mini Logo" class="w-8 h-8">
+                                </div>
+                                <h3 class="text-xl font-bold text-white">OSIS SMK Amaliah</h3>
                             </div>
-                            <h3 class="text-xl font-bold text-white">OSIS SMK Amaliah</h3>
+                            <p class="text-gray-300 mb-5 text-sm leading-relaxed">Mewujudkan siswa yang berkarakter, kreatif, dan berprestasi melalui organisasi yang inovatif dan inspiratif.</p>
+                            
+                            <!-- Social Media Icons -->
+                            <div class="flex justify-center md:justify-start space-x-3">
+                                <a href="https://www.instagram.com/official_osismpksmkamaliah?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="w-10 h-10 rounded-full bg-gradient-to-br from-pink-600 to-purple-600 flex items-center justify-center group hover:from-pink-500 hover:to-purple-500 transition-all duration-300 shadow-lg">
+                                    <i class="fab fa-instagram text-white group-hover:scale-110 transition-transform"></i>
+                                </a>
+                                <a href="https://www.tiktok.com/@osismpk_smkamaliah?is_from_webapp=1&sender_device=pc" class="w-10 h-10 rounded-full bg-gradient-to-br from-black to-gray-800 flex items-center justify-center group hover:from-black hover:to-gray-700 transition-all duration-300 shadow-lg">
+                                    <i class="fab fa-tiktok text-white group-hover:scale-110 transition-transform"></i>
+                                </a>
+                            </div>
                         </div>
-                        <p class="text-gray-300 mb-5 text-sm leading-relaxed">Mewujudkan siswa yang berkarakter, kreatif, dan berprestasi melalui organisasi yang inovatif dan inspiratif.</p>
                         
-                        <!-- Social Media Icons - Enhanced -->
-                        <div class="flex justify-center md:justify-start space-x-3">
-                            <a href="https://www.instagram.com/official_osismpksmkamaliah?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="w-10 h-10 rounded-full bg-gradient-to-br from-pink-600 to-purple-600 flex items-center justify-center group hover:from-pink-500 hover:to-purple-500 transition-all duration-300 shadow-lg">
-                                <i class="fab fa-instagram text-white group-hover:scale-110 transition-transform"></i>
-                            </a>
-                            <a href="https://www.tiktok.com/@osismpk_smkamaliah?is_from_webapp=1&sender_device=pc" class="w-10 h-10 rounded-full bg-gradient-to-br from-black to-gray-800 flex items-center justify-center group hover:from-black hover:to-gray-700 transition-all duration-300 shadow-lg">
-                                <i class="fab fa-tiktok text-white group-hover:scale-110 transition-transform"></i>
-                            </a>
+                        <!-- Column 2: Links -->
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-5 flex items-center justify-center md:justify-start">
+                                <i class="fas fa-link text-blue-400 mr-2"></i>
+                                Tautan Cepat
+                            </h3>
+                            <ul class="space-y-3 text-sm">
+                                <li>
+                                    <a href="{{ url('/') }}" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center justify-center md:justify-start">
+                                        <i class="fas fa-home text-blue-400 w-5 mr-2"></i>
+                                        <span>Beranda</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('profilosis') }}" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center justify-center md:justify-start">
+                                        <i class="fas fa-users text-blue-400 w-5 mr-2"></i>
+                                        <span>Profil OSIS</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('programkerja') }}" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center justify-center md:justify-start">
+                                        <i class="fas fa-tasks text-blue-400 w-5 mr-2"></i>
+                                        <span>Program Kerja</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('galeri') }}" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center justify-center md:justify-start">
+                                        <i class="fas fa-images text-blue-400 w-5 mr-2"></i>
+                                        <span>Galeri</span>
+                                    </a>
+                                </li>
+                                <li>
+    <a href="{{ route('developer') }}" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center justify-center md:justify-start">
+        <i class="fas fa-phone-alt text-blue-400 w-5 mr-2"></i>
+        <span>Developer</span>
+    </a>
+</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Column 3: Contact -->
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-5 flex items-center justify-center md:justify-start">
+                                <i class="fas fa-id-card text-blue-400 mr-2"></i>
+                                Kontak Kami
+                            </h3>
+                            <ul class="space-y-4 text-sm">
+                                <li class="flex items-start text-gray-300 group">
+                                    <div class="mt-1 w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center shrink-0 mr-3 group-hover:bg-blue-500/30 transition-colors">
+                                        <i class="fas fa-map-marker-alt text-blue-400"></i>
+                                    </div>
+                                    <span>Jalan Tol Ciawi No. 1<br>Kecamatan Ciawi<br>Kabupaten Bogor 16720</span>
+                                </li>
+                                <li class="flex items-center text-gray-300 group">
+                                    <div class="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center shrink-0 mr-3 group-hover:bg-blue-500/30 transition-colors">
+                                        <i class="fas fa-phone text-blue-400"></i>
+                                    </div>
+                                    <span>(0251) 8241986</span>
+                                </li>
+                                <li class="flex items-center text-gray-300 group">
+                                    <div class="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center shrink-0 mr-3 group-hover:bg-blue-500/30 transition-colors">
+                                        <i class="fas fa-envelope text-blue-400"></i>
+                                    </div>
+                                    <span>osis@smkamaliah.sch.id</span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                     
-                    <!-- Column 2: Links -->
-                    <div>
-                        <h3 class="text-xl font-bold text-white mb-5 flex items-center justify-center md:justify-start">
-                            <i class="fas fa-link text-blue-400 mr-2"></i>
-                            Tautan Cepat
-                        </h3>
-                        <ul class="space-y-3 text-sm grid grid-cols-2 gap-x-2 md:block">
-                            <li>
-                                <a href="/" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center justify-center md:justify-start">
-                                    <i class="fas fa-home w-5 text-blue-400 mr-2"></i>
-                                    <span>Beranda</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center justify-center md:justify-start">
-                                    <i class="fas fa-users w-5 text-blue-400 mr-2"></i>
-                                    <span>Profil OSIS</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center justify-center md:justify-start">
-                                    <i class="fas fa-tasks w-5 text-blue-400 mr-2"></i>
-                                    <span>Program Kerja</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center justify-center md:justify-start">
-                                    <i class="fas fa-images w-5 text-blue-400 mr-2"></i>
-                                    <span>Galeri</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center justify-center md:justify-start">
-                                    <i class="fas fa-phone-alt w-5 text-blue-400 mr-2"></i>
-                                    <span>Developer</span>
-                                </a>
-                            </li>
-                        </ul>
+                    <!-- Divider -->
+                    <div class="relative">
+                        <div class="absolute left-1/2 transform -translate-x-1/2 -top-3 bg-blue-900 px-4">
+                            <div class="h-6 w-16 relative flex justify-center">
+                                <div class="w-2 h-2 rounded-full bg-blue-400 absolute animate-pulse"></div>
+                                <div class="w-16 h-0.5 bg-gradient-to-r from-transparent via-blue-400 to-transparent absolute top-1/2 -translate-y-1/2"></div>
+                            </div>
+                        </div>
+                        <div class="border-t border-gray-700/50 my-8"></div>
                     </div>
                     
-                    <!-- Column 3: Contact -->
-                    <div>
-                        <h3 class="text-xl font-bold text-white mb-5 flex items-center justify-center md:justify-start">
-                            <i class="fas fa-id-card text-blue-400 mr-2"></i>
-                            Kontak Kami
-                        </h3>
-                        <ul class="space-y-4 text-sm">
-                            <li class="flex items-start justify-center md:justify-start text-gray-300 group">
-                                <div class="mt-1 w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center shrink-0 mr-3 group-hover:bg-blue-500/30 transition-colors">
-                                    <i class="fas fa-map-marker-alt text-blue-400"></i>
-                                </div>
-                                <span class="text-left">Jl. Raya Amaliah No. 25,<br>Bogor, Jawa Barat</span>
-                            </li>
-                            <li class="flex items-center justify-center md:justify-start text-gray-300 group">
-                                <div class="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center shrink-0 mr-3 group-hover:bg-blue-500/30 transition-colors">
-                                    <i class="fas fa-phone text-blue-400"></i>
-                                </div>
-                                <span>+62 812-3456-7890</span>
-                            </li>
-                            <li class="flex items-center justify-center md:justify-start text-gray-300 group">
-                                <div class="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center shrink-0 mr-3 group-hover:bg-blue-500/30 transition-colors">
-                                    <i class="fas fa-envelope text-blue-400"></i>
-                                </div>
-                                <span>osis@smkamaliah.sch.id</span>
-                            </li>
-                        </ul>
+                    <!-- Copyright -->
+                    <div class="flex flex-col md:flex-row justify-center md:justify-between items-center text-gray-400 text-sm">
+                        <p class="mb-2 md:mb-0 flex items-center">
+                            <i class="far fa-copyright mr-1"></i>
+                            <span>2025 OSIS SMK Amaliah. All rights reserved.</span>
+                        </p>
+                        <p class="flex items-center">
+                            <span class="bg-blue-500/20 text-xs px-2 py-1 rounded-full text-blue-300 mr-2">v1.0.0</span>
+                            <span>Aplikasi Resmi OSIS dan MPK</span>
+                        </p>
                     </div>
                 </div>
                 
-                <!-- Divider with decorative element -->
-                <div class="relative">
-                    <div class="absolute left-1/2 transform -translate-x-1/2 -top-3 bg-indigo-900 px-4">
-                        <div class="h-6 w-16 relative flex justify-center">
-                            <div class="w-2 h-2 rounded-full bg-blue-400 absolute animate-pulse"></div>
-                            <div class="w-16 h-0.5 bg-gradient-to-r from-transparent via-blue-400 to-transparent absolute top-1/2 -translate-y-1/2"></div>
-                        </div>
-                    </div>
-                    <div class="border-t border-gray-700/50 my-8"></div>
-                </div>
-                
-                <!-- Copyright -->
-                <div class="flex flex-col md:flex-row justify-center md:justify-between items-center text-gray-400 text-sm">
-                    <p class="mb-2 md:mb-0 flex items-center">
-                        <i class="far fa-copyright mr-1"></i>
-                        <span>2025 OSIS SMK Amaliah. All rights reserved.</span>
-                    </p>
-                    <p class="flex items-center">
-                        <span class="bg-blue-500/20 text-xs px-2 py-1 rounded-full text-blue-300 mr-2">v1.0.0</span>
-                        <span>Aplikasi Resmi OSIS dan MPK</span>
-                    </p>
+                <!-- Decorative Elements -->
+                <div class="absolute -bottom-6 left-0 w-full overflow-hidden z-0">
+                    <div class="w-96 h-96 rounded-full bg-blue-600/10 absolute -bottom-80 -left-20 blur-3xl"></div>
+                    <div class="w-96 h-96 rounded-full bg-blue-600/10 absolute -bottom-80 -right-20 blur-3xl"></div>
                 </div>
             </div>
-            
-            <!-- Decorative Elements -->
-            <div class="absolute -bottom-6 left-0 w-full overflow-hidden z-0">
-                <div class="w-96 h-96 rounded-full bg-blue-600/10 absolute -bottom-80 -left-20 blur-3xl"></div>
-                <div class="w-96 h-96 rounded-full bg-blue-600/10 absolute -bottom-80 -right-20 blur-3xl"></div>
-            </div>
-        </div>
-    </footer>
+        </footer>
+   
 
     <script>
         // Set current year

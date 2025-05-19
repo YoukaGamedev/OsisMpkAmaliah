@@ -20,15 +20,15 @@
             flex-direction: column;
             color: white;
             position: relative;
-            overflow-y: auto; /* Enable vertical scrolling */
+            overflow-y: auto;
             background-image: url('/asset/img/amaliah.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Keep background fixed while scrolling */
+            background-attachment: fixed;
         }
         
         .bg-overlay {
-            position: fixed; /* Fixed position so it covers the entire viewport */
+            position: fixed;
             top: 0;
             left: 0;
             right: 0;
@@ -57,13 +57,13 @@
         }
         
         .middle-section {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 60px 0; /* Tambahkan padding lebih besar */
-}
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 0;
+        }
         
         .app-title {
             font-size: 1.875rem;
@@ -163,7 +163,7 @@
             position: relative;
             z-index: 2;
             width: 100%;
-            margin-top: auto; /* Push to bottom */
+            margin-top: auto;
         }
         
         /* Animations */
@@ -191,13 +191,13 @@
         
         /* Particles background */
         .particles {
-            position: fixed; /* Fixed so it stays in view */
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: 1;
-            pointer-events: none; /* Allow clicking through */
+            pointer-events: none;
         }
         
         .particle {
@@ -247,10 +247,10 @@
                 <i class="fas fa-arrow-right"></i>
             </a>
         </div>
-        
-        <!-- Footer with Tailwind CSS -->
+
+        <!-- Footer -->
         <footer>
-            <div class="bg-gradient-to-t from-indigo-900/90 to-indigo-900/30 pt-8 pb-4 px-4 backdrop-blur-sm">
+            <div class="bg-gradient-to-t from-blue-900/90 to-blue-900/30 pt-8 pb-4 px-4 backdrop-blur-sm">
                 <div class="max-w-6xl mx-auto">
                     <!-- Footer Main Content -->
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-center md:text-left">
@@ -264,7 +264,7 @@
                             </div>
                             <p class="text-gray-300 mb-5 text-sm leading-relaxed">Mewujudkan siswa yang berkarakter, kreatif, dan berprestasi melalui organisasi yang inovatif dan inspiratif.</p>
                             
-                            <!-- Social Media Icons - Enhanced -->
+                            <!-- Social Media Icons -->
                             <div class="flex justify-center md:justify-start space-x-3">
                                 <a href="https://www.instagram.com/official_osismpksmkamaliah?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="w-10 h-10 rounded-full bg-gradient-to-br from-pink-600 to-purple-600 flex items-center justify-center group hover:from-pink-500 hover:to-purple-500 transition-all duration-300 shadow-lg">
                                     <i class="fab fa-instagram text-white group-hover:scale-110 transition-transform"></i>
@@ -281,36 +281,37 @@
                                 <i class="fas fa-link text-blue-400 mr-2"></i>
                                 Tautan Cepat
                             </h3>
-                            <ul class="space-y-3 text-sm grid grid-cols-2 gap-x-2 md:block">
+                            <ul class="space-y-3 text-sm">
                                 <li>
-                                    <a href="{{ ('/') }}" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center justify-center md:justify-start">
-                                        <i class="fas fa-home w-5 text-blue-400"></i>
+                                    <a href="{{ url('/') }}" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center justify-center md:justify-start">
+                                        <i class="fas fa-home text-blue-400 w-5 mr-2"></i>
                                         <span>Beranda</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ route('profilosis') }}" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center justify-center md:justify-start">
-                                        <i class="fas fa-users w-5 text-blue-400"></i>
+                                        <i class="fas fa-users text-blue-400 w-5 mr-2"></i>
                                         <span>Profil OSIS</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a href="{{ route('programkerja') }}" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center justify-center md:justify-start">
-                                        <i class="fas fa-tasks w-5 text-blue-400"></i>
+                                        <i class="fas fa-tasks text-blue-400 w-5 mr-2"></i>
                                         <span>Program Kerja</span>
                                     </a>
                                 </li>
-                                <a href="{{ route('galeri') }}" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center justify-center md:justify-start">
-    <i class="fas fa-images w-5 text-blue-400 mr-2"></i>
-    <span>Galeri</span>
-</a>
-
                                 <li>
-                                    <a href="#" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center justify-center md:justify-start">
-                                        <i class="fas fa-phone-alt w-5 text-blue-400"></i>
-                                        <span>Devoloper</span>
+                                    <a href="{{ route('galeri') }}" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center justify-center md:justify-start">
+                                        <i class="fas fa-images text-blue-400 w-5 mr-2"></i>
+                                        <span>Galeri</span>
                                     </a>
                                 </li>
+                                <li>
+    <a href="{{ route('developer') }}" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center justify-center md:justify-start">
+        <i class="fas fa-phone-alt text-blue-400 w-5 mr-2"></i>
+        <span>Developer</span>
+    </a>
+</li>
                             </ul>
                         </div>
                         
@@ -321,19 +322,19 @@
                                 Kontak Kami
                             </h3>
                             <ul class="space-y-4 text-sm">
-                                <li class="flex items-start justify-center md:justify-start text-gray-300 group">
+                                <li class="flex items-start text-gray-300 group">
                                     <div class="mt-1 w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center shrink-0 mr-3 group-hover:bg-blue-500/30 transition-colors">
                                         <i class="fas fa-map-marker-alt text-blue-400"></i>
                                     </div>
-                                    <span class="text-left">Jl. Raya Amaliah No. 25,<br>Bogor, Jawa Barat</span>
+                                    <span>Jalan Tol Ciawi No. 1<br>Kecamatan Ciawi<br>Kabupaten Bogor 16720</span>
                                 </li>
-                                <li class="flex items-center justify-center md:justify-start text-gray-300 group">
+                                <li class="flex items-center text-gray-300 group">
                                     <div class="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center shrink-0 mr-3 group-hover:bg-blue-500/30 transition-colors">
                                         <i class="fas fa-phone text-blue-400"></i>
                                     </div>
-                                    <span>+62 812-3456-7890</span>
+                                    <span>(0251) 8241986</span>
                                 </li>
-                                <li class="flex items-center justify-center md:justify-start text-gray-300 group">
+                                <li class="flex items-center text-gray-300 group">
                                     <div class="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center shrink-0 mr-3 group-hover:bg-blue-500/30 transition-colors">
                                         <i class="fas fa-envelope text-blue-400"></i>
                                     </div>
@@ -343,9 +344,9 @@
                         </div>
                     </div>
                     
-                    <!-- Divider with decorative element -->
+                    <!-- Divider -->
                     <div class="relative">
-                        <div class="absolute left-1/2 transform -translate-x-1/2 -top-3 bg-indigo-900 px-4">
+                        <div class="absolute left-1/2 transform -translate-x-1/2 -top-3 bg-blue-900 px-4">
                             <div class="h-6 w-16 relative flex justify-center">
                                 <div class="w-2 h-2 rounded-full bg-blue-400 absolute animate-pulse"></div>
                                 <div class="w-16 h-0.5 bg-gradient-to-r from-transparent via-blue-400 to-transparent absolute top-1/2 -translate-y-1/2"></div>
@@ -415,6 +416,5 @@
             }
         });
     </script>
-    
 </body>
 </html>

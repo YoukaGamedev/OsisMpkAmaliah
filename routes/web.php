@@ -107,3 +107,7 @@ Route::get('/galeri', function () {
 Route::get('/programkerja', function () {
     return view('programkerja');
 })->name('programkerja');
+
+Route::get('/developer', function () {
+    return view('developer');
+})->name('developer');
