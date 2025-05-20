@@ -12,9 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('dashboard', function (Blueprint $table) {
-    $table->boolean('status_pemilu')->default(false); // false = belum dimulai, true = aktif
-});
-
+            $table->boolean('status_pemilu')->default(0); // 0 = belum dimulai
+        });
     }
 
     /**
@@ -22,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('dashboard_pemilu', function (Blueprint $table) {
-            //
+        Schema::table('dashboard', function (Blueprint $table) {
+            $table->dropColumn('status_pemilu');
         });
     }
 };

@@ -2,16 +2,22 @@
 
 @section('content')
 
+@php
+    $statusPemilu = \App\Models\Dashboard::first()?->status_pemilu;
+@endphp
+
 <div class="flex min-h-screen bg-gray-100">
     <!-- Sidebar -->
     <aside class="bg-gray-900 text-white w-20 hover:w-64 transition-all duration-300 ease-in-out shadow-lg h-screen overflow-hidden group">
         <div class="flex flex-col items-center group-hover:items-start gap-4 p-4">
             <h2 class="text-xl font-bold hidden group-hover:block mb-6">Menu</h2>
             <nav class="space-y-4 w-full">
+                @if ($statusPemilu)
                 <a href="{{ url('user/pemilu/pilihkandidat') }}" class="flex items-center space-x-3 p-3 rounded-md hover:bg-gray-800 transition">
                     <i class="bi bi-check2-square text-lg"></i>
                     <span class="hidden group-hover:inline-block">Pemilu</span>
                 </a>
+                @endif
                 <a href="{{ route('pelanggaran.index') }}" class="flex items-center space-x-3 p-3 rounded-md hover:bg-gray-800 transition">
                     <i class="bi bi-bar-chart-line-fill text-lg"></i>
                     <span class="hidden group-hover:inline-block">GDS</span>
@@ -37,17 +43,21 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
             <!-- Card: Pemilu -->
-            <a href="{{ url('user/pemilu/pilihkandidat') }}" class="transition-all duration-300 hover:shadow-lg">
-                <div class="bg-gradient-to-r from-pink-500 to-pink-600 text-white p-5 rounded-lg shadow-md flex items-center">
-                    <div class="bg-white/20 p-3 rounded-full mr-4">
-                        <i class="bi bi-check2-square text-2xl"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-semibold">Pemilu Ketua OSIS</h3>
-                        <p class="text-xs opacity-80">Kelola pemilihan ketua</p>
-                    </div>
-                </div>
-            </a>
+
+@if ($statusPemilu)
+    <!-- Card: Pemilu -->
+    <a href="{{ url('user/pemilu/pilihkandidat') }}" class="transition-all duration-300 hover:shadow-lg">
+        <div class="bg-gradient-to-r from-pink-500 to-pink-600 text-white p-5 rounded-lg shadow-md flex items-center">
+            <div class="bg-white/20 p-3 rounded-full mr-4">
+                <i class="bi bi-check2-square text-2xl"></i>
+            </div>
+            <div>
+                <h3 class="text-lg font-semibold">Pemilu Ketua OSIS</h3>
+                <p class="text-xs opacity-80">Kelola pemilihan ketua</p>
+            </div>
+        </div>
+    </a>
+@endif
 
             <!-- Card: GDS -->
             <a href="{{ route('pelanggaran.index') }}" class="transition-all duration-300 hover:shadow-lg">

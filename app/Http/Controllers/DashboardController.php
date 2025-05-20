@@ -14,7 +14,7 @@ class DashboardController extends Controller
     public function index()
     {
         $dashboard = DB::table('dashboard')->get();
-        return view('dashboardpemilu.index', compact('pemiluDimulai','dashboard'));
+        return view('admin/pemilu/dashboardpemilu/dashboardpemilu', compact('dashboard'));
     }
 
     /**
@@ -111,26 +111,26 @@ class DashboardController extends Controller
         return redirect('dashboardpemilu')->with('status', 'Data berhasil diperbarui');
     }
 
-        public function togglePemilu()
-    {
-        $dashboard = Dashboard::first();
+public function togglePemilu()
+{
+    $dashboard = Dashboard::first();
 
-        if (!$dashboard) {
-            $dashboard = new Dashboard();
-            $dashboard->status_pemilu = true;
-            $dashboard->save();
-
-            return redirect()->back()->with('success', 'Pemilu telah dimulai!');
-        }
-
-        $dashboard->status_pemilu = !$dashboard->status_pemilu;
+    if (!$dashboard) {
+        $dashboard = new Dashboard();
+        $dashboard->status_pemilu = 1; // Pemilu dimulai
         $dashboard->save();
 
-        $message = $dashboard->status_pemilu ? 'Pemilu telah dimulai!' : 'Pemilu telah dihentikan!';
-
-        return redirect()->back()->with('success', $message);
+        return redirect()->back()->with('success', 'Pemilu telah dimulai!');
     }
 
+    // Toggle status: jika 1 jadi 0, jika 0 jadi 1
+    $dashboard->status_pemilu = $dashboard->status_pemilu == 1 ? 0 : 1;
+    $dashboard->save();
+
+    $message = $dashboard->status_pemilu == 1 ? 'Pemilu telah dimulai!' : 'Pemilu telah dihentikan!';
+
+    return redirect()->back()->with('success', $message);
+}
 
     /**
      * Remove the specified resource from storage.

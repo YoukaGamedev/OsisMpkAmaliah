@@ -32,7 +32,11 @@
 
         <h2 class="text-2xl font-bold text-gray-700 mb-4">Identitas Lembaga</h2>
 
-        <form action="{{ route('dashboardpemilu.toggle') }}" method="POST">
+@php
+    $pemiluDimulai = \App\Models\Dashboard::first()?->status_pemilu == 1;
+@endphp
+
+<form action="{{ route('dashboardpemilu.toggle') }}" method="POST">
     @csrf
     <button type="submit"
         class="mt-4 w-full rounded-lg p-3 transition
@@ -40,6 +44,7 @@
         {{ $pemiluDimulai ? 'Stop Pemilu' : 'Mulai Pemilu' }}
     </button>
 </form>
+
 
         @if($dashboard->count() == 0)
             <form action="{{ route('dashboardpemilu.store') }}" method="POST" enctype="multipart/form-data">
