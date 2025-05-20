@@ -75,10 +75,14 @@
                                     </a>
                                 </li>
                                 <li>
-    <a href="{{ route('developer') }}" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center justify-center md:justify-start">
-        <i class="fas fa-phone-alt text-blue-400 w-5 mr-2"></i>
-        <span>Developer</span>
-    </a>
+   <a href="{{ route('developer') }}" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center justify-center md:justify-start">
+    <!-- Heroicon Code Icon (developer-themed) -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-blue-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 18l6-6-6-6M8 6l-6 6 6 6" />
+    </svg>
+    <span>Developer</span>
+</a>
+
 </li>
                             </ul>
                         </div>
