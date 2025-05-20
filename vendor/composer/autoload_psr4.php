@@ -82,6 +82,7 @@ return array(
     'Laravel\\Fortify\\' => array($vendorDir . '/laravel/fortify/src'),
     'Laravel\\Breeze\\' => array($vendorDir . '/laravel/breeze/src'),
     'Jean85\\' => array($vendorDir . '/jean85/pretty-package-versions/src'),
+    'Inertia\\' => array($vendorDir . '/inertiajs/inertia-laravel/src'),
     'Illuminate\\Support\\' => array($vendorDir . '/laravel/framework/src/Illuminate/Macroable', $vendorDir . '/laravel/framework/src/Illuminate/Collections', $vendorDir . '/laravel/framework/src/Illuminate/Conditionable'),
     'Illuminate\\Foundation\\Auth\\' => array($vendorDir . '/laravel/ui/auth-backend'),
     'Illuminate\\' => array($vendorDir . '/laravel/framework/src/Illuminate'),
