@@ -89,7 +89,7 @@ Route::resource('pelanggaran', PelanggaranController::class);
 // Route::put('/pelanggaran/{pelanggaran}', [PelanggaranController::class, 'update'])->name('pelanggaran.update');
 
 
-Route::resource('gds', GdsController::class);
+// Route::resource('gds', GdsController::class);
 Route::resource('tambahdata', TambahDataController::class);
 Route::resource('lembargds', LembarGdsController::class);
 Route::resource('rekapgds', RekapGdsController::class);

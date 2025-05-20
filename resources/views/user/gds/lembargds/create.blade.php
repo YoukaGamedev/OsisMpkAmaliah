@@ -7,7 +7,19 @@
             <h5 class="font-bold text-xl">Tambah Pelanggaran</h5>
         </div>
         <div class="p-6">
-            <form action="{{ route('pelanggaran.store') }}" method="POST">
+            <!-- Validation errors -->
+            @if ($errors->any())
+                <div class="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+                    <strong>Oops! Ada kesalahan:</strong>
+                    <ul class="list-disc pl-5 mt-2">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            <form action="{{ route('pelanggaran.store') }}" method="POST" id="pelanggaranForm">
                 @csrf
 
                 <!-- Filter & Search Siswa -->
@@ -34,11 +46,21 @@
                     <select id="selectSiswa" name="siswa_id" class="w-full px-4 py-3 border border-blue-400 rounded-lg" required>
                         <option value="">-- Pilih Siswa --</option>
                         @foreach ($siswas as $siswa)
-                            <option value="{{ $siswa->id }}" data-kelas="{{ $siswa->kelas }}" data-nama="{{ $siswa->nama }}">
+                            <option value="{{ $siswa->id }}" 
+                                data-kelas="{{ $siswa->kelas }}" 
+                                data-nama="{{ $siswa->nama }}"
+                                data-osis="{{ $siswa->is_osis ? '1' : '0' }}">
                                 {{ $siswa->nama }} ({{ $siswa->kelas }})
                             </option>
                         @endforeach
                     </select>
+
+                    <!-- OSIS Status Indicator -->
+                    <div id="osisIndicator" class="mt-2 hidden">
+                        <span class="bg-yellow-100 text-yellow-800 font-medium py-1 px-3 rounded-full text-sm">
+                            <i class="fas fa-user-tie mr-1"></i> Pengurus OSIS
+                        </span>
+                    </div>
 
                     <!-- Tombol Scan -->
                     <div class="mt-3">
@@ -49,16 +71,15 @@
                 </div>
 
                 <!-- Scanner Modal -->
-<div id="scannerModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 hidden">
-    <div class="bg-white rounded-lg shadow-lg p-4 max-w-md w-full">
-        <div class="flex justify-between items-center mb-2">
-            <h2 class="text-lg font-semibold">Scan Identitas</h2>
-            <button onclick="closeScanner()" class="text-red-600 font-bold text-xl">&times;</button>
-        </div>
-        <div id="qr-reader" style="width: 100%;"></div>
-    </div>
-</div>
-
+                <div id="scannerModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 hidden">
+                    <div class="bg-white rounded-lg shadow-lg p-4 max-w-md w-full">
+                        <div class="flex justify-between items-center mb-2">
+                            <h2 class="text-lg font-semibold">Scan Identitas</h2>
+                            <button onclick="closeScanner()" class="text-red-600 font-bold text-xl">&times;</button>
+                        </div>
+                        <div id="qr-reader" style="width: 100%;"></div>
+                    </div>
+                </div>
 
                 <!-- Tanggal Pelanggaran -->
                 <div class="mb-6">
@@ -69,6 +90,12 @@
                 <!-- Form Atribut Pelanggaran -->
                 <div class="bg-gray-100 p-4 rounded-lg mb-6">
                     <h6 class="text-center font-bold text-gray-700 text-lg mb-4">Atribut Pelanggaran</h6>
+                    
+                    <!-- Alert untuk minimal satu pelanggaran -->
+                    <div id="violationAlert" class="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded-lg hidden">
+                        <strong>Perhatian!</strong> Pilih minimal satu pelanggaran.
+                    </div>
+                    
                     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
                         @php
                         $attributes = [
@@ -94,7 +121,7 @@
                             <div class="relative">
                                 <input type="hidden" name="{{ $name }}" value="1">
                                 <div class="relative inline-block w-10 mr-2 align-middle">
-                                    <input type="checkbox" name="{{ $name }}" id="{{ $name }}" class="checkbox hidden" value="0">
+                                    <input type="checkbox" name="{{ $name }}" id="{{ $name }}" class="violation-checkbox checkbox hidden" value="0">
                                     <label for="{{ $name }}" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
                                 </div>
                             </div>
@@ -105,9 +132,27 @@
                     <p class="text-sm text-center text-gray-500 mt-4">* Centang jika ada pelanggaran</p>
                 </div>
 
+                <!-- Quick Select Buttons -->
+                <div class="mb-6">
+                    <div class="flex flex-wrap justify-center gap-2">
+                        <button type="button" class="px-3 py-1 bg-gray-200 text-gray-700 rounded hover:bg-gray-300" onclick="selectCommonViolation('seragam')">
+                            Seragam Tidak Lengkap
+                        </button>
+                        <button type="button" class="px-3 py-1 bg-gray-200 text-gray-700 rounded hover:bg-gray-300" onclick="selectCommonViolation('atribut')">
+                            Atribut Lengkap
+                        </button>
+                        <button type="button" class="px-3 py-1 bg-gray-200 text-gray-700 rounded hover:bg-gray-300" onclick="selectCommonViolation('telat')">
+                            Telat
+                        </button>
+                        <button type="button" class="px-3 py-1 bg-gray-200 text-gray-700 rounded hover:bg-gray-300" onclick="clearViolations()">
+                            Reset
+                        </button>
+                    </div>
+                </div>
+
                 <!-- Submit Button -->
                 <div class="mt-6">
-                    <button type="submit" class="w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white py-3 rounded-lg shadow-md hover:from-green-600 hover:to-emerald-700 transition duration-300 font-bold text-lg">
+                    <button type="submit" id="submitButton" class="w-full bg-gradient-to-r from-green-500 to-emerald-600 text-white py-3 rounded-lg shadow-md hover:from-green-600 hover:to-emerald-700 transition duration-300 font-bold text-lg">
                         Simpan Pelanggaran
                     </button>
                 </div>
@@ -142,14 +187,18 @@
 
 <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
 
-
 <script>
     const searchInput = document.getElementById('searchSiswa');
     const filterKelas = document.getElementById('filterKelas');
     const filterHuruf = document.getElementById('filterHuruf');
     const siswaSelect = document.getElementById('selectSiswa');
+    const osisIndicator = document.getElementById('osisIndicator');
+    const violationAlert = document.getElementById('violationAlert');
+    const violationCheckboxes = document.querySelectorAll('.violation-checkbox');
+    const pelanggaranForm = document.getElementById('pelanggaranForm');
     let html5QrCode;
 
+    // Filter siswa based on search criteria
     function filterSiswa() {
         const keyword = searchInput.value.toLowerCase();
         const kelas = filterKelas.value;
@@ -170,10 +219,81 @@
         }
     }
 
+    // Show OSIS status when a student is selected
+    siswaSelect.addEventListener('change', function() {
+        const selectedOption = siswaSelect.options[siswaSelect.selectedIndex];
+        if (selectedOption && selectedOption.value) {
+            const isOsis = selectedOption.dataset.osis === '1';
+            osisIndicator.classList.toggle('hidden', !isOsis);
+        } else {
+            osisIndicator.classList.add('hidden');
+        }
+    });
+
+    // Check if at least one violation is selected
+    function hasViolationSelected() {
+        for (const checkbox of violationCheckboxes) {
+            if (checkbox.checked) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Form validation before submit
+    pelanggaranForm.addEventListener('submit', function(e) {
+        if (!hasViolationSelected()) {
+            e.preventDefault();
+            violationAlert.classList.remove('hidden');
+            // Scroll to violation alert
+            violationAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            return false;
+        }
+        violationAlert.classList.add('hidden');
+        return true;
+    });
+
+    // Hide violation alert when a checkbox is checked
+    violationCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            if (hasViolationSelected()) {
+                violationAlert.classList.add('hidden');
+            }
+        });
+    });
+
+    // Quick select common violations
+    function selectCommonViolation(type) {
+        clearViolations();
+        
+        if (type === 'seragam') {
+            document.getElementById('dasi').checked = true;
+            document.getElementById('sabuk').checked = true;
+            document.getElementById('sepatu').checked = true;
+        } else if (type === 'atribut') {
+            document.getElementById('nametag').checked = true;
+            document.getElementById('jas').checked = true;
+            document.getElementById('almamater').checked = true;
+        } else if (type === 'telat') {
+            document.getElementById('telat').checked = true;
+        }
+        
+        violationAlert.classList.add('hidden');
+    }
+
+    // Clear all violations
+    function clearViolations() {
+        violationCheckboxes.forEach(checkbox => {
+            checkbox.checked = false;
+        });
+    }
+
+    // Search and filter event listeners
     searchInput.addEventListener('input', filterSiswa);
     filterKelas.addEventListener('change', filterSiswa);
     filterHuruf.addEventListener('change', filterSiswa);
 
+    // QR Code Scanner
     function scanIdentitas() {
         const scannerModal = document.getElementById('scannerModal');
         scannerModal.classList.remove('hidden');
@@ -183,10 +303,12 @@
 
         Html5Qrcode.getCameras().then(devices => {
             if (devices && devices.length) {
-                const frontCamera = devices.find(device => device.label.toLowerCase().includes('front')) || devices[0];
+                // Try to use back camera first (better for scanning)
+                const backCamera = devices.find(device => device.label.toLowerCase().includes('back'));
+                const cameraId = backCamera ? backCamera.id : devices[0].id;
 
                 html5QrCode.start(
-                    frontCamera.id,
+                    cameraId,
                     config,
                     qrCodeMessage => {
                         isiSiswaDariScan(qrCodeMessage);
@@ -217,13 +339,58 @@
     }
 
     function isiSiswaDariScan(data) {
-        const siswaSelect = document.getElementById('selectSiswa');
-        const options = Array.from(siswaSelect.options);
-        const match = options.find(opt => opt.dataset.nama.toLowerCase().includes(data.toLowerCase()));
-        if (match) {
-            siswaSelect.value = match.value;
-        } else {
-            alert('Siswa tidak ditemukan: ' + data);
+        try {
+            // Try to parse the QR code data (expected format: "Siswa: Name | Kelas: Class | ID: ID")
+            const parts = data.split('|');
+            
+            let siswaId = null;
+            let siswaName = null;
+            
+            // Extract the ID
+            for (const part of parts) {
+                if (part.trim().startsWith('ID:')) {
+                    siswaId = part.trim().replace('ID:', '').trim();
+                } else if (part.trim().startsWith('Siswa:')) {
+                    siswaName = part.trim().replace('Siswa:', '').trim();
+                }
+            }
+            
+            const siswaSelect = document.getElementById('selectSiswa');
+            
+            // Try to find by ID first (most accurate)
+            if (siswaId) {
+                for (const option of siswaSelect.options) {
+                    if (option.value === siswaId) {
+                        siswaSelect.value = option.value;
+                        siswaSelect.dispatchEvent(new Event('change'));
+                        return;
+                    }
+                }
+            }
+            
+            // If ID not found, try to find by name
+            if (siswaName) {
+                const options = Array.from(siswaSelect.options);
+                const match = options.find(opt => opt.dataset.nama && opt.dataset.nama.toLowerCase().includes(siswaName.toLowerCase()));
+                if (match) {
+                    siswaSelect.value = match.value;
+                    siswaSelect.dispatchEvent(new Event('change'));
+                    return;
+                }
+            }
+            
+            // If still no match, try using the entire data string
+            const options = Array.from(siswaSelect.options);
+            const match = options.find(opt => opt.dataset.nama && data.toLowerCase().includes(opt.dataset.nama.toLowerCase()));
+            if (match) {
+                siswaSelect.value = match.value;
+                siswaSelect.dispatchEvent(new Event('change'));
+            } else {
+                alert('Siswa tidak ditemukan dari QR code: ' + data);
+            }
+        } catch (error) {
+            console.error('Error parsing QR data:', error);
+            alert('Format QR code tidak sesuai.');
         }
     }
 </script>

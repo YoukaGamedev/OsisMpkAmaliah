@@ -15,7 +15,20 @@
                 <div class="space-y-4">
                     <h6 class="text-lg font-semibold text-gray-700 mb-3">Informasi Pribadi</h6>
                     <div class="bg-gray-50 rounded-lg p-4 space-y-3">
+                        <!-- Foto dan QR -->
                         <div class="grid grid-cols-2 gap-4">
+                            <div class="flex flex-col items-center">
+                                <img src="{{ asset('storage/' . $pelanggaran->siswa->foto) }}" alt="Foto Siswa" class="w-32 h-32 object-cover rounded shadow-md">
+                                <span class="text-sm text-gray-600 mt-2">Foto Siswa</span>
+                            </div>
+                            <div class="flex flex-col items-center">
+                                <img src="{{ asset('storage/' . $pelanggaran->siswa->qr_code) }}" alt="QR Code" class="w-32 h-32 object-contain rounded shadow-md">
+                                <span class="text-sm text-gray-600 mt-2">QR Code</span>
+                            </div>
+                        </div>
+
+                        <!-- Info Teks -->
+                        <div class="grid grid-cols-2 gap-4 mt-4">
                             <div class="text-gray-600 font-medium">Nama</div>
                             <div>{{ $pelanggaran->siswa->nama ?? '-' }}</div>
                         </div>

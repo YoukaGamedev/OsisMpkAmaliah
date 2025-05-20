@@ -1,4 +1,6 @@
-<script src="https://cdn.tailwindcss.com"></script>
+@extends('footer')
+
+@section('content')
 <div class="container mx-auto px-4 py-8">
     <!-- Header Section -->
     <div class="text-center mb-16">
@@ -177,5 +179,8 @@
                         </div>
                     @endif
                 @endforeach
+                </div>
+                @endsection
+                
         
        
