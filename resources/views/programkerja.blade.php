@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Program Kerja OSIS & MPK</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+@extends('footer')
+
+@section('content')
     <script>
         tailwind.config = {
             theme: {
@@ -57,7 +52,7 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
     </style>
-</head>
+
 <body class="bg-gradient-to-br from-gray-50 via-blue-50 to-primary-100 min-h-screen">
     
     <!-- Header with Gradient -->
@@ -160,7 +155,7 @@
         </div>
     </section>
 
-   
+    @endsection
 
     <script>
         // Set current year
@@ -190,4 +185,3 @@
     </script>
 
 </body>
-</html>
