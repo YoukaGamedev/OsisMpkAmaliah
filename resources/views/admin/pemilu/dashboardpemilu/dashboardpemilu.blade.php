@@ -12,6 +12,12 @@
             </div>
         @endif
 
+        @if(session('message'))
+            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg mb-4">
+                {{ session('message') }}
+            </div>
+        @endif
+
 
         <!-- PESAN ERROR -->
         @if ($errors->any())
@@ -25,6 +31,15 @@
         @endif
 
         <h2 class="text-2xl font-bold text-gray-700 mb-4">Identitas Lembaga</h2>
+
+        <form action="{{ route('dashboardpemilu.toggle') }}" method="POST">
+    @csrf
+    <button type="submit"
+        class="mt-4 w-full rounded-lg p-3 transition
+            {{ $pemiluDimulai ? 'bg-red-600 hover:bg-red-700' : 'bg-yellow-500 hover:bg-yellow-600' }}">
+        {{ $pemiluDimulai ? 'Stop Pemilu' : 'Mulai Pemilu' }}
+    </button>
+</form>
 
         @if($dashboard->count() == 0)
             <form action="{{ route('dashboardpemilu.store') }}" method="POST" enctype="multipart/form-data">

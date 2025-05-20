@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Galeri;
 use App\Models\Structure;
+use App\Models\Agenda;
 
 class HalawalController extends Controller
 {
@@ -19,5 +20,11 @@ class HalawalController extends Controller
     {
         $galeri = Galeri::all();
         return view('/gambar', compact('galeri'));
+    }
+
+    public function programkerja()
+    {
+        $agendas = Agenda::all(); // Ambil semua data agenda dari database
+        return view('/programkerja', compact('agendas')); // Kirim data ke view
     }
 }

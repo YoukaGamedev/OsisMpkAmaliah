@@ -130,7 +130,7 @@
                             </div>
                             <div>
                                 <h3 class="text-lg font-semibold">Galeri</h3>
-                                <p class="text-xs opacity-80">Kenangan</p>
+                                <p class="text-xs opacity-80">Dokumentasi dan foto organisasi</p>
                             </div>
                         </div>
                     </a>

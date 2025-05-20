@@ -59,6 +59,9 @@ Route::resource('datakelas', DataKelasController::class);
 Route::resource('datakandidat', DataKandidatController::class);
 Route::resource('datadpt', DataDptController::class);
 Route::resource('dashboardpemilu', DashboardController::class);
+Route::post('/dashboardpemilu/mulai', [DashboardController::class, 'mulai'])->name('dashboardpemilu.mulai');
+Route::post('/dashboardpemilu/toggle', [DashboardController::class, 'togglePemilu'])->name('dashboardpemilu.toggle');
+
 Route::resource('hasilpemilihan', HasilPemilihanController::class);
 Route::resource('home', HomerController::class);
 Route::resource('/user/pemilu/pilihkandidat', PilihKandidatController::class,);
@@ -104,9 +107,7 @@ Route::get('/profilosis', [HalawalController::class, 'profilosis'])->name('profi
 
 Route::get('/gambar', [HalawalController::class, 'galeri']);
 
-Route::get('/programkerja', function () {
-    return view('programkerja');
-})->name('programkerja');
+Route::get('/programkerja', [HalawalController::class, 'programkerja']);
 
 Route::get('/developer', function () {
     return view('developer');

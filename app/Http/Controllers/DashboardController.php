@@ -14,7 +14,7 @@ class DashboardController extends Controller
     public function index()
     {
         $dashboard = DB::table('dashboard')->get();
-        return view('/admin/pemilu/dashboardpemilu/dashboardpemilu', ['dashboard' => $dashboard]);
+        return view('dashboardpemilu.index', compact('pemiluDimulai','dashboard'));
     }
 
     /**
@@ -110,6 +110,27 @@ class DashboardController extends Controller
 
         return redirect('dashboardpemilu')->with('status', 'Data berhasil diperbarui');
     }
+
+        public function togglePemilu()
+    {
+        $dashboard = Dashboard::first();
+
+        if (!$dashboard) {
+            $dashboard = new Dashboard();
+            $dashboard->status_pemilu = true;
+            $dashboard->save();
+
+            return redirect()->back()->with('success', 'Pemilu telah dimulai!');
+        }
+
+        $dashboard->status_pemilu = !$dashboard->status_pemilu;
+        $dashboard->save();
+
+        $message = $dashboard->status_pemilu ? 'Pemilu telah dimulai!' : 'Pemilu telah dihentikan!';
+
+        return redirect()->back()->with('success', $message);
+    }
+
 
     /**
      * Remove the specified resource from storage.

@@ -4,12 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Dashboard;
 
 class AuthController extends Controller
 {
     public function showLoginForm()
     {
-        return view('auth.login'); 
+
+
+        $dashboard = Dashboard::first();
+        $pemiluDimulai = $dashboard ? $dashboard->status_pemilu : false;
+
+        return view('auth.login', compact('pemiluDimulai'));
     }
 
     public function login(Request $request)
@@ -22,17 +28,24 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            // Ambil role pengguna yang sedang login
             $user = Auth::user();
+
             if ($user->role === 'admin') {
                 return redirect()->intended('/admin');
             } else {
-                return redirect()->intended('/user');
+                // Ambil status pemilu
+                $dashboard = Dashboard::first();
+
+                if ($dashboard && $dashboard->status_pemilu) {
+                    return redirect()->intended('user/pemilu/pilihkandidat');
+                } else {
+                    return redirect()->intended('/user');
+                }
             }
         }
 
         return back()->withErrors([
-            'email' => 'error', 'Akun tidak terdaftar.',
+            'email' => 'Akun tidak terdaftar atau password salah.',
         ])->withInput($request->only('email'));
     }
 

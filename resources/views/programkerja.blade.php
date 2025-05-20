@@ -92,9 +92,10 @@
             </a>
             
             <div class="hidden md:flex items-center bg-white rounded-full px-6 py-3 shadow-lg">
-                <i class="fas fa-tasks text-primary-600 mr-2"></i>
-                <span class="text-gray-700 font-semibold">6 Program Kerja</span>
-            </div>
+    <i class="fas fa-tasks text-primary-600 mr-2"></i>
+    <span class="text-gray-700 font-semibold">{{ $agendas->count() }} Program Kerja</span>
+</div>
+
         </div>
     </div>
 
@@ -114,43 +115,28 @@
             
             <!-- Card 1 -->
             <div class="bg-white rounded-2xl shadow-lg card-hover border border-gray-100 overflow-hidden">
-                <div class="bg-gradient-to-r from-red-500 to-red-600 h-2"></div>
-                <div class="p-8">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4">
-                            <i class="fas fa-flag text-red-600 text-xl"></i>
-                        </div>
-                        <span class="px-3 py-1 bg-red-100 text-red-800 text-sm font-medium rounded-full">Program Nasional</span>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-3">Peringatan Hari Kemerdekaan</h3>
-                    <p class="text-gray-600 mb-4 leading-relaxed">Mengadakan lomba antar kelas seperti tarik tambang, makan kerupuk, dan lainnya untuk memperingati kemerdekaan Indonesia.</p>
-                    <div class="flex items-center text-sm text-gray-500">
-                        <i class="fas fa-calendar mr-2"></i>
-                        <span>Agustus 2024</span>
-                    </div>
+                @foreach ($agendas as $agenda)
+    <div class="bg-white rounded-2xl shadow-lg card-hover border border-gray-100 overflow-hidden">
+        <div class="bg-gradient-to-r from-red-500 to-red-600 h-2"></div>
+        <div class="p-8">
+            <div class="flex items-center mb-4">
+                <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4">
+                    <i class="fas fa-flag text-red-600 text-xl"></i>
                 </div>
+                <span class="px-3 py-1 bg-red-100 text-red-800 text-sm font-medium rounded-full">
+                    {{ $agenda->pelaksana }}
+                </span>
             </div>
-
+            <h3 class="text-xl font-bold text-gray-800 mb-3">{{ $agenda->judul }}</h3>
+            <p class="text-gray-600 mb-4 leading-relaxed">{{ $agenda->deskripsi }}</p>
+            <div class="flex items-center text-sm text-gray-500">
+                <i class="fas fa-calendar mr-2"></i>
+                <span>{{ \Carbon\Carbon::parse($agenda->tanggal)->translatedFormat('F Y') }}</span>
+            </div>
         </div>
+    </div>
+@endforeach
 
-        <!-- Call to Action -->
-        <div class="text-center mt-16">
-            <div class="bg-white rounded-2xl shadow-lg p-8 max-w-4xl mx-auto border border-gray-100">
-                <h3 class="text-2xl font-bold text-gray-800 mb-4">Mari Berpartisipasi!</h3>
-                <p class="text-gray-600 mb-6 leading-relaxed">
-                    Setiap program kerja ini membutuhkan dukungan dan partisipasi aktif dari seluruh warga sekolah. 
-                    Bersama-sama kita dapat menciptakan lingkungan sekolah yang lebih baik.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <button class="px-6 py-3 bg-primary-600 text-white rounded-full font-semibold hover:bg-primary-700 transition-colors duration-300 shadow-lg hover:shadow-xl">
-                        <i class="fas fa-hands-helping mr-2"></i>
-                        Daftar Volunteer
-                    </button>
-                    <button class="px-6 py-3 bg-gray-100 text-gray-700 rounded-full font-semibold hover:bg-gray-200 transition-colors duration-300">
-                        <i class="fas fa-download mr-2"></i>
-                        Download Jadwal
-                    </button>
-                </div>
             </div>
         </div>
     </section>
