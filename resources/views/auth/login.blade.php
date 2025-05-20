@@ -96,6 +96,9 @@
                     <div class="flex items-center bg-white/10 rounded-lg input-focus transition-all duration-300 p-3 border border-white/20">
                         <i class="fas fa-lock text-blue-400 mr-3"></i>
                         <input type="password" id="password" name="password" class="w-full bg-transparent outline-none text-white placeholder-gray-400" placeholder="Masukkan password" required>
+                        <button type="button" onclick="togglePassword()" class="text-gray-400 focus:outline-none hover:text-white transition-colors">
+                            <i class="fas fa-eye" id="eye-icon"></i>
+                        </button>
                     </div>
                 </div>
                 
@@ -109,19 +112,17 @@
     </div>
     
     <script>
-function togglePassword(button) {
-    const input = document.getElementById('password');
-    const icon = button.querySelector('i');
-
-    if (input.type === 'password') {
-        input.type = 'text';
-        icon.classList.replace('fa-eye', 'fa-eye-slash');
-    } else {
-        input.type = 'password';
-        icon.classList.replace('fa-eye-slash', 'fa-eye');
-    }
-}
-</script>
-
+        function togglePassword() {
+            const field = document.getElementById('password');
+            const icon = document.getElementById('eye-icon');
+            if (field.type === 'password') {
+                field.type = 'text';
+                icon.classList.replace('fa-eye', 'fa-eye-slash');
+            } else {
+                field.type = 'password';
+                icon.classList.replace('fa-eye-slash', 'fa-eye');
+            }
+        }
+    </script>
 </body>
 </html>

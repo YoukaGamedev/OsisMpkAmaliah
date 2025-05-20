@@ -23,18 +23,10 @@
                 <a href="{{ route('user.agenda') }}" class="flex items-center space-x-3 p-3 rounded-md hover:bg-gray-800 transition">
                     <i class="bi bi-calendar-event-fill text-lg"></i>
                     <span class="hidden group-hover:inline-block">Agenda</span>
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
                 </a>
             </nav>
         </div>
     </aside>
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
     <!-- Main Content -->
     <main class="flex-1 p-8">
         <div class="mb-8">
