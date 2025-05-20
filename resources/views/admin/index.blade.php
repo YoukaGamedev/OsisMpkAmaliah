@@ -121,6 +121,19 @@
                             </div>
                         </div>
                     </a>
+
+                    <!-- Galeri -->
+                    <a href="{{ route('galeri.index') }}" class="transition-all duration-300 hover:shadow-lg">
+                        <div class="bg-gradient-to-r from-green-500 to-green-600 text-white p-5 rounded-lg shadow-md flex items-center">
+                            <div class="bg-white/20 p-3 rounded-full mr-4">
+                                <i class="bi bi-people-fill text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold">Galeri</h3>
+                                <p class="text-xs opacity-80">Kenangan</p>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>

@@ -25,6 +25,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PelanggaranController;
 use App\Http\Controllers\HalawalController;
+use App\Http\Controllers\GaleriController;
+
 
 
 // Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
@@ -100,9 +102,7 @@ Route::post('/reset-data', [HasilPemilihanController::class, 'reset'])->name('re
 
 Route::get('/profilosis', [HalawalController::class, 'profilosis'])->name('profilosis');
 
-Route::get('/galeri', function () {
-    return view('galeri');
-})->name('galeri');
+Route::get('/gambar', [HalawalController::class, 'galeri']);
 
 Route::get('/programkerja', function () {
     return view('programkerja');
@@ -111,3 +111,5 @@ Route::get('/programkerja', function () {
 Route::get('/developer', function () {
     return view('developer');
 })->name('developer');
+
+Route::resource('galeri', GaleriController::class);

@@ -304,7 +304,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('galeri') }}" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center justify-center md:justify-start">
+                                    <a href="{{ ('/gambar') }}" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center justify-center md:justify-start">
                                         <i class="fas fa-images text-blue-400 w-5 mr-2"></i>
                                         <span>Galeri</span>
                                     </a>

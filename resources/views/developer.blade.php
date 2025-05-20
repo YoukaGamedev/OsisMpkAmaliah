@@ -123,13 +123,13 @@
             </p>
             <div class="flex items-center justify-between">
                 <div class="flex space-x-3">
-                    <a href="#" class="h-10 w-10 bg-gray-100 hover:bg-purple-100 rounded-lg flex items-center justify-center transition-colors">
+                    <a href="" class="h-10 w-10 bg-gray-100 hover:bg-purple-100 rounded-lg flex items-center justify-center transition-colors">
                         <i class="fab fa-github text-gray-600 hover:text-purple-600"></i>
                     </a>
                     <a href="#" class="h-10 w-10 bg-gray-100 hover:bg-purple-100 rounded-lg flex items-center justify-center transition-colors">
                         <i class="fab fa-linkedin text-gray-600 hover:text-purple-600"></i>
                     </a>
-                    <a href="#" class="h-10 w-10 bg-gray-100 hover:bg-pink-100 rounded-lg flex items-center justify-center transition-colors">
+                    <a href="//www.instagram.com/_nswaa.wa?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="h-10 w-10 bg-gray-100 hover:bg-pink-100 rounded-lg flex items-center justify-center transition-colors">
                         <i class="fab fa-instagram text-gray-600 hover:text-pink-600"></i>
                     </a>
                 </div>
