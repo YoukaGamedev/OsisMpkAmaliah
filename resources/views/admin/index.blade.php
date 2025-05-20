@@ -43,6 +43,18 @@
                     <span class="ml-3 hidden group-hover:md:inline-block whitespace-nowrap">Agenda Proker</span>
                 </a>
             </li>
+<li class="mb-2">
+    <a href="{{ route('galeri.index') }}" class="flex items-center text-white p-3 rounded-lg hover:bg-gray-700 transition-all duration-300">
+        <!-- Icon Galeri (Heroicon Photo) -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 min-w-[24px] text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7h2l2-3h10l2 3h2a1 1 0 011 1v11a1 1 0 01-1 1H3a1 1 0 01-1-1V8a1 1 0 011-1z" />
+            <circle cx="12" cy="13" r="3" stroke="currentColor" stroke-width="2" fill="none" />
+        </svg>
+        <span class="ml-3 hidden group-hover:md:inline-block whitespace-nowrap">Galeri</span>
+    </a>
+</li>
+
+
         </ul>
     </aside>
 
@@ -122,23 +134,23 @@
                         </div>
                     </a>
 
-                    <!-- Galeri -->
-                    <a href="{{ route('galeri.index') }}" class="transition-all duration-300 hover:shadow-lg">
-                        <div class="bg-gradient-to-r from-green-500 to-green-600 text-white p-5 rounded-lg shadow-md flex items-center">
-                            <div class="bg-white/20 p-3 rounded-full mr-4">
-                                <i class="bi bi-people-fill text-2xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-semibold">Galeri</h3>
-                                <p class="text-xs opacity-80">Dokumentasi dan foto organisasi</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
+                   <!-- Galeri -->
+<a href="{{ route('galeri.index') }}" class="transition-all duration-300 hover:shadow-lg">
+    <div class="bg-gradient-to-r from-red-500 to-red-600 text-white p-5 rounded-lg shadow-md flex items-center">
+        <div class="bg-white/20 p-3 rounded-full mr-4">
+            <!-- Heroicon Photo -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7h2l2-3h10l2 3h2a1 1 0 011 1v11a1 1 0 01-1 1H3a1 1 0 01-1-1V8a1 1 0 011-1z" />
+                <circle cx="12" cy="13" r="3" stroke="currentColor" stroke-width="2" fill="none"/>
+            </svg>
+        </div>
+        <div>
+            <h3 class="text-lg font-semibold">Galeri</h3>
+            <p class="text-xs opacity-80">Dokumentasi dan foto organisasi</p>
         </div>
     </div>
-</div>
+</a>
+
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {

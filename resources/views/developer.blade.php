@@ -154,8 +154,6 @@
                     <i class="fas fa-chart-line text-blue-600 text-lg"></i>
                 </div>
             </div>
-            <p class="text-gray-600 mb-6 leading-relaxed">
-            </p>
             <div class="flex items-center justify-between">
                 <div class="flex space-x-3">
                     <a href="#" class="h-10 w-10 bg-gray-100 hover:bg-purple-100 rounded-lg flex items-center justify-center transition-colors">
@@ -181,22 +179,20 @@
             <div class="absolute inset-0 bg-black/20"></div> <!-- Overlay gelap agar teks tetap terbaca -->
             <div class="absolute top-4 right-4">
                 <span class="bg-white/20 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">
-                    System Expert
+                    Design Expert
                 </span>
             </div>
         </div>
         <div class="p-8">
             <div class="flex items-center justify-between mb-4">
                 <div>
-                    <h3 class="text-2xl font-bold text-gray-900">M.ILHAM RAI' SUBAGJA</h3>
+                    <h3 class="text-2xl font-bold text-gray-900">M.Ilham R.S</h3>
                     <p class="text-blue-600 font-semibold">Front End</p>
                 </div>
                 <div class="h-12 w-12 bg-blue-100 rounded-lg flex items-center justify-center">
                     <i class="fas fa-chart-line text-blue-600 text-lg"></i>
                 </div>
             </div>
-            <p class="text-gray-600 mb-6 leading-relaxed">
-            </p>
             <div class="flex items-center justify-between">
                 <div class="flex space-x-3">
                     <a href="#" class="h-10 w-10 bg-gray-100 hover:bg-purple-100 rounded-lg flex items-center justify-center transition-colors">
@@ -209,7 +205,7 @@
                         <i class="fab fa-instagram text-gray-600 hover:text-pink-600"></i>
                     </a>
                 </div>
-                <span class="text-sm text-gray-400">UML Specialist</span>
+                <span class="text-sm text-gray-400">JS Specialist</span>
             </div>
         </div>
     </div>

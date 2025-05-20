@@ -16,10 +16,7 @@
                     <i class="bi bi-bar-chart-line-fill text-lg"></i>
                     <span class="hidden group-hover:inline-block">GDS</span>
                 </a>
-                <a href="{{ route('user.struktur') }}" class="flex items-center space-x-3 p-3 rounded-md hover:bg-gray-800 transition border-t pt-4">
-                    <i class="bi bi-diagram-3-fill text-lg"></i>
-                    <span class="hidden group-hover:inline-block">Struktur</span>
-                </a>
+               
                 <a href="{{ route('user.agenda') }}" class="flex items-center space-x-3 p-3 rounded-md hover:bg-gray-800 transition">
                     <i class="bi bi-calendar-event-fill text-lg"></i>
                     <span class="hidden group-hover:inline-block">Agenda</span>
@@ -62,18 +59,6 @@
                 </div>
             </a>
 
-            <!-- Struktur OSIS -->
-            <a href="{{ route('user.struktur') }}" class="transition-all duration-300 hover:shadow-lg">
-                <div class="bg-gradient-to-r from-yellow-400 to-yellow-500 text-white p-5 rounded-lg shadow-md flex items-center">
-                    <div class="bg-white/20 p-3 rounded-full mr-4">
-                        <i class="bi bi-diagram-3-fill text-2xl"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-semibold">Struktur OSIS & MPK</h3>
-                        <p class="text-xs opacity-80">Lihat susunan organisasi</p>
-                    </div>
-                </div>
-            </a>
 
             <!-- Agenda -->
             <a href="{{ route('user.agenda') }}" class="transition-all duration-300 hover:shadow-lg">

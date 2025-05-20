@@ -102,12 +102,7 @@
                                     </div>
                                     <span>(0251) 8241986</span>
                                 </li>
-                                <li class="flex items-center text-gray-300 group">
-                                    <div class="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center shrink-0 mr-3 group-hover:bg-blue-500/30 transition-colors">
-                                        <i class="fas fa-envelope text-blue-400"></i>
-                                    </div>
-                                    <span>osis@smkamaliah.sch.id</span>
-                                </li>
+                                
                             </ul>
                         </div>
                     </div>
