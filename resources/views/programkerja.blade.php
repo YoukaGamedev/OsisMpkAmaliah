@@ -112,18 +112,36 @@
 
         <!-- Program Cards Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
             <!-- Card 1 -->
-            <div class="bg-white rounded-2xl shadow-lg card-hover border border-gray-100 overflow-hidden">
-                @foreach ($agendas as $agenda)
+            @php
+    $colors = [
+        'sekbid 1' => ['bg' => 'bg-green-100', 'text' => 'text-green-800', 'from' => 'from-green-500', 'to' => 'to-green-600', 'iconBg' => 'bg-green-100', 'iconText' => 'text-green-600'],
+        'sekbid 2' => ['bg' => 'bg-blue-100', 'text' => 'text-blue-800', 'from' => 'from-blue-500', 'to' => 'to-blue-600', 'iconBg' => 'bg-blue-100', 'iconText' => 'text-blue-600'],
+        'sekbid 3' => ['bg' => 'bg-red-100', 'text' => 'text-red-800', 'from' => 'from-red-500', 'to' => 'to-red-600', 'iconBg' => 'bg-red-100', 'iconText' => 'text-red-600'],
+        'sekbid 4' => ['bg' => 'bg-yellow-100', 'text' => 'text-yellow-800', 'from' => 'from-yellow-600', 'to' => 'to-yellow-700', 'iconBg' => 'bg-yellow-100', 'iconText' => 'text-yellow-600'], // coklat tidak default tailwind, pakai kuning sebagai pendekatan
+        'sekbid 5' => ['bg' => 'bg-yellow-100', 'text' => 'text-yellow-800', 'from' => 'from-yellow-400', 'to' => 'to-yellow-500', 'iconBg' => 'bg-yellow-100', 'iconText' => 'text-yellow-600'],
+        'sekbid 6' => ['bg' => 'bg-purple-100', 'text' => 'text-purple-800', 'from' => 'from-purple-500', 'to' => 'to-purple-600', 'iconBg' => 'bg-purple-100', 'iconText' => 'text-purple-600'],
+    ];
+
+    // Default warna jika pelaksana tidak ada di daftar
+    $defaultColor = ['bg' => 'bg-gray-100', 'text' => 'text-gray-800', 'from' => 'from-gray-500', 'to' => 'to-gray-600', 'iconBg' => 'bg-gray-100', 'iconText' => 'text-gray-600'];
+@endphp
+
+@foreach ($agendas as $agenda)
+    @php
+        // Ambil warna berdasarkan pelaksana (lowercase untuk pencocokan case-insensitive)
+        $pelaksanaKey = strtolower($agenda->pelaksana);
+        $color = $colors[$pelaksanaKey] ?? $defaultColor;
+    @endphp
+
     <div class="bg-white rounded-2xl shadow-lg card-hover border border-gray-100 overflow-hidden">
-        <div class="bg-gradient-to-r from-red-500 to-red-600 h-2"></div>
+        <div class="bg-gradient-to-r {{ $color['from'] }} {{ $color['to'] }} h-2"></div>
         <div class="p-8">
             <div class="flex items-center mb-4">
-                <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mr-4">
-                    <i class="fas fa-flag text-red-600 text-xl"></i>
+                <div class="w-12 h-12 {{ $color['iconBg'] }} rounded-full flex items-center justify-center mr-4">
+                    <i class="fas fa-flag {{ $color['iconText'] }} text-xl"></i>
                 </div>
-                <span class="px-3 py-1 bg-red-100 text-red-800 text-sm font-medium rounded-full">
+                <span class="px-3 py-1 {{ $color['bg'] }} {{ $color['text'] }} text-sm font-medium rounded-full">
                     {{ $agenda->pelaksana }}
                 </span>
             </div>
@@ -131,7 +149,7 @@
             <p class="text-gray-600 mb-4 leading-relaxed">{{ $agenda->deskripsi }}</p>
             <div class="flex items-center text-sm text-gray-500">
                 <i class="fas fa-calendar mr-2"></i>
-                <span>{{ \Carbon\Carbon::parse($agenda->tanggal)->translatedFormat('F Y') }}</span>
+                <span>{{ \Carbon\Carbon::parse($agenda->tanggal)->translatedFormat('D M Y') }}</span>
             </div>
         </div>
     </div>

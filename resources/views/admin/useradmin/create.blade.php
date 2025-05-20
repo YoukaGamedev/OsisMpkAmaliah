@@ -12,20 +12,6 @@
                 </p>
             </div>
 
-            <!-- Helpful Tips Card -->
-            <div class="bg-blue-50 p-4 rounded-lg shadow-md my-4">
-                <h3 class="font-semibold text-gray-700">Helpful Tips</h3>
-                <ul class="list-disc pl-5 text-sm text-gray-600 mt-2">
-                    <li><strong>Nama Lengkap:</strong> Masukkan nama lengkap seperti yang tertera pada KTP.</li>
-                    <li><strong>Alamat Email:</strong> Gunakan email yang valid dan aktif untuk komunikasi penting.</li>
-                    <li><strong>Kepengurusan:</strong> Masukan kepengurusan di organisasi.</li>
-                    <li><strong>Sekolah:</strong> Masukan sekolah .</li>
-                    <li><strong>Peran Pengguna:</strong> Pilih peran yang sesuai. "Admin" memiliki akses penuh, sementara "User" hanya dapat melihat data.</li>
-                    <li><strong>Password:</strong> Minimal 8 karakter, pastikan mengandung angka dan huruf untuk keamanan.</li>
-                    <li><strong>Konfirmasi Password:</strong> Masukkan ulang password untuk memastikan kesalahan pengetikan tidak terjadi.</li>
-                </ul>
-            </div>
-
             <div class="p-6">
                 <form action="{{ route('useradmin.store') }}" method="POST" class="space-y-6">
                     @csrf
@@ -134,6 +120,19 @@
                         <button type="submit" class="w-full bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700">Tambah Pemilih</button>
                     </div>
                 </form>
+                <!-- Helpful Tips Card -->
+            <div class="bg-blue-50 p-4 rounded-lg shadow-md my-4">
+                <h3 class="font-semibold text-gray-700">Helpful Tips</h3>
+                <ul class="list-disc pl-5 text-sm text-gray-600 mt-2">
+                    <li><strong>Nama Lengkap:</strong> Masukkan nama lengkap seperti yang tertera pada KTP.</li>
+                    <li><strong>Alamat Email:</strong> Gunakan email yang valid dan aktif untuk komunikasi penting.</li>
+                    <li><strong>Kepengurusan:</strong> Masukan kepengurusan di organisasi.</li>
+                    <li><strong>Sekolah:</strong> Masukan sekolah .</li>
+                    <li><strong>Peran Pengguna:</strong> Pilih peran yang sesuai. "Admin" memiliki akses penuh, sementara "User" hanya dapat melihat data.</li>
+                    <li><strong>Password:</strong> Minimal 8 karakter, pastikan mengandung angka dan huruf untuk keamanan.</li>
+                    <li><strong>Konfirmasi Password:</strong> Masukkan ulang password untuk memastikan kesalahan pengetikan tidak terjadi.</li>
+                </ul>
+            </div>
             </div>
         </div>
     </div>

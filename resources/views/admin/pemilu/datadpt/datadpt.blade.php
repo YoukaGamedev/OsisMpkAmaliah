@@ -7,7 +7,6 @@
                 <h2 class="text-xl font-bold text-gray-800">Data Daftar Pemilih Tetap (DPT)</h2>
             </div>
 
-
             <!-- Search Section -->
             <div class="p-6">
                 <form action="{{ route('datadpt.index') }}" method="GET" class="flex flex-col sm:flex-row gap-4">

@@ -27,7 +27,7 @@ public function store(Request $request)
     // Cek apakah user sudah memilih
     $user = Auth::user();
     if (Vote::where('user_id', $user->id)->exists()) {
-        return redirect()->route('user.berespilih')->with('error', 'Anda sudah memilih!');
+        return redirect()->route('login')->with('error', 'Anda sudah memilih!');
     }
 
     // Simpan vote
