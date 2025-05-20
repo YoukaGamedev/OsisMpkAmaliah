@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Agenda;
 use App\Models\Siswa;
 use App\Models\JadwalGDS;
+use App\Models\Dashboard;
 
 use DB;
 
@@ -48,5 +49,17 @@ class UserController extends Controller
         $jadwal = JadwalGds::all();
         return view('user.gds.jadwalgds.index', compact('jadwal'));
     }
+
+    public function pilihKandidat()
+{
+    $dashboard = Dashboard::first();
+
+    if (!$dashboard || $dashboard->status_pemilu == 0) {
+        return redirect()->back()->with('error', 'Pemilu belum dimulai.');
+    }
+
+    // Lanjut ke view jika status_pemilu == 1
+    return view('user.pemilu.pilihkandidat');
+}
 
 }
