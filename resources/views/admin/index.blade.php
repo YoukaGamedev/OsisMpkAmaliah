@@ -53,14 +53,23 @@
         <span class="ml-3 hidden group-hover:md:inline-block whitespace-nowrap">Galeri</span>
     </a>
 </li>
-
-
         </ul>
     </aside>
 
     <!-- Main Content - Positioned below header -->
     <div class="flex-1 pt-7 ml-0 md:ml-16 transition-all duration-300">
         <div class="container mx-auto px-4 py-6">
+            <div class="mb-8 flex flex-col items-center text-center">
+    <div class="text-4xl text-blue-600 mb-2">
+        <i class="bi bi-person-circle"></i>
+    </div>
+    <h1 class="text-2xl sm:text-3xl font-bold text-gray-800 leading-tight">
+        Hai, {{ Auth::user()->name }} 👋
+    </h1>
+    <p class="text-gray-500 text-sm sm:text-base mb-4">
+        Selamat datang di sistem informasi OSIS dan MPK
+    </p>
+</div>
             <div class="mb-6">
                 <h2 class="text-lg font-semibold text-gray-700 mb-4">Fitur Utama</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">

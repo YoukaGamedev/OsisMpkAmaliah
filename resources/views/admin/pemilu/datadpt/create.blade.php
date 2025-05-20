@@ -13,18 +13,6 @@
                 </p>
             </div>
 
-            <!-- Helpful Tips Card -->
-            <div class="bg-blue-50 p-4 rounded-lg shadow-md my-4">
-                <h3 class="font-semibold text-gray-700">Helpful Tips</h3>
-                <ul class="list-disc pl-5 text-sm text-gray-600 mt-2">
-                    <li><strong>Nama Lengkap:</strong> Masukkan nama lengkap seperti yang tertera pada KTP.</li>
-                    <li><strong>Alamat Email:</strong> Gunakan email yang valid dan aktif untuk komunikasi penting.</li>
-                    <li><strong>Peran Pengguna:</strong> Pilih peran yang sesuai. "Admin" memiliki akses penuh, sementara "User" hanya dapat melihat data.</li>
-                    <li><strong>Password:</strong> Minimal 8 karakter, pastikan mengandung angka dan huruf untuk keamanan.</li>
-                    <li><strong>Konfirmasi Password:</strong> Masukkan ulang password untuk memastikan kesalahan pengetikan tidak terjadi.</li>
-                </ul>
-            </div>
-
             <!-- Form Section -->
             <div class="p-6">
                 <form action="{{ isset($dpt) ? route('datadpt.update', $dpt->id) : route('datadpt.store') }}" 
@@ -203,6 +191,17 @@
                         </button>
                     </div>
                 </form>
+                            <!-- Helpful Tips Card -->
+            <div class="bg-blue-50 p-4 rounded-lg shadow-md my-4">
+                <h3 class="font-semibold text-gray-700">Helpful Tips</h3>
+                <ul class="list-disc pl-5 text-sm text-gray-600 mt-2">
+                    <li><strong>Nama Lengkap:</strong> Masukkan nama lengkap seperti yang tertera pada KTP.</li>
+                    <li><strong>Alamat Email:</strong> Gunakan email yang valid dan aktif untuk komunikasi penting.</li>
+                    <li><strong>Peran Pengguna:</strong> Pilih peran yang sesuai. "Admin" memiliki akses penuh, sementara "User" hanya dapat melihat data.</li>
+                    <li><strong>Password:</strong> Minimal 8 karakter, pastikan mengandung angka dan huruf untuk keamanan.</li>
+                    <li><strong>Konfirmasi Password:</strong> Masukkan ulang password untuk memastikan kesalahan pengetikan tidak terjadi.</li>
+                </ul>
+            </div>
             </div>
         </div>
     </div>

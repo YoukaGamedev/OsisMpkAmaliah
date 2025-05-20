@@ -33,10 +33,17 @@
 
     <!-- Main Content -->
     <main class="flex-1 p-8">
-        <div class="mb-8">
-            <h1 class="text-3xl font-bold text-gray-800">Dashboard OSIS</h1>
-            <p class="text-gray-500">Silakan pilih menu yang ingin kamu kelola.</p>
-        </div>
+        <div class="mb-8 flex flex-col items-center text-center">
+    <div class="text-4xl text-blue-600 mb-2">
+        <i class="bi bi-person-circle"></i>
+    </div>
+    <h1 class="text-2xl sm:text-3xl font-bold text-gray-800 leading-tight">
+        Hai, {{ Auth::user()->name }} 👋
+    </h1>
+    <p class="text-gray-500 text-sm sm:text-base mb-4">
+        Selamat datang di sistem informasi OSIS dan MPK
+    </p>
+</div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
             <!-- Card: Pemilu -->

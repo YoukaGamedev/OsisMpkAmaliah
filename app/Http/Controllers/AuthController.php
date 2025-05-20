@@ -10,8 +10,6 @@ class AuthController extends Controller
 {
     public function showLoginForm()
     {
-
-
         $dashboard = Dashboard::first();
         $pemiluDimulai = $dashboard ? $dashboard->status_pemilu : false;
 

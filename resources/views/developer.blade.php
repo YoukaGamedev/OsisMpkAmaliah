@@ -96,7 +96,7 @@
            
 <div class="group">
     <div class="bg-white rounded-2xl shadow-lg card-hover overflow-hidden border border-gray-100">
-        <div class="relative h-64 bg-cover bg-center overflow-hidden" style="background-image: url('/asset/img/tayo1.jpg');">
+        <div class="relative h-64 bg-cover bg-center overflow-hidden" style="background-image: url('/asset/img/zal.jpg');">
             <div class="absolute inset-0 bg-black/20"></div> <!-- Overlay gelap agar teks tetap terbaca -->
             <div class="absolute top-4 right-4">
                 <span class="bg-white/20 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">
