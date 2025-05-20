@@ -25,11 +25,12 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PelanggaranController;
 use App\Http\Controllers\HalawalController;
+use App\Http\Controllers\GaleriController;
 
 
-// Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
-// Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
-// Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
 
 Route::get('/', function () {
     return view('welcome'); 
@@ -57,6 +58,9 @@ Route::resource('datakelas', DataKelasController::class);
 Route::resource('datakandidat', DataKandidatController::class);
 Route::resource('datadpt', DataDptController::class);
 Route::resource('dashboardpemilu', DashboardController::class);
+Route::post('/dashboardpemilu/mulai', [DashboardController::class, 'mulai'])->name('dashboardpemilu.mulai');
+Route::post('/dashboardpemilu/toggle', [DashboardController::class, 'togglePemilu'])->name('dashboardpemilu.toggle');
+
 Route::resource('hasilpemilihan', HasilPemilihanController::class);
 Route::resource('home', HomerController::class);
 Route::resource('/user/pemilu/pilihkandidat', PilihKandidatController::class,);
@@ -87,7 +91,7 @@ Route::resource('pelanggaran', PelanggaranController::class);
 // Route::put('/pelanggaran/{pelanggaran}', [PelanggaranController::class, 'update'])->name('pelanggaran.update');
 
 
-Route::resource('gds', GdsController::class);
+// Route::resource('gds', GdsController::class);
 Route::resource('tambahdata', TambahDataController::class);
 Route::resource('lembargds', LembarGdsController::class);
 Route::resource('rekapgds', RekapGdsController::class);
@@ -100,14 +104,12 @@ Route::post('/reset-data', [HasilPemilihanController::class, 'reset'])->name('re
 
 Route::get('/profilosis', [HalawalController::class, 'profilosis'])->name('profilosis');
 
-Route::get('/galeri', function () {
-    return view('galeri');
-})->name('galeri');
+Route::get('/gambar', [HalawalController::class, 'galeri']);
 
-Route::get('/programkerja', function () {
-    return view('programkerja');
-})->name('programkerja');
+Route::get('/programkerja', [HalawalController::class, 'programkerja']);
 
 Route::get('/developer', function () {
     return view('developer');
 })->name('developer');
+
+Route::resource('galeri', GaleriController::class);

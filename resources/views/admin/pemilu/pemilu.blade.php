@@ -27,12 +27,12 @@
                     <span class="hidden group-hover:inline-block">Data Sekolah</span>
                 </a>
             </li>
-            <li>
+            <!-- <li>
                 <a class="flex items-center text-white p-3 rounded-lg hover:bg-gray-700 transition" href="{{ route('datakelas.index') }}">
                     <i class="bi bi-person-lines-fill text-lg mr-3"></i> 
                     <span class="hidden group-hover:inline-block">Data Kelas</span>
                 </a>
-            </li>
+            </li> -->
             <li>
                 <a class="flex items-center text-white p-3 rounded-lg hover:bg-gray-700 transition" href="{{ route('datakandidat.index') }}">
                     <i class="bi bi-person-circle text-lg mr-3"></i> 

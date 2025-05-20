@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Layout</title>
+    <title>Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
@@ -44,8 +44,8 @@
             <div class="flex items-center space-x-2">
                 <img src="{{ asset('asset/img/logo osis.png') }}" alt="Logo" class="w-10 h-10 sm:w-12 sm:h-12 object-contain logo transition-transform duration-300">
                 <div class="hidden sm:block">
-                    <h1 class="font-bold text-lg">OSIS</h1>
-                    <p class="text-xs text-gray-300">Main Dashboard</p>
+                    <h1 class="font-bold text-lg">OSIS & MPK</h1>
+                    <p class="text-xs text-gray-300">Bisa gabisa</p>
                 </div>
             </div>
             
@@ -100,7 +100,7 @@
                         <!-- User Info Header -->
                         <div class="bg-gradient-to-r from-blue-600 to-blue-800 p-4 text-white">
                             <div class="flex items-center">
-                                <img src="{{ Auth::user()->avatar ? asset(Auth::user()->avatar) : asset('asset/img/default-avatar.png') }}"
+                                <img src="{{ Auth::user()->avatar ? asset(Auth::user()->avatar) : asset('asset/img/logo osis.png') }}"
                                      alt="User Avatar"
                                      class="w-12 h-12 rounded-full border-2 border-white object-cover">
                                 <div class="ml-3">

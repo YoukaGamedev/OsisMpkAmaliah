@@ -94,8 +94,6 @@ class PelanggaranController extends Controller
     ]);
 }
 
-
-
     public function edit($id)
 {
     $pelanggaran = Pelanggaran::with('siswa')->where('id_pelanggaran', $id)->firstOrFail();
