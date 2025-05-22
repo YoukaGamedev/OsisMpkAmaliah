@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('kelas');
             $table->string('foto')->nullable();      // kolom untuk menyimpan path foto
             $table->string('qr_code')->nullable();   // kolom untuk menyimpan path QR code
-            
+            $table->boolean('is_osis')->default(0)->change();
             $table->timestamps();
         });
     }

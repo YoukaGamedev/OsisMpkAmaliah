@@ -32,7 +32,13 @@
                     <!-- Kelas -->
                     <div>
                         <label class="block text-gray-700 text-sm font-semibold mb-1">Kelas</label>
-                        <input type="text" name="kelas" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300" placeholder="Contoh: 10A" required>
+                        <input type="text" name="kelas" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300" placeholder="Contoh: X PPLG 1" required>
+                    </div>
+
+                    <!-- Status OSIS -->
+                    <div class="flex items-center space-x-2 mt-6">
+                        <input type="checkbox" name="is_osis" value="1" class="h-4 w-4 text-blue-600 border-gray-300 rounded">
+                        <label class="text-sm text-gray-700">Anggota OSIS</label>
                     </div>
 
                     <!-- Foto -->
@@ -41,6 +47,7 @@
                         <input type="file" name="foto" accept="image/*" class="w-full px-3 py-1.5 border border-gray-300 rounded-md text-sm">
                         <span class="text-xs text-gray-500 mt-1 block">Maks. 2MB. Format: JPG/PNG</span>
                     </div>
+
                 </div>
 
                 <!-- Tombol -->
