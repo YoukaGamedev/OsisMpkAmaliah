@@ -16,7 +16,7 @@
                 <a href="{{ url('user/pemilu/pilihkandidat') }}" class="flex items-center space-x-3 p-3 rounded-md hover:bg-gray-800 transition">
                     <i class="bi bi-check2-square text-lg"></i>
                     <span class="hidden group-hover:inline-block">Pemilu</span>
-                </a>
+                </a>\
                 @endif
                 <a href="{{ route('pelanggaran.index') }}" class="flex items-center space-x-3 p-3 rounded-md hover:bg-gray-800 transition">
                     <i class="bi bi-bar-chart-line-fill text-lg"></i>
@@ -30,7 +30,10 @@
             </nav>
         </div>
     </aside>
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     <!-- Main Content -->
     <main class="flex-1 p-8">
         <div class="mb-8 flex flex-col items-center text-center">
