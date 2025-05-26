@@ -15,7 +15,7 @@
     </div>
     <!-- Footer -->
         <footer>
-            <div class="bg-gradient-to-t from-blue-900/90 to-blue-900/30 pt-8 pb-4 px-4 backdrop-blur-sm">
+            <div class="bg-gradient-to-t from-blue-400/70 to-blue-600/40 pt-8 pb-4 px-4 backdrop-blur-sm">
                 <div class="max-w-6xl mx-auto">
                     <!-- Footer Main Content -->
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-center md:text-left">
