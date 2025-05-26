@@ -32,7 +32,7 @@
         <!-- Minggu -->
         <div>
             <label class="block text-gray-700 font-medium">Minggu</label>
-            <input type="text" name="Minggu" value="{{ $jadwal->Minggu }}" class="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" required>
+            <input type="number" name="Minggu" value="{{ $jadwal->Minggu }}" class="w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-400 focus:outline-none" required>
         </div>
 
         <!-- Petugas -->

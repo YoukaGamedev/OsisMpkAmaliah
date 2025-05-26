@@ -24,12 +24,10 @@
     </a>
 </div>
 
-
-
     <!-- PJ Berdasarkan Hari -->
     <div class="mt-4 bg-white p-3 rounded-lg shadow-md">
         <h4 class="text-lg font-semibold">Hari: {{ \Carbon\Carbon::parse($tanggal)->translatedFormat('l') }}</h4>
-        <h2 class="text-gray-700">PJ: <strong>{{ $pj ?? 'Tunggu PJ' }}</strong></h2>
+        <!-- <h2 class="text-gray-700">PJ: <strong>{{ $pj ?? 'Tunggu PJ' }}</strong></h2> -->
     </div>
 
     <!-- Tabel Absensi -->

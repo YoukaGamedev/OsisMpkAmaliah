@@ -37,7 +37,8 @@
 
 <body class="bg-gray-100 min-h-screen flex flex-col">
     <!-- Enhanced Navbar -->
-    <nav class="bg-gradient-to-r from-gray-700 to-gray-900 text-white py-4 px-4 sm:px-6 nav-shadow">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-gray-700 to-gray-900 text-white py-4 px-4 sm:px-6 nav-shadow">
+
         <div class="max-w-screen-xl mx-auto flex flex-row items-center justify-between">
             
             <!-- Logo Section -->
@@ -49,13 +50,13 @@
                 </div>
             </div>
             
-            <!-- Center Section - Quick Actions -->
+            <!-- Center Section - Quick Actions
             <div class="hidden md:flex items-center space-x-4">
                 <a href="#" class="px-3 py-1 rounded-full hover:bg-white hover:bg-opacity-10 transition-colors duration-200 flex items-center">
                     <i class="bi bi-bell mr-2"></i>
                     <span>Notifications</span>
                 </a>
-            </div>
+            </div> -->
 
             <!-- User Profile Section with Dropdown -->
             <div x-data="{ profileOpen: false }" class="relative">
@@ -144,7 +145,7 @@
     </nav>
     
     <div class="flex flex-1">
-        <main class="flex-1">
+        <main class="flex-1 pt-[80px]">
             @yield('content')
         </main>
     </div>

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Pelanggaran;
 use App\Models\Siswa;
-use App\Models\JadwalGds;
+use App\Models\JadwalGDS;
 use Carbon\Carbon;
 
 class PelanggaranController extends Controller
@@ -47,7 +47,10 @@ class PelanggaranController extends Controller
 
         // Kirim ke view
         $pelanggarans = Pelanggaran::with('siswa')->latest()->paginate(10);
-        return view('user.gds.indexgds', compact('pelanggarans','absensi', 'tanggal'));
+
+        $jadwal = JadwalGDS::all();
+
+        return view('user.gds.indexgds', compact('pelanggarans','absensi', 'tanggal', 'jadwal'));
     }
 
     public function create()

@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\JadwalGds;
+use App\Models\JadwalGDS;
 
 class JadwalPiketGDSController extends Controller {
     public function index() {
-        $jadwal = JadwalGds::all();
+        $jadwal = JadwalGDS::all();
         return view('admin.gds.jadwalgds.index', compact('jadwal'));
     }
 
@@ -25,17 +25,17 @@ class JadwalPiketGDSController extends Controller {
             'petugas_4' => 'nullable|string|max:255',
         ]);
 
-        JadwalGds::create($request->all());
+        JadwalGDS::create($request->all());
         return redirect()->route('jadwalgds.index')->with('success', 'Jadwal berhasil ditambahkan!');
     }
 
     public function show($id) {
-        $jadwal = JadwalGds::findOrFail($id);
+        $jadwal = JadwalGDS::findOrFail($id);
         return view('admin.gds.jadwalgds.show', compact('jadwal'));
     }
 
     public function edit($id) {
-        $jadwal = JadwalGds::findOrFail($id);
+        $jadwal = JadwalGDS::findOrFail($id);
         return view('admin.gds.jadwalgds.edit', compact('jadwal'));
     }
 
@@ -49,13 +49,13 @@ class JadwalPiketGDSController extends Controller {
             'petugas_4' => 'nullable|string|max:255',
         ]);
 
-        $jadwal = JadwalGds::findOrFail($id);
+        $jadwal = JadwalGDS::findOrFail($id);
         $jadwal->update($request->all());
         return redirect()->route('jadwalgds.index')->with('success', 'Jadwal berhasil diperbarui!');
     }
 
     public function destroy($id) {
-        $jadwal = JadwalGds::findOrFail($id);
+        $jadwal = JadwalGDS::findOrFail($id);
         $jadwal->delete();
         return redirect()->route('jadwalgds.index')->with('success', 'Jadwal berhasil dihapus!');
     }
