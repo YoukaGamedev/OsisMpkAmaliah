@@ -6,12 +6,23 @@
     <h2 class="text-xl font-semibold text-gray-800">Daftar Siswa</h2>
     <div class="flex space-x-2">
         <form action="{{ route('tambahdata.index') }}" method="GET" class="flex items-center space-x-2">
-            <input type="text" name="search" placeholder="Cari Nama/Kelas" value="{{ request('search') }}"
-                class="border px-3 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">
-                <i class="fas fa-search"></i> Cari
-            </button>
-        </form>
+    <input type="text" name="search" placeholder="Cari Nama/Kelas" value="{{ request('search') }}"
+        class="border px-3 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+
+    <!-- Filter Kelas -->
+    <select name="kelas" class="border px-3 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <option value="">Semua Kelas</option>
+        @foreach($daftarKelas as $kelas)
+            <option value="{{ $kelas }}" {{ request('kelas') == $kelas ? 'selected' : '' }}>{{ $kelas }}</option>
+        @endforeach
+    </select>
+
+    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">
+        <i class="fas fa-search"></i> Cari
+    </button>
+</form>
+
         <a href="{{ route('tambahdata.create') }}" class="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition">
             <i class="fas fa-plus"></i> Tambah Data
         </a>

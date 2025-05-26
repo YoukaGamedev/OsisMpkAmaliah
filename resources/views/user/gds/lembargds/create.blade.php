@@ -553,9 +553,10 @@
     }
 
     function isiSiswaDariScan(data) {
-        try {
+    try {
+        // Cek jika data mengandung format ID:|Siswa:
+        if (data.includes('ID:') || data.includes('Siswa:')) {
             const parts = data.split('|');
-            
             let siswaId = null;
             let siswaName = null;
             
@@ -567,41 +568,61 @@
                 }
             }
             
-            const siswaSelect = document.getElementById('selectSiswa');
+            const tomSelect = siswaSelect.tomselect;
             
+            // Cari berdasarkan ID terlebih dahulu
             if (siswaId) {
-                for (const option of siswaSelect.options) {
-                    if (option.value === siswaId) {
-                        siswaSelect.value = option.value;
-                        siswaSelect.dispatchEvent(new Event('change'));
-                        return;
-                    }
-                }
-            }
-            
-            if (siswaName) {
-                const options = Array.from(siswaSelect.options);
-                const match = options.find(opt => opt.dataset.nama && opt.dataset.nama.toLowerCase().includes(siswaName.toLowerCase()));
-                if (match) {
-                    siswaSelect.value = match.value;
+                const option = tomSelect.options[siswaId];
+                if (option) {
+                    tomSelect.setValue(siswaId);
                     siswaSelect.dispatchEvent(new Event('change'));
                     return;
                 }
             }
             
-            const options = Array.from(siswaSelect.options);
-            const match = options.find(opt => opt.dataset.nama && data.toLowerCase().includes(opt.dataset.nama.toLowerCase()));
-            if (match) {
-                siswaSelect.value = match.value;
-                siswaSelect.dispatchEvent(new Event('change'));
-            } else {
-                alert('Siswa tidak ditemukan dari QR code: ' + data);
+            // Jika tidak ketemu, cari berdasarkan nama
+            if (siswaName) {
+                const options = Object.values(tomSelect.options);
+                const match = options.find(opt => 
+                    opt.text.toLowerCase().includes(siswaName.toLowerCase())
+                );
+                
+                if (match) {
+                    tomSelect.setValue(match.value);
+                    siswaSelect.dispatchEvent(new Event('change'));
+                    return;
+                }
             }
-        } catch (error) {
-            console.error('Error parsing QR data:', error);
-            alert('Format QR code tidak sesuai.');
         }
+        
+        // Jika format tidak sesuai, coba cari langsung di options
+        const tomSelect = siswaSelect.tomselect;
+        const options = Object.values(tomSelect.options);
+        
+        // Cari berdasarkan ID
+        const idMatch = options.find(opt => opt.value === data);
+        if (idMatch) {
+            tomSelect.setValue(data);
+            siswaSelect.dispatchEvent(new Event('change'));
+            return;
+        }
+        
+        // Cari berdasarkan nama
+        const nameMatch = options.find(opt => 
+            opt.text.toLowerCase().includes(data.toLowerCase())
+        );
+        
+        if (nameMatch) {
+            tomSelect.setValue(nameMatch.value);
+            siswaSelect.dispatchEvent(new Event('change'));
+        } else {
+            alert('Siswa tidak ditemukan dari QR code: ' + data);
+        }
+    } catch (error) {
+        console.error('Error parsing QR data:', error);
+        alert('Format QR code tidak sesuai atau terjadi kesalahan.');
     }
+}
 
     // Initialize Tom Select
     document.addEventListener('DOMContentLoaded', function () {
