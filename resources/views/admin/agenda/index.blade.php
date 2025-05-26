@@ -33,7 +33,7 @@
                         </button>
                     </div>
                     <div class="flex gap-2">
-                        <a href="{{ route('agenda.create') }}" class="bg-white text-blue-600 px-3 py-1 rounded flex items-center hover:bg-gray-100">
+                        <a href="{{ route('agenda.create') }}" class="bg-green-600 text-white px-3 py-1 rounded flex items-center hover:bg-green-400">
                             <i class="bi bi-plus-circle mr-1"></i> Tambah Agenda
                         </a>
                         <button id="toggleView" class="bg-transparent border border-white text-white px-3 py-1 rounded hover:bg-blue-700">

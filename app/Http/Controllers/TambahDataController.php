@@ -14,18 +14,30 @@ class TambahDataController extends Controller
      * Display a listing of the resource.
      */
     public function index(Request $request)
-    {
-        $query = Siswa::query();
+{
+    $query = Siswa::query();
 
-        if ($request->has('search')) {
-            $search = $request->input('search');
-            $query->where('nama', 'like', "%$search%")
-                  ->orWhere('kelas', 'like', "%$search%");
-        }
-
-        $siswa = $query->get();
-        return view('admin.gds.tambahdata.index', compact('siswa'));
+    // Filter nama/kelas
+    if ($search = $request->input('search')) {
+        $query->where(function($q) use ($search) {
+            $q->where('nama', 'like', "%$search%")
+              ->orWhere('kelas', 'like', "%$search%");
+        });
     }
+
+    // Filter kelas lengkap (misal: X-1, XI-2)
+    if ($kelas = $request->input('kelas')) {
+        $query->where('kelas', $kelas);
+    }
+
+    $siswa = $query->paginate(10);
+
+    // Ambil daftar kelas dari database (opsional bisa di-cache)
+    $daftarKelas = Siswa::select('kelas')->distinct()->pluck('kelas')->sort()->values();
+
+    return view('admin.gds.tambahdata.index', compact('siswa', 'daftarKelas'));
+}
+
 
     public function show($id)
     {
