@@ -30,7 +30,10 @@
             </nav>
         </div>
     </aside>
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
     <!-- Main Content -->
     <main class="flex-1 p-8">
         <div class="mb-8 flex flex-col items-center text-center">

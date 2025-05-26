@@ -186,7 +186,7 @@
         <div class="p-8">
             <div class="flex items-center justify-between mb-4">
                 <div>
-                    <h3 class="text-2xl font-bold text-gray-900">M.Ilham R.S</h3>
+                    <h3 class="text-2xl font-bold text-gray-900">M.Ilham Rai' subagja</h3>
                     <p class="text-blue-600 font-semibold">Front End</p>
                 </div>
                 <div class="h-12 w-12 bg-blue-100 rounded-lg flex items-center justify-center">
