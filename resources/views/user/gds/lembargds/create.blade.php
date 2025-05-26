@@ -159,14 +159,14 @@
                                 $attributes = [
                                     'Dasi' => [
                                         'name' => 'dasi',
-                                        'icon' => 'fas fa-thumbtack',
+                                        'icon' => 'fas fa-user-tie',
                                         'color' => 'blue',
                                         'label' => 'Dasi Sekolah'
                                     ],
                                     'Kacu' => [
                                         'name' => 'kacuk',
-                                        'icon' => 'fas fa-flag', // ikon pramuka
-                                        'color' => 'brown',
+                                        'icon' => 'fas fa-user-tie', // ikon pramuka
+                                        'color' => 'red',
                                         'label' => 'Atribut Pramuka (Kacu)'
                                     ],
                                     'Kaos Kaki' => [
@@ -177,7 +177,7 @@
                                     ],
                                     'Sabuk' => [
                                         'name' => 'sabuk',
-                                        'icon' => 'fas fa-grip-lines-vertical',
+                                        'icon' => 'fas fa-ellipsis-v',
                                         'color' => 'yellow',
                                         'label' => 'Sabuk'
                                     ],
@@ -196,7 +196,7 @@
                                     'Jas' => [
                                         'name' => 'jas',
                                         'icon' => 'fas fa-user-tie',
-                                        'color' => 'blue',
+                                        'color' => 'black',
                                         'label' => 'Jas Almamater'
                                     ],
                                     'Ring' => [
@@ -225,7 +225,7 @@
                                     ],
                                     'Ciput' => [
                                         'name' => 'ciput',
-                                        'icon' => 'fas fa-hat-cowboy', // atau fas fa-scarf jika tersedia
+                                        'icon' => 'fas fa-circle-notch', // atau fas fa-scarf jika tersedia
                                         'color' => 'green',
                                         'label' => 'Ciput / Kain Dalaman Hijab'
                                     ],

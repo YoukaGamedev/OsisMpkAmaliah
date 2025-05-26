@@ -148,10 +148,10 @@
             <div class="flex items-center justify-between mb-4">
                 <div>
                     <h3 class="text-2xl font-bold text-gray-900">Niswatul Hasanah</h3>
-                    <p class="text-blue-600 font-semibold">System Analyst</p>
+                    <p class="text-green-600 font-semibold">System Analyst</p>
                 </div>
-                <div class="h-12 w-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                    <i class="fas fa-chart-line text-blue-600 text-lg"></i>
+                <div class="h-12 w-12 bg-green-100 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-chart-line text-green-600 text-lg"></i>
                 </div>
             </div>
             <div class="flex items-center justify-between">
