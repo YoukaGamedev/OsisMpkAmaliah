@@ -93,9 +93,11 @@
                             Role
                         </label>
                         <select id="role" name="role" class="w-full px-4 py-3 rounded-lg border border-gray-300" required>
-                            <option value="user" {{ old('role', $user->role) == 'user' ? 'selected' : '' }}>User</option>
-                            <option value="admin" {{ old('role', $user->role) == 'admin' ? 'selected' : '' }}>Admin</option>
-                        </select>
+                            <option value="user" {{ old('role', $user->role) == 'user' ? 'selected' : '' }}>User (Siswa)</option>
+                            <option value="admin_osis" {{ old('role', $user->role) == 'admin_osis' ? 'selected' : '' }}>Admin OSIS</option>
+                            <option value="admin_pembina" {{ old('role', $user->role) == 'admin_pembina' ? 'selected' : '' }}>Admin Pembina</option>
+                         </select>
+
                         @error('role')
                             <p class="text-sm text-red-600 mt-1">{{ $message }}</p>
                         @enderror

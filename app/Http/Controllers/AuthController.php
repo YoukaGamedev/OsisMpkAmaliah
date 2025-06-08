@@ -16,36 +16,37 @@ class AuthController extends Controller
         return view('auth.login', compact('pemiluDimulai'));
     }
 
-    public function login(Request $request)
-    {
-        $credentials = $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
-        ]);
+   public function login(Request $request)
+{
+    $credentials = $request->validate([
+        'email' => 'required|email',
+        'password' => 'required',
+    ]);
 
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
+    if (Auth::attempt($credentials)) {
+        $request->session()->regenerate();
 
-            $user = Auth::user();
+        $user = Auth::user();
 
-            if ($user->role === 'admin') {
-                return redirect()->intended('/admin');
+        // Jika admin atau admin_osis diarahkan ke halaman admin pembina
+        if ($user->role === 'admin' || $user->role === 'admin_osis') {
+            return redirect()->intended('/admin');  // Halaman admin pembina
+        } else {
+            // Ambil status pemilu
+            $dashboard = Dashboard::first();
+
+            if ($dashboard && $dashboard->status_pemilu) {
+                return redirect()->intended('user/pemilu/pilihkandidat');
             } else {
-                // Ambil status pemilu
-                $dashboard = Dashboard::first();
-
-                if ($dashboard && $dashboard->status_pemilu) {
-                    return redirect()->intended('user/pemilu/pilihkandidat');
-                } else {
-                    return redirect()->intended('/user');
-                }
+                return redirect()->intended('/user');
             }
         }
-
-        return back()->withErrors([
-            'email' => 'Akun tidak terdaftar atau password salah.',
-        ])->withInput($request->only('email'));
     }
+
+    return back()->withErrors([
+        'email' => 'Akun tidak terdaftar atau password salah.',
+    ])->withInput($request->only('email'));
+}
 
     public function logout(Request $request)
     {

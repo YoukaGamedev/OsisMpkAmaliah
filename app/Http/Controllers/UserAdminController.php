@@ -44,7 +44,7 @@ class UserAdminController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email|max:255',
             'password' => 'required|string|min:8|confirmed', // Pastikan password dikonfirmasi
-            'role' => 'required|string|in:user,admin', // Validasi role
+            'role' => 'required|string|in:user,admin_osis,admin_pembina', // Validasi role
             'kepengurusan' => 'nullable|string', // Kepengurusan opsional
             'sekolah' => 'required|string|in:A1,A2', // Validasi sekolah
         ]);
@@ -70,32 +70,33 @@ class UserAdminController extends Controller
     /**
      * Memperbarui data user di database.
      */
-    public function update(Request $request, $id)
-    {
-        // Validasi input
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email|max:255',
-            'password' => 'required|string|min:8|confirmed', // Pastikan password dikonfirmasi
-            'role' => 'required|string|in:user,admin', // Validasi role
-            'sekolah' => 'required|string|in:A1,A2', // Validasi sekolah
-        ]);
+  public function update(Request $request, $id)
+{
+    // Validasi input
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|email|max:255|unique:users,email,' . $id,
+        'password' => 'nullable|string|min:8|confirmed', // ← ubah jadi nullable
+        'role' => 'required|string|in:user,admin_osis,admin_pembina',
+        'sekolah' => 'required|string|in:A1,A2',
+        'kepengurusan' => 'nullable|string', // ← tambahkan validasi ini
+    ]);
 
-        $user = User::findOrFail($id); // Cari user berdasarkan ID
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->sekolah = $request->sekolah;
-        $user->role = $request->role;
+    $user = User::findOrFail($id);
+    $user->name = $request->name;
+    $user->email = $request->email;
+    $user->sekolah = $request->sekolah;
+    $user->role = $request->role;
+    $user->kepengurusan = $request->kepengurusan; // ← tambahkan ini
 
-        // Hanya update password jika ada perubahan
-        if ($request->filled('password')) {
-            $user->password = Hash::make($request->password);
-        }
-
-        $user->save();
-
-        return redirect()->route('useradmin.index')->with('status', 'User berhasil diperbarui');
+    if ($request->filled('password')) {
+        $user->password = Hash::make($request->password);
     }
+
+    $user->save();
+
+    return redirect()->route('useradmin.index')->with('status', 'User berhasil diperbarui');
+}
 
     /**
      * Menghapus user dari database.
