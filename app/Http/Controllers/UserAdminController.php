@@ -79,7 +79,7 @@ class UserAdminController extends Controller
         'password' => 'nullable|string|min:8|confirmed', // ← ubah jadi nullable
         'role' => 'required|string|in:user,admin_osis,admin_pembina',
         'sekolah' => 'required|string|in:A1,A2',
-        'kepengurusan' => 'nullable|string', // ← tambahkan validasi ini
+        'kepengurusan' => 'nullable|string', // ← tambahkan validasi 
     ]);
 
     $user = User::findOrFail($id);
@@ -87,7 +87,7 @@ class UserAdminController extends Controller
     $user->email = $request->email;
     $user->sekolah = $request->sekolah;
     $user->role = $request->role;
-    $user->kepengurusan = $request->kepengurusan; // ← tambahkan ini
+    $user->kepengurusan = $request->kepengurusan; 
 
     if ($request->filled('password')) {
         $user->password = Hash::make($request->password);
