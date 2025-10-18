@@ -10,7 +10,8 @@
         "laravel/framework": "^11.9",
         "laravel/jetstream": "^5.3",
         "laravel/tinker": "^2.9",
-        "laravel/ui": "^4.6"
+        "laravel/ui": "^4.6",
+        "maatwebsite/excel": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
