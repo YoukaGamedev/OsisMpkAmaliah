@@ -26,6 +26,10 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\PelanggaranController;
 use App\Http\Controllers\HalawalController;
 use App\Http\Controllers\GaleriController;
+use App\Http\Controllers\ImportUserController;
+
+Route::get('/import-users', [ImportUserController::class, 'index'])->name('users.import.form');
+Route::post('/import-users', [ImportUserController::class, 'import'])->name('users.import');
 
 
 Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');

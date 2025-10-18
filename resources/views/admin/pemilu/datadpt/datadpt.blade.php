@@ -3,8 +3,45 @@
 <div class="container mx-auto mt-8 px-4">
     <div class="max-w-6xl mx-auto">
         <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-            <div class="bg-gray-50 border-b px-6 py-4">
+            <div class="bg-gray-50 border-b px-6 py-4 flex justify-between items-center">
                 <h2 class="text-xl font-bold text-gray-800">Data Daftar Pemilih Tetap (DPT)</h2>
+
+                <!-- Tombol Import Excel -->
+                <button 
+                    id="importButton" 
+                    class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition duration-200 flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                    </svg>
+                    Import Excel
+                </button>
+            </div>
+
+            <!-- Form Import Modal -->
+            <div id="importModal" class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
+                <div class="bg-white rounded-lg shadow-lg w-96 p-6 relative">
+                    <button id="closeModal" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">✕</button>
+                    <h3 class="text-lg font-semibold mb-4">Import Data User dari Excel</h3>
+
+                    @if (session('success'))
+                        <div class="bg-green-100 text-green-800 px-4 py-2 mb-3 rounded">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
+                    <form action="{{ route('users.import') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="file" name="file" accept=".xls,.xlsx" 
+                               class="w-full mb-3 border border-gray-300 p-2 rounded focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                        @error('file')
+                            <div class="text-red-500 mb-2">{{ $message }}</div>
+                        @enderror
+                        <div class="flex justify-end mt-3">
+                            <button type="button" id="cancelImport" class="px-4 py-2 mr-2 text-gray-600 border rounded hover:bg-gray-100">Batal</button>
+                            <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700">Import</button>
+                        </div>
+                    </form>
+                </div>
             </div>
 
             <!-- Search Section -->
@@ -47,7 +84,6 @@
                     </a>
                 </div>
 
-            <div class="p-6">
                 <!-- TABEL DATA -->
                 <div class="mt-6 overflow-x-auto">
                     <table class="w-full text-sm text-left">
@@ -75,21 +111,20 @@
                                     </td>
                                     <td class="px-4 py-3">
                                         <div class="flex justify-center gap-3">
-                                            <!-- EDIT BUTTON -->
+                                            <!-- EDIT -->
                                             <a href="{{ route('datadpt.edit', $dpt->id) }}" class="text-yellow-600 hover:text-yellow-800 transition">
                                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
                                                 </svg>
                                             </a>
 
-                                            <!-- DELETE BUTTON WITH SWEETALERT -->
+                                            <!-- DELETE -->
                                             <button type="button" class="text-red-600 hover:text-red-800 transition delete-btn" data-id="{{ $dpt->id }}">
                                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                                                 </svg>
                                             </button>
 
-                                            <!-- HIDDEN FORM FOR DELETE -->
                                             <form id="delete-form-{{ $dpt->id }}" action="{{ route('datadpt.destroy', $dpt->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
@@ -111,9 +146,10 @@
     </div>
 </div>
 
-<!-- SWEETALERT SCRIPT -->
+<!-- SWEETALERT -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
+    // Hapus Data
     document.querySelectorAll('.delete-btn').forEach(button => {
         button.addEventListener('click', function () {
             let userId = this.getAttribute('data-id');
@@ -131,6 +167,18 @@
                     document.getElementById('delete-form-' + userId).submit();
                 }
             });
+        });
+    });
+
+    // Modal Import
+    const modal = document.getElementById('importModal');
+    const openBtn = document.getElementById('importButton');
+    const closeBtn = document.getElementById('closeModal');
+    const cancelBtn = document.getElementById('cancelImport');
+
+    [openBtn, closeBtn, cancelBtn].forEach(btn => {
+        if (btn) btn.addEventListener('click', () => {
+            modal.classList.toggle('hidden');
         });
     });
 </script>
