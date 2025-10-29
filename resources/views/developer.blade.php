@@ -108,25 +108,25 @@
             <div class="flex items-center justify-between mb-4">
                 <div>
                     <h3 class="text-2xl font-bold text-gray-900">Rizal Abdurahman</h3>
-                    <p class="text-purple-600 font-semibold">back end</p>
+                    <p class="text-purple-600 font-semibold">Back End</p>
                 </div>
                 <div class="h-12 w-12 bg-purple-100 rounded-lg flex items-center justify-center">
-                    <i class="fas fa-chart-line text-purple-600 text-lg"></i>
+                    <i class="fas fa-gear text-purple-600 text-lg"></i>
                 </div>
             </div>
             <div class="flex items-center justify-between">
                 <div class="flex space-x-3">
-                    <a href="" class="h-10 w-10 bg-gray-100 hover:bg-purple-100 rounded-lg flex items-center justify-center transition-colors">
+                    <a href="https://github.com/YoukaGamedev" class="h-10 w-10 bg-gray-100 hover:bg-purple-100 rounded-lg flex items-center justify-center transition-colors">
                         <i class="fab fa-github text-gray-600 hover:text-purple-600"></i>
                     </a>
-                    <a href="#" class="h-10 w-10 bg-gray-100 hover:bg-purple-100 rounded-lg flex items-center justify-center transition-colors">
+                    <!-- <a href="#" class="h-10 w-10 bg-gray-100 hover:bg-purple-100 rounded-lg flex items-center justify-center transition-colors">
                         <i class="fab fa-linkedin text-gray-600 hover:text-purple-600"></i>
-                    </a>
-                    <a href="//www.instagram.com/_nswaa.wa?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="h-10 w-10 bg-gray-100 hover:bg-pink-100 rounded-lg flex items-center justify-center transition-colors">
+                    </a> -->
+                    <a href="#" class="h-10 w-10 bg-gray-100 hover:bg-pink-100 rounded-lg flex items-center justify-center transition-colors">
                         <i class="fab fa-instagram text-gray-600 hover:text-pink-600"></i>
                     </a>
                 </div>
-                <span class="text-sm text-gray-400">PHP Specialist</span>
+                <span class="text-sm text-gray-400">Laravel Specialist</span>
             </div>
         </div>
     </div>
@@ -140,7 +140,7 @@
             <div class="absolute inset-0 bg-black/20"></div> <!-- Overlay gelap agar teks tetap terbaca -->
             <div class="absolute top-4 right-4">
                 <span class="bg-white/20 text-white text-xs px-3 py-1 rounded-full backdrop-blur-sm">
-                    Data Expert
+                    Analyst Expert
                 </span>
             </div>
         </div>
@@ -148,7 +148,7 @@
             <div class="flex items-center justify-between mb-4">
                 <div>
                     <h3 class="text-2xl font-bold text-gray-900">Niswatul Hasanah</h3>
-                    <p class="text-green-600 font-semibold">System Analyst</p>
+                    <p class="text-green-600 font-semibold">Analyst</p>
                 </div>
                 <div class="h-12 w-12 bg-green-100 rounded-lg flex items-center justify-center">
                     <i class="fas fa-chart-line text-green-600 text-lg"></i>
@@ -159,10 +159,10 @@
                     <a href="#" class="h-10 w-10 bg-gray-100 hover:bg-purple-100 rounded-lg flex items-center justify-center transition-colors">
                         <i class="fab fa-github text-gray-600 hover:text-purple-600"></i>
                     </a>
-                    <a href="#" class="h-10 w-10 bg-gray-100 hover:bg-purple-100 rounded-lg flex items-center justify-center transition-colors">
+                    <!-- <a href="#" class="h-10 w-10 bg-gray-100 hover:bg-purple-100 rounded-lg flex items-center justify-center transition-colors">
                         <i class="fab fa-linkedin text-gray-600 hover:text-purple-600"></i>
-                    </a>
-                    <a href="#" class="h-10 w-10 bg-gray-100 hover:bg-pink-100 rounded-lg flex items-center justify-center transition-colors">
+                    </a> -->
+                    <a href="//www.instagram.com/_nswaa.wa?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" class="h-10 w-10 bg-gray-100 hover:bg-pink-100 rounded-lg flex items-center justify-center transition-colors">
                         <i class="fab fa-instagram text-gray-600 hover:text-pink-600"></i>
                     </a>
                 </div>
@@ -190,7 +190,7 @@
                     <p class="text-blue-600 font-semibold">Front End</p>
                 </div>
                 <div class="h-12 w-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                    <i class="fas fa-chart-line text-blue-600 text-lg"></i>
+                    <i class="fas fa-vote-yea text-blue-600 text-lg"></i>
                 </div>
             </div>
             <div class="flex items-center justify-between">
@@ -198,14 +198,14 @@
                     <a href="#" class="h-10 w-10 bg-gray-100 hover:bg-purple-100 rounded-lg flex items-center justify-center transition-colors">
                         <i class="fab fa-github text-gray-600 hover:text-purple-600"></i>
                     </a>
-                    <a href="#" class="h-10 w-10 bg-gray-100 hover:bg-purple-100 rounded-lg flex items-center justify-center transition-colors">
+                    <!-- <a href="#" class="h-10 w-10 bg-gray-100 hover:bg-purple-100 rounded-lg flex items-center justify-center transition-colors">
                         <i class="fab fa-linkedin text-gray-600 hover:text-purple-600"></i>
-                    </a>
+                    </a> -->
                     <a href="#" class="h-10 w-10 bg-gray-100 hover:bg-pink-100 rounded-lg flex items-center justify-center transition-colors">
                         <i class="fab fa-instagram text-gray-600 hover:text-pink-600"></i>
                     </a>
                 </div>
-                <span class="text-sm text-gray-400">JS Specialist</span>
+                <span class="text-sm text-gray-400">CSS Specialist</span>
             </div>
         </div>
     </div>

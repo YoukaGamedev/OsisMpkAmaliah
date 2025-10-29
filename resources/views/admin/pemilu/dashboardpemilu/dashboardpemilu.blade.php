@@ -39,18 +39,29 @@
 
             {{-- Quick Stats --}}
             <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-                <h3 class="text-lg font-semibold text-gray-900 mb-4">Statistik Cepat</h3>
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">📊 Statistik Cepat</h3>
                 <div class="space-y-3">
                     <div class="flex justify-between items-center">
-                        <span class="text-sm text-gray-600">Total Pemilih</span>
-                        <span class="text-sm font-medium text-gray-900">-</span>
+                        <span class="text-sm text-gray-600">Total DPT</span>
+                        <span class="text-sm font-medium text-gray-900">
+                            {{ number_format($totalDPT) }}
+                        </span>
                     </div>
                     <div class="flex justify-between items-center">
                         <span class="text-sm text-gray-600">Sudah Memilih</span>
-                        <span class="text-sm font-medium text-gray-900">-</span>
+                        <span class="text-sm font-medium text-green-600">
+                            {{ number_format($sudahMemilih) }}
+                        </span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-600">Belum Memilih</span>
+                        <span class="text-sm font-medium text-red-600">
+                            {{ number_format($totalDPT - $sudahMemilih) }}
+                        </span>
                     </div>
                 </div>
             </div>
+
 
             {{-- Reset Data --}}
             <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">

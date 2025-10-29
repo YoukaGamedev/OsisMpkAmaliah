@@ -46,7 +46,7 @@ class UserAdminController extends Controller
             'password' => 'required|string|min:8|confirmed', // Pastikan password dikonfirmasi
             'role' => 'required|string|in:user,admin_osis,admin_pembina', // Validasi role
             'kepengurusan' => 'nullable|string', // Kepengurusan opsional
-            'sekolah' => 'required|string|in:A1,A2', // Validasi sekolah
+            'sekolah' => 'required|string|in:A1,A2,Guru', // Validasi sekolah
         ]);
 
         // Enkripsi password sebelum disimpan
@@ -78,7 +78,7 @@ class UserAdminController extends Controller
         'email' => 'required|email|max:255|unique:users,email,' . $id,
         'password' => 'nullable|string|min:8|confirmed', // ← ubah jadi nullable
         'role' => 'required|string|in:user,admin_osis,admin_pembina',
-        'sekolah' => 'required|string|in:A1,A2',
+        'sekolah' => 'required|string|in:A1,A2,Guru', // Validasi sekolah
         'kepengurusan' => 'nullable|string', // ← tambahkan validasi 
     ]);
 

@@ -15,7 +15,7 @@
     </div>
     <!-- Footer -->
         <footer>
-            <div class="bg-gradient-to-t from-blue-400/70 to-blue-600/40 pt-8 pb-4 px-4 backdrop-blur-sm">
+            <div class="bg-gradient-to-t from-blue-800/90 to-blue-900/40 pt-8 pb-4 px-4 backdrop-blur-sm">
                 <div class="max-w-6xl mx-auto">
                     <!-- Footer Main Content -->
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-center md:text-left">
@@ -75,15 +75,15 @@
                                     </a>
                                 </li>
                                 <li>
-   <a href="{{ route('developer') }}" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center justify-center md:justify-start">
-    <!-- Heroicon Code Icon (developer-themed) -->
-    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-blue-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 18l6-6-6-6M8 6l-6 6 6 6" />
-    </svg>
-    <span>Developer</span>
-</a>
+                                <a href="{{ route('developer') }}" class="text-gray-300 hover:text-white transition-colors duration-300 flex items-center justify-center md:justify-start">
+                                    <!-- Heroicon Code Icon (developer-themed) -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-blue-400 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 18l6-6-6-6M8 6l-6 6 6 6" />
+                                    </svg>
+                                    <span>Developer</span>
+                                </a>
 
-</li>
+                                </li>
                             </ul>
                         </div>
                         

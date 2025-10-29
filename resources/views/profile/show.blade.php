@@ -40,10 +40,10 @@
 
                 <!-- Tombol Aksi -->
                 <div class="mt-6 flex space-x-4">
-                <a href="{{ url()->previous() }}" 
-   class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition flex items-center">
-    <i class="bi bi-arrow-left mr-2"></i> Kembali
-</a>
+                    <a href="{{ url()->previous() }}" 
+                    class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition flex items-center">
+                        <i class="bi bi-arrow-left mr-2"></i> Kembali
+                    </a>
 
                     <a href="{{ route('profile.edit') }}" 
                        class="bg-blue-500 text-white px-5 py-2 rounded-lg shadow-md hover:bg-blue-600 transition flex items-center">

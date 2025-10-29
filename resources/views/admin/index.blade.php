@@ -64,8 +64,8 @@
         <i class="bi bi-person-circle"></i>
     </div>
     <h1 class="text-2xl sm:text-3xl font-bold text-gray-800 leading-tight">
-        Hai, {{ Auth::user()->name }} 👋
-    </h1>
+    Hai, {{ Auth::check() ? Auth::user()->name : 'Guest' }} 👋
+</h1>
     <p class="text-gray-500 text-sm sm:text-base mb-4">
         Selamat datang di sistem informasi OSIS dan MPK
     </p>

@@ -30,10 +30,7 @@
             </nav>
         </div>
     </aside>
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
     <!-- Main Content -->
     <main class="flex-1 p-8">
         <div class="mb-8 flex flex-col items-center text-center">
@@ -51,20 +48,20 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
             <!-- Card: Pemilu -->
 
-@if ($statusPemilu)
-    <!-- Card: Pemilu -->
-    <a href="{{ url('user/pemilu/pilihkandidat') }}" class="transition-all duration-300 hover:shadow-lg">
-        <div class="bg-gradient-to-r from-pink-500 to-pink-600 text-white p-5 rounded-lg shadow-md flex items-center">
-            <div class="bg-white/20 p-3 rounded-full mr-4">
-                <i class="bi bi-check2-square text-2xl"></i>
-            </div>
-            <div>
-                <h3 class="text-lg font-semibold">Pemilu Ketua OSIS</h3>
-                <p class="text-xs opacity-80">Kelola pemilihan ketua</p>
-            </div>
-        </div>
-    </a>
-@endif
+            @if ($statusPemilu)
+                <!-- Card: Pemilu -->
+                <a href="{{ url('user/pemilu/pilihkandidat') }}" class="transition-all duration-300 hover:shadow-lg">
+                    <div class="bg-gradient-to-r from-pink-500 to-pink-600 text-white p-5 rounded-lg shadow-md flex items-center">
+                        <div class="bg-white/20 p-3 rounded-full mr-4">
+                            <i class="bi bi-check2-square text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold">Pemilu Ketua OSIS</h3>
+                            <p class="text-xs opacity-80">Kelola pemilihan ketua</p>
+                        </div>
+                    </div>
+                </a>
+            @endif
 
             <!-- Card: GDS -->
             <a href="{{ route('pelanggaran.index') }}" class="transition-all duration-300 hover:shadow-lg">

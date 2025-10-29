@@ -123,14 +123,5 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
-    // config/app.php
-    'providers' => [
-        Maatwebsite\Excel\ExcelServiceProvider::class,
-    ],
-
-    'aliases' => [
-        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-    ],
-
 
 ];

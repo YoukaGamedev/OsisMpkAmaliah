@@ -232,7 +232,7 @@
                 <div class="logo-glow"></div>
                 <img src="{{ asset('/asset/img/logo osis.png') }}" alt="Logo OSIS" class="logo-img">
             </div>
-            <h2 class="osis-title">OSIS MPK Amaliah</h2>
+            <h2 class="osis-title">OSIS SMK Amaliah</h2>
             <p class="osis-description">Aplikasi Resmi OSIS MPK SMK Amaliah</p>
             
             <!-- Login button -->

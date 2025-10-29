@@ -5,44 +5,8 @@
         <div class="bg-white rounded-lg shadow-lg overflow-hidden">
             <div class="bg-gray-50 border-b px-6 py-4 flex justify-between items-center">
                 <h2 class="text-xl font-bold text-gray-800">Data Daftar Pemilih Tetap (DPT)</h2>
-
-                <!-- Tombol Import Excel -->
-                <button 
-                    id="importButton" 
-                    class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition duration-200 flex items-center">
-                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-                    </svg>
-                    Import Excel
-                </button>
             </div>
 
-            <!-- Form Import Modal -->
-            <div id="importModal" class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
-                <div class="bg-white rounded-lg shadow-lg w-96 p-6 relative">
-                    <button id="closeModal" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">✕</button>
-                    <h3 class="text-lg font-semibold mb-4">Import Data User dari Excel</h3>
-
-                    @if (session('success'))
-                        <div class="bg-green-100 text-green-800 px-4 py-2 mb-3 rounded">
-                            {{ session('success') }}
-                        </div>
-                    @endif
-
-                    <form action="{{ route('users.import') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <input type="file" name="file" accept=".xls,.xlsx" 
-                               class="w-full mb-3 border border-gray-300 p-2 rounded focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
-                        @error('file')
-                            <div class="text-red-500 mb-2">{{ $message }}</div>
-                        @enderror
-                        <div class="flex justify-end mt-3">
-                            <button type="button" id="cancelImport" class="px-4 py-2 mr-2 text-gray-600 border rounded hover:bg-gray-100">Batal</button>
-                            <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700">Import</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
 
             <!-- Search Section -->
             <div class="p-6">
@@ -170,16 +134,5 @@
         });
     });
 
-    // Modal Import
-    const modal = document.getElementById('importModal');
-    const openBtn = document.getElementById('importButton');
-    const closeBtn = document.getElementById('closeModal');
-    const cancelBtn = document.getElementById('cancelImport');
-
-    [openBtn, closeBtn, cancelBtn].forEach(btn => {
-        if (btn) btn.addEventListener('click', () => {
-            modal.classList.toggle('hidden');
-        });
-    });
 </script>
 @endsection

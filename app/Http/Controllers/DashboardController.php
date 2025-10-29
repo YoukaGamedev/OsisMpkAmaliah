@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Dashboard;
+use App\Models\User;
+use App\Models\Vote;
+use App\Models\HasilPemilihan;
 use DB;
 
 class DashboardController extends Controller
@@ -13,8 +16,10 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        $totalDPT = \App\Models\User::whereIn('sekolah', ['A1', 'Guru','A2'])->count();
+        $sudahMemilih = \App\Models\Vote::distinct('user_id')->count('user_id');
         $dashboard = DB::table('dashboard')->get();
-        return view('admin/pemilu/dashboardpemilu/dashboardpemilu', compact('dashboard'));
+        return view('admin/pemilu/dashboardpemilu/dashboardpemilu', compact('dashboard','totalDPT','sudahMemilih'));
     }
 
     /**

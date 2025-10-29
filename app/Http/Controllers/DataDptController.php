@@ -44,8 +44,8 @@ class DataDptController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email|max:255',
             'password' => 'required|string|min:8|confirmed', // Pastikan password dikonfirmasi
-            'role' => 'required|string|in:user,admin', // Validasi role
-            'sekolah' => 'required|string|in:A1,A2', // Validasi sekolah
+            'role' => 'required|string|in:user,admin_osis,admin_pembina', // Validasi role
+            'sekolah' => 'required|string|in:A1,A2,Guru', // Validasi sekolah
         ]);
 
         // Enkripsi password
@@ -77,8 +77,8 @@ class DataDptController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255|unique:users,email,'.$id,
             'password' => 'nullable|string|min:8|confirmed', // Password opsional
-            'role' => 'required|string|in:user,admin',
-            'sekolah' => 'required|string|in:A1,A2', // Validasi sekolah
+            'role' => 'required|string|in:user,admin_osis,admin_pembina', // Validasi role
+            'sekolah' => 'required|string|in:A1,A2,Guru', // Validasi sekolah
         ]);
 
         $user = User::findOrFail($id); // Cari user berdasarkan ID
