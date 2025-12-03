@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Dashboard;
+use App\Models\User;
 
 class AuthController extends Controller
 {
@@ -16,37 +17,58 @@ class AuthController extends Controller
         return view('auth.login', compact('pemiluDimulai'));
     }
 
-   public function login(Request $request)
-{
-    $credentials = $request->validate([
-        'email' => 'required|email',
-        'password' => 'required',
-    ]);
+    public function login(Request $request)
+    {
+        $dashboard = Dashboard::first();
+        $pemiluDimulai = $dashboard ? $dashboard->status_pemilu : false;
 
-    if (Auth::attempt($credentials)) {
-        $request->session()->regenerate();
+        // ================================
+        // MODE PEMILU BERLANGSUNG → LOGIN PAKAI NIS SAJA
+        // ================================
+        if ($pemiluDimulai) {
 
-        $user = Auth::user();
+            $request->validate([
+                'nis' => 'required'
+            ]);
 
-        // Jika admin atau admin_osis diarahkan ke halaman admin pembina
-        if ($user->role === 'admin' || $user->role === 'admin_osis') {
-            return redirect()->intended('/admin');  // Halaman admin pembina
-        } else {
-            // Ambil status pemilu
-            $dashboard = Dashboard::first();
+            $user = User::where('nis', $request->nis)->first();
 
-            if ($dashboard && $dashboard->status_pemilu) {
+            if ($user) {
+                Auth::login($user); // langsung login tanpa password
+
                 return redirect()->intended('user/pemilu/pilihkandidat');
+            }
+
+            return back()->withErrors([
+                'nis' => 'NIS tidak ditemukan dalam daftar pemilih.'
+            ]);
+        }
+
+        // =======================================
+        // MODE NORMAL (PEMILU BELUM DIMULAI)
+        // Login menggunakan email + password
+        // =======================================
+        $credentials = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        if (Auth::attempt($credentials)) {
+
+            $request->session()->regenerate();
+            $user = Auth::user();
+
+            if ($user->role === 'admin_pembina' || $user->role === 'admin_osis') {
+                return redirect()->intended('/admin');
             } else {
                 return redirect()->intended('/user');
             }
         }
-    }
 
-    return back()->withErrors([
-        'email' => 'Akun tidak terdaftar atau password salah.',
-    ])->withInput($request->only('email'));
-}
+        return back()->withErrors([
+            'email' => 'Akun tidak ditemukan atau password salah.',
+        ]);
+    }
 
     public function logout(Request $request)
     {

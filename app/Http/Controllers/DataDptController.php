@@ -43,10 +43,12 @@ class DataDptController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email|max:255',
-            'password' => 'required|string|min:8|confirmed', // Pastikan password dikonfirmasi
-            'role' => 'required|string|in:user,admin_osis,admin_pembina', // Validasi role
-            'sekolah' => 'required|string|in:A1,A2,Guru', // Validasi sekolah
+            'password' => 'required|string|min:8|confirmed',
+            'role' => 'required|string|in:user,admin_osis,admin_pembina',
+            'sekolah' => 'required|string|in:A1,A2,Guru',
+            'nis' => 'nullable|string|unique:users,nis', // NIS opsional
         ]);
+
 
         // Enkripsi password
         $validatedData['password'] = Hash::make($request->password);
@@ -76,11 +78,13 @@ class DataDptController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255|unique:users,email,'.$id,
-            'password' => 'nullable|string|min:8|confirmed', // Password opsional
-            'role' => 'required|string|in:user,admin_osis,admin_pembina', // Validasi role
-            'sekolah' => 'required|string|in:A1,A2,Guru', // Validasi sekolah
+            'password' => 'nullable|string|min:8|confirmed',
+            'role' => 'required|string|in:user,admin_osis,admin_pembina',
+            'sekolah' => 'required|string|in:A1,A2,Guru',
+            'nis' => 'nullable|string|unique:users,nis,'.$id, // NIS opsional
         ]);
 
+        $user->nis = $request->nis;
         $user = User::findOrFail($id); // Cari user berdasarkan ID
         $user->name = $request->name;
         $user->email = $request->email;

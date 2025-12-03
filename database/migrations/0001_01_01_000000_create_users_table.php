@@ -17,10 +17,14 @@ return new class extends Migration
             $table->string('email')->unique();  
             $table->timestamp('email_verified_at')->nullable();  
             $table->string('password');  
-            $table->string('role')->default('user'); // Menambahkan kolom role
-            $table->string('kepengurusan')->nullable(); // Kolom kepengurusan opsional
-            $table->enum('sekolah', ['A1', 'A2', 'Guru']); // Kolom sekolah dengan pilihan A1 atau A2
-            $table->string('avatar')->nullable(); // Menambahkan kolom avatar yang opsional
+            $table->string('role')->default('user');
+            $table->string('kepengurusan')->nullable();
+            $table->enum('sekolah', ['A1', 'A2', 'Guru']);
+            $table->string('avatar')->nullable();
+
+            // === NIS Baru ===
+            $table->string('nis')->nullable()->unique();  
+
             $table->rememberToken();  
             $table->timestamps();  
         });

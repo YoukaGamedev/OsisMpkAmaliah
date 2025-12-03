@@ -6,7 +6,7 @@
     <title>APK OSIS MPK SMK Amaliah</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    </head>
+</head>
 <body>
     <div class="flex flex-1">
         <main class="flex-1">

@@ -74,27 +74,50 @@
             <form action="{{ route('login.submit') }}" method="POST">
                 @csrf
 
-                <!-- Email -->
-                <div class="mb-5">
-                    <label for="email" class="block text-gray-300 text-sm mb-2">Email</label>
-                    <div class="flex items-center bg-white/10 border border-white/20 rounded-lg input-focus p-3">
-                        <i class="fas fa-envelope text-blue-400 mr-3"></i>
-                        <input type="email" name="email" id="email" placeholder="Masukkan email kamu" required
-                               class="w-full bg-transparent outline-none text-white placeholder-gray-400">
+                @if($pemiluDimulai)
+                    <!-- =============================== -->
+                    <!-- MODE PEMILU → LOGIN PAKAI NIS SAJA -->
+                    <!-- =============================== -->
+                    <div class="mb-6">
+                        <label for="nis" class="block text-gray-300 text-sm mb-2">NIS</label>
+                        <div class="flex items-center bg-white/10 border border-white/20 rounded-lg input-focus p-3">
+                            <i class="fas fa-id-card text-yellow-400 mr-3"></i>
+                            <input type="text" name="nis" id="nis"
+                                placeholder="Masukkan NIS kamu"
+                                required
+                                class="w-full bg-transparent outline-none text-white placeholder-gray-400">
+                        </div>
                     </div>
-                </div>
+                @else
+                    <!-- =============================== -->
+                    <!-- MODE NORMAL (BELUM PEMILU) -->
+                    <!-- EMAIL + PASSWORD -->
+                    <!-- =============================== -->
 
-                <!-- Password -->
-                <div class="mb-6">
-                    <label for="password" class="block text-gray-300 text-sm mb-2">Password</label>
-                    <div class="flex items-center bg-white/10 border border-white/20 rounded-lg input-focus p-3">
-                        <i class="fas fa-lock text-blue-400 mr-3"></i>
-                        <input type="password" id="password" name="password" class="w-full bg-transparent outline-none text-white placeholder-gray-400" placeholder="Masukkan password" required>
-                        <button type="button" onclick="togglePassword()" class="text-gray-400 focus:outline-none hover:text-white transition-colors">
-                            <i class="fas fa-eye" id="eye-icon"></i>
-                        </button>
+                    <!-- Email -->
+                    <div class="mb-5">
+                        <label for="email" class="block text-gray-300 text-sm mb-2">Email</label>
+                        <div class="flex items-center bg-white/10 border border-white/20 rounded-lg input-focus p-3">
+                            <i class="fas fa-envelope text-blue-400 mr-3"></i>
+                            <input type="email" name="email" id="email" placeholder="Masukkan email kamu" required
+                                class="w-full bg-transparent outline-none text-white placeholder-gray-400">
+                        </div>
                     </div>
-                </div>
+
+                    <!-- Password -->
+                    <div class="mb-6">
+                        <label for="password" class="block text-gray-300 text-sm mb-2">Password</label>
+                        <div class="flex items-center bg-white/10 border border-white/20 rounded-lg input-focus p-3">
+                            <i class="fas fa-lock text-blue-400 mr-3"></i>
+                            <input type="password" id="password" name="password" required
+                                class="w-full bg-transparent outline-none text-white placeholder-gray-400"
+                                placeholder="Masukkan password">
+                            <button type="button" onclick="togglePassword()" class="text-gray-400 hover:text-white transition-colors">
+                                <i class="fas fa-eye" id="eye-icon"></i>
+                            </button>
+                        </div>
+                    </div>
+                @endif
 
                 <!-- Tombol login -->
                 <button type="submit"
@@ -105,6 +128,7 @@
                     <i class="fas fa-arrow-right"></i>
                 </button>
             </form>
+
         </div>
     </div>
 

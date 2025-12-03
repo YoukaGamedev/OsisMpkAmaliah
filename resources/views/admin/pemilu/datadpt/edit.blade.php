@@ -47,6 +47,30 @@
                         @enderror
                     </div>
 
+                                        <!-- Password -->
+                    <div class="space-y-2">
+                        <label for="password" class="text-sm font-medium text-gray-700 block">Password (Kosongkan jika tidak ingin mengubah)</label>
+                        <input type="password" id="password" name="password" 
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300" 
+                            placeholder="Minimal 8 karakter">
+                        <small class="text-gray-500">Masukan Password baru jika ingin mengganti.</small>
+                        @error('password')
+                            <p class="text-sm text-red-600 flex items-center">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <!-- Konfirmasi Password -->
+                    <div class="space-y-2">
+                        <label for="password_confirmation" class="text-sm font-medium text-gray-700 block">Konfirmasi Password</label>
+                        <input type="password" id="password_confirmation" name="password_confirmation" 
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300" 
+                            placeholder="Masukkan ulang password">
+                        <small class="text-gray-500">Masukkan ulang password jika mengubah.</small>
+                        @error('password_confirmation')
+                            <p class="text-sm text-red-600 flex items-center">{{ $message }}</p>
+                        @enderror
+                    </div>
+
                     <!-- Kepengurusan -->
                     <div class="space-y-2">
                         <label for="kepengurusan" class="text-sm font-medium text-gray-700 block">Kepengurusan</label>
@@ -90,27 +114,21 @@
                         @enderror
                     </div>
 
-                    <!-- Password -->
+                    <!-- NIS -->
                     <div class="space-y-2">
-                        <label for="password" class="text-sm font-medium text-gray-700 block">Password (Kosongkan jika tidak ingin mengubah)</label>
-                        <input type="password" id="password" name="password" 
-                            class="w-full px-4 py-3 rounded-lg border border-gray-300" 
-                            placeholder="Minimal 8 karakter">
-                        <small class="text-gray-500">Masukan Password baru jika ingin mengganti.</small>
-                        @error('password')
-                            <p class="text-sm text-red-600 flex items-center">{{ $message }}</p>
-                        @enderror
-                    </div>
-
-                    <!-- Konfirmasi Password -->
-                    <div class="space-y-2">
-                        <label for="password_confirmation" class="text-sm font-medium text-gray-700 block">Konfirmasi Password</label>
-                        <input type="password" id="password_confirmation" name="password_confirmation" 
-                            class="w-full px-4 py-3 rounded-lg border border-gray-300" 
-                            placeholder="Masukkan ulang password">
-                        <small class="text-gray-500">Masukkan ulang password jika mengubah.</small>
-                        @error('password_confirmation')
-                            <p class="text-sm text-red-600 flex items-center">{{ $message }}</p>
+                        <label for="nis" class="text-sm font-medium text-gray-700 block">NIS</label>
+                        <input type="text" id="nis" name="nis" 
+                            value="{{ old('nis', $user->nis) }}"
+                            class="w-full px-4 py-3 rounded-lg border border-gray-300"
+                            placeholder="Masukkan NIS siswa" required>
+                        <small class="text-gray-500">Masukan Nomor Induk Siswa.</small>
+                        @error('nis')
+                            <p class="text-sm text-red-600 flex items-center">
+                                <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                                {{ $message }}
+                            </p>
                         @enderror
                     </div>
 
