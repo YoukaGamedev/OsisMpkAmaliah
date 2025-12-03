@@ -42,6 +42,7 @@ class DataDptController extends Controller
         // Validasi input
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
+            'kelas' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email|max:255',
             'password' => 'required|string|min:8|confirmed',
             'role' => 'required|string|in:user,admin_osis,admin_pembina',
@@ -77,6 +78,7 @@ class DataDptController extends Controller
         // Validasi input
         $request->validate([
             'name' => 'required|string|max:255',
+            'kelas' => 'required|string|max:255',
             'email' => 'required|email|max:255|unique:users,email,'.$id,
             'password' => 'nullable|string|min:8|confirmed',
             'role' => 'required|string|in:user,admin_osis,admin_pembina',
@@ -87,6 +89,7 @@ class DataDptController extends Controller
         $user->nis = $request->nis;
         $user = User::findOrFail($id); // Cari user berdasarkan ID
         $user->name = $request->name;
+        $user->kelas = $request->kelas;
         $user->email = $request->email;
         $user->role = $request->role;
         $user->sekolah = $request->sekolah;

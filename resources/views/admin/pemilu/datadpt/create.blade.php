@@ -32,6 +32,21 @@
                         @enderror
                     </div>
 
+                    <!-- Kelas -->
+                    <div class="space-y-2">
+                        <label for="kelas" class="text-sm font-medium text-gray-700 block">Kelas</label>
+                        <input type="text" id="kelas" name="kelas" value="{{ old('kelas') }}" class="w-full px-4 py-3 rounded-lg border border-gray-300" placeholder="Masukkan Kelas" required>
+                        <small class="text-gray-500">Masukan Kelas (jika guru cukup strip saja).</small>
+                        @error('kelas')
+                            <p class="text-sm text-red-600 flex items-center">
+                                <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                </svg>
+                                {{ $message }}
+                            </p>
+                        @enderror
+                    </div>
+
                     <!-- Email -->
                     <div class="space-y-2">
                         <label for="email" class="text-sm font-medium text-gray-700 block">Alamat Email</label>

@@ -42,6 +42,7 @@ class UserAdminController extends Controller
         // Validasi input
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
+            'kelas' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email|max:255',
             'password' => 'required|string|min:8|confirmed', // Pastikan password dikonfirmasi
             'role' => 'required|string|in:user,admin_osis,admin_pembina', // Validasi role
@@ -75,6 +76,7 @@ class UserAdminController extends Controller
     // Validasi input
     $request->validate([
         'name' => 'required|string|max:255',
+        'kelas' => 'required|string|max:255',
         'email' => 'required|email|max:255|unique:users,email,' . $id,
         'password' => 'nullable|string|min:8|confirmed', // ← ubah jadi nullable
         'role' => 'required|string|in:user,admin_osis,admin_pembina',
@@ -84,6 +86,7 @@ class UserAdminController extends Controller
 
     $user = User::findOrFail($id);
     $user->name = $request->name;
+    $user->kelas = $request->kelas;
     $user->email = $request->email;
     $user->sekolah = $request->sekolah;
     $user->role = $request->role;

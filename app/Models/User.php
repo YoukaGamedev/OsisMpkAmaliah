@@ -17,11 +17,13 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'kelas',
         'email',
         'avatar',
         'password',
         'role',
         'kepengurusan', // Menambahkan kolom kepengurusan
         'sekolah', // Menambahkan kolom sekolah
+        'nis'
     ];
 }

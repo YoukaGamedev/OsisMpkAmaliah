@@ -69,6 +69,7 @@
                                     <tr>
                                         <th class="px-4 py-3 border-b font-medium text-gray-700">No</th>
                                         <th class="px-4 py-3 border-b font-medium text-gray-700">Nama</th>
+                                        <th class="px-4 py-3 border-b font-medium text-gray-700">Kelas</th>
                                         <th class="px-4 py-3 border-b font-medium text-gray-700">Email</th>
                                         <th class="px-4 py-3 border-b font-medium text-gray-700">Kepengurusan</th>
                                         <th class="px-4 py-3 border-b font-medium text-gray-700">Sekolah</th>
@@ -81,6 +82,7 @@
                                         <tr class="hover:bg-gray-50">
                                             <td class="px-4 py-3">{{ $loop->iteration }}</td>
                                             <td class="px-4 py-3">{{ $dpt->name }}</td>
+                                            <td class="px-4 py-3">{{ $dpt->kelas }}</td>
                                             <td class="px-4 py-3">{{ $dpt->email }}</td>
                                             <td class="px-4 py-3">{{ $dpt->kepengurusan }}</td>
                                             <td class="px-4 py-3">{{ $dpt->sekolah }}</td>
