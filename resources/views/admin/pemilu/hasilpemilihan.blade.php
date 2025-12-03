@@ -46,6 +46,7 @@
                                 <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">No Urut</th>
                                 <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Foto</th>
                                 <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nama Kandidat</th>
+                                <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Sekolah</th>
                                 <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Jumlah Suara</th>
                                 <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Visualisasi</th>
                             </tr>
@@ -65,6 +66,11 @@
                                 <td class="px-6 py-4">
                                     <div class="text-lg font-semibold text-gray-900">
                                         {{ $hasil->kandidat->nama_pasangan_calon }}
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="text-lg font-semibold text-gray-900">
+                                        {{ $hasil->kandidat->sekolah}}
                                     </div>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap">

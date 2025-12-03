@@ -10,7 +10,9 @@
 
             <!-- Search Section -->
             <div class="p-6">
-                <form action="{{ route('datadpt.index') }}" method="GET" class="flex flex-col sm:flex-row gap-4">
+                <form action="{{ route('datadpt.index') }}" method="GET" class="flex flex-col sm:flex-row flex-wrap gap-4">
+
+                    {{-- Search by name --}}
                     <div class="flex-1">
                         <input 
                             type="text" 
@@ -20,13 +22,42 @@
                             class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition"
                         >
                     </div>
+
+                    {{-- Filter Kelas --}}
+                    <div>
+                        <select name="kelas" 
+                                class="p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition">
+                            <option value="">Semua Kelas</option>
+                            @foreach ($allKelas as $k)
+                                <option value="{{ $k }}" {{ request()->input('kelas') == $k ? 'selected' : '' }}>
+                                    {{ $k }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    {{-- Filter Sekolah --}}
+                    <div>
+                        <select name="sekolah" 
+                                class="p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition">
+                            <option value="">Semua Sekolah</option>
+                            @foreach ($allSekolah as $s)
+                                <option value="{{ $s }}" {{ request()->input('sekolah') == $s ? 'selected' : '' }}>
+                                    {{ $s }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+
                     <button type="submit" class="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition duration-200 flex items-center justify-center">
                         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                         </svg>
-                        Cari Data
+                        Filter
                     </button>
+
                 </form>
+
 
                 <!-- Status Message -->
                 @if(session()->has('status'))

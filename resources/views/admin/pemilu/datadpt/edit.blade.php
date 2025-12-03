@@ -37,11 +37,11 @@
 
                     <!-- Kelas -->
                     <div class="space-y-2">
-                        <label for="kelas" class="text-sm font-medium text-gray-700 block">Nama Lengkap</label>
+                        <label for="kelas" class="text-sm font-medium text-gray-700 block">Kelas</label>
                         <input type="text" id="kelas" name="kelas" value="{{ old('kelas', $user->kelas) }}" 
                             class="w-full px-4 py-3 rounded-lg border border-gray-300" 
                             placeholder="Masukkan nama lengkap" required>
-                        <small class="text-gray-500">Masukan Nama.</small>
+                        <small class="text-gray-500">Masukan Kelas (jika guru cukup strip saja).</small>
                         @error('kelas')
                             <p class="text-sm text-red-600 flex items-center">
                                 <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">

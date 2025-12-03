@@ -13,18 +13,32 @@ class DataDptController extends Controller
      */
     public function index(Request $request)
     {
-        $query = User::query();
+        $users = User::query();
 
-        // Filter berdasarkan nama jika ada input pencarian
-        if ($request->has('name') && $request->input('name') != '') {
-            $query->where('name', 'like', '%' . $request->input('name') . '%');
+        // Filter nama
+        if ($request->name) {
+            $users->where('name', 'like', '%' . $request->name . '%');
         }
 
-        // Menggunakan pagination agar lebih optimal
-        $users = $query->paginate(10);
+        // Filter kelas
+        if ($request->kelas) {
+            $users->where('kelas', $request->kelas);
+        }
 
-        return view('admin.pemilu.datadpt.datadpt', compact('users'));
+        // Filter sekolah
+        if ($request->sekolah) {
+            $users->where('sekolah', $request->sekolah);
+        }
+
+        $users = $users->paginate(10);
+
+        // Ambil daftar kelas & sekolah unik
+        $allKelas = User::select('kelas')->distinct()->pluck('kelas');
+        $allSekolah = User::select('sekolah')->distinct()->pluck('sekolah');
+
+        return view('admin.pemilu.datadpt.datadpt', compact('users', 'allKelas', 'allSekolah'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -86,13 +100,13 @@ class DataDptController extends Controller
             'nis' => 'nullable|string|unique:users,nis,'.$id, // NIS opsional
         ]);
 
-        $user->nis = $request->nis;
         $user = User::findOrFail($id); // Cari user berdasarkan ID
         $user->name = $request->name;
         $user->kelas = $request->kelas;
         $user->email = $request->email;
         $user->role = $request->role;
         $user->sekolah = $request->sekolah;
+        $user->nis = $request->nis;
 
         // Hanya update password jika diisi
         if ($request->filled('password')) {

@@ -46,8 +46,8 @@
             <div class="flex items-center space-x-2">
                 <img src="{{ asset('asset/img/logo osis.png') }}" alt="Logo" class="w-10 h-10 sm:w-12 sm:h-12 object-contain logo transition-transform duration-300">
                 <div class="hidden sm:block">
-                    <h1 class="font-bold text-lg">OSIS & MPK</h1>
-                    <p class="text-xs text-gray-300">Bisa gabisa</p>
+                    <h1 class="font-bold text-lg">APK OSIS</h1>
+                    <p class="text-xs text-gray-300">Osis Mpk Smk Amaliah</p>
                 </div>
             </div>
             
