@@ -36,6 +36,11 @@ class AuthController extends Controller
             if ($user) {
                 Auth::login($user); // langsung login tanpa password
 
+                // Cek role user dan arahkan ke halaman yang sesuai
+                if ($user->role === 'admin_pembina' || $user->role === 'admin_osis') {
+                    return redirect()->intended('admin');
+                }
+
                 return redirect()->intended('user/pemilu/pilihkandidat');
             }
 

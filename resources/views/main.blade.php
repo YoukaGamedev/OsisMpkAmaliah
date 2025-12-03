@@ -66,7 +66,7 @@
                         class="flex items-center bg-white bg-opacity-10 rounded-full px-3 py-1.5 hover:bg-opacity-20 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50">
                     @if(Auth::user())
                         <div class="relative">
-                            <img src="{{ Auth::user()->avatar ? asset(Auth::user()->avatar) : asset('asset/img/default-avatar.png') }}"
+                            <img src="{{ Auth::user()->avatar ? asset(Auth::user()->avatar) : asset('asset/img/logo osis.png') }}"
                                  alt="User Avatar"
                                  class="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 border-blue-400 object-cover shadow-md">
                             <div class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-gray-800 status-active"></div>
@@ -118,10 +118,10 @@
                         
                         <!-- Action Links -->
                         <div class="py-1">
-                            <a href="{{ route('profile.show') }}" class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100">
+                            <!-- <a href="{{ route('profile.show') }}" class="flex items-center px-4 py-2 text-gray-700 hover:bg-gray-100">
                                 <i class="bi bi-person text-gray-500 mr-3"></i>
                                 My Profile
-                            </a>
+                            </a> -->
                             <div class="border-t border-gray-200 my-1"></div>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
