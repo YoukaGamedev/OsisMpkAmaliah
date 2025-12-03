@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
-class UserSeeder extends Seeder
+class XII_PPLG_3 extends Seeder
 {
     /**
      * Run the database seeds.
@@ -205,7 +205,70 @@ class UserSeeder extends Seeder
                 'role' => 'user',
                 'sekolah' => 'A1',
                 'nis' => '23.5.0325',
-            ]
+            ],
+            [
+                'name' => 'RAIHAN SAMI',
+                'kelas' => 'XII PPLG 3',
+                'email' => 'raihansami@gmail.com',
+                'password' => Hash::make('password123'),
+                'role' => 'user',
+                'sekolah' => 'A1',
+                'nis' => '23.5.0147',
+            ],
+            [
+                'name' => 'REZA HADI PUTRA',
+                'kelas' => 'XII PPLG 3',
+                'email' => 'rezahadiputra@gmail.com',
+                'password' => Hash::make('password123'),
+                'role' => 'user',
+                'sekolah' => 'A1',
+                'nis' => '23.5.0363',
+            ],
+            [
+                'name' => 'RIZAL ABDURAHMAN',
+                'kelas' => 'XII PPLG 3',
+                'email' => 'rizalabdurahman@gmail.com',
+                'password' => Hash::make('password123'),
+                'role' => 'user',
+                'sekolah' => 'A1',
+                'nis' => '23.5.0111',
+            ],
+            [
+                'name' => 'ROBY MARDIANSYAH',
+                'kelas' => 'XII PPLG 3',
+                'email' => 'robymardiansyah@gmail.com',
+                'password' => Hash::make('password123'),
+                'role' => 'user',
+                'sekolah' => 'A1',
+                'nis' => '23.5.0313',
+            ],
+            [
+                'name' => 'SANDI',
+                'kelas' => 'XII PPLG 3',
+                'email' => 'sandixii@gmail.com',
+                'password' => Hash::make('password123'),
+                'role' => 'user',
+                'sekolah' => 'A1',
+                'nis' => '23.5.0062',
+            ],
+            [
+                'name' => 'SHILA ISMA AULIA',
+                'kelas' => 'XII PPLG 3',
+                'email' => 'shilaismaaulia@gmail.com',
+                'password' => Hash::make('password123'),
+                'role' => 'user',
+                'sekolah' => 'A1',
+                'nis' => '23.5.0169',
+            ],
+            [
+                'name' => 'SITI SAHARA KHAERUNNISA',
+                'kelas' => 'XII PPLG 3',
+                'email' => 'sitisaharakhaerunnisa@gmail.com',
+                'password' => Hash::make('password123'),
+                'role' => 'user',
+                'sekolah' => 'A1',
+                'nis' => '23.5.0063',
+            ],
         ];
 
         // Looping untuk membuat setiap record User
