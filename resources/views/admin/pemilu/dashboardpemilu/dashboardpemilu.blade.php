@@ -43,23 +43,27 @@
 
         {{-- Control Panel --}}
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+
             {{-- Toggle Pemilu --}}
             <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
                 <div class="flex items-center justify-between mb-4">
                     <h3 class="text-lg font-semibold text-gray-900">Status Pemilu</h3>
                     <div class="flex items-center">
                         <div class="w-3 h-3 rounded-full {{ $pemiluDimulai ? 'bg-green-500' : 'bg-red-500' }} mr-2"></div>
-                        <span class="text-sm text-gray-600">{{ $pemiluDimulai ? 'Aktif' : 'Nonaktif' }}</span>
+                        <span class="text-sm text-gray-600">
+                            {{ $pemiluDimulai ? 'Aktif' : 'Nonaktif' }}
+                        </span>
                     </div>
                 </div>
+
                 <form action="{{ route('dashboardpemilu.toggle') }}" method="POST">
                     @csrf
                     <button type="submit"
                         class="w-full px-4 py-2.5 text-sm font-medium text-white rounded-md transition-all duration-200
-                            {{ $pemiluDimulai 
-                                ? 'bg-red-600 hover:bg-red-700 focus:ring-2 focus:ring-red-500 focus:ring-offset-2' 
-                                : 'bg-green-600 hover:bg-green-700 focus:ring-2 focus:ring-green-500 focus:ring-offset-2' }}
-                            transform hover:scale-[1.02] active:scale-[0.98]">
+                        {{ $pemiluDimulai 
+                            ? 'bg-red-600 hover:bg-red-700 focus:ring-red-500' 
+                            : 'bg-green-600 hover:bg-green-700 focus:ring-green-500' }}
+                        focus:ring-2 focus:ring-offset-2 transform hover:scale-[1.02] active:scale-[0.98]">
                         {{ $pemiluDimulai ? 'Hentikan Pemilu' : 'Mulai Pemilu' }}
                     </button>
                 </form>
@@ -68,41 +72,83 @@
             {{-- Quick Stats --}}
             <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
                 <h3 class="text-lg font-semibold text-gray-900 mb-4">📊 Statistik Cepat</h3>
+
                 <div class="space-y-3">
+
+                    {{-- Total DPT --}}
                     <div class="flex justify-between items-center">
                         <span class="text-sm text-gray-600">Total DPT</span>
                         <span class="text-sm font-medium text-gray-900">
                             {{ number_format($totalDPT) }}
                         </span>
                     </div>
+
+                    {{-- Sudah Memilih --}}
                     <div class="flex justify-between items-center">
                         <span class="text-sm text-gray-600">Sudah Memilih</span>
                         <span class="text-sm font-medium text-green-600">
                             {{ number_format($sudahMemilih) }}
                         </span>
                     </div>
+
+                    {{-- Belum Memilih --}}
                     <div class="flex justify-between items-center">
                         <span class="text-sm text-gray-600">Belum Memilih</span>
                         <span class="text-sm font-medium text-red-600">
                             {{ number_format($totalDPT - $sudahMemilih) }}
                         </span>
                     </div>
+
                 </div>
             </div>
 
+            {{-- Per Kategori --}}
+            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                <h3 class="text-lg font-semibold text-gray-900 mb-4">📑 Per Kategori</h3>
 
-            {{-- Reset Data --}}
+                <div class="space-y-3">
+
+                    <div class="flex justify-between">
+                        <span class="text-sm text-gray-600">Guru</span>
+                        <span class="text-sm font-medium">
+                            {{ $guruSudahVote }} / {{ $totalGuru }}
+                        </span>
+                    </div>
+
+                    <div class="flex justify-between">
+                        <span class="text-sm text-gray-600">A1</span>
+                        <span class="text-sm font-medium">
+                            {{ $a1SudahVote }} / {{ $totalA1 }}
+                        </span>
+                    </div>
+
+                    <div class="flex justify-between">
+                        <span class="text-sm text-gray-600">A2</span>
+                        <span class="text-sm font-medium">
+                            {{ $a2SudahVote }} / {{ $totalA2 }}
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        {{-- Reset Data --}}
             <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
                 <h3 class="text-lg font-semibold text-gray-900 mb-2">Reset Data</h3>
                 <p class="text-sm text-gray-600 mb-4">Hapus semua data pemilihan</p>
+
                 <form id="resetForm" action="{{ route('reset.data') }}" method="POST">
                     @csrf
-                    <button type="submit" class="w-full px-4 py-2.5 text-sm font-medium text-white bg-red-600 hover:bg-red-700 rounded-md transition-all duration-200 focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transform hover:scale-[1.02] active:scale-[0.98]">
+                    <button type="submit"
+                        class="w-full px-4 py-2.5 text-sm font-medium text-white bg-red-600 hover:bg-red-700 rounded-md
+                        transition-all duration-200 focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transform 
+                        hover:scale-[1.02] active:scale-[0.98]">
                         Reset Data Pemilih
                     </button>
                 </form>
-            </div>
-        </div>
+            </div><br>
+
 
         {{-- Main Content --}}
         <div class="bg-white rounded-lg shadow-sm border border-gray-200">

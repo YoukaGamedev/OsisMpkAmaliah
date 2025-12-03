@@ -16,6 +16,10 @@ class Vote extends Model
     {
         return $this->belongsTo(DataKandidat::class, 'kandidat_id');
     }
+    // Di model Vote
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 
 }
 

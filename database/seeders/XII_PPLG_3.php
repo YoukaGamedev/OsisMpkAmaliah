@@ -189,13 +189,22 @@ class XII_PPLG_3 extends Seeder
                 'nis' => '23.5.0379',
             ],
             [
+                'name' => 'NAUFAL ABDUL HAKIM BAWAZIER',
+                'kelas' => 'XII PPLG 3',
+                'email' => 'naufalabdulhakimbawazier@gmail.com',
+                'password' => Hash::make('password123'),
+                'role' => 'user',
+                'sekolah' => 'A1',
+                'nis' => '23.5.0383',
+            ],
+            [
                 'name' => 'NAUFAL KHAERUL ANWAR',
                 'kelas' => 'XII PPLG 3',
                 'email' => 'naufalaziz_1@gmail.com',
                 'password' => Hash::make('password123'),
                 'role' => 'user',
                 'sekolah' => 'A1',
-                'nis' => '23.5.0383',
+                'nis' => '23.5.0095',
             ],
             [
                 'name' => 'NISWATUL HASANAH',

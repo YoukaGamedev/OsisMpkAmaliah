@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             XII_PPLG_3::class,
+            XII_PPLG_2::class,
         ]);
     }
 }

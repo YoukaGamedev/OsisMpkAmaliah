@@ -16,10 +16,55 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $totalDPT = \App\Models\User::whereIn('sekolah', ['A1', 'Guru','A2'])->count();
-        $sudahMemilih = \App\Models\Vote::distinct('user_id')->count('user_id');
+        // Total DPT
+        $totalDPT = User::whereIn('sekolah', ['A1', 'Guru', 'A2'])->count();
+        
+        // Sudah memilih (total)
+        $sudahMemilih = Vote::distinct('user_id')->count('user_id');
+        
+        // Detail per kategori - Sudah Vote
+        $guruSudahVote = Vote::whereHas('user', function($q) {
+            $q->where('sekolah', 'Guru');
+        })->distinct('user_id')->count('user_id');
+        
+        $a1SudahVote = Vote::whereHas('user', function($q) {
+            $q->where('sekolah', 'A1');
+        })->distinct('user_id')->count('user_id');
+        
+        $a2SudahVote = Vote::whereHas('user', function($q) {
+            $q->where('sekolah', 'A2');
+        })->distinct('user_id')->count('user_id');
+        
+        // Total per kategori
+        $totalGuru = User::where('sekolah', 'Guru')->count();
+        $totalA1 = User::where('sekolah', 'A1')->count();
+        $totalA2 = User::where('sekolah', 'A2')->count();
+        
+        // User yang belum vote
+        $userBelumVote = User::whereIn('sekolah', ['A1', 'Guru', 'A2'])
+            ->whereNotIn('id', function($query) {
+                $query->select('user_id')
+                    ->from('votes')
+                    ->distinct();
+            })
+            ->orderBy('sekolah')
+            ->orderBy('name')
+            ->get();
+        
         $dashboard = DB::table('dashboard')->get();
-        return view('admin/pemilu/dashboardpemilu/dashboardpemilu', compact('dashboard','totalDPT','sudahMemilih'));
+        
+        return view('admin/pemilu/dashboardpemilu/dashboardpemilu', compact(
+            'dashboard',
+            'totalDPT',
+            'sudahMemilih',
+            'guruSudahVote',
+            'a1SudahVote',
+            'a2SudahVote',
+            'totalGuru',
+            'totalA1',
+            'totalA2',
+            'userBelumVote'
+        ));
     }
 
     /**
@@ -116,26 +161,26 @@ class DashboardController extends Controller
         return redirect('dashboardpemilu')->with('status', 'Data berhasil diperbarui');
     }
 
-public function togglePemilu()
-{
-    $dashboard = Dashboard::first();
+    public function togglePemilu()
+    {
+        $dashboard = Dashboard::first();
 
-    if (!$dashboard) {
-        $dashboard = new Dashboard();
-        $dashboard->status_pemilu = 1; // Pemilu dimulai
+        if (!$dashboard) {
+            $dashboard = new Dashboard();
+            $dashboard->status_pemilu = 1; // Pemilu dimulai
+            $dashboard->save();
+
+            return redirect()->back()->with('success', 'Pemilu telah dimulai!');
+        }
+
+        // Toggle status: jika 1 jadi 0, jika 0 jadi 1
+        $dashboard->status_pemilu = $dashboard->status_pemilu == 1 ? 0 : 1;
         $dashboard->save();
 
-        return redirect()->back()->with('success', 'Pemilu telah dimulai!');
+        $message = $dashboard->status_pemilu == 1 ? 'Pemilu telah dimulai!' : 'Pemilu telah dihentikan!';
+
+        return redirect()->back()->with('success', $message);
     }
-
-    // Toggle status: jika 1 jadi 0, jika 0 jadi 1
-    $dashboard->status_pemilu = $dashboard->status_pemilu == 1 ? 0 : 1;
-    $dashboard->save();
-
-    $message = $dashboard->status_pemilu == 1 ? 'Pemilu telah dimulai!' : 'Pemilu telah dihentikan!';
-
-    return redirect()->back()->with('success', $message);
-}
 
     /**
      * Remove the specified resource from storage.
@@ -146,4 +191,3 @@ public function togglePemilu()
         return redirect('dashboardpemilu')->with('status', 'Data berhasil dihapus');
     }
 }
-
