@@ -21,7 +21,7 @@ class X_TJKT_2 extends Seeder
             [ 'name' => 'ACHMAD FACHRIE', 'kelas' => 'X TJKT 2', 'email' => 'achmadfachrie@gmail.com', 'password' => Hash::make('123456789'), 'role' => 'user', 'sekolah' => 'A1', 'nis' => '25.5.0192' ],
             [ 'name' => 'AHMAD MUHAJIR', 'kelas' => 'X TJKT 2', 'email' => 'ahmadmuhajir@gmail.com', 'password' => Hash::make('123456789'), 'role' => 'user', 'sekolah' => 'A1', 'nis' => '25.5.0082' ],
             [ 'name' => 'AHMAD REZA ALGHIFARI', 'kelas' => 'X TJKT 2', 'email' => 'ahmadrezaalghifari@gmail.com', 'password' => Hash::make('123456789'), 'role' => 'user', 'sekolah' => 'A1', 'nis' => '25.5.0074' ],
-            [ 'name' => 'ANDIKA PUTRA PRATAMA', 'kelas' => 'X TJKT 2', 'email' => 'andikaputrapratama@gmail.com', 'password' => Hash::make('123456789'), 'role' => 'user', 'sekolah' => 'A1', 'nis' => '25.5.0111' ],
+            [ 'name' => 'ANDIKA PUTRA PRATAMA', 'kelas' => 'X TJKT 2', 'email' => 'andikaputrapratama2@gmail.com', 'password' => Hash::make('123456789'), 'role' => 'user', 'sekolah' => 'A1', 'nis' => '25.5.0111' ],
             [ 'name' => 'ARLY PRAJA SETIAWAN', 'kelas' => 'X TJKT 2', 'email' => 'arlyprajasetiawan@gmail.com', 'password' => Hash::make('123456789'), 'role' => 'user', 'sekolah' => 'A1', 'nis' => '25.5.0228' ],
             [ 'name' => 'ARYADI ANDRIAN SYAH', 'kelas' => 'X TJKT 2', 'email' => 'aryadiandriansyah@gmail.com', 'password' => Hash::make('123456789'), 'role' => 'user', 'sekolah' => 'A1', 'nis' => '25.6.0105' ],
             [ 'name' => 'BAGUS DWI PRATAMA', 'kelas' => 'X TJKT 2', 'email' => 'bagusdwipratama@gmail.com', 'password' => Hash::make('123456789'), 'role' => 'user', 'sekolah' => 'A1', 'nis' => '25.5.0194' ],
