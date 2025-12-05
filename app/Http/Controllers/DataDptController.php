@@ -30,7 +30,7 @@ class DataDptController extends Controller
             $users->where('sekolah', $request->sekolah);
         }
 
-        $users = $users->paginate(40);
+        $users = $users->paginate(10);
 
         // Ambil daftar kelas & sekolah unik
         $allKelas = User::select('kelas')->distinct()->pluck('kelas');

@@ -1,6 +1,8 @@
 <?php
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DataKelasController;
 use App\Http\Controllers\DataKandidatController;
@@ -28,17 +30,15 @@ use App\Http\Controllers\HalawalController;
 use App\Http\Controllers\GaleriController;
 
 
-Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
-Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
-Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
-
+// =========================
+// ROUTE PUBLIC / TANPA LOGIN
+// =========================
 Route::get('/', function () {
     return view('welcome'); 
 });
 
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
-
 
 Route::get('/logout', function () {
     Auth::logout();
@@ -47,69 +47,90 @@ Route::get('/logout', function () {
 });
 
 
-Route::resource('useradmin', UserAdminController::class);
+// ===============================================
+//           🌟  ADMIN ROUTES (HANYA ADMIN)
+// ===============================================
+Route::middleware(['auth', 'role:admin_osis,admin_pembina'])->group(function () {
 
-Route::resource('structure', StructureController::class);
+    Route::resource('useradmin', UserAdminController::class);
+    Route::resource('structure', StructureController::class);
 
+    Route::resource('vote', VoteController::class);
+    Route::resource('datakelas', DataKelasController::class);
+    Route::resource('datakandidat', DataKandidatController::class);
+    Route::resource('datadpt', DataDptController::class);
+    
+    Route::resource('dashboardpemilu', DashboardController::class);
+    Route::post('/dashboardpemilu/mulai', [DashboardController::class, 'mulai'])->name('dashboardpemilu.mulai');
+    Route::post('/dashboardpemilu/toggle', [DashboardController::class, 'togglePemilu'])->name('dashboardpemilu.toggle');
 
+    Route::resource('hasilpemilihan', HasilPemilihanController::class);
 
-Route::resource('vote', VoteController::class);
-Route::resource('datakelas', DataKelasController::class);
-Route::resource('datakandidat', DataKandidatController::class);
-Route::resource('datadpt', DataDptController::class);
-Route::resource('dashboardpemilu', DashboardController::class);
-Route::post('/dashboardpemilu/mulai', [DashboardController::class, 'mulai'])->name('dashboardpemilu.mulai');
-Route::post('/dashboardpemilu/toggle', [DashboardController::class, 'togglePemilu'])->name('dashboardpemilu.toggle');
+    Route::resource('pelanggaran', PelanggaranController::class);
 
-Route::resource('hasilpemilihan', HasilPemilihanController::class);
-Route::resource('home', HomerController::class);
-Route::resource('/user/pemilu/pilihkandidat', PilihKandidatController::class,);
+    Route::resource('tambahdata', TambahDataController::class);
+    Route::resource('lembargds', LembarGdsController::class);
+    Route::resource('rekapgds', RekapGdsController::class);
+    Route::resource('siswa', SiswaController::class);
 
-Route::get('/user/berespilih', [UserController::class, 'berespilih'])->name('user.berespilih');
+    Route::get('/search', [SiswaController::class, 'search'])->name('siswa.search');
 
+    Route::resource('jadwalgds', JadwalPiketGDSController::class);
 
-Route::get('/admin', function () {
-    return view('admin/index');
+    Route::resource('agenda', AgendaController::class);
+
+    Route::post('/reset-data', [HasilPemilihanController::class, 'reset'])->name('reset.data');
+
+    Route::resource('galeri', GaleriController::class);
+
+    // Halaman admin
+    Route::get('/admin', function () {
+        return view('admin/index');
+    });
+    
+    Route::get('/rekapgds/json', [RekapGDSController::class, 'json']);
+
+    Route::get('admingds', function () {
+        return view('/admin/gds/indexgds');
+    });
+
 });
 
-Route::get('/rekapgds/json', [RekapGDSController::class, 'json']);
+// ===============================================
+//           🌟  USER ROUTES (HANYA USER)
+// ===============================================
+Route::middleware(['auth', 'role:user'])->group(function () {
 
+    Route::get('user', function () {
+        return view('/user/welcome');
+    });
 
-Route::get('user', function () {
-    return view('/user/welcome');
+    Route::resource('home', HomerController::class);
+
+    Route::resource('/user/pemilu/pilihkandidat', PilihKandidatController::class);
+    Route::get('/user/berespilih', [UserController::class, 'berespilih'])->name('user.berespilih');
+
+    Route::get('/struktur', [UserController::class, 'struktur'])->name('user.struktur');
+
+    Route::get('/user/agenda', [UserController::class, 'agenda'])->name('user.agenda');
+    Route::get('/user/agenda/show/{id}', [UserController::class, 'agendaS'])->name('user.agenda.show');
+
+    Route::get('/user/jadwalgds', [UserController::class, 'jadwalgds'])->name('user.jadwalgds');
+
+    // // Profile user
+    // Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+    // Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    // Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
+
 });
 
-Route::get('admingds', function () {
-    return view('/admin/gds/indexgds');
-});
-
-Route::get('/struktur', [UserController::class, 'struktur'])->name('user.struktur');
-Route::get('/user/agenda', [UserController::class, 'agenda'])->name('user.agenda');
-Route::get('/user/agenda/show/{id}', [UserController::class, 'agendaS'])->name('user.agenda.show');
-Route::get('/user/jadwalgds', [UserController::class, 'jadwalgds'])->name('user.jadwalgds');
-Route::resource('pelanggaran', PelanggaranController::class);
-// Route::put('/pelanggaran/{pelanggaran}', [PelanggaranController::class, 'update'])->name('pelanggaran.update');
-
-
-// Route::resource('gds', GdsController::class);
-Route::resource('tambahdata', TambahDataController::class);
-Route::resource('lembargds', LembarGdsController::class);
-Route::resource('rekapgds', RekapGdsController::class);
-Route::resource('siswa', SiswaController::class);
-Route::get('/search', [SiswaController::class, 'search'])->name('siswa.search');
-Route::resource('jadwalgds', JadwalPiketGDSController::class);
-Route::resource('agenda', AgendaController::class);
-
-Route::post('/reset-data', [HasilPemilihanController::class, 'reset'])->name('reset.data');
-
+// ===============================================
+//               HALAMAN UMUM 
+// ===============================================
 Route::get('/profilosis', [HalawalController::class, 'profilosis'])->name('profilosis');
-
 Route::get('/gambar', [HalawalController::class, 'galeri']);
-
 Route::get('/programkerja', [HalawalController::class, 'programkerja']);
 
 Route::get('/developer', function () {
     return view('developer');
 })->name('developer');
-
-Route::resource('galeri', GaleriController::class);

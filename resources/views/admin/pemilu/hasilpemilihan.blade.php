@@ -131,4 +131,5 @@
     animation: slideIn 2s ease-out;
 }
 </style>
+
 @endsection

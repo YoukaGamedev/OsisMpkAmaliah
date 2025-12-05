@@ -234,7 +234,7 @@ class XII_PPLG_3 extends Seeder
                 'nis' => '23.5.0363',
             ],
             [
-                'name' => 'RIZAL ABDURAHMAN',
+                'name' => 'RIZAL GANTENG',
                 'kelas' => 'XII PPLG 3',
                 'email' => 'rizalabdurahman@gmail.com',
                 'password' => Hash::make('password123'),
