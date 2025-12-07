@@ -24,17 +24,15 @@ class VoteController extends Controller
         }
 
         $user = Auth::user();
-        $isGuru = $user->sekolah === 'Guru'; // Pastikan ada kolom role di tabel users
+        $isGuru = $user->sekolah === 'Guru'; 
         $jumlahVote = Vote::where('user_id', $user->id)->count();
 
         // 🔹 Logika batas voting
         if ($isGuru) {
-            // Guru hanya bisa vote maksimal 2x untuk sekolah berbeda
             if ($jumlahVote >= 2) {
                 return redirect()->back()->with('error', 'Anda sudah menggunakan semua kesempatan memilih (2 kali).');
             }
 
-            // Cek apakah guru sudah memilih sekolah ini
             $sudahMemilihSekolahIni = Vote::where('user_id', $user->id)
                 ->whereHas('kandidat', function ($q) use ($kandidat) {
                     $q->where('sekolah', $kandidat->sekolah);
@@ -46,15 +44,9 @@ class VoteController extends Controller
             }
 
         } else {
-            // Siswa hanya bisa 1x
             if ($jumlahVote > 0) {
                 return redirect()->back()->with('error', 'Anda sudah memilih!');
             }
-
-            // Pastikan siswa memilih dari sekolahnya sendiri
-            // if ($user->sekolah !== $kandidat->sekolah) {
-            //     return redirect()->back()->with('error', 'Anda hanya bisa memilih kandidat dari sekolah Anda.');
-            // }
         }
 
         // ✅ Simpan vote
@@ -67,6 +59,9 @@ class VoteController extends Controller
         $hasil = HasilPemilihan::firstOrNew(['kandidat_id' => $kandidat->id]);
         $hasil->jumlah_suara = ($hasil->jumlah_suara ?? 0) + 1;
         $hasil->save();
+
+        // 🔥 Simpan sekolah yang dipilih ke session untuk hide tampilan
+        session(['hide_sekolah' => $kandidat->sekolah]);
 
         // 🔸 Jika guru sudah 2 kali vote -> logout otomatis
         if ($isGuru && $jumlahVote + 1 >= 2) {
@@ -86,7 +81,7 @@ class VoteController extends Controller
             return redirect()->route('login')->with('success', 'Terima kasih! Suara Anda telah tercatat.');
         }
 
-        // Jika guru masih punya 1 kesempatan lagi (belum 2 kali)
+        // Jika guru masih punya 1 kesempatan lagi
         return redirect()->back()->with('success', 'Suara Anda telah tercatat. Anda masih memiliki 1 kesempatan voting lagi.');
     }
 }

@@ -41,9 +41,23 @@
     @php
         $user = auth()->user();
         $delay = 0;
+
+        $hideSekolah = session('hide_sekolah');
+
+        // Ambil kandidat yang sudah user pilih (jika ada)
+        $kandidatDipilih = $user->vote->kandidat_id ?? null;
     @endphp
 
+
+    
     @foreach ($kandidat as $kandi)
+
+        {{-- Jika sekolah kandidat sama dengan sekolah yang sudah dipilih → hide --}}
+        @if ($hideSekolah && $kandi->sekolah == $hideSekolah)
+            @continue
+        @endif
+
+        {{-- Filter sekolah untuk user siswa/guru --}}
         @if ($user->sekolah == $kandi->sekolah || $user->sekolah == 'Guru')
             <div class="group relative bg-white rounded-2xl shadow-xl overflow-hidden transform transition-all duration-500 hover:scale-105 hover:shadow-2xl animate-fade-in-up" 
                  style="animation-delay: {{ $delay * 0.1 }}s">
@@ -75,6 +89,15 @@
                     <h3 class="text-xl font-bold text-gray-800 mb-2 line-clamp-2">
                         {{ $kandi->nama_pasangan_calon }}
                     </h3>
+
+                    <!-- Tambahan: Status Sekolah -->
+                    <div class="flex items-center gap-2 text-indigo-600 mb-2">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 2a1 1 0 01.894.553l7 14A1 1 0 0117 18H3a1 1 0 01-.894-1.447l7-14A1 1 0 0110 2zM10 4.618L4.618 16h10.764L10 4.618zM9 14a1 1 0 102 0 1 1 0 00-2 0z" />
+                        </svg>
+                        <span class="text-sm font-semibold uppercase">SEKOLAH: {{ $kandi->sekolah }}</span>
+                    </div>
+
                     <div class="flex items-center gap-2 text-gray-600 mb-4">
                         <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"/>
@@ -83,13 +106,13 @@
                     </div>
 
                     <!-- Visi Misi Toggle -->
-                    <button onclick="toggleVisiMisi(this)" 
+                    <!-- <button onclick="toggleVisiMisi(this)" 
                             class="w-full mb-4 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-medium rounded-lg transition-all duration-300 flex items-center justify-center gap-2 group/btn">
                         <svg class="w-4 h-4 transform group-hover/btn:rotate-180 transition-transform duration-300" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
                         </svg>
                         <span>Lihat Visi & Misi</span>
-                    </button>
+                    </button> -->
 
                     <!-- Visi Misi Content -->
                     <div class="hidden mb-4 p-4 bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg border-l-4 border-blue-500 transform origin-top transition-all duration-300 visi-misi">

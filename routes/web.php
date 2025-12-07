@@ -50,7 +50,7 @@ Route::get('/logout', function () {
 // ===============================================
 //           🌟  ADMIN ROUTES (HANYA ADMIN)
 // ===============================================
-Route::middleware(['auth', 'role:admin_osis,admin_pembina'])->group(function () {
+
 
     Route::resource('useradmin', UserAdminController::class);
     Route::resource('structure', StructureController::class);
@@ -94,12 +94,12 @@ Route::middleware(['auth', 'role:admin_osis,admin_pembina'])->group(function () 
         return view('/admin/gds/indexgds');
     });
 
-});
+
 
 // ===============================================
 //           🌟  USER ROUTES (HANYA USER)
 // ===============================================
-Route::middleware(['auth', 'role:user'])->group(function () {
+
 
     Route::get('user', function () {
         return view('/user/welcome');
@@ -122,7 +122,7 @@ Route::middleware(['auth', 'role:user'])->group(function () {
     // Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     // Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
 
-});
+
 
 // ===============================================
 //               HALAMAN UMUM 
