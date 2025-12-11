@@ -6,6 +6,8 @@
     <title>OSIS & MPK</title>
     <link rel="icon" href="{{ asset('asset/img/logo osis.png') }}" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <link rel="stylesheet" href="{{ asset('build/assets/app.css') }}">
+    <script src="{{ asset('build/assets/app2.js') }}" defer></script> -->
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">

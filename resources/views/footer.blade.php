@@ -6,6 +6,8 @@
     <title>APK OSIS MPK SMK Amaliah</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <link rel="stylesheet" href="{{ asset('build/assets/app-fNCE5DMw.css') }}">
+    <script src="{{ asset('build/assets/app-CrG75o6_.js') }}" defer></script> -->
 </head>
 <body>
     <div class="flex flex-1">

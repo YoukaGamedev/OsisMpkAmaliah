@@ -106,13 +106,13 @@
                     </div>
 
                     <!-- Visi Misi Toggle -->
-                    <!-- <button onclick="toggleVisiMisi(this)" 
-                            class="w-full mb-4 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-medium rounded-lg transition-all duration-300 flex items-center justify-center gap-2 group/btn">
+                    <button onclick="toggleVisiMisi(this)" 
+                            class="w-full mb-4 px-4 py-2 bg-blue-300 hover:bg-blue-400 text-grays-700 text-sm font-medium rounded-lg transition-all duration-300 flex items-center justify-center gap-2 group/btn">
                         <svg class="w-4 h-4 transform group-hover/btn:rotate-180 transition-transform duration-300" fill="currentColor" viewBox="0 0 20 20">
                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
                         </svg>
                         <span>Lihat Visi & Misi</span>
-                    </button> -->
+                    </button>
 
                     <!-- Visi Misi Content -->
                     <div class="hidden mb-4 p-4 bg-gradient-to-br from-blue-50 to-purple-50 rounded-lg border-l-4 border-blue-500 transform origin-top transition-all duration-300 visi-misi">
